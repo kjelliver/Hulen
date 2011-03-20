@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Storage" namespace="Hulen.Storage.DTO">
+
+  <class name="Hulen.Storage.DTO.AccountInfo, Hulen.Storage" table="AccountInfo" lazy="false">
+    <id name ="Id" column="Id">
+      <generator class="guid" />
+    </id>
+    <property name="AccountNumber" column="AccountNumber" />
+    <property name="AccountName" column="AccountName" />
+    <property name="ResultReportCategory" column="ResultReportCategory" />
+    <property name="PartsReportCategory" column="PartsReportCategory" />
+    <property name="WeekCategory" column="WeekCategory" />
+    <property name="IsIncome" column="IsIncome" />
+  </class>
+
+</hibernate-mapping>

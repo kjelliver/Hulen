@@ -1,0 +1,19 @@
+Global setup:
+ Download and install Git
+  git config --global user.name "Kjell Iver Breistøl"
+  git config --global user.email kjelliver@yahoo.no
+        
+Next steps:
+  mkdir test
+  cd test
+  git init
+  touch README
+  git add README
+  git commit -m 'first commit'
+  git remote add origin git@github.com:kjelliver/test.git
+  git push -u origin master
+      
+Existing Git Repo?
+  cd existing_git_repo
+  git remote add origin git@github.com:kjelliver/test.git
+  git push -u origin master

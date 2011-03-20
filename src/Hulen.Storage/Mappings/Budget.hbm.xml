@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Storage" namespace="Hulen.Storage.DTO">
+
+  <class name="Hulen.Storage.DTO.Budget, Hulen.Storage" table="Budget" lazy="false">
+    <id name ="Id" column="Id">
+      <generator class="guid" />
+    </id>
+    <property name="AccountNumber" column="AccountNumber"/>
+    <property name="Year" column="Year" />
+    <property name="BudgetStatus" column="BudgetStatus" />
+    <property name="YearAmount" column="YearAmount" />
+    <property name="JanuaryAmount" column="JanuaryAmount" />
+    <property name="FebruaryAmount" column="FebruaryAmount"/>
+    <property name="MarchAmount" column="MarchAmount" />
+    <property name="AprilAmount" column="AprilAmount" />
+    <property name="MayAmount" column="MayAmount" />
+    <property name="JuneAmount" column="JuneAmount" />
+    <property name="JulyAmount" column="JulyAmount" />
+    <property name="AugustAmount" column="AugustAmount" />
+    <property name="SeptemberAmount" column="SeptemberAmount" />
+    <property name="OctoberAmount" column="OctoberAmount" />
+    <property name="NovemberAmount" column="NovemberAmount" />
+    <property name="DecemberAmount" column="DecemberAmount" />
+  </class>
+
+</hibernate-mapping>
+
+

@@ -8,9 +8,14 @@
   </SettingsComponent>
   <RecentFiles>
     <RecentFiles>
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:HomeController.cs" caret="330" fromTop="13" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:HomeController.cs" caret="371" fromTop="16" />
+      <File id="3D3DC7C4-ADC4-40F2-AE2D-1C4EDACF902A/f:Program.cs" caret="255" fromTop="10" />
     </RecentFiles>
-    <RecentEdits />
+    <RecentEdits>
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:HomeController.cs" caret="380" fromTop="16" />
+      <File id="3D3DC7C4-ADC4-40F2-AE2D-1C4EDACF902A/f:Program.cs" caret="0" fromTop="0" />
+      <File id="3D3DC7C4-ADC4-40F2-AE2D-1C4EDACF902A/f:Program.cs" caret="548" fromTop="17" />
+    </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
     <NAntPath value="" />
@@ -23,4 +28,24 @@
     </NUnitInstallDir>
     <UseAddins>Never</UseAddins>
   </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="new" priority="1" />
+      <Item value="test" priority="0" />
+      <Item value="AccountInfo" priority="0" />
+      <Item value="acc" priority="5" />
+      <Item value="true" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.Storage.Interfaces.IAccountInfoRepository">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.Storage.DTO.AccountInfo">
+      <Item value="AccountNumber" priority="0" />
+      <Item value="AccountName" priority="0" />
+      <Item value="ResultReportCategory" priority="0" />
+      <Item value="PartsReportCategory" priority="0" />
+      <Item value="WeekCategory" priority="0" />
+      <Item value="IsIncome" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
 </Configuration>
