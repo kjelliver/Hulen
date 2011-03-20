@@ -1,3 +1,4 @@
 <Modules>
   <Module PersistentId="EA7CCA46-7C41-4901-8FA6-60C909F072CE" ModuleId="Hulen.Web" />
+  <Module PersistentId="F203F123-6922-4AFB-B4A7-55A8AFDE898F" ModuleId="Hulen.Tests" />
 </Modules>
