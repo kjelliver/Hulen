@@ -3,7 +3,7 @@ using System;
 
 namespace Hulen.Storage.DTO
 {
-    public class AccountInfo
+    public class AccountInfoDTO
     {
         public virtual Guid Id { get; set; }
         public virtual int AccountNumber { get; set; }

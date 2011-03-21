@@ -58,7 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\AccountInfo.cs" />
+    <Compile Include="DTO\AccountInfoDTO.cs" />
     <Compile Include="DTO\Budget.cs" />
     <Compile Include="DTO\ResultAccount.cs" />
     <Compile Include="Interfaces\IAccountInfoRepository.cs" />

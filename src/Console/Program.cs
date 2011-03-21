@@ -9,7 +9,7 @@ namespace Console
         static void Main(string[] args)
         {
             IAccountInfoRepository test = new AccountInfoRepository();
-            AccountInfo acc = new AccountInfo();
+            AccountInfoDTO acc = new AccountInfoDTO();
             acc.AccountNumber = 3000;
             acc.AccountName = "test";
             acc.ResultReportCategory = 1;

@@ -1,16 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Hulen.Storage.DTO;
 
 namespace Hulen.Storage.Interfaces
 {
     public interface IAccountInfoRepository
     {
-        void Add(AccountInfo accountCategory);
-        void Update(AccountInfo accountCategory);
-        void Delete(AccountInfo accountCategory);
-        AccountInfo GetByAccountNumber(int accountNumber);
-        ICollection<AccountInfo> GetAllAccountCategories();
+        void Add(AccountInfoDTO accountCategory);
+        void Update(AccountInfoDTO accountCategory);
+        void Delete(AccountInfoDTO accountCategory);
+        AccountInfoDTO GetByAccountNumber(int accountNumber);
+        ICollection<AccountInfoDTO> GetAllAccountCategories();
         void DeleteExistingAccountInfo();
-        void AddMeny(ICollection<AccountInfo> accounts);
+        void AddMeny(ICollection<AccountInfoDTO> accounts);
+        AccountInfoDTO GetById(Guid id);
     }
 }
