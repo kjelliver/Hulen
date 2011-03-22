@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Hulen.BusinessServices.ViewModels;
 using Hulen.Storage.DTO;
 
 namespace Hulen.BusinessServices.Interfaces
 {
     public interface IAccountInfoServices
     {
-        ICollection<AccountInfoDTO> GetAllAccountInfo();
-        void StoreNewAccountInfo(int accountNr, string accountName, int rrCat, int prCat, int wCat, bool isIncome);
-        void OwerwriteAllAccountInfo(string filepath);
+        ICollection<AccountInfoViewModel> GetAllAccounts();
+        void StoreNewAccountInfo(AccountInfoViewModel account);
+        AccountInfoViewModel GetAccountById(Guid id);
+        void UpdateAccountInfo(AccountInfoViewModel accountInfoViewModel);
+        void Delete(AccountInfoViewModel accountInfo);
     }
 }

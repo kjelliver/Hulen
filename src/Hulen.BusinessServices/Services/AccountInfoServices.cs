@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data;
-using System.IO;
-using Excel;
 using Hulen.BusinessServices.Interfaces;
+using Hulen.BusinessServices.Mappers;
+using Hulen.BusinessServices.ViewModels;
 using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
 using Hulen.Storage.Repositories;
@@ -14,34 +13,34 @@ namespace Hulen.BusinessServices.Services
 {
     public class AccountInfoServices : IAccountInfoServices
     {
+        private readonly AccountInfoViewModelMapper _mapper = new AccountInfoViewModelMapper();
         private readonly IAccountInfoRepository _repository = new AccountInfoRepository();
-        Application _application = new Application();
+        private readonly Application _application = new Application();
 
 
-        public ICollection<AccountInfoDTO> GetAllAccountInfo()
+        public ICollection<AccountInfoViewModel> GetAllAccounts()
         {
-            return _repository.GetAllAccountCategories();
+            return _mapper.MapMenyForView(_repository.GetAllAccountCategories()); 
         }
 
-        public void StoreNewAccountInfo(int accountNr, string accountName, int rrCat, int prCat, int wCat, bool isIncome)
+        public void StoreNewAccountInfo(AccountInfoViewModel account)
         {
-            var item = new AccountInfoDTO
-            {
-                AccountNumber = accountNr,
-                AccountName = accountName,
-                ResultReportCategory = rrCat,
-                PartsReportCategory = prCat,
-                WeekCategory = wCat,
-                IsIncome = isIncome
-            };
-            _repository.Add(item);
+            _repository.Add(_mapper.MapOneForDataBase(account));
         }
 
-        public void OwerwriteAllAccountInfo(string filepath)
+        public AccountInfoViewModel GetAccountById(Guid id)
         {
-            _repository.DeleteExistingAccountInfo();
-            ICollection<AccountInfoDTO> accounts = ConvertDataSetToAccountInfoObjectCollection(filepath);
-            _repository.AddMeny(accounts);
+            return _mapper.MapOneForView(_repository.GetById(id));
+        }
+
+        public void UpdateAccountInfo(AccountInfoViewModel accountInfoViewModel)
+        {
+            _repository.Update(_mapper.MapOneForDataBase(accountInfoViewModel));
+        }
+
+        public void Delete(AccountInfoViewModel accountInfo)
+        {
+            _repository.Delete(_mapper.MapOneForDataBase(accountInfo));
         }
 
         private ICollection<AccountInfoDTO> ConvertDataSetToAccountInfoObjectCollection(string filepath)

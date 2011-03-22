@@ -70,7 +70,6 @@
     <Compile Include="Repositories\BudgetRepository.cs" />
     <Compile Include="Repositories\ResultAccountRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>
@@ -99,7 +98,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\AccountInfo.hbm.xml">
+    <EmbeddedResource Include="Mappings\AccountInfoDTO.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

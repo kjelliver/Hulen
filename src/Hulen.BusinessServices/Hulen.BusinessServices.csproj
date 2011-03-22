@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IAccountInfoServices.cs" />
+    <Compile Include="Mappers\AccountInfoViewModelMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountInfoServices.cs" />
+    <Compile Include="ViewModels\AccountInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hulen.Storage\Hulen.Storage.csproj">
@@ -56,6 +58,7 @@
       <Name>Hulen.Storage</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

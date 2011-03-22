@@ -5,23 +5,17 @@ using System.Web;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.BusinessServices.Services;
-using Hulen.Storage.DTO;
-using Hulen.Storage.Interfaces;
-using Hulen.Storage.Repositories;
-using Hulen.Web.Models;
-using Hulen.Web.Models.AccountInfo;
+using Hulen.BusinessServices.ViewModels;
 
 namespace Hulen.Web.Controllers
 {
     public class AccountInfoController : Controller
     {
-        private readonly IAccountInfoRepository _accountInfoRepository = new AccountInfoRepository(); 
+        private readonly IAccountInfoServices _accountInfoService = new AccountInfoServices();
 
         public ActionResult Index()
         {
-            var model = new AccountInfoModels();
-            model.AccountInfos = _accountInfoRepository.GetAllAccountCategories();
-            return View(model);
+            return View(_accountInfoService.GetAllAccounts().ToList());
         }
 
         public ActionResult Create()
@@ -30,36 +24,36 @@ namespace Hulen.Web.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Create([Bind(Exclude = "Id")] AccountInfoDTO accountInfoToCreate)
+        public ActionResult Create([Bind(Exclude = "Id")] AccountInfoViewModel accountInfoModelView)
         {
             if (!ModelState.IsValid)
                 return View();
+
             try
             {
-                _accountInfoRepository.Add(accountInfoToCreate);
+                _accountInfoService.StoreNewAccountInfo(accountInfoModelView);
                 return RedirectToAction("Index");
             }
             catch
             {
                 return View();
             }
-        } 
- 
+        }
+
         public ActionResult Edit(Guid id)
-        {
-            var accountInfoToEdit = _accountInfoRepository.GetById(id); 
-            return View(accountInfoToEdit);
+        {       
+            return View(_accountInfoService.GetAccountById(id));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit(AccountInfoDTO accountToEdit)
+        public ActionResult Edit(AccountInfoViewModel accountInfoViewModel)
         {
             if (!ModelState.IsValid)
                 return View();
 
             try
             {
-                _accountInfoRepository.Update(accountToEdit);
+                _accountInfoService.UpdateAccountInfo(accountInfoViewModel);
                 return RedirectToAction("Index");
             }
             catch
@@ -70,16 +64,15 @@ namespace Hulen.Web.Controllers
  
         public ActionResult Delete(Guid id)
         {
-            var accountInfoToDelete = _accountInfoRepository.GetById(id);
-            return View(accountInfoToDelete);
+            return View(_accountInfoService.GetAccountById(id));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Delete(AccountInfoDTO accountInfo)
+        public ActionResult Delete(AccountInfoViewModel accountInfo)
         {
             try
             {
-                _accountInfoRepository.Delete(accountInfo);
+                _accountInfoService.Delete(accountInfo);
                 return RedirectToAction("Index");
             }
             catch

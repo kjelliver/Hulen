@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.Storage.DTO.AccountInfoDTO>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.BusinessServices.ViewModels.AccountInfoViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Create
@@ -70,7 +70,7 @@
     <% } %>
 
     <div>
-        <%: Html.ActionLink("Tilbake til alle kontoer", "Index") %>
+        <%: Html.ActionLink("Back to List", "Index") %>
     </div>
 
 </asp:Content>

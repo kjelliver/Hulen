@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.Web.Models.AccountInfo.AccountInfoModels>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Hulen.BusinessServices.ViewModels.AccountInfoViewModel>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Index
@@ -10,7 +10,6 @@
 
     <table>
         <tr>
-            <th></th>
             <th>
                 Kontonummer
             </th>
@@ -21,41 +20,41 @@
                 Resultatrapport
             </th>
             <th>
-                Driftsdelrapport
+                Driftdelsrapport
             </th>
             <th>
-                Ukeregnskap
+                Ukesregnskap
             </th>
             <th>
-                Inntekt
+                Inntekt/Utgift
             </th>
+            <th></th>
         </tr>
 
-    <% foreach (var item in Model.AccountInfos) { %>
+    <% foreach (var item in Model) { %>
     
         <tr>
             <td>
-                <%= Html.ActionLink("Rediger", "Edit", new { id=item.Id  }) %>
-                |
-                <%= Html.ActionLink("Slett", "Delete", new { id=item.Id  }) %>
+                <%: item.AccountNumber %>
             </td>
             <td>
-                <%= Html.Encode(item.AccountNumber) %>
+                <%: item.AccountName %>
             </td>
             <td>
-                <%= Html.Encode(item.AccountName) %>
+                <%: item.ResultReportCategory %>
             </td>
             <td>
-                <%= Html.Encode(item.ResultReportCategory) %>
+                <%: item.PartsReportCategory %>
             </td>
             <td>
-                <%= Html.Encode(item.PartsReportCategory) %>
+                <%: item.WeekCategory %>
             </td>
             <td>
-                <%= Html.Encode(item.WeekCategory) %>
+                <%: item.IsIncome %>
             </td>
             <td>
-                <%= Html.Encode(item.IsIncome) %>
+                <%: Html.ActionLink("Edit", "Edit", new { item.Id }) %> |
+                <%: Html.ActionLink("Delete", "Delete", new { item.Id })%>
             </td>
         </tr>
     
@@ -64,7 +63,8 @@
     </table>
 
     <p>
-        <%= Html.ActionLink("Ny konto", "Create") %>
+        <%: Html.ActionLink("Create New", "Create") %>
     </p>
 
 </asp:Content>
+

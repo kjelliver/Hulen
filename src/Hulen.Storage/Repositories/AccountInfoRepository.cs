@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
 using NHibernate;
+using NHibernate.Criterion;
 
 namespace Hulen.Storage.Repositories
 {
@@ -48,7 +49,7 @@ namespace Hulen.Storage.Repositories
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                return session.CreateCriteria(typeof(AccountInfoDTO)).List<AccountInfoDTO>();
+                return session.CreateCriteria(typeof(AccountInfoDTO)).AddOrder(Order.Asc("AccountNumber")).List<AccountInfoDTO>();
             }
         }
 
