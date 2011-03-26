@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.BusinessServices.ViewModels.AccountInfoViewModel>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.Web.Models.AccountInfoModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Create
@@ -15,51 +15,51 @@
             <legend>Fields</legend>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.AccountNumber) %>
+                <%: Html.LabelFor(m => m.AccountNumber) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.AccountNumber) %>
-                <%: Html.ValidationMessageFor(model => model.AccountNumber) %>
+                <%: Html.TextBoxFor(m => m.AccountNumber) %>
+                <%: Html.ValidationMessageFor(m => m.AccountNumber) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.AccountName) %>
+                <%: Html.LabelFor(m => m.AccountName) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.AccountName) %>
-                <%: Html.ValidationMessageFor(model => model.AccountName) %>
+                <%: Html.TextBoxFor(m => m.AccountName) %>
+                <%: Html.ValidationMessageFor(m => m.AccountName) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.ResultReportCategory) %>
+                <%: Html.LabelFor(m => m.ResultReportCategory) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.ResultReportCategory) %>
-                <%: Html.ValidationMessageFor(model => model.ResultReportCategory) %>
+                <%: Html.DropDownListFor(m => m.ResultReportCategory, new SelectList(Model.ResultCategories)) %>
+                <%: Html.ValidationMessageFor(m => m.ResultReportCategory) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.PartsReportCategory) %>
+                <%: Html.LabelFor(m => m.PartsReportCategory) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.PartsReportCategory) %>
-                <%: Html.ValidationMessageFor(model => model.PartsReportCategory) %>
+                <%: Html.DropDownListFor(m => m.PartsReportCategory, new SelectList(Model.PartsCategories)) %>
+                <%: Html.ValidationMessageFor(m => m.PartsReportCategory) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.WeekCategory) %>
+                <%: Html.LabelFor(m => m.WeekCategory) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.WeekCategory) %>
-                <%: Html.ValidationMessageFor(model => model.WeekCategory) %>
+                <%: Html.DropDownListFor(m => m.WeekCategory, new SelectList(Model.WeekCategories)) %>
+                <%: Html.ValidationMessageFor(m => m.WeekCategory) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.IsIncome) %>
+                <%: Html.LabelFor(m => m.IsIncome) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.IsIncome) %>
-                <%: Html.ValidationMessageFor(model => model.IsIncome) %>
+                <%: Html.DropDownListFor(m => m.IsIncome, new SelectList(Model.IsIncomes)) %>
+                <%: Html.ValidationMessageFor(m => m.IsIncome) %>
             </div>
             
             <p>

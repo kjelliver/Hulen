@@ -1,29 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using Hulen.BusinessServices.ViewModels;
 using Hulen.Storage.DTO;
-using Hulen.Storage.Interfaces;
-using Hulen.Storage.Repositories;
+using Hulen.Web.Models;
 
-namespace Hulen.BusinessServices.Mappers
+namespace Hulen.Web.Mappers
 {
-    class AccountInfoViewModelMapper
+    public class AccountInfoModelMapper
     {
         private readonly string[] _result = new [] {"Udefinert"};
         private readonly string[] _parts = new[] { "Udefinert", "Bar", "Arrangement", "Personalkostnader", "PR", "Støtte og tilskudd", "Økonomi", "Driftskostnader" };
         private readonly string[] _week = new[] {"Udefinert"};
         private readonly string[] _income = new[] { "Utgift", "Inntekt" };
 
-        public ICollection<AccountInfoViewModel> MapMenyForView(IEnumerable<AccountInfoDTO> accountInfos)
+        public ICollection<AccountInfoModel> MapMenyForView(IEnumerable<AccountInfoDTO> accountInfos)
         {
-            var accountInfoViewModels = new Collection<AccountInfoViewModel>();
+            var accountInfoViewModels = new Collection<AccountInfoModel>();
 
             foreach (var accountInfo in accountInfos)
             {
-                accountInfoViewModels.Add(new AccountInfoViewModel
+                accountInfoViewModels.Add(new AccountInfoModel
                     {
                         Id = accountInfo.Id,
                         AccountNumber = accountInfo.AccountNumber,
@@ -37,7 +33,7 @@ namespace Hulen.BusinessServices.Mappers
             return accountInfoViewModels;
         }
 
-        public AccountInfoDTO MapOneForDataBase(AccountInfoViewModel account)
+        public AccountInfoDTO MapOneForDataBase(AccountInfoModel account)
         {
             return new AccountInfoDTO
             {
@@ -51,9 +47,9 @@ namespace Hulen.BusinessServices.Mappers
             };
         }
 
-        public AccountInfoViewModel MapOneForView(AccountInfoDTO accountInfo)
+        public AccountInfoModel MapOneForView(AccountInfoDTO accountInfo)
         {
-            return new AccountInfoViewModel
+            return new AccountInfoModel
             {
                 Id = accountInfo.Id,
                 AccountNumber = accountInfo.AccountNumber,

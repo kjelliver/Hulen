@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.BusinessServices.Mappers;
-using Hulen.BusinessServices.ViewModels;
 using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
 using Hulen.Storage.Repositories;
@@ -13,34 +11,33 @@ namespace Hulen.BusinessServices.Services
 {
     public class AccountInfoServices : IAccountInfoServices
     {
-        private readonly AccountInfoViewModelMapper _mapper = new AccountInfoViewModelMapper();
         private readonly IAccountInfoRepository _repository = new AccountInfoRepository();
         private readonly Application _application = new Application();
 
 
-        public ICollection<AccountInfoViewModel> GetAllAccounts()
+        public ICollection<AccountInfoDTO> GetAllAccounts()
         {
-            return _mapper.MapMenyForView(_repository.GetAllAccountCategories()); 
+            return _repository.GetAllAccountCategories(); 
         }
 
-        public void StoreNewAccountInfo(AccountInfoViewModel account)
+        public void StoreNewAccountInfo(AccountInfoDTO account)
         {
-            _repository.Add(_mapper.MapOneForDataBase(account));
+            _repository.Add(account);
         }
 
-        public AccountInfoViewModel GetAccountById(Guid id)
+        public AccountInfoDTO GetAccountById(Guid id)
         {
-            return _mapper.MapOneForView(_repository.GetById(id));
+            return _repository.GetById(id);
         }
 
-        public void UpdateAccountInfo(AccountInfoViewModel accountInfoViewModel)
+        public void UpdateAccountInfo(AccountInfoDTO accountInfo)
         {
-            _repository.Update(_mapper.MapOneForDataBase(accountInfoViewModel));
+            _repository.Update(accountInfo);
         }
 
-        public void Delete(AccountInfoViewModel accountInfo)
+        public void Delete(AccountInfoDTO  accountInfo)
         {
-            _repository.Delete(_mapper.MapOneForDataBase(accountInfo));
+            _repository.Delete(accountInfo);
         }
 
         private ICollection<AccountInfoDTO> ConvertDataSetToAccountInfoObjectCollection(string filepath)

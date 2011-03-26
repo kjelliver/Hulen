@@ -1,17 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Hulen.BusinessServices.ViewModels.AccountInfoViewModel>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Hulen.Web.Models.AccountInfoModel>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Index
+	Hulen - Kontooversikt
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Index</h2>
+    <h2>Kontooversikt</h2>
 
     <table>
         <tr>
             <th>
-                Kontonummer
+                Kontonr.
             </th>
             <th>
                 Kontonavn
@@ -20,10 +20,10 @@
                 Resultatrapport
             </th>
             <th>
-                Driftdelsrapport
+                Dritsdel
             </th>
             <th>
-                Ukesregnskap
+                Ukesregn
             </th>
             <th>
                 Inntekt/Utgift
@@ -53,8 +53,8 @@
                 <%: item.IsIncome %>
             </td>
             <td>
-                <%: Html.ActionLink("Edit", "Edit", new { item.Id }) %> |
-                <%: Html.ActionLink("Delete", "Delete", new { item.Id })%>
+                <%: Html.ActionLink("Rediger", "Edit", new { id = item.Id }) %> |
+                <%: Html.ActionLink("Slett", "Delete", new { id = item.Id })%>
             </td>
         </tr>
     
@@ -63,7 +63,7 @@
     </table>
 
     <p>
-        <%: Html.ActionLink("Create New", "Create") %>
+        <%: Html.ActionLink("Ny konto", "Create") %>
     </p>
 
 </asp:Content>

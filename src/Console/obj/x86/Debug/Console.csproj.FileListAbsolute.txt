@@ -1,6 +1,7 @@
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\bin\Debug\hibernate.cfg.xml
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\bin\Debug\Console.exe
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\bin\Debug\Console.pdb
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\bin\Debug\Castle.DynamicProxy2.dll
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\bin\Debug\Hulen.Storage.dll
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\bin\Debug\NHibernate.dll
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\bin\Debug\Iesi.Collections.dll
@@ -8,4 +9,3 @@ C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\bin\Debug\Hulen
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\obj\x86\Debug\Console.exe
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\obj\x86\Debug\Console.pdb
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\bin\Debug\Castle.DynamicProxy2.dll

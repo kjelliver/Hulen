@@ -71,6 +71,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mappers\AccountInfoModelMapper.cs" />
+    <Compile Include="Models\AccountInfoModels.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -118,6 +120,10 @@
     <ProjectReference Include="..\Hulen.BusinessServices\Hulen.BusinessServices.csproj">
       <Project>{04C78095-6734-4B6B-9409-D72E71ED31AD}</Project>
       <Name>Hulen.BusinessServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hulen.Storage\Hulen.Storage.csproj">
+      <Project>{B6DE12AC-6837-4A1F-9BB7-B622E40A0259}</Project>
+      <Name>Hulen.Storage</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
