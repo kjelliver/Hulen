@@ -9,3 +9,4 @@ C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\bin\Debug\Hulen
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\obj\x86\Debug\Console.exe
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\obj\x86\Debug\Console.pdb
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Console\bin\Debug\NHibernate.ByteCode.Castle.dll
