@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using Hulen.BusinessServices.Interfaces;
+using Hulen.Reporting.Services;
 using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
 using Hulen.Storage.Repositories;
@@ -12,6 +14,7 @@ namespace Hulen.BusinessServices.Services
     public class AccountInfoServices : IAccountInfoServices
     {
         private readonly IAccountInfoRepository _repository = new AccountInfoRepository();
+        private AccountInfoReport _accountInfoReporting = new AccountInfoReport();
         private readonly Application _application = new Application();
 
 
@@ -38,6 +41,23 @@ namespace Hulen.BusinessServices.Services
         public void Delete(AccountInfoDTO  accountInfo)
         {
             _repository.Delete(accountInfo);
+        }
+
+        public void GeneratePdf()
+        {
+            //GeneratePDF
+
+            _accountInfoReporting.GeneratePdf();
+
+            //MemoryStream ms = new MemoryStream();
+
+
+
+            //byte[] byteInfo = pdf.Output();
+            //ms.Write(byteInfo, 0, byteInfo.Length);
+            //ms.Position = 0;
+
+            //return ms;
         }
 
         private ICollection<AccountInfoDTO> ConvertDataSetToAccountInfoObjectCollection(string filepath)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -93,6 +94,14 @@ namespace Hulen.Web.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult OpenReportInExcel()
+        {
+            _accountInfoService.GeneratePdf();
+            //HttpContext.Response.AddHeader( )
+
+            return RedirectToAction("Index");
         }
     }
 }

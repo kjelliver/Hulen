@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Hulen.Storage.DTO;
 
 namespace Hulen.BusinessServices.Interfaces
@@ -11,5 +12,6 @@ namespace Hulen.BusinessServices.Interfaces
         AccountInfoDTO GetAccountById(Guid id);
         void UpdateAccountInfo(AccountInfoDTO accountInfoViewModel);
         void Delete(AccountInfoDTO accountInfo);
+        void GeneratePdf();
     }
 }

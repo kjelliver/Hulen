@@ -9,7 +9,6 @@
   <RecentFiles>
     <RecentFiles>
       <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:HomeController.cs" caret="371" fromTop="16" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Models/f:AccountModels.cs" caret="80" fromTop="0" />
       <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/f:hibernate.cfg.xml" caret="836" fromTop="13" />
       <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoRepository.cs" caret="74" fromTop="2" />
       <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoRepository.cs" caret="74" fromTop="2" />
@@ -17,48 +16,51 @@
       <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:DTO/f:AccountInfoDTO.cs" caret="97" fromTop="6" />
       <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:Shared/f:Site.Master" caret="0" fromTop="0" />
       <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Mappings/f:AccountInfoDTO.hbm.xml" caret="251" fromTop="3" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/f:NHibernateHelper.cs" caret="558" fromTop="16" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Create.aspx" caret="577" fromTop="16" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Edit.aspx" caret="757" fromTop="20" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Index.aspx" caret="1582" fromTop="11" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IAccountInfoServices.cs" caret="536" fromTop="14" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:ViewModels/f:AccountInfoViewModel.cs" caret="302" fromTop="9" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="1547" fromTop="20" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="797" fromTop="19" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="1839" fromTop="17" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Delete.aspx" caret="0" fromTop="0" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Models/f:AccountModels.cs" caret="0" fromTop="0" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Delete.aspx" caret="575" fromTop="15" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Edit.aspx" caret="2762" fromTop="39" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Create.aspx" caret="150" fromTop="1" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Models/f:AccountInfoModels.cs" caret="533" fromTop="17" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IAccountInfoServices.cs" caret="491" fromTop="14" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Index.aspx" caret="855" fromTop="32" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Mappers/f:AccountInfoModelMapper.cs" caret="2484" fromTop="36" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="3576" fromTop="28" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Services/f:AccountInfoReport.cs" caret="372" fromTop="14" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="1415" fromTop="11" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/f:NHibernateHelper.cs" caret="597" fromTop="15" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Templates/f:AccountInfoExcelTemplate.cs" caret="382" fromTop="12" />
     </RecentFiles>
     <RecentEdits>
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="2268" fromTop="36" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="1058" fromTop="11" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Create.aspx" caret="523" fromTop="14" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Index.aspx" caret="420" fromTop="3" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Index.aspx" caret="850" fromTop="22" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="850" fromTop="16" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="1494" fromTop="25" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="3170" fromTop="38" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="1148" fromTop="6" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="1405" fromTop="18" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="1170" fromTop="20" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="3258" fromTop="29" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="1275" fromTop="28" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="1568" fromTop="34" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="1388" fromTop="20" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="1882" fromTop="8" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="405" fromTop="3" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="2988" fromTop="23" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="3256" fromTop="32" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Index.aspx" caret="1577" fromTop="11" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="1879" fromTop="17" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="2252" fromTop="34" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="2089" fromTop="28" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IAccountInfoServices.cs" caret="494" fromTop="13" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="434" fromTop="5" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="1547" fromTop="20" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="2400" fromTop="10" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="1756" fromTop="17" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Mappers/f:AccountInfoViewModelMapper.cs" caret="786" fromTop="3" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="1934" fromTop="20" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Create.aspx" caret="127" fromTop="0" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Edit.aspx" caret="127" fromTop="0" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="2286" fromTop="16" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="2408" fromTop="22" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="783" fromTop="7" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Models/f:AccountInfoModels.cs" caret="770" fromTop="22" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Edit.aspx" caret="520" fromTop="15" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="2286" fromTop="19" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="1897" fromTop="20" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="509" fromTop="11" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Index.aspx" caret="1768" fromTop="18" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Templates/f:AccountInfoExcelTemplate.cs" caret="502" fromTop="23" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Services/f:AccountInfoReport.cs" caret="1237" fromTop="25" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Services/f:AccountInfoReport.cs" caret="1237" fromTop="15" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Services/f:AccountInfoReport.cs" caret="1237" fromTop="19" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Services/f:AccountInfoReport.cs" caret="2072" fromTop="28" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Services/f:AccountInfoReport.cs" caret="954" fromTop="23" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="1690" fromTop="32" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="605" fromTop="16" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Services/f:AccountInfoReport.cs" caret="1239" fromTop="29" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="1467" fromTop="13" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="1363" fromTop="9" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IAccountInfoServices.cs" caret="489" fromTop="14" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="3399" fromTop="23" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Controllers/f:AccountInfoController.cs" caret="3576" fromTop="28" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Templates/f:AccountInfoExcelTemplate.cs" caret="394" fromTop="14" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Services/f:AccountInfoReport.cs" caret="372" fromTop="14" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Templates/f:AccountInfoExcelTemplate.cs" caret="1183" fromTop="33" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Templates/f:AccountInfoExcelTemplate.cs" caret="595" fromTop="22" />
+      <File id="2E399315-3C03-4EAE-B6B4-B17335E9DB57/d:Templates/f:AccountInfoExcelTemplate.cs" caret="380" fromTop="11" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -74,42 +76,42 @@
   </UnitTestRunnerNUnit>
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
-      <Item value="new" priority="13" />
+      <Item value="new" priority="30" />
       <Item value="test" priority="0" />
       <Item value="AccountInfo" priority="0" />
       <Item value="acc" priority="5" />
       <Item value="true" priority="0" />
-      <Item value="public" priority="8" />
-      <Item value="int" priority="5" />
-      <Item value="string" priority="4" />
+      <Item value="public" priority="28" />
+      <Item value="int" priority="7" />
+      <Item value="string" priority="8" />
       <Item value="interface" priority="0" />
       <Item value="_accountInfoServices" priority="2" />
-      <Item value="List" priority="0" />
+      <Item value="List" priority="5" />
       <Item value="ICollection" priority="2" />
       <Item value="AccountInfoModels" priority="0" />
-      <Item value="model" priority="1" />
+      <Item value="model" priority="14" />
       <Item value="contactToCreate" priority="0" />
       <Item value="accountInfoToCreate" priority="1" />
-      <Item value="AccountInfoDTO`0" priority="6" />
-      <Item value="private" priority="2" />
+      <Item value="AccountInfoDTO`0" priority="16" />
+      <Item value="private" priority="8" />
       <Item value="IAccountInfoRepository`0" priority="1" />
       <Item value="_accountInfoRepository" priority="9" />
       <Item value="this" priority="0" />
-      <Item value="var" priority="5" />
-      <Item value="id" priority="0" />
+      <Item value="var" priority="7" />
+      <Item value="id" priority="1" />
       <Item value="accountInfoToEdit" priority="0" />
       <Item value="accountToEdit" priority="2" />
       <Item value="accountInfoDTO" priority="4" />
       <Item value="try" priority="0" />
       <Item value="accountInfoToDelete" priority="0" />
-      <Item value="accountInfo" priority="9" />
-      <Item value="item" priority="0" />
+      <Item value="accountInfo" priority="12" />
+      <Item value="item" priority="1" />
       <Item value="order" priority="0" />
       <Item value="NHibernate" priority="1" />
       <Item value="Criterion" priority="0" />
       <Item value="Order`0" priority="0" />
-      <Item value="Html" priority="2" />
-      <Item value="Model" priority="0" />
+      <Item value="Html" priority="8" />
+      <Item value="Model" priority="5" />
       <Item value="virtual" priority="0" />
       <Item value="bool" priority="0" />
       <Item value="AccountInfoViewModel`0" priority="4" />
@@ -121,28 +123,74 @@
       <Item value="WeekCategory" priority="0" />
       <Item value="IsIncome" priority="0" />
       <Item value="Array`0" priority="0" />
-      <Item value="String`0" priority="0" />
+      <Item value="String`0" priority="2" />
       <Item value="_repository" priority="5" />
       <Item value="AccountInfoViewModelMapper`0" priority="0" />
       <Item value="AccountInfoViewModelMapper" priority="0" />
       <Item value="IAccountInfoServices`0" priority="0" />
-      <Item value="_accountInfoService" priority="5" />
-      <Item value="accountInfoModelView" priority="1" />
-      <Item value="_mapper" priority="3" />
-      <Item value="return" priority="2" />
+      <Item value="_accountInfoService" priority="11" />
+      <Item value="accountInfoModelView" priority="2" />
+      <Item value="_mapper" priority="8" />
+      <Item value="return" priority="8" />
       <Item value="_parts" priority="1" />
-      <Item value="account" priority="6" />
+      <Item value="account" priority="7" />
       <Item value="for" priority="0" />
       <Item value="i" priority="2" />
       <Item value="result" priority="2" />
-      <Item value="Length" priority="0" />
+      <Item value="Length" priority="1" />
       <Item value="if" priority="0" />
       <Item value="resultReportCategory" priority="0" />
       <Item value="FindIndex`0" priority="2" />
       <Item value="_income" priority="0" />
-      <Item value="accountInfoViewModel" priority="2" />
+      <Item value="accountInfoViewModel" priority="3" />
       <Item value="accountNumber" priority="1" />
-      <Item value="Id" priority="0" />
+      <Item value="Id" priority="1" />
+      <Item value="System" priority="0" />
+      <Item value="View`0" priority="1" />
+      <Item value="NewAccountInfoModel" priority="0" />
+      <Item value="_model" priority="1" />
+      <Item value="List&lt;string&gt;" priority="3" />
+      <Item value="SelectList`0" priority="3" />
+      <Item value="class" priority="1" />
+      <Item value="AccountInfoModel`0" priority="2" />
+      <Item value="AccountInfoModelMapper" priority="0" />
+      <Item value="DropDownListItem`0" priority="2" />
+      <Item value="List&lt;DropDownListItem&gt;" priority="0" />
+      <Item value="DropDownListItem" priority="0" />
+      <Item value="value" priority="1" />
+      <Item value="m" priority="3" />
+      <Item value="ModelBinderAttribute`0" priority="1" />
+      <Item value="temp" priority="5" />
+      <Item value="Controller`0" priority="0" />
+      <Item value="ActionResult`0" priority="0" />
+      <Item value="RedirectToAction`0" priority="1" />
+      <Item value="AccountInfoExcelTemplate`0" priority="2" />
+      <Item value="Workbook`0" priority="3" />
+      <Item value="Template" priority="2" />
+      <Item value="Workbook" priority="2" />
+      <Item value="Range`0" priority="0" />
+      <Item value="Worksheet`0" priority="1" />
+      <Item value="FileStreamResult`0" priority="1" />
+      <Item value="UnmanagedMemoryStream`0" priority="0" />
+      <Item value="MemoryStream`0" priority="0" />
+      <Item value="MemoryStream" priority="0" />
+      <Item value="byte" priority="0" />
+      <Item value="GeneratePdf`0" priority="0" />
+      <Item value="FileStreamResult" priority="0" />
+      <Item value="filestream" priority="0" />
+      <Item value="Templates" priority="1" />
+      <Item value="workbook" priority="2" />
+      <Item value="XlPivotFieldDataType`0" priority="0" />
+      <Item value="pdf" priority="0" />
+      <Item value="ms" priority="3" />
+      <Item value="byteInfo" priority="1" />
+      <Item value="MS" priority="0" />
+      <Item value="Reporting" priority="0" />
+      <Item value="AccountInfoReport" priority="0" />
+      <Item value="_accountInfoReporting" priority="0" />
+      <Item value="void" priority="1" />
+      <Item value="_workSheet" priority="1" />
+      <Item value="_workBook" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Hulen.Storage.Interfaces.IAccountInfoRepository">
       <Item value="Add`0" priority="2" />
@@ -162,12 +210,14 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:Hulen.BusinessServices.Interfaces.IAccountInfoServices">
       <Item value="GetAllAccountInfo`0" priority="1" />
-      <Item value="StoreNewAccountInfo`0" priority="1" />
-      <Item value="GetAllAccounts`0" priority="0" />
-      <Item value="GetAccountById`0" priority="0" />
+      <Item value="StoreNewAccountInfo`0" priority="2" />
+      <Item value="GetAllAccounts`0" priority="1" />
+      <Item value="GetAccountById`0" priority="1" />
+      <Item value="Delete`0" priority="0" />
+      <Item value="UpdateAccountInfo`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.ICollection`1">
-      <Item value="ToList`1" priority="1" />
+      <Item value="ToList`1" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Hulen.Web.Models.AccountInfoModels">
       <Item value="AccountInfos" priority="1" />
@@ -199,7 +249,8 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Web.Mvc.HtmlHelper`1">
       <Item value="DropDownList`0" priority="1" />
-      <Item value="DropDownListFor`2" priority="0" />
+      <Item value="DropDownListFor`2" priority="5" />
+      <Item value="ActionLink`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Int32">
       <Item value="ToString`0" priority="3" />
@@ -211,7 +262,7 @@
     <ItemStatistics item="Qualified:Hulen.BusinessServices.ViewModels.AccountInfoViewModel">
       <Item value="AccountNumber" priority="0" />
       <Item value="AccountName" priority="0" />
-      <Item value="ResultReportCategory" priority="0" />
+      <Item value="ResultReportCategory" priority="1" />
       <Item value="PartsReportCategory" priority="0" />
       <Item value="WeekCategory" priority="0" />
       <Item value="IsIncome" priority="0" />
@@ -219,6 +270,57 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:Hulen.BusinessServices.Mappers.AccountInfoViewModelMapper">
       <Item value="MapOneForStoring`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.Web.Models.NewAccountInfoModel">
+      <Item value="ReportCategories" priority="2" />
+      <Item value="ResultReportCategory" priority="0" />
+      <Item value="PartsCategories" priority="3" />
+      <Item value="WeekCategories" priority="1" />
+      <Item value="PartsReportCategory" priority="0" />
+      <Item value="IsIncomes" priority="1" />
+      <Item value="IsIncome" priority="0" />
+      <Item value="AccountInfoModel" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.Web.Mappers.AccountInfoModelMapper">
+      <Item value="MapMenyForView`0" priority="0" />
+      <Item value="MapOneForDataBase`0" priority="2" />
+      <Item value="MapOneForView`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.Web.Models.AccountInfoModel">
+      <Item value="Id" priority="1" />
+      <Item value="AccountNumber" priority="4" />
+      <Item value="IsIncome" priority="0" />
+      <Item value="WeekCategory" priority="0" />
+      <Item value="PartsReportCategory" priority="0" />
+      <Item value="ResultReportCategory" priority="1" />
+      <Item value="AccountName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.Web.Models.EditAccountInfoModel">
+      <Item value="AccountInfoModel" priority="2" />
+      <Item value="ResultCategories" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpContextBase">
+      <Item value="Response" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpResponseBase">
+      <Item value="AddHeader`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.Reporting.Templates.AccountInfoExcelTemplate">
+      <Item value="Template" priority="1" />
+      <Item value="GetTemplate`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Office.Interop.Excel.Workbook">
+      <Item value="Path" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.MemoryStream">
+      <Item value="Write`0" priority="0" />
+      <Item value="Position" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.Reporting.Services.AccountInfoReport">
+      <Item value="GeneratePdf`0" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>

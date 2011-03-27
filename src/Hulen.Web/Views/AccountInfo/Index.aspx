@@ -63,7 +63,8 @@
     </table>
 
     <p>
-        <%: Html.ActionLink("Ny konto", "Create") %>
+        <%: Html.ActionLink("Ny konto", "Create") %> | 
+        <%: Html.ActionLink("Åpne rapport (.xls)", "OpenReportInExcel") %>
     </p>
 
 </asp:Content>
