@@ -9,5 +9,3 @@ C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.BusinessServices\
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.BusinessServices\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.BusinessServices\obj\Debug\Hulen.BusinessServices.dll
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.BusinessServices\obj\Debug\Hulen.BusinessServices.pdb
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.BusinessServices\bin\Debug\Hulen.Reporting.dll
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.BusinessServices\bin\Debug\Hulen.Reporting.pdb

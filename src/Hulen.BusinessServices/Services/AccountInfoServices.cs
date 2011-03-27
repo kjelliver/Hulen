@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Reporting.Services;
 using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
 using Hulen.Storage.Repositories;
@@ -14,7 +13,6 @@ namespace Hulen.BusinessServices.Services
     public class AccountInfoServices : IAccountInfoServices
     {
         private readonly IAccountInfoRepository _repository = new AccountInfoRepository();
-        private AccountInfoReport _accountInfoReporting = new AccountInfoReport();
         private readonly Application _application = new Application();
 
 
@@ -47,7 +45,7 @@ namespace Hulen.BusinessServices.Services
         {
             //GeneratePDF
 
-            _accountInfoReporting.GeneratePdf();
+            //_accountInfoReporting.GeneratePdf();
 
             //MemoryStream ms = new MemoryStream();
 

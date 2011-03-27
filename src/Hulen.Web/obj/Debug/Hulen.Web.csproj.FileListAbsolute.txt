@@ -10,5 +10,3 @@ C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\Hulen.Sto
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\obj\Debug\Hulen.Web.dll
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\obj\Debug\Hulen.Web.pdb
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\Hulen.Reporting.dll
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\Hulen.Reporting.pdb
