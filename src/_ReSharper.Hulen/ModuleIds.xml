@@ -4,5 +4,5 @@
   <Module PersistentId="3D3DC7C4-ADC4-40F2-AE2D-1C4EDACF902A" ModuleId="Console" />
   <Module PersistentId="B6DE12AC-6837-4A1F-9BB7-B622E40A0259" ModuleId="Hulen.Storage_1" />
   <Module PersistentId="04C78095-6734-4B6B-9409-D72E71ED31AD" ModuleId="Hulen.BusinessServices" />
-  <Module PersistentId="2E399315-3C03-4EAE-B6B4-B17335E9DB57" ModuleId="Hulen.Reporting" />
+  <Module PersistentId="E77C1941-86F4-4631-885B-CDFD8A05B9C3" ModuleId="Hulen.ReportServices" />
 </Modules>

@@ -4,21 +4,26 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Hulen.BusinessServices.Interfaces;
-using Hulen.BusinessServices.Services;
+using Hulen.ReportServices;
+using Hulen.ReportServices.Service;
+using Hulen.Storage.Interfaces;
+using Hulen.Storage.Repositories;
 using Hulen.Web.Mappers;
 using Hulen.Web.Models;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace Hulen.Web.Controllers
 {
     public class AccountInfoController : Controller
     {
-        private readonly IAccountInfoServices _accountInfoService = new AccountInfoServices();
+        private readonly IReportingServices _reportService = new ReportingServices();
+        private readonly IAccountInfoRepository _repository = new AccountInfoRepository();
         private readonly AccountInfoModelMapper _mapper = new AccountInfoModelMapper();
 
         public ActionResult Index()
         {
-            return View(_mapper.MapMenyForView(_accountInfoService.GetAllAccounts()).ToList());
+            return View(_mapper.MapMenyForView(_repository.GetAllAccountCategories()).ToList());
         }
 
         public ActionResult Create()
@@ -39,7 +44,7 @@ namespace Hulen.Web.Controllers
 
             try
             {
-                _accountInfoService.StoreNewAccountInfo(_mapper.MapOneForDataBase(accountInfoModel));
+                _repository.Add(_mapper.MapOneForDataBase(accountInfoModel));
                 return RedirectToAction("Index");
             }
             catch
@@ -50,7 +55,7 @@ namespace Hulen.Web.Controllers
 
         public ActionResult Edit(Guid id)
         {
-            AccountInfoModel model = _mapper.MapOneForView(_accountInfoService.GetAccountById(id));
+            AccountInfoModel model = _mapper.MapOneForView(_repository.GetById(id));
 
             model.ResultCategories = new List<string> { "Udefinert" };
             model.PartsCategories = new List<string> { "Udefinert", "Bar", "Arrangement", "Personalkostnader", "PR", "Støtte og tilskudd", "Økonomi", "Driftskostnader" };
@@ -68,7 +73,7 @@ namespace Hulen.Web.Controllers
 
             try
             {
-                _accountInfoService.UpdateAccountInfo(_mapper.MapOneForDataBase(accountInfoModel));
+                _repository.Update(_mapper.MapOneForDataBase(accountInfoModel));
                 return RedirectToAction("Index");
             }
             catch
@@ -79,7 +84,7 @@ namespace Hulen.Web.Controllers
  
         public ActionResult Delete(Guid id)
         {
-            return View(_mapper.MapOneForView(_accountInfoService.GetAccountById(id)));
+            return View(_mapper.MapOneForView(_repository.GetById(id)));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -87,7 +92,7 @@ namespace Hulen.Web.Controllers
         {
             try
             {
-                _accountInfoService.Delete(_mapper.MapOneForDataBase(accountInfo));
+               _repository.Delete(_mapper.MapOneForDataBase(accountInfo));
                 return RedirectToAction("Index");
             }
             catch
@@ -96,12 +101,13 @@ namespace Hulen.Web.Controllers
             }
         }
 
-        public ActionResult OpenReportInExcel()
+        public FileStreamResult OpenReportInPdf()
         {
-            _accountInfoService.GeneratePdf();
-            //HttpContext.Response.AddHeader( )
+            Stream filestream = _reportService.GeneratePDF("AccountInfo");
 
-            return RedirectToAction("Index");
+            HttpContext.Response.AddHeader("content-disposition", "attachment; filename=form.pdf");
+
+            return new FileStreamResult(filestream, "application/pdf");
         }
     }
 }
