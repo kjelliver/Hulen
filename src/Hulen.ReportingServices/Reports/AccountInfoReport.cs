@@ -14,7 +14,7 @@ namespace Hulen.ReportingServices.Reports
             Document document = new Document();
             PdfWriter.GetInstance(document, workStream);
             document.Open();
-            document.Add(new Paragraph("Hello World"));
+            document.Add(new Paragraph("Kontoinformasjon"));
             document.Add(new Paragraph(DateTime.Now.ToString()));
             document.Close();
 
