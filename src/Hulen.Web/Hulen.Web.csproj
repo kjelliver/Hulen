@@ -125,6 +125,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Hulen.ReportingServices\Hulen.ReportingServices.csproj">
+      <Project>{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}</Project>
+      <Name>Hulen.ReportingServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hulen.Storage\Hulen.Storage.csproj">
       <Project>{B6DE12AC-6837-4A1F-9BB7-B622E40A0259}</Project>
       <Name>Hulen.Storage</Name>
