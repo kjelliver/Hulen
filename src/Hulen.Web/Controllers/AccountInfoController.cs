@@ -105,7 +105,7 @@ namespace Hulen.Web.Controllers
         {
             Stream filestream = _reportService.GeneratePDF();
 
-            HttpContext.Response.AddHeader("content-disposition", "attachment; filename=form.pdf");
+            HttpContext.Response.AddHeader("content-disposition", "attachment; filename=kontoinformasjon.pdf");
 
             return new FileStreamResult(filestream, "application/pdf");
         }

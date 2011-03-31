@@ -3,3 +3,4 @@ C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\obj\Debug\Hulen.ReportingServices.dll
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\obj\Debug\Hulen.ReportingServices.pdb
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\bin\Debug\itextsharp.dll
