@@ -10,5 +10,3 @@ C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\obj\Debug\Hul
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\obj\Debug\Hulen.Web.pdb
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\NHibernate.ByteCode.Castle.dll
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\itextsharp.dll
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\Hulen.ReportServices.dll
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\Hulen.ReportServices.pdb

@@ -4,8 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Hulen.ReportServices;
-using Hulen.ReportServices.Service;
 using Hulen.Storage.Interfaces;
 using Hulen.Storage.Repositories;
 using Hulen.Web.Mappers;
@@ -17,7 +15,6 @@ namespace Hulen.Web.Controllers
 {
     public class AccountInfoController : Controller
     {
-        private readonly IReportingServices _reportService = new ReportingServices();
         private readonly IAccountInfoRepository _repository = new AccountInfoRepository();
         private readonly AccountInfoModelMapper _mapper = new AccountInfoModelMapper();
 
@@ -101,13 +98,13 @@ namespace Hulen.Web.Controllers
             }
         }
 
-        public FileStreamResult OpenReportInPdf()
-        {
-            Stream filestream = _reportService.GeneratePDF("AccountInfo");
+        //public FileStreamResult OpenReportInPdf()
+        //{
+        //    Stream filestream = _reportService.GeneratePDF("AccountInfo");
 
-            HttpContext.Response.AddHeader("content-disposition", "attachment; filename=form.pdf");
+        //    HttpContext.Response.AddHeader("content-disposition", "attachment; filename=form.pdf");
 
-            return new FileStreamResult(filestream, "application/pdf");
-        }
+        //    return new FileStreamResult(filestream, "application/pdf");
+        //}
     }
 }
