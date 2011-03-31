@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Hulen.ReportServices")]
+[assembly: AssemblyTitle("Hulen.ReportingServices")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Hulen.ReportServices")]
+[assembly: AssemblyProduct("Hulen.ReportingServices")]
 [assembly: AssemblyCopyright("Copyright ©  2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6f031887-b6da-445c-8b3c-3c09732cfaba")]
+[assembly: Guid("13d8a008-9a4e-4009-a28d-6e7231a6dc2b")]
 
 // Version information for an assembly consists of the following four values:
 //

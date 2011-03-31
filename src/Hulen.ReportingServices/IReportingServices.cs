@@ -4,10 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Hulen.ReportServices
+namespace Hulen.ReportingServices
 {
     public interface IReportingServices
     {
-        Stream GeneratePDF(string reportType);
+        Stream GeneratePDF();
     }
 }

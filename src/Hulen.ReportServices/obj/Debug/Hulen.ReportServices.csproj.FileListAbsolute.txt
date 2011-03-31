@@ -1,7 +1,0 @@
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportServices\bin\Debug\Hulen.ReportServices.dll
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportServices\bin\Debug\Hulen.ReportServices.pdb
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportServices\bin\Debug\itextsharp.dll
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportServices\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportServices\obj\Debug\Hulen.ReportServices.csproj.ResolveComReference.cache
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportServices\obj\Debug\Hulen.ReportServices.dll
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportServices\obj\Debug\Hulen.ReportServices.pdb
