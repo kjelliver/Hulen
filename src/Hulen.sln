@@ -12,7 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hulen.ReportingServices", "Hulen.ReportingServices\Hulen.ReportingServices.csproj", "{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{04C78095-6734-4B6B-9409-D72E71ED31AD} = {04C78095-6734-4B6B-9409-D72E71ED31AD}
-		{B6DE12AC-6837-4A1F-9BB7-B622E40A0259} = {B6DE12AC-6837-4A1F-9BB7-B622E40A0259}
 	EndProjectSection
 EndProject
 Global

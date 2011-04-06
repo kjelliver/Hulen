@@ -17,7 +17,6 @@ namespace Hulen.Web.Controllers
 {
     public class AccountInfoController : Controller
     {
-        private readonly IReportingServices _reportService = new AccountInfoReport();
         private readonly IAccountInfoRepository _repository = new AccountInfoRepository();
         private readonly AccountInfoModelMapper _mapper = new AccountInfoModelMapper();
 
@@ -101,13 +100,9 @@ namespace Hulen.Web.Controllers
             }
         }
 
-        public FileStreamResult OpenReportInPdf()
-        {
-            Stream filestream = _reportService.GeneratePDF();
-
-            HttpContext.Response.AddHeader("content-disposition", "attachment; filename=kontoinformasjon.pdf");
-
-            return new FileStreamResult(filestream, "application/pdf");
+        public ActionResult OpenReport()
+        { 
+            return RedirectToAction("Index", "Report", new { year = 2010});
         }
     }
 }

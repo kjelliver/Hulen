@@ -3,4 +3,8 @@ C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\obj\Debug\Hulen.ReportingServices.dll
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\obj\Debug\Hulen.ReportingServices.pdb
-C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\bin\Debug\itextsharp.dll
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\bin\Debug\hibernate.cfg.xml
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\bin\Debug\Hulen.Storage.dll
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\bin\Debug\NHibernate.dll
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\bin\Debug\Iesi.Collections.dll
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.ReportingServices\bin\Debug\Hulen.Storage.pdb

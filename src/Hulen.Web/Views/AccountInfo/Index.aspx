@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Hulen.Web.Models.AccountInfoModel>>" %>
+<%@ Import Namespace="Hulen.Web.Controllers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Hulen - Kontooversikt
@@ -64,7 +65,7 @@
 
     <p>
         <%: Html.ActionLink("Ny konto", "Create") %> | 
-        <%: Html.ActionLink("Åpne rapport (.pdf)", "OpenReportInPdf") %>
+        <%: Html.ActionLink("Åpne rapport", "OpenReport") %>
     </p>
 
 </asp:Content>

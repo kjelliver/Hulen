@@ -8,6 +8,6 @@ namespace Hulen.ReportingServices
 {
     public interface IReportingServices
     {
-        Stream GeneratePDF();
+        string GenerateHtmlBody();
     }
 }
