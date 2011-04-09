@@ -45,6 +45,10 @@
     <Compile Include="Reports\AccountInfoReport.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Hulen.Objects\Hulen.Objects.csproj">
+      <Project>{DDEA231F-8E50-4538-A79D-55A45A686B22}</Project>
+      <Name>Hulen.Objects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hulen.Storage\Hulen.Storage.csproj">
       <Project>{B6DE12AC-6837-4A1F-9BB7-B622E40A0259}</Project>
       <Name>Hulen.Storage</Name>

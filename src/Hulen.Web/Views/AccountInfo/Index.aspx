@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<Hulen.Web.Models.AccountInfoModel>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.AccountInfoWebModel>" %>
 <%@ Import Namespace="Hulen.Web.Controllers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
@@ -29,32 +29,38 @@
             <th>
                 Inntekt/Utgift
             </th>
+            <th>
+                År
+            </th>
             <th></th>
         </tr>
 
-    <% foreach (var item in Model) { %>
+    <% foreach (var item in Model.AccountInfos ) { %>
     
         <tr>
             <td>
-                <%: item.AccountNumber %>
+                <%: item.AccountNumber%>
             </td>
             <td>
-                <%: item.AccountName %>
+                <%: item.AccountName%>
             </td>
             <td>
-                <%: item.ResultReportCategory %>
+                <%: item.ResultReportCategory%>
             </td>
             <td>
-                <%: item.PartsReportCategory %>
+                <%: item.PartsReportCategory%>
             </td>
             <td>
-                <%: item.WeekCategory %>
+                <%: item.WeekCategory%>
             </td>
             <td>
-                <%: item.IsIncome %>
+                <%: item.IsIncome%>
             </td>
             <td>
-                <%: Html.ActionLink("Rediger", "Edit", new { id = item.Id }) %> |
+                <%: item.Year %>
+            </td>
+            <td>
+                <%: Html.ActionLink("Rediger", "Edit", new { id = item.Id })%> |
                 <%: Html.ActionLink("Slett", "Delete", new { id = item.Id })%>
             </td>
         </tr>

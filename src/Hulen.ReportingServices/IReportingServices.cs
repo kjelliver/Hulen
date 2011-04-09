@@ -8,6 +8,7 @@ namespace Hulen.ReportingServices
 {
     public interface IReportingServices
     {
+        string GenerateCssStyle();
         string GenerateHtmlBody();
     }
 }

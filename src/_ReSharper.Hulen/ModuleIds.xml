@@ -1,9 +1,9 @@
 <Modules>
   <Module PersistentId="EA7CCA46-7C41-4901-8FA6-60C909F072CE" ModuleId="Hulen.Web" />
   <Module PersistentId="F203F123-6922-4AFB-B4A7-55A8AFDE898F" ModuleId="Hulen.Tests" />
-  <Module PersistentId="3D3DC7C4-ADC4-40F2-AE2D-1C4EDACF902A" ModuleId="Console" />
   <Module PersistentId="B6DE12AC-6837-4A1F-9BB7-B622E40A0259" ModuleId="Hulen.Storage_1" />
   <Module PersistentId="04C78095-6734-4B6B-9409-D72E71ED31AD" ModuleId="Hulen.BusinessServices" />
-  <Module PersistentId="E77C1941-86F4-4631-885B-CDFD8A05B9C3" ModuleId="Hulen.ReportServices" />
   <Module PersistentId="2A84AF44-EA5D-4C87-A282-86821E3FD9F7" ModuleId="Hulen.ReportingServices" />
+  <Module PersistentId="C852431A-3055-4E63-9C11-8003E08B309E" ModuleId="Hulen.WebCode" />
+  <Module PersistentId="DDEA231F-8E50-4538-A79D-55A45A686B22" ModuleId="Hulen.Objects" />
 </Modules>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Hulen.Storage.DTO;
+using Hulen.Objects.DTO;
 using Hulen.Storage.Interfaces;
 using NHibernate;
 using NHibernate.Criterion;
@@ -9,7 +9,7 @@ namespace Hulen.Storage.Repositories
 {
     public class AccountInfoRepository : IAccountInfoRepository
     {
-        public void Add(AccountInfoDTO accountCategory)
+        public void SaveOne(AccountInfoDTO accountCategory)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             using (ITransaction transaction = session.BeginTransaction())
@@ -19,7 +19,7 @@ namespace Hulen.Storage.Repositories
             }
         }
 
-        public void Update(AccountInfoDTO accountCategory)
+        public void UpdateOne(AccountInfoDTO accountCategory)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             using (ITransaction transaction = session.BeginTransaction())
@@ -29,7 +29,7 @@ namespace Hulen.Storage.Repositories
             }
         }
 
-        public void Delete(AccountInfoDTO accountCategory)
+        public void DeleteOne(AccountInfoDTO accountCategory)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             using (ITransaction transaction = session.BeginTransaction())
@@ -39,13 +39,13 @@ namespace Hulen.Storage.Repositories
             }
         }
 
-        public AccountInfoDTO GetByAccountNumber(int accountNumber)
+        public AccountInfoDTO GetOneByAccountNumber(int accountNumber)
         {
             using (ISession session = NHibernateHelper.OpenSession())
                 return session.Get<AccountInfoDTO>(accountNumber);
         }
 
-        public ICollection<AccountInfoDTO> GetAllAccountCategories()
+        public ICollection<AccountInfoDTO> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -55,7 +55,7 @@ namespace Hulen.Storage.Repositories
 
         public void DeleteExistingAccountInfo()
         {
-            var temp = GetAllAccountCategories();
+            var temp = GetAll();
 
             using (ISession session = NHibernateHelper.OpenSession())
             using (ITransaction transaction = session.BeginTransaction())
@@ -68,15 +68,20 @@ namespace Hulen.Storage.Repositories
             }
         }
 
-        public void AddMeny(ICollection<AccountInfoDTO> accounts)
+        public void SaveMeny(ICollection<AccountInfoDTO> accounts)
         {
-            foreach(AccountInfoDTO acc in accounts)
+            using (ISession session = NHibernateHelper.OpenSession())
+            using (ITransaction transaction = session.BeginTransaction())
             {
-                Add(acc);
-            }
+                foreach (AccountInfoDTO acc in accounts)
+                {
+                    session.Save(acc);
+                }
+                transaction.Commit();
+            }  
         }
 
-        public AccountInfoDTO GetById(Guid id)
+        public AccountInfoDTO GetOneById(Guid id)
         {
             using (ISession session = NHibernateHelper.OpenSession())
                 return session.Get<AccountInfoDTO>(id);

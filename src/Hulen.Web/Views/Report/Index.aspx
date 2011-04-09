@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Report.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.Web.Models.ReportModel>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Report.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.ReportModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Index

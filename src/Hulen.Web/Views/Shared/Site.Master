@@ -16,7 +16,7 @@
             </div>
               
             <div id="logindisplay">
-                <% Html.RenderPartial("LogOnUserControl"); %>
+                HulenPulen
             </div> 
             
             <div id="menucontainer">
@@ -24,6 +24,7 @@
                 <ul id="menu">              
                     <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
                     <li><%: Html.ActionLink("About", "About", "Home")%></li>
+                    <li><%: Html.ActionLink("Filimportering", "Index", "FileImport")%></li>
                     <li><%: Html.ActionLink("Kontoinformasjon", "Index", "AccountInfo")%></li>
                 </ul>
             

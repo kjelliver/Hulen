@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.Web.Models.AccountInfoModel>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.AccountInfoWebModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Delete
@@ -12,29 +12,33 @@
     <fieldset>
         <legend>Fields</legend>
         
+        <% using (Html.BeginForm()) { %>
+
         <div class="display-label">Id</div>
-        <div class="display-field"><%: Model.Id %></div>
+        <div class="display-field"><%: Model.AccountInfo.Id%></div>
         
+        <div class="display-label">År</div>
+        <div class="display-field"><%: Model.AccountInfo.Year%></div>
+
         <div class="display-label">AccountNumber</div>
-        <div class="display-field"><%: Model.AccountNumber %></div>
+        <div class="display-field"><%: Model.AccountInfo.AccountNumber%></div>
         
         <div class="display-label">AccountName</div>
-        <div class="display-field"><%: Model.AccountName %></div>
+        <div class="display-field"><%: Model.AccountInfo.AccountName%></div>
         
         <div class="display-label">ResultReportCategory</div>
-        <div class="display-field"><%: Model.ResultReportCategory %></div>
+        <div class="display-field"><%: Model.AccountInfo.ResultReportCategory%></div>
         
         <div class="display-label">PartsReportCategory</div>
-        <div class="display-field"><%: Model.PartsReportCategory %></div>
+        <div class="display-field"><%: Model.AccountInfo.PartsReportCategory%></div>
         
         <div class="display-label">WeekCategory</div>
-        <div class="display-field"><%: Model.WeekCategory %></div>
+        <div class="display-field"><%: Model.AccountInfo.WeekCategory%></div>
         
         <div class="display-label">IsIncome</div>
-        <div class="display-field"><%: Model.IsIncome %></div>
+        <div class="display-field"><%: Model.AccountInfo.IsIncome%></div>
         
     </fieldset>
-    <% using (Html.BeginForm()) { %>
         <p>
 		    <input type="submit" value="Delete" /> |
 		    <%: Html.ActionLink("Back to List", "Index") %>
