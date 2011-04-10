@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using Hulen.BusinessServices.Interfaces;
@@ -24,6 +25,21 @@ namespace Hulen.BusinessServices.Services
             if (content == "WEEK")
                 return GetAccountInfoWeek();
             return new List<string>();
+        }
+
+        public IEnumerable<AccountInfoPartsDTO> GetAllPartsDTO()
+        {
+            return _partsRepository.GetAll();
+        }
+
+        public IEnumerable<AccountInfoResultsDTO> GetAllResultsDTO()
+        {
+            return _resultsRepository.GetAll();
+        }
+
+        public IEnumerable<AccountInfoWeekDTO> GetAllWeeksDTO()
+        {
+            return _weekRepository.GetAll();
         }
 
         private List<string> GetAccountInfoParts()

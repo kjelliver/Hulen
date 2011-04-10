@@ -8,6 +8,6 @@ namespace Hulen.Storage.Interfaces
 {
     public interface IAccountInfoWeekRepository
     {
-        ICollection<AccountInfoWeekDTO> GetAll();
+        IEnumerable<AccountInfoWeekDTO> GetAll();
     }
 }
