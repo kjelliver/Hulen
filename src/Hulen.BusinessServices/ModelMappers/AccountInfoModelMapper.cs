@@ -7,7 +7,7 @@ using Hulen.BusinessServices.Services;
 using Hulen.Objects.DTO;
 using Hulen.Objects.ViewModels;
 
-namespace Hulen.WebCode.ModelMappers
+namespace Hulen.BusinessServices.ModelMappers
 {
     public class AccountInfoModelMapper
     {

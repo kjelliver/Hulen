@@ -1,23 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data;
 using System.IO;
 using Excel;
 using Hulen.BusinessServices.Interfaces;
+using Hulen.BusinessServices.ModelMappers;
 using Hulen.Objects.DTO;
 using Hulen.Objects.ViewModels;
-using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
 using Hulen.Storage.Repositories;
-using Hulen.WebCode.ModelMappers;
 
 namespace Hulen.BusinessServices.Services
 {
-    public class AccountInfoServices : IAccountInfoServices
+    public class AccountInfoService : IAccountInfoService
     {
         private readonly IAccountInfoRepository _accountInfoRepository = new AccountInfoRepository(); 
         private readonly AccountInfoModelMapper _accountInfoModelMapper = new AccountInfoModelMapper();
+
+        public AccountInfoViewModel GetOneAccountInfoById(Guid id)
+        {
+            return _accountInfoModelMapper.MapOneForView(_accountInfoRepository.GetOneById(id));
+        }
 
         public IEnumerable<AccountInfoViewModel> GetAllAccountInfos()
         {
@@ -27,16 +30,6 @@ namespace Hulen.BusinessServices.Services
         public void SaveOneAccountInfo(AccountInfoViewModel accountInfoModel)
         {
             _accountInfoRepository.SaveOne(_accountInfoModelMapper.MapOneForDataBase(accountInfoModel));
-        }
-
-        public void SaveMenyAccountInfos(List<AccountInfoDTO> allAccountInfos)
-        {
-            throw new NotImplementedException();
-        }
-
-        public AccountInfoViewModel GetOneAccountInfoById(Guid id)
-        {
-            return _accountInfoModelMapper.MapOneForView(_accountInfoRepository.GetOneById(id));
         }
 
         public void UpdateOneAccountInfo(AccountInfoViewModel accountInfo)
@@ -62,11 +55,9 @@ namespace Hulen.BusinessServices.Services
 
         public void ImportFile(Stream inputStream, string year)
         {
-            var allAccountInfos = new List<AccountInfoDTO>();
-
             DeleteAllAccountInfosByYear(Convert.ToInt32(year));
             var dataSet = ConvertStreamToDataSet(inputStream);
-            allAccountInfos = ConvertDataSetToObjectCollection(dataSet, Convert.ToInt32(year));
+            List<AccountInfoDTO> allAccountInfos = ConvertDataSetToObjectCollection(dataSet, Convert.ToInt32(year));
             _accountInfoRepository.SaveMeny(allAccountInfos);
         }
 
@@ -76,7 +67,7 @@ namespace Hulen.BusinessServices.Services
             return reader.AsDataSet();
         }
 
-        private List<AccountInfoDTO> ConvertDataSetToObjectCollection(DataSet dataSet, int year)
+        private static List<AccountInfoDTO> ConvertDataSetToObjectCollection(DataSet dataSet, int year)
         {
             var allAccountInfos = new List<AccountInfoDTO>();
 

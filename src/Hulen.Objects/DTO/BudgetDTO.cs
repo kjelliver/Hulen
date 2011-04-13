@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Hulen.Storage.DTO
+namespace Hulen.Objects.DTO
 {
-    public class Budget
+    public class BudgetDTO
     {
         public virtual Guid Id { get; set; }
         public virtual int AccountNumber { get; set; }

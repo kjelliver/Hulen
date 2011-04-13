@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.BusinessServices.Services;
@@ -12,8 +9,14 @@ namespace Hulen.WebCode.Controllers
 {
     public class AccountInfoController : Controller
     {
-        private readonly IAccountInfoServices _accountInfoService = new AccountInfoServices();
-        private readonly IDropDownService _dropDownService = new DropDownService(); 
+        private readonly IAccountInfoService _accountInfoService;
+        private readonly IDropDownService _dropDownService; 
+
+        public AccountInfoController()
+        {
+            _accountInfoService = new AccountInfoService();
+            _dropDownService = new DropDownService(); 
+        }
 
         public ActionResult Index()
         {

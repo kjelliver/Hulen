@@ -8,68 +8,68 @@
   </SettingsComponent>
   <RecentFiles>
     <RecentFiles>
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IFileImportService.cs" caret="189" fromTop="6" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:FileImportService.cs" caret="252" fromTop="10" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IAccountInfoServices.cs" caret="706" fromTop="16" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoServices.cs" caret="2262" fromTop="29" />
-      <File id="C852431A-3055-4E63-9C11-8003E08B309E/d:Models/f:FileImportWebModel.cs" caret="232" fromTop="11" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Edit.aspx" caret="893" fromTop="24" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:FileImport/f:Index.aspx" caret="808" fromTop="18" />
-      <File id="C852431A-3055-4E63-9C11-8003E08B309E/d:Controllers/f:FileImportController.cs" caret="82" fromTop="2" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Mappings/f:AccountInfoDTO.hbm.xml" caret="599" fromTop="10" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:BudgetRepository.cs" caret="0" fromTop="0" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/f:NHibernateHelper.cs" caret="597" fromTop="17" />
-      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:AccountInfo/f:Index.aspx" caret="0" fromTop="0" />
       <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Mappings/f:AccountInfoResultsDTO.hbm.xml" caret="356" fromTop="6" />
-      <File id="C852431A-3055-4E63-9C11-8003E08B309E/d:Controllers/f:AccountInfoController.cs" caret="2329" fromTop="15" />
       <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Mappings/f:AccountInfoPartsDTO.hbm.xml" caret="378" fromTop="9" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Mappings/f:AccountInfoWeek.hbm.xml" caret="294" fromTop="4" />
       <File id="DDEA231F-8E50-4538-A79D-55A45A686B22/d:DTO/f:AccountInfoWeekDTO.cs" caret="0" fromTop="0" />
       <File id="DDEA231F-8E50-4538-A79D-55A45A686B22/d:DTO/f:AccountInfoResultsDTO.cs" caret="0" fromTop="0" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoRepository.cs" caret="0" fromTop="0" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoRepository.cs" caret="1779" fromTop="24" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoPartsRepository.cs" caret="218" fromTop="9" />
-      <File id="DDEA231F-8E50-4538-A79D-55A45A686B22/d:DTO/f:AccountInfoPartsDTO.cs" caret="0" fromTop="0" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoResultsRepository.cs" caret="180" fromTop="7" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoPartsRepository.cs" caret="111" fromTop="3" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoResultsRepository.cs" caret="0" fromTop="0" />
       <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoWeekRepository.cs" caret="306" fromTop="8" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoWeekRepository.cs" caret="262" fromTop="10" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:DropDownService.cs" caret="1337" fromTop="17" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IDropDownService.cs" caret="273" fromTop="9" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:ModelMappers/f:AccountInfoModelMapper.cs" caret="1265" fromTop="11" />
+      <File id="DDEA231F-8E50-4538-A79D-55A45A686B22/d:DTO/f:AccountInfoPartsDTO.cs" caret="0" fromTop="0" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoResultsRepository.cs" caret="360" fromTop="12" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:ModelMappers/f:AccountInfoModelMapper.cs" caret="297" fromTop="9" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoPartsRepository.cs" caret="111" fromTop="3" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Mappings/f:AccountInfoWeekDTO.hbm.xml" caret="294" fromTop="4" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IDropDownService.cs" caret="0" fromTop="0" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:DropDownService.cs" caret="0" fromTop="0" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoResultsRepository.cs" caret="0" fromTop="0" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoWeekRepository.cs" caret="0" fromTop="0" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoRepository.cs" caret="614" fromTop="18" />
+      <File id="C852431A-3055-4E63-9C11-8003E08B309E/d:Controllers/f:AccountInfoController.cs" caret="724" fromTop="23" />
+      <File id="DDEA231F-8E50-4538-A79D-55A45A686B22/d:DTO/f:BudgetDTO.cs" caret="0" fromTop="0" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Mappings/f:AccountInfoDTO.hbm.xml" caret="0" fromTop="0" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Mappings/f:BudgetDTO.hbm.xml" caret="308" fromTop="5" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoPartsRepository.cs" caret="0" fromTop="0" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoRepository.cs" caret="0" fromTop="0" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:AccountInfoService.cs" caret="2472" fromTop="19" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IAccountInfoService.cs" caret="684" fromTop="17" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IBudgetService.cs" caret="245" fromTop="8" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IFileImportService.cs" caret="297" fromTop="10" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:FileImportService.cs" caret="213" fromTop="8" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:BudgetRepository.cs" caret="218" fromTop="0" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IBudgetRepository.cs" caret="320" fromTop="9" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="633" fromTop="21" />
+      <File id="C852431A-3055-4E63-9C11-8003E08B309E/d:Controllers/f:FileImportController.cs" caret="625" fromTop="23" />
     </RecentFiles>
     <RecentEdits>
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Mappings/f:AccountInfoWeek.hbm.xml" caret="303" fromTop="4" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoWeekRepository.cs" caret="0" fromTop="0" />
-      <File id="DDEA231F-8E50-4538-A79D-55A45A686B22/d:DTO/f:AccountInfoResultsDTO.cs" caret="0" fromTop="0" />
-      <File id="DDEA231F-8E50-4538-A79D-55A45A686B22/d:DTO/f:AccountInfoWeekDTO.cs" caret="171" fromTop="10" />
-      <File id="DDEA231F-8E50-4538-A79D-55A45A686B22/d:DTO/f:AccountInfoWeekDTO.cs" caret="0" fromTop="0" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:DropDownService.cs" caret="2030" fromTop="21" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:DropDownService.cs" caret="2369" fromTop="32" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:DropDownService.cs" caret="668" fromTop="15" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoWeekRepository.cs" caret="586" fromTop="11" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoResultsRepository.cs" caret="527" fromTop="14" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoPartsRepository.cs" caret="519" fromTop="17" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoWeekRepository.cs" caret="530" fromTop="12" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IDropDownService.cs" caret="0" fromTop="0" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:DropDownService.cs" caret="354" fromTop="11" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:DropDownService.cs" caret="1148" fromTop="20" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:ModelMappers/f:AccountInfoModelMapper.cs" caret="912" fromTop="19" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:ModelMappers/f:AccountInfoModelMapper.cs" caret="966" fromTop="20" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoPartsRepository.cs" caret="180" fromTop="8" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoPartsRepository.cs" caret="293" fromTop="13" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoPartsRepository.cs" caret="0" fromTop="0" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoResultsRepository.cs" caret="297" fromTop="10" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoResultsRepository.cs" caret="180" fromTop="7" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:AccountInfoWeekRepository.cs" caret="306" fromTop="8" />
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IAccountInfoWeekRepository.cs" caret="232" fromTop="10" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:DropDownService.cs" caret="1224" fromTop="14" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:DropDownService.cs" caret="1078" fromTop="9" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:DropDownService.cs" caret="1367" fromTop="19" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IDropDownService.cs" caret="273" fromTop="9" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:ModelMappers/f:AccountInfoModelMapper.cs" caret="979" fromTop="22" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:ModelMappers/f:AccountInfoModelMapper.cs" caret="581" fromTop="1" />
+      <File id="DDEA231F-8E50-4538-A79D-55A45A686B22/d:DTO/f:BudgetDTO.cs" caret="0" fromTop="0" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Mappings/f:BudgetDTO.hbm.xml" caret="272" fromTop="4" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IBudgetRepository.cs" caret="59" fromTop="1" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:BudgetRepository.cs" caret="510" fromTop="17" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:BudgetRepository.cs" caret="1115" fromTop="33" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:BudgetRepository.cs" caret="0" fromTop="0" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:BudgetRepository.cs" caret="1513" fromTop="17" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IBudgetService.cs" caret="0" fromTop="0" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IBudgetService.cs" caret="250" fromTop="7" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="127" fromTop="3" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="1597" fromTop="17" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="1831" fromTop="22" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="1218" fromTop="8" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:BudgetRepository.cs" caret="282" fromTop="7" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:BudgetRepository.cs" caret="705" fromTop="20" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="737" fromTop="24" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IBudgetService.cs" caret="236" fromTop="7" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Interfaces/f:IFileImportService.cs" caret="199" fromTop="7" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:FileImportService.cs" caret="454" fromTop="13" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:FileImportService.cs" caret="813" fromTop="22" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="990" fromTop="10" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="1386" fromTop="20" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="1514" fromTop="24" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="3041" fromTop="38" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="3130" fromTop="17" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:BudgetRepository.cs" caret="1576" fromTop="33" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:BudgetRepository.cs" caret="1334" fromTop="30" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:BudgetRepository.cs" caret="1177" fromTop="21" />
+      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IBudgetRepository.cs" caret="319" fromTop="9" />
+      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:BudgetService.cs" caret="632" fromTop="21" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -85,14 +85,14 @@
   </UnitTestRunnerNUnit>
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
-      <Item value="new" priority="81" />
+      <Item value="new" priority="83" />
       <Item value="test" priority="5" />
       <Item value="AccountInfo" priority="0" />
       <Item value="acc" priority="5" />
       <Item value="true" priority="2" />
-      <Item value="public" priority="49" />
-      <Item value="int" priority="14" />
-      <Item value="string" priority="22" />
+      <Item value="public" priority="52" />
+      <Item value="int" priority="16" />
+      <Item value="string" priority="28" />
       <Item value="interface" priority="1" />
       <Item value="_accountInfoServices" priority="4" />
       <Item value="List" priority="12" />
@@ -102,7 +102,7 @@
       <Item value="contactToCreate" priority="0" />
       <Item value="accountInfoToCreate" priority="1" />
       <Item value="AccountInfoDTO`0" priority="16" />
-      <Item value="private" priority="29" />
+      <Item value="private" priority="31" />
       <Item value="IAccountInfoRepository`0" priority="2" />
       <Item value="_accountInfoRepository" priority="19" />
       <Item value="this" priority="1" />
@@ -113,7 +113,7 @@
       <Item value="accountInfoDTO" priority="4" />
       <Item value="try" priority="0" />
       <Item value="accountInfoToDelete" priority="0" />
-      <Item value="accountInfo" priority="22" />
+      <Item value="accountInfo" priority="28" />
       <Item value="item" priority="2" />
       <Item value="order" priority="0" />
       <Item value="NHibernate" priority="1" />
@@ -132,7 +132,7 @@
       <Item value="WeekCategory" priority="0" />
       <Item value="IsIncome" priority="0" />
       <Item value="Array`0" priority="0" />
-      <Item value="String`0" priority="3" />
+      <Item value="String`0" priority="4" />
       <Item value="_repository" priority="13" />
       <Item value="AccountInfoViewModelMapper`0" priority="0" />
       <Item value="AccountInfoViewModelMapper" priority="0" />
@@ -141,8 +141,8 @@
       <Item value="accountInfoModelView" priority="2" />
       <Item value="_mapper" priority="8" />
       <Item value="return" priority="29" />
-      <Item value="_parts" priority="2" />
-      <Item value="account" priority="8" />
+      <Item value="_parts" priority="3" />
+      <Item value="account" priority="11" />
       <Item value="for" priority="0" />
       <Item value="i" priority="2" />
       <Item value="result" priority="2" />
@@ -197,7 +197,7 @@
       <Item value="Reporting" priority="0" />
       <Item value="AccountInfoReport" priority="1" />
       <Item value="_accountInfoReporting" priority="0" />
-      <Item value="void" priority="2" />
+      <Item value="void" priority="3" />
       <Item value="_workSheet" priority="1" />
       <Item value="_workBook" priority="0" />
       <Item value="_templates" priority="0" />
@@ -208,7 +208,7 @@
       <Item value="document" priority="12" />
       <Item value="outputStream" priority="0" />
       <Item value="rapport" priority="0" />
-      <Item value="readonly" priority="6" />
+      <Item value="readonly" priority="7" />
       <Item value="_reportService" priority="3" />
       <Item value="IReportingServices`0" priority="0" />
       <Item value="PdfReader`0" priority="0" />
@@ -270,7 +270,7 @@
       <Item value="AccountInfoWebModel`0" priority="1" />
       <Item value="AccountInfoWebModel" priority="0" />
       <Item value="uploadFile" priority="0" />
-      <Item value="inputStream" priority="3" />
+      <Item value="inputStream" priority="5" />
       <Item value="StreamReader`0" priority="0" />
       <Item value="Excel" priority="1" />
       <Item value="ExcelBinaryReader`0" priority="0" />
@@ -280,7 +280,7 @@
       <Item value="RowNotInTableException`0" priority="0" />
       <Item value="DataRow`0" priority="0" />
       <Item value="row" priority="3" />
-      <Item value="IEnumerable" priority="1" />
+      <Item value="IEnumerable" priority="2" />
       <Item value="test3" priority="0" />
       <Item value="newAccountInfo" priority="7" />
       <Item value="Convert`0" priority="2" />
@@ -292,11 +292,11 @@
       <Item value="ExcelBinary12Reader" priority="0" />
       <Item value="DataSet`0" priority="0" />
       <Item value="ConvertStreamToDataSet`0" priority="0" />
-      <Item value="allAccountInfos" priority="3" />
+      <Item value="allAccountInfos" priority="4" />
       <Item value="File`0" priority="0" />
       <Item value="Controllers" priority="0" />
       <Item value="DropDownHelper`0" priority="0" />
-      <Item value="year" priority="0" />
+      <Item value="year" priority="1" />
       <Item value="AccountInfoServices`0" priority="0" />
       <Item value="IFileImport`0" priority="0" />
       <Item value="FileImport`0" priority="0" />
@@ -325,8 +325,20 @@
       <Item value="_resultsRepository" priority="0" />
       <Item value="_weekRepository" priority="0" />
       <Item value="AccountInfoModelMapper`0" priority="0" />
-      <Item value="_week" priority="0" />
-      <Item value="_result" priority="2" />
+      <Item value="_week" priority="1" />
+      <Item value="_result" priority="6" />
+      <Item value="IQueryable`0" priority="0" />
+      <Item value="MapOneForView`0" priority="0" />
+      <Item value="FileImportController`0" priority="0" />
+      <Item value="_fileImportService" priority="0" />
+      <Item value="AccountInfoController`0" priority="0" />
+      <Item value="_budgetRepository" priority="1" />
+      <Item value="DataSetSchemaImporterExtension`0" priority="0" />
+      <Item value="IBudgetService`0" priority="0" />
+      <Item value="BudgetService`0" priority="0" />
+      <Item value="_budgetService" priority="0" />
+      <Item value="budgetStatus" priority="2" />
+      <Item value="query" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Hulen.Storage.Interfaces.IAccountInfoRepository">
       <Item value="Add`0" priority="4" />
@@ -401,7 +413,7 @@
       <Item value="TextBoxFor`2" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Int32">
-      <Item value="ToString`0" priority="7" />
+      <Item value="ToString`0" priority="8" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Convert">
       <Item value="ToInt32`0" priority="3" />
@@ -589,9 +601,9 @@
     <ItemStatistics item="Qualified:Hulen.Objects.DTO.AccountInfoDTO">
       <Item value="AccountNumber" priority="0" />
       <Item value="AccountName" priority="0" />
-      <Item value="ResultReportCategory" priority="0" />
-      <Item value="PartsReportCategory" priority="0" />
-      <Item value="WeekCategory" priority="0" />
+      <Item value="ResultReportCategory" priority="2" />
+      <Item value="PartsReportCategory" priority="2" />
+      <Item value="WeekCategory" priority="1" />
       <Item value="IsIncome" priority="0" />
       <Item value="Year" priority="0" />
     </ItemStatistics>
@@ -599,6 +611,9 @@
       <Item value="AccountNumber" priority="0" />
       <Item value="Id" priority="0" />
       <Item value="Year" priority="1" />
+      <Item value="ResultReportCategory" priority="0" />
+      <Item value="PartsReportCategory" priority="0" />
+      <Item value="WeekCategory" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Hulen.BusinessServices.Interfaces.IFileImportService">
       <Item value="ImportFile`0" priority="0" />
@@ -608,9 +623,13 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:NHibernate.ISession">
       <Item value="Get`1" priority="0" />
+      <Item value="Delete`0" priority="1" />
+      <Item value="QueryOver`1" priority="0" />
+      <Item value="CreateQuery`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Hulen.Objects.DTO.AccountInfoPartsDTO">
-      <Item value="Name" priority="0" />
+      <Item value="Name" priority="2" />
+      <Item value="Id" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Hulen.Storage.Interfaces.IAccountInfoPartsRepository">
       <Item value="GetAll`0" priority="0" />
@@ -621,6 +640,30 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
       <Item value="ToList`1" priority="0" />
+      <Item value="Where`1" priority="1" />
+      <Item value="Select`2" priority="1" />
+      <Item value="Single`1" priority="6" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.Objects.DTO.AccountInfoResultsDTO">
+      <Item value="Name" priority="5" />
+      <Item value="Id" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.Objects.DTO.AccountInfoWeekDTO">
+      <Item value="Id" priority="0" />
+      <Item value="Name" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.ObjectModel.Collection`1">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.Storage.Interfaces.IBudgetRepository">
+      <Item value="Add`0" priority="0" />
+      <Item value="DeleteExistingBudget`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Hulen.BusinessServices.Interfaces.IBudgetService">
+      <Item value="ImportFile`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.IQuery">
+      <Item value="ExecuteUpdate`0" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>

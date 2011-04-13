@@ -6,16 +6,15 @@ using Hulen.Objects.ViewModels;
 
 namespace Hulen.BusinessServices.Interfaces
 {
-    public interface IAccountInfoServices
+    public interface IAccountInfoService
     {
-        IEnumerable<AccountInfoViewModel> GetAllAccountInfos();
-        void SaveOneAccountInfo(AccountInfoViewModel accountInfoModel);
-        void SaveMenyAccountInfos(List<AccountInfoDTO> allAccountInfos);        
         AccountInfoViewModel GetOneAccountInfoById(Guid id);
+        IEnumerable<AccountInfoViewModel> GetAllAccountInfos();
+        void SaveOneAccountInfo(AccountInfoViewModel accountInfoModel);        
         void UpdateOneAccountInfo(AccountInfoViewModel accountInfo);
         void DeleteOneAccountInfo(AccountInfoViewModel accountInfo);
-        void ImportFile(Stream inputStream, string year);
         void DeleteOneAccountInfoById(Guid id);
         void DeleteAllAccountInfosByYear(int year);
+        void ImportFile(Stream inputStream, string year);
     }
 }

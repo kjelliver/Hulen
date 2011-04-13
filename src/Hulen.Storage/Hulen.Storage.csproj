@@ -58,7 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\Budget.cs" />
     <Compile Include="DTO\ResultAccount.cs" />
     <Compile Include="Interfaces\IAccountInfoPartsRepository.cs" />
     <Compile Include="Interfaces\IAccountInfoRepository.cs" />
@@ -113,9 +112,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Mappings\AccountInfoResultsDTO.hbm.xml" />
-    <EmbeddedResource Include="Mappings\AccountInfoWeek.hbm.xml" />
+    <EmbeddedResource Include="Mappings\AccountInfoWeekDTO.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mappings\AccountInfoPartsDTO.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Budget.hbm.xml" />
+    <EmbeddedResource Include="Mappings\BudgetDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\ResultAccount.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

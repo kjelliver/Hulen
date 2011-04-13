@@ -77,11 +77,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\AccountInfoImport\Index.ascx" />
     <Content Include="Views\AccountInfo\Create.aspx" />
     <Content Include="Views\AccountInfo\Delete.aspx" />
     <Content Include="Views\AccountInfo\Edit.aspx" />
     <Content Include="Views\AccountInfo\Index.aspx" />
-    <Content Include="Views\FileImport\Index.aspx" />
+    <Content Include="Views\BudgetImport\Index.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Views\FileImport\Index.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Views\Report\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

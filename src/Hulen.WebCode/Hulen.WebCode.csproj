@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountInfoController.cs" />
-    <Compile Include="Controllers\FileImportController.cs" />
+    <Compile Include="Controllers\FileImportControllers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Models\AccountInfoWebModels.cs" />
@@ -65,6 +65,9 @@
       <Project>{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}</Project>
       <Name>Hulen.ReportingServices</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Storage" namespace="Hulen.Storage.DTO">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Objects.DTO">
 
-  <class name="Hulen.Storage.DTO.Budget, Hulen.Storage" table="Budget" lazy="false">
+  <class name="Hulen.Objects.DTO.BudgetDTO, Hulen.Objects" table="Budget" lazy="false">
     <id name ="Id" column="Id">
       <generator class="guid" />
     </id>

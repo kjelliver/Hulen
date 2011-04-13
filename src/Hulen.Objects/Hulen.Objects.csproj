@@ -44,6 +44,7 @@
     <Compile Include="DTO\AccountInfoPartsDTO.cs" />
     <Compile Include="DTO\AccountInfoResultsDTO.cs" />
     <Compile Include="DTO\AccountInfoWeekDTO.cs" />
+    <Compile Include="DTO\BudgetDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AccountInfoViewModel.cs" />
   </ItemGroup>
