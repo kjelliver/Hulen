@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Storage" namespace="Hulen.Storage.DTO">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Objects.DTO">
 
-  <class name="Hulen.Storage.DTO.ResultAccount, Hulen.Storage" table="Result" lazy="false">
+  <class name="Hulen.Objects.DTO.ResultAccountDTO, Hulen.Objects" table="ResultAccount" lazy="false">
     <id name ="Id" column="Id">
       <generator class="guid" />
     </id>
@@ -10,8 +10,8 @@
     <property name="Year" column="Year" />
     <property name="AmountMonth" column="AmountMonth" />
     <property name="AmountSoFar" column="AmountSoFar" />
+    <property name="RealAccount" column="RealAccount" />
 
   </class>
 
 </hibernate-mapping>
-

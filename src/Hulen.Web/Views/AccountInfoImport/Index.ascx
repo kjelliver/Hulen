@@ -16,7 +16,7 @@
             </div>
 
             <input name="uploadFile" type="file" />
-            <input type="submit" value="Upload File" />
+            <input type="submit" value="Last opp" />
         </fieldset>
 <%} %>
  

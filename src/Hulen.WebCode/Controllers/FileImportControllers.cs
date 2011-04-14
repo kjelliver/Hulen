@@ -17,11 +17,11 @@ namespace Hulen.WebCode.Controllers
 
     public class AccountInfoImportController : Controller
     {
-        private readonly IFileImportService _fileImportService;
+        private readonly IAccountInfoService _accountInfoImportService;
 
         public AccountInfoImportController()
         {
-            _fileImportService = new FileImportService();
+            _accountInfoImportService = new AccountInfoService() ;
         }
 
         public ActionResult Index()
@@ -35,7 +35,7 @@ namespace Hulen.WebCode.Controllers
         {
             if (uploadFile.ContentLength > 0)
             {
-                _fileImportService.ImportFile("ACCOUNT_INFO", uploadFile.InputStream, model.AccountInfoYear);
+                _accountInfoImportService.ImportFile(uploadFile.InputStream, model.AccountInfoYear);
             }
             return RedirectToAction("Index", "FileImport");
         }
@@ -43,11 +43,11 @@ namespace Hulen.WebCode.Controllers
 
     public class BudgetImportController : Controller
     {
-        private readonly IFileImportService _fileImportService;
+        private readonly IBudgetService _budgetImportService;
 
         public BudgetImportController()
         {
-            _fileImportService = new FileImportService();
+            _budgetImportService = new BudgetService();
         }
 
         public ActionResult Index()
@@ -62,7 +62,33 @@ namespace Hulen.WebCode.Controllers
         {
             if (uploadFile.ContentLength > 0)
             {
-                _fileImportService.ImportFile("BUDGET_YEAR", uploadFile.InputStream, model.BudgetYear, model.BudgetStatus);
+                _budgetImportService.ImportFile(uploadFile.InputStream, model.BudgetYear, model.BudgetStatus);
+            }
+            return RedirectToAction("Index", "FileImport");
+        }
+    }
+
+    public class ResultAccountImportController : Controller
+    {
+        private readonly IResultAccountService _resultAccountService;
+
+        public ResultAccountImportController()
+        {
+            _resultAccountService = new ResultAccountService();
+        }
+
+        public ActionResult Index()
+        {
+            var model = new ResultAccountImportWebModel();
+            return View(model);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Index(HttpPostedFileBase uploadFile, ResultAccountImportWebModel model)
+        {
+            if (uploadFile.ContentLength > 0)
+            {
+                _resultAccountService.ImportFile(uploadFile.InputStream, model.Month, model.ResultYear);
             }
             return RedirectToAction("Index", "FileImport");
         }

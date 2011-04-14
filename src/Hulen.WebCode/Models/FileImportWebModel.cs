@@ -20,4 +20,10 @@ namespace Hulen.WebCode.Models
         public List<string> BudgetStatusList { get; set; }
         public string BudgetStatus { get; set; }
     } 
+
+    public class ResultAccountImportWebModel
+    {
+        public string Month { get; set; }
+        public string ResultYear { get; set; }
+    }
 }

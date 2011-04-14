@@ -117,7 +117,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\AccountInfoPartsDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\BudgetDTO.hbm.xml" />
-    <EmbeddedResource Include="Mappings\ResultAccount.hbm.xml">
+    <EmbeddedResource Include="Mappings\ResultAccountDTO.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

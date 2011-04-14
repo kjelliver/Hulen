@@ -89,6 +89,9 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="Views\Report\Index.aspx" />
+    <Content Include="Views\ResultAccountImport\Index.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
