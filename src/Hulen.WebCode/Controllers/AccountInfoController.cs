@@ -113,7 +113,7 @@ namespace Hulen.WebCode.Controllers
 
         public ActionResult OpenReport()
         { 
-            return RedirectToAction("Index", "Report", new { year = 2011});
+            return RedirectToAction("AccountInfo", "Report", new { year = 2011});
         }
     }
 }

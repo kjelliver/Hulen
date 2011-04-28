@@ -13,6 +13,6 @@ namespace Hulen.Objects.DTO
         public virtual int Year { get; set; }
         public virtual double AmountMonth { get; set; }
         public virtual double AmountSoFar { get; set; }
-        public virtual int? RealAccount { get; set; }
+        public virtual int RealAccount { get; set; }
     }
 }

@@ -10,9 +10,11 @@ namespace Hulen.Storage.Interfaces
         void SaveMeny(ICollection<AccountInfoDTO> accounts);
         AccountInfoDTO GetOneById(Guid id);
         ICollection<AccountInfoDTO> GetAll();
+        IEnumerable<AccountInfoDTO> GetAllByYear(int year);
         AccountInfoDTO GetOneByAccountNumber(int accountNumber);
         void UpdateOne(AccountInfoDTO accountCategory);
         void DeleteOne(AccountInfoDTO accountCategory);
-        void DeleteExistingAccountInfo();   
+        void DeleteExistingAccountInfo();
+        IEnumerable<int> GetAllAccountNumbersByYear(int year);
     }
 }

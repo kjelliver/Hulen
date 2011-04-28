@@ -7,26 +7,37 @@ namespace Hulen.WebCode.Controllers
 {
     public class ReportController : Controller
     {
-        private readonly IReportingServices _reportService = new AccountInfoReport();
+        private readonly IReportingServices _reportService = new ReportingServices.ReportingServices();
 
-        public ActionResult Index(int year)
+        public ActionResult Index()
         {
-            var model = new ReportModel();
-            model.Year = year;
-            model.HtmlBody = GenerateHtmlBody();
-            model.CssStyle = GenerateCssStyle();
+            return View(new ReportModel());
+        }
+
+        public ActionResult AccountInfo(ReportModel model)
+        {
+            model.HtmlBody = GenerateHtmlBody("ACCOUNTINFO");
+            model.CssStyle = GenerateCssStyle("ACCOUNTINFO");
 
             return View(model);
         }
 
-        private string GenerateCssStyle()
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult ResultReport(ReportModel model)
         {
-            return _reportService.GenerateCssStyle();
+            model.HtmlBody = _reportService.GenerateHtmlBodyForResultReport(model.ResultReportMonth, model.ResultReportYear, 0);
+            model.CssStyle = _reportService.GenerateCssStyleForResultReport(model.ResultReportMonth, model.ResultReportYear, 0);
+            return View(model);
         }
 
-        private string GenerateHtmlBody()
+        private string GenerateCssStyle(string type)
         {
-            return _reportService.GenerateHtmlBody();
+            return _reportService.GenerateCssStyle(type);
+        }
+
+        private string GenerateHtmlBody(string type)
+        {
+            return _reportService.GenerateHtmlBody(type);
         }
     }
 }

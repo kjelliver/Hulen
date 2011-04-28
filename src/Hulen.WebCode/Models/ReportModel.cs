@@ -2,9 +2,18 @@
 {
     public class ReportModel
     {
-        public int Year { get; set; }
-        public string Type { get; set; }
+        //HTML
         public string HtmlBody { get; set; }
         public string CssStyle { get; set; }
+
+        //AccountInfo
+        public int AccountInfoYear { get; set; }
+
+        //ResultReport
+        public int ResultReportMonth { get; set; }
+        public int ResultReportYear { get; set; }
+
+        public string Type { get; set; }
+        
     }
 }

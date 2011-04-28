@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Hulen.Objects.DTO;
 
 namespace Hulen.WebCode.Models
 {
@@ -25,5 +26,10 @@ namespace Hulen.WebCode.Models
     {
         public string Month { get; set; }
         public string ResultYear { get; set; }
+
+        
+        public string FailedAccountsList { get; set; }
+        public List<ResultAccountDTO> FailedAccountsCollection { get; set; }
+        public ResultAccountDTO ResultAccount { get; set; }
     }
 }

@@ -1,17 +1,31 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Report.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.ReportModel>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.ReportModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Index
-</asp:Content>
-
-<asp:Content ID="style" ContentPlaceHolderID="StyleContent" runat="server">
-    <%= Model.CssStyle %>
+	Hulen - Skriv ut rapport
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Index</h2>
+    <h2>Rapportoversikt</h2>
 
-    <%= Model.HtmlBody %>
+    <% using (Html.BeginForm("ResultReport", "Report", FormMethod.Post))
+       {%>
+    <table> 
+        <tr>
+            <td>
+                <%:Html.TextBoxFor(m => m.ResultReportMonth)%>            
+            </td>
+            <td>
+                <%:Html.TextBoxFor(m => m.ResultReportYear)%>            
+            </td>
+        </tr>
+    </table>
+
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+
+    <%}%>
 
 </asp:Content>
+

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Hulen.Objects.DTO;
 using Hulen.Storage.Interfaces;
@@ -55,6 +56,37 @@ namespace Hulen.Storage.Repositories
                 foreach (ResultAccountDTO result in existingResult)
                 {
                     session.Delete(result);
+                }
+                transaction.Commit();
+            }
+        }
+
+        public ResultAccountDTO GetOneResultAccountById(Guid id)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+                return session.Get<ResultAccountDTO>(id);
+        }
+
+        public ResultAccountDTO GetOneByAccountNumberMonthAndYear(int accountNumber, int month, int year)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                var result = session.CreateCriteria(typeof (ResultAccountDTO))
+                                                           .Add(Restrictions.Eq("AccountNumber", accountNumber))
+                                                           .Add(Restrictions.Eq("Month", month))
+                                                           .Add(Restrictions.Eq("Year", year)).List();
+                return (ResultAccountDTO) result[0];
+            }
+        }
+
+        public void UpdateMeny(List<ResultAccountDTO> resultAccounts)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            using (ITransaction transaction = session.BeginTransaction())
+            {
+                foreach(ResultAccountDTO resultAccount in resultAccounts)
+                {
+                    session.Update(resultAccount);                        
                 }
                 transaction.Commit();
             }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Hulen.Objects.DTO;
 using Hulen.Storage.Interfaces;
 using NHibernate;

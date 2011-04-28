@@ -24,6 +24,7 @@
                 <ul id="menu">              
                     <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
                     <li><%: Html.ActionLink("About", "About", "Home")%></li>
+                    <li><%: Html.ActionLink("Rapporter", "Index", "Report")%></li>
                     <li><%: Html.ActionLink("Filimportering", "Index", "FileImport")%></li>
                     <li><%: Html.ActionLink("Kontoinformasjon", "Index", "AccountInfo")%></li>
                 </ul>

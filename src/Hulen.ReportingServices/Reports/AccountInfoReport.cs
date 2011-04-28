@@ -5,7 +5,7 @@ using Hulen.Storage.Repositories;
 
 namespace Hulen.ReportingServices.Reports
 {
-    public class AccountInfoReport : IReportingServices
+    public class AccountInfoReport
     {
         private readonly AccountInfoRepository _repository = new AccountInfoRepository();
         readonly StringBuilder _sb = new StringBuilder();
@@ -14,7 +14,6 @@ namespace Hulen.ReportingServices.Reports
         {
             _sb.Clear();
             _sb.AppendLine("<style type=\"text/css\">");
-            _sb.AppendLine("h1 {color:red}");
             _sb.AppendLine(".rowHeader { height:30px; background-color: #AAAAAA; font-weight: bold; }");
             _sb.AppendLine(".columnAccNr { width:7%;}");
             _sb.AppendLine(".columnAccName {width:24%;}");

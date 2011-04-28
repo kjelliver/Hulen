@@ -88,7 +88,12 @@
     <Content Include="Views\FileImport\Index.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="Views\Report\AccountInfo.aspx" />
     <Content Include="Views\Report\Index.aspx" />
+    <Content Include="Views\Report\ResultReport.aspx" />
+    <Content Include="Views\ResultAccountImport\FailedAccounts.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Views\ResultAccountImport\Index.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

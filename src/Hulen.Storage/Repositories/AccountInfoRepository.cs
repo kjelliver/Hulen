@@ -46,6 +46,18 @@ namespace Hulen.Storage.Repositories
             }
         }
 
+        public IEnumerable<AccountInfoDTO> GetAllByYear(int year)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return session
+                    .CreateCriteria(typeof(AccountInfoDTO))
+                    .AddOrder(Order.Asc("AccountNumber"))
+                    .Add(Restrictions.Eq("Year", year))
+                    .List<AccountInfoDTO>();
+            }
+        }
+
         public AccountInfoDTO GetOneByAccountNumber(int accountNumber)
         {
             using (ISession session = NHibernateHelper.OpenSession())
@@ -85,6 +97,19 @@ namespace Hulen.Storage.Repositories
                 }
                 transaction.Commit();
             }
+        }
+
+        public IEnumerable<int> GetAllAccountNumbersByYear(int year)
+        {
+            List<int> validAccountNumbers = new List<int>();
+
+            IEnumerable<AccountInfoDTO> accountInfos = GetAll();
+            
+            foreach(AccountInfoDTO accountInfo in accountInfos)
+            {
+                validAccountNumbers.Add(accountInfo.AccountNumber);
+            }
+            return validAccountNumbers;
         }
     }
 }
