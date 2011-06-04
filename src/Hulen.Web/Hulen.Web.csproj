@@ -88,6 +88,7 @@
     <Content Include="Views\FileImport\Index.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="Views\Shared\Menu.ascx" />
     <Content Include="Views\Report\AccountInfo.aspx" />
     <Content Include="Views\Report\Index.aspx" />
     <Content Include="Views\Report\ResultReport.aspx" />
@@ -97,7 +98,12 @@
     <Content Include="Views\ResultAccountImport\Index.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Views\User\Create.aspx" />
+    <Content Include="Views\User\Edit.aspx" />
+    <Content Include="Views\User\Index.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

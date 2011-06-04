@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using Hulen.Objects.DTO;
-using Hulen.Storage.DTO;
 using Hulen.Storage.Repositories;
 
 namespace Hulen.ReportingServices.Reports

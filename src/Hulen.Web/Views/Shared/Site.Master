@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="Hulen.WebCode.Models" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,36 +9,19 @@
 </head>
 
 <body>
-    <div class="page">
-
-        <div id="header">
-            <div id="title">
-                <h1>My MVC Application</h1>
-            </div>
-              
-            <div id="logindisplay">
-                HulenPulen
-            </div> 
-            
-            <div id="menucontainer">
-            
-                <ul id="menu">              
-                    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
-                    <li><%: Html.ActionLink("About", "About", "Home")%></li>
-                    <li><%: Html.ActionLink("Rapporter", "Index", "Report")%></li>
-                    <li><%: Html.ActionLink("Filimportering", "Index", "FileImport")%></li>
-                    <li><%: Html.ActionLink("Kontoinformasjon", "Index", "AccountInfo")%></li>
-                </ul>
-            
-            </div>
-        </div>
-
-        <div id="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-
-            <div id="footer">
-            </div>
-        </div>
-    </div>
+    <table>
+        <tr>
+            <td>Homebutton</td>
+            <td>HeaderText</td>
+        </tr>
+        <tr>
+            <td>
+                <% Html.RenderPartial("~/Views/Shared/Menu.ascx", new MenuWebModel());%>
+            </td>
+            <td>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

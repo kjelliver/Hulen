@@ -47,10 +47,12 @@
     <Compile Include="Controllers\FileImportControllers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\AccountInfoWebModels.cs" />
     <Compile Include="Models\FileImportWebModel.cs" />
     <Compile Include="Models\MenuWebModel.cs" />
     <Compile Include="Models\ReportModel.cs" />
+    <Compile Include="Models\UserWebModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

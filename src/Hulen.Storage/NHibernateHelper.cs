@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using Hulen.Storage.DTO;
 using NHibernate;
 using NHibernate.Cfg;
 

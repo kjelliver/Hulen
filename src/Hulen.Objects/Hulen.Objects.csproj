@@ -45,7 +45,11 @@
     <Compile Include="DTO\AccountInfoResultsDTO.cs" />
     <Compile Include="DTO\AccountInfoWeekDTO.cs" />
     <Compile Include="DTO\BudgetDTO.cs" />
+    <Compile Include="DTO\MenuCategoryDTO.cs" />
+    <Compile Include="DTO\MenuItemDTO.cs" />
     <Compile Include="DTO\ResultAccountDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="Enum\StorageResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AccountInfoViewModel.cs" />
   </ItemGroup>
