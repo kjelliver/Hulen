@@ -16,7 +16,8 @@
         </tr>
         <tr>
             <td>
-                <% Html.RenderPartial("~/Views/Shared/Menu.ascx", new MenuWebModel());%>
+                <% Html.RenderAction("Menu", "Menu");%>
+
             </td>
             <td>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />

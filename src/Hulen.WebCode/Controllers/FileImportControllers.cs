@@ -22,11 +22,11 @@ namespace Hulen.WebCode.Controllers
 
     public class AccountInfoImportController : Controller
     {
-        private readonly IAccountInfoService _accountInfoImportService;
+        private readonly IAccountInfoService _accountInfoService;
 
-        public AccountInfoImportController()
+        public AccountInfoImportController(IAccountInfoService accountInfoService)
         {
-            _accountInfoImportService = new AccountInfoService() ;
+            _accountInfoService = accountInfoService;
         }
 
         public ActionResult Index()
@@ -40,7 +40,7 @@ namespace Hulen.WebCode.Controllers
         {
             if (uploadFile.ContentLength > 0)
             {
-                _accountInfoImportService.ImportFile(uploadFile.InputStream, model.AccountInfoYear);
+                _accountInfoService.ImportFile(uploadFile.InputStream, model.AccountInfoYear);
             }
             return RedirectToAction("Index", "FileImport");
         }
@@ -48,11 +48,11 @@ namespace Hulen.WebCode.Controllers
 
     public class BudgetImportController : Controller
     {
-        private readonly IBudgetService _budgetImportService;
+        private readonly IBudgetService _budgetService;
 
-        public BudgetImportController()
+        public BudgetImportController(IBudgetService budgetService)
         {
-            _budgetImportService = new BudgetService();
+            _budgetService = budgetService;
         }
 
         public ActionResult Index()
@@ -67,7 +67,7 @@ namespace Hulen.WebCode.Controllers
         {
             if (uploadFile.ContentLength > 0)
             {
-                _budgetImportService.ImportFile(uploadFile.InputStream, model.BudgetYear, model.BudgetStatus);
+                _budgetService.ImportFile(uploadFile.InputStream, model.BudgetYear, model.BudgetStatus);
             }
             return RedirectToAction("Index", "FileImport");
         }
@@ -77,9 +77,9 @@ namespace Hulen.WebCode.Controllers
     {
         private readonly IResultAccountService _resultAccountService;
 
-        public ResultAccountImportController()
+        public ResultAccountImportController(IResultAccountService resultAccountService)
         {
-            _resultAccountService = new ResultAccountService();
+            _resultAccountService = resultAccountService;
         }
 
         public ActionResult Index()

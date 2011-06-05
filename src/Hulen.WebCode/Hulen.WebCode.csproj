@@ -46,6 +46,7 @@
     <Compile Include="Controllers\AccountInfoController.cs" />
     <Compile Include="Controllers\FileImportControllers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\AccountInfoWebModels.cs" />

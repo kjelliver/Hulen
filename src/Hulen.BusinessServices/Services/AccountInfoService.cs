@@ -14,8 +14,15 @@ namespace Hulen.BusinessServices.Services
 {
     public class AccountInfoService : IAccountInfoService
     {
-        private readonly IAccountInfoRepository _accountInfoRepository = new AccountInfoRepository(); 
-        private readonly AccountInfoModelMapper _accountInfoModelMapper = new AccountInfoModelMapper();
+        private readonly IAccountInfoRepository _accountInfoRepository; 
+        private readonly IAccountInfoModelMapper _accountInfoModelMapper;
+
+
+        public AccountInfoService(IAccountInfoRepository accountInfoRepository, IAccountInfoModelMapper accountInfoModelMapper)
+        {
+            _accountInfoRepository = accountInfoRepository;
+            _accountInfoModelMapper = accountInfoModelMapper;
+        }
 
         public AccountInfoViewModel GetOneAccountInfoById(Guid id)
         {

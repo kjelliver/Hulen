@@ -9,7 +9,7 @@ using Hulen.Objects.ViewModels;
 
 namespace Hulen.BusinessServices.ModelMappers
 {
-    public class AccountInfoModelMapper
+    public class AccountInfoModelMapper : IAccountInfoModelMapper
     {
         private readonly IDropDownService _dropDownService;
         private readonly IEnumerable<AccountInfoPartsDTO> _parts;
@@ -17,9 +17,9 @@ namespace Hulen.BusinessServices.ModelMappers
         private readonly IEnumerable<AccountInfoWeekDTO> _week;
         private readonly string[] _income = new[] { "Utgift", "Inntekt" };
 
-        public AccountInfoModelMapper()
+        public AccountInfoModelMapper(IDropDownService dropDownService)
         {
-            _dropDownService = new DropDownService();
+            _dropDownService = dropDownService;
             _parts = _dropDownService.GetAllPartsDTO();
             _result = _dropDownService.GetAllResultsDTO();
             _week = _dropDownService.GetAllWeeksDTO();

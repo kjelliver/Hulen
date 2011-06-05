@@ -12,10 +12,10 @@ namespace Hulen.WebCode.Controllers
         private readonly IAccountInfoService _accountInfoService;
         private readonly IDropDownService _dropDownService; 
 
-        public AccountInfoController()
+        public AccountInfoController(IAccountInfoService accountInfoService, IDropDownService dropDownService)
         {
-            _accountInfoService = new AccountInfoService();
-            _dropDownService = new DropDownService(); 
+            _accountInfoService = accountInfoService;
+            _dropDownService = dropDownService; 
         }
 
         public ActionResult Index()

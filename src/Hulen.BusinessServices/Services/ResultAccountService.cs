@@ -15,8 +15,15 @@ namespace Hulen.BusinessServices.Services
 {
     public class ResultAccountService : IResultAccountService
     {
-        private readonly IResultAccountRepository _resultAccountRepository = new ResultAccountRepository();
-        private readonly IAccountInfoRepository _accountInfoRepository = new AccountInfoRepository();
+        private readonly IResultAccountRepository _resultAccountRepository;
+        private readonly IAccountInfoRepository _accountInfoRepository;
+
+
+        public ResultAccountService(IResultAccountRepository resultAccountRepository, IAccountInfoRepository accountInfoRepository)
+        {
+            _resultAccountRepository = resultAccountRepository;
+            _accountInfoRepository = accountInfoRepository;
+        }
 
         public void ImportFile(Stream inputStream, string month, string year)
         {

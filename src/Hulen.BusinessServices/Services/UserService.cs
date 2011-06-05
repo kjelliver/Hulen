@@ -12,31 +12,26 @@ namespace Hulen.BusinessServices.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _repository;
+        private readonly IUserRepository _userRepository;
 
-        public UserService()
+        public UserService(IUserRepository userRepository)
         {
-            _repository = new UserRepository();
-        }
-
-        public UserService(IUserRepository repository)
-        {
-            _repository = repository;
+            _userRepository = userRepository;
         }
 
         public IEnumerable<UserDTO> GetAllUsers()
         {
-            return _repository.GetAllUsers();
+            return _userRepository.GetAllUsers();
         }
 
         public StorageResult SaveOneUser(UserDTO user)
         {
-            return _repository.SaveOneUser(user);
+            return _userRepository.SaveOneUser(user);
         }
 
         public UserDTO GetOneUser(string username)
         {
-            return _repository.GetOneUserByUsername(username);
+            return _userRepository.GetOneUserByUsername(username);
         }
     }
 }

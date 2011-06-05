@@ -51,6 +51,7 @@
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Interfaces\IWebService.cs" />
     <Compile Include="ModelMappers\AccountInfoModelMapper.cs" />
+    <Compile Include="Interfaces\IAccountInfoModelMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountInfoService.cs" />
     <Compile Include="Services\BudgetService.cs" />

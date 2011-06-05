@@ -9,6 +9,11 @@ namespace Hulen.WebCode.Controllers
     {
         private readonly IReportingServices _reportService = new ReportingServices.ReportingServices();
 
+        public ReportController(IReportingServices reportService)
+        {
+            _reportService = reportService;
+        }
+
         public ActionResult Index()
         {
             return View(new ReportModel());

@@ -11,7 +11,12 @@ namespace Hulen.BusinessServices.Services
 {
     public class WebService : IWebService
     {
-        private readonly IMenuRepository _menuRepository = new MenuRepository();
+        private readonly IMenuRepository _menuRepository;
+
+        public WebService(IMenuRepository menuRepository)
+        {
+            _menuRepository = menuRepository;
+        }
 
         public IEnumerable<MenuItemDTO> GetAllMenuItems()
         {

@@ -12,9 +12,16 @@ namespace Hulen.BusinessServices.Services
 {
     public class DropDownService : IDropDownService
     {
-        private IAccountInfoPartsRepository _partsRepository = new AccountInfoPartsRepository();
-        private IAccountInfoResultsRepository _resultsRepository = new AccountInfoResultsRepository();
-        private IAccountInfoWeekRepository _weekRepository = new AccountInfoWeekRepository();
+        private readonly IAccountInfoPartsRepository _partsRepository;
+        private readonly IAccountInfoResultsRepository _resultsRepository;
+        private readonly IAccountInfoWeekRepository _weekRepository;
+
+        public DropDownService(IAccountInfoPartsRepository partsRepository, IAccountInfoResultsRepository resultsRepository, IAccountInfoWeekRepository weekRepository)
+        {
+            _partsRepository = partsRepository;
+            _resultsRepository = resultsRepository;
+            _weekRepository = weekRepository;
+        }
 
         public List<string> GetDropDownStrings(string content)
         {

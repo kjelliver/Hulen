@@ -15,7 +15,13 @@ namespace Hulen.BusinessServices.Services
 {
     public class BudgetService : IBudgetService
     {
-        private readonly IBudgetRepository _budgetRepository = new BudgetRepository();
+        private readonly IBudgetRepository _budgetRepository;
+
+
+        public BudgetService(IBudgetRepository budgetRepository)
+        {
+            _budgetRepository = budgetRepository;
+        }
 
         public void DeleteAllBudgetsByYearAndStatus(int year, string budgetStatus)
         {
