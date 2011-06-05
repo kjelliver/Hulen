@@ -171,6 +171,10 @@
     <Content Include="Views\Shared\Report.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Hulen.Storage\Hulen.Storage.csproj">
+      <Project>{B6DE12AC-6837-4A1F-9BB7-B622E40A0259}</Project>
+      <Name>Hulen.Storage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hulen.WebCode\Hulen.WebCode.csproj">
       <Project>{C852431A-3055-4E63-9C11-8003E08B309E}</Project>
       <Name>Hulen.WebCode</Name>
