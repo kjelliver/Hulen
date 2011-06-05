@@ -17,3 +17,8 @@ C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\Hulen.Sto
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\obj\Debug\Hulen.Web.dll
 C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\obj\Debug\Hulen.Web.pdb
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\StructureMap.dll
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\WebActivator.dll
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\StructureMap.pdb
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\StructureMap.xml
+C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\src\Hulen.Web\bin\WebActivator.pdb

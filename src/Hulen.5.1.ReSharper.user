@@ -8,8 +8,6 @@
   </SettingsComponent>
   <RecentFiles>
     <RecentFiles>
-      <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Interfaces/f:IMenuRepository.cs" caret="249" fromTop="10" />
-      <File id="04C78095-6734-4B6B-9409-D72E71ED31AD/d:Services/f:WebService.cs" caret="130" fromTop="1" />
       <File id="C852431A-3055-4E63-9C11-8003E08B309E/d:Models/f:MenuWebModel.cs" caret="685" fromTop="26" />
       <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Repositories/f:MenuRepository.cs" caret="898" fromTop="22" />
       <File id="B6DE12AC-6837-4A1F-9BB7-B622E40A0259/d:Mappings/f:AccountInfoDTO.hbm.xml" caret="791" fromTop="16" />
@@ -37,7 +35,9 @@
       <File id="F203F123-6922-4AFB-B4A7-55A8AFDE898F/d:UnitTests/d:WebCode/f:UserControllerTests.cs" caret="4385" fromTop="8" />
       <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:User/f:Index.aspx" caret="1020" fromTop="38" />
       <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:Views/d:User/f:Edit.aspx" caret="276" fromTop="4" />
-      <File id="C852431A-3055-4E63-9C11-8003E08B309E/d:Controllers/f:UserController.cs" caret="0" fromTop="0" />
+      <File id="C852431A-3055-4E63-9C11-8003E08B309E/d:Controllers/f:UserController.cs" caret="1189" fromTop="5" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:DependencyResolution/f:IoC.cs" caret="0" fromTop="0" />
+      <File id="EA7CCA46-7C41-4901-8FA6-60C909F072CE/d:DependencyResolution/f:SmDependencyResolver.cs" caret="0" fromTop="0" />
     </RecentFiles>
     <RecentEdits>
       <File id="C852431A-3055-4E63-9C11-8003E08B309E/d:Controllers/f:UserController.cs" caret="2003" fromTop="30" />
