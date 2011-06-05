@@ -10,10 +10,6 @@ namespace Hulen.WebCode.Controllers
     {
         private readonly IUserService _userService;
 
-        public UserController()
-        {
-            _userService = new UserService();
-        }
         public UserController(IUserService userService)
         {
             _userService = userService;

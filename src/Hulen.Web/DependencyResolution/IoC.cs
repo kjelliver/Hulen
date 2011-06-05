@@ -6,7 +6,7 @@ namespace Hulen.Web {
                         {
                             x.Scan(scan =>
                                     {
-                                        scan.TheCallingAssembly();
+                                        scan.AssembliesFromApplicationBaseDirectory(i => i.FullName.StartsWith("Hulen"));
                                         scan.WithDefaultConventions();
                                     });
             //                x.For<IExample>().Use<Example>();
