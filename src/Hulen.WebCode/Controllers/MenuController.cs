@@ -10,7 +10,7 @@ namespace Hulen.WebCode.Controllers
 {
     public class MenuController : Controller
     {
-        private IWebService _menuService;
+        private readonly IWebService _menuService;
 
         public MenuController(IWebService menuService)
         {
