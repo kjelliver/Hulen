@@ -172,32 +172,30 @@ namespace Hulen.Tests.UnitTests.WebCode
             var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
             _userServiceMock.Setup(x => x.UpdateOneUser(user, false)).Returns(StorageResult.Success);
 
-            var result = _subject.Edit(new UserWebModel { User = new UserDTO(), UserNameStoredInDb = "" });
+            var result = _subject.Edit(new UserWebModel { User = user, UserNameStoredInDb = "user1" });
 
             Assert.That(result.ViewName, Is.EqualTo("Edit"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("Brukeren er endret."));
         }
 
-        [Ignore]
         [Test]
         public void PostEditShouldReturnAllreadyExcistsWhenUpdateIsUpdatingUsername()
         {
             var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
             _userServiceMock.Setup(x => x.UpdateOneUser(user, true)).Returns(StorageResult.AllreadyExsists);
 
-            var result = _subject.Edit(new UserWebModel {User = new UserDTO {Username = "new"}, UserNameStoredInDb = "old"});
+            var result = _subject.Edit(new UserWebModel {User = user, UserNameStoredInDb = "old"});
 
             Assert.That(result.ViewName, Is.EqualTo("Edit"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("Brukernavn finnes fra før."));
         }
 
-        [Ignore]
         [Test]
         public void FailedUpdateReturnsErrorMessage()
         {
             var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
             _userServiceMock.Setup(x => x.UpdateOneUser(user, true)).Throws(new Exception());
-            var result = _subject.Edit(new UserWebModel { User = new UserDTO { Username = "" }, UserNameStoredInDb = "" });
+            var result = _subject.Edit(new UserWebModel { User = user, UserNameStoredInDb = "old" });
             Assert.That(result.ViewName, Is.EqualTo("Edit"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("Feil i underliggende tjenester under lagring av bruker."));
         }

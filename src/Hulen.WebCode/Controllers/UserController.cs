@@ -1,7 +1,5 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.BusinessServices.Services;
 using Hulen.Objects.Enum;
 using Hulen.WebCode.Models;
 
