@@ -12,5 +12,6 @@ namespace Hulen.BusinessServices.Interfaces
         IEnumerable<UserDTO> GetAllUsers();
         StorageResult SaveOneUser(UserDTO user);
         UserDTO GetOneUser(string username);
+        StorageResult UpdateOneUser(UserDTO user, bool changedUsername);
     }
 }

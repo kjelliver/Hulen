@@ -123,13 +123,83 @@ namespace Hulen.Tests.UnitTests.WebCode
         [Test]
         public void EditShouldReturnRightView()
         {
-            var username = "testuser1";
+            const string username = "testuser1";
             _userServiceMock.Setup(x => x.GetOneUser(username)).Returns(new UserDTO {Username = username});
             var result = _subject.Edit(username);
 
             Assert.That(result.ViewData.Model, Is.InstanceOf(typeof(UserWebModel)));
             Assert.That(result.ViewName == "Edit");
             _userServiceMock.Verify(x => x.GetOneUser(username), Times.Once());
+        }
+
+        [Test]
+        public void FailedGetReturnsErrorMessage()
+        {
+            const string username = "testuser1";
+            _userServiceMock.Setup(x => x.GetOneUser(username)).Throws(new Exception());
+            var result = _subject.Edit(username);
+            Assert.That(result.ViewName, Is.EqualTo("Edit"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Feil i underliggende tjenester under henting av bruker."));
+        }
+
+        [Test]
+        public void OtherEditShouldAcceptPostVerbOnly()
+        {
+            Expression<Action<UserController>> expression = c => c.Edit(new UserWebModel());
+            var methodCall = expression.Body as MethodCallExpression;
+            if (methodCall != null)
+            {
+                var acceptVerbs =
+                    (AcceptVerbsAttribute[])methodCall.Method.GetCustomAttributes(typeof(AcceptVerbsAttribute), false);
+                Assert.That(acceptVerbs, !Is.EqualTo(null));
+                Assert.That(acceptVerbs.Length, Is.EqualTo(1));
+                Assert.That(acceptVerbs[0].Verbs.First(), Is.EqualTo("POST"));
+            }
+        }
+
+        [Test]
+        public void InvalidModelShoulReturnEditView()
+        {
+            _subject.ModelState.AddModelError("key", "Model is invalid");
+
+            var result = _subject.Edit(new UserWebModel());
+            Assert.That(result.ViewName, Is.EqualTo("Edit"));
+        }
+
+        [Test]
+        public void PostEditShouldReturnSuccessWhenUpdateIsSuccessfulWhenNotChangedUsername()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            _userServiceMock.Setup(x => x.UpdateOneUser(user, false)).Returns(StorageResult.Success);
+
+            var result = _subject.Edit(new UserWebModel { User = new UserDTO(), UserNameStoredInDb = "" });
+
+            Assert.That(result.ViewName, Is.EqualTo("Edit"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Brukeren er endret."));
+        }
+
+        [Ignore]
+        [Test]
+        public void PostEditShouldReturnAllreadyExcistsWhenUpdateIsUpdatingUsername()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            _userServiceMock.Setup(x => x.UpdateOneUser(user, true)).Returns(StorageResult.AllreadyExsists);
+
+            var result = _subject.Edit(new UserWebModel {User = new UserDTO {Username = "new"}, UserNameStoredInDb = "old"});
+
+            Assert.That(result.ViewName, Is.EqualTo("Edit"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Brukernavn finnes fra før."));
+        }
+
+        [Ignore]
+        [Test]
+        public void FailedUpdateReturnsErrorMessage()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            _userServiceMock.Setup(x => x.UpdateOneUser(user, true)).Throws(new Exception());
+            var result = _subject.Edit(new UserWebModel { User = new UserDTO { Username = "" }, UserNameStoredInDb = "" });
+            Assert.That(result.ViewName, Is.EqualTo("Edit"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Feil i underliggende tjenester under lagring av bruker."));
         }
     }
 }

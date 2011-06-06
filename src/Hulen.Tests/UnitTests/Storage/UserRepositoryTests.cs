@@ -64,6 +64,24 @@ namespace Hulen.Tests.UnitTests.Storage
             Assert.That(IsInCollection(_testUser3, fromDb));
         }
 
+        [Test]
+        public void CanUpdateOneUser()
+        {
+            var user = _userRepository.GetOneUserByUsername("user1");
+            user.Password = "54321";
+            var result = _userRepository.UpdateOneUser(user, false);
+            Assert.That(result, Is.EqualTo(StorageResult.Success));
+        }
+
+        [Test]
+        public void FailingUpdateOneUser()
+        {
+            var user = _userRepository.GetOneUserByUsername("user1");
+            user.Username = "user2";
+            var result = _userRepository.UpdateOneUser(user, true);
+            Assert.That(result, Is.EqualTo(StorageResult.AllreadyExsists));
+        }
+
         [TearDown]
         public void TearDown()
         {

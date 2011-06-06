@@ -8,6 +8,7 @@ namespace Hulen.Objects.Enum
     public enum StorageResult
     {
         Success,
-        AllreadyExsists
+        AllreadyExsists,
+        Failed
     }
 }

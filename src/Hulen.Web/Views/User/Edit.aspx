@@ -12,15 +12,63 @@
         <%: Html.ValidationSummary(true) %>
         
         <fieldset>
+
+            <%: ViewData["Message"] %>
+
+            <% if(Model.User != null){%>
+
             <legend>Kontoinformasjon</legend>
             
-            <p>
-                <input type="submit" value="Save" />
-            </p>
-        </fieldset>
+            <div class="editor-label">
+                <%: Html.LabelFor(m => m.User.Id )%>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(m => m.User.Id, new { @readonly = true})%>
+                <%: Html.ValidationMessageFor(m => m.User.Id )%>
+            </div>
 
+            <div class="editor-label">
+                <%: Html.LabelFor(m => m.User.Username )%>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(m => m.User.Username)%>
+                <%: Html.ValidationMessageFor(m => m.User.Username )%>
+            </div>
+
+            <div class="editor-label">
+                <%: Html.LabelFor(m => m.User.Password )%>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(m => m.User.Password)%>
+                <%: Html.ValidationMessageFor(m => m.User.Password )%>
+            </div>
+
+            <div class="editor-label">
+                <%: Html.LabelFor(m => m.User.Name )%>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(m => m.User.Name)%>
+                <%: Html.ValidationMessageFor(m => m.User.Name )%>
+            </div>
+
+            <div class="editor-label">
+                <%: Html.LabelFor(m => m.User.Disabled )%>
+            </div>
+            <div class="editor-field">
+                <%: Html.CheckBoxFor(m => m.User.Disabled)%>
+                <%: Html.ValidationMessageFor(m => m.User.Disabled )%>
+            </div>
+
+            <%: Html.HiddenFor(m => m.UserNameStoredInDb)%>
+
+            <p>
+                <input type="submit" value="Lagre endringer" />
+            </p>
+        
+            <% } %>
     <% } %>
 
+        </fieldset>
     <div>
         <%: Html.ActionLink("Tilbake til brukeroversikt", "Index")%>
     </div>

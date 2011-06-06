@@ -47,12 +47,44 @@ namespace Hulen.Storage.Repositories
             }
         }
 
+        public StorageResult UpdateOneUser(UserDTO user, bool usernameChanged)
+        {
+            try
+            {
+                if(usernameChanged){
+                    if(GetOneUserByUsername(user.Username) == null)
+                    {
+                        Update(user);
+                        return StorageResult.Success;
+                    }
+                    return StorageResult.AllreadyExsists;
+                }
+                Update(user);
+                return StorageResult.Success;
+            }
+            catch
+            {
+                return StorageResult.Failed;
+            }
+            
+        }
+
         public void DeleteOneUser(UserDTO user)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             using (ITransaction transaction = session.BeginTransaction())
             {
                 session.Delete(user);
+                transaction.Commit();
+            }
+        }
+
+        private static void Update(UserDTO user)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            using (ITransaction transaction = session.BeginTransaction())
+            {
+                session.Update(user);
                 transaction.Commit();
             }
         }

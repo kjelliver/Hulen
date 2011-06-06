@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.BusinessServices.Services;
@@ -48,6 +47,18 @@ namespace Hulen.Tests.UnitTests.BusinessServices
 
             Assert.That(createResult, Is.EqualTo(StorageResult.Success));
             _userRepositoryMock.Verify(x => x.SaveOneUser(user), Times.Once()); 
+        }
+
+        [Test]
+        public void UpdateOneUserCallsRepository()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            _userRepositoryMock.Setup(x => x.UpdateOneUser(user, false)).Returns(StorageResult.AllreadyExsists);
+
+            var updateResult = _subject.UpdateOneUser(user, false);
+
+            Assert.That(updateResult, Is.EqualTo(StorageResult.AllreadyExsists));
+            _userRepositoryMock.Verify(x => x.UpdateOneUser(user, false), Times.Once()); 
         }
 
         private static UserDTO MockUser()

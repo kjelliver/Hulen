@@ -33,5 +33,10 @@ namespace Hulen.BusinessServices.Services
         {
             return _userRepository.GetOneUserByUsername(username);
         }
+
+        public StorageResult UpdateOneUser(UserDTO user, bool changedUsername)
+        {
+            return _userRepository.UpdateOneUser(user, changedUsername);
+        }
     }
 }
