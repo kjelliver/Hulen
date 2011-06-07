@@ -69,13 +69,22 @@ namespace Hulen.Storage.Repositories
             
         }
 
-        public void DeleteOneUser(UserDTO user)
+        public StorageResult DeleteOneUser(string username)
         {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
+            try
             {
-                session.Delete(user);
-                transaction.Commit();
+                var user = GetOneUserByUsername(username);
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Delete(user);
+                    transaction.Commit();
+                }
+                return StorageResult.Success;
+            }
+            catch
+            {
+                return StorageResult.Failed;
             }
         }
 

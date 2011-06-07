@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.Enum;
 using Hulen.WebCode.Models;
@@ -14,10 +15,17 @@ namespace Hulen.WebCode.Controllers
             _userService = userService;
         }
 
-        public ViewResult Index()
+        //public ViewResult Index()
+        //{
+        //    var model = new UserWebModel {Users = _userService.GetAllUsers()};
+        //    return View("Index", model);
+        //}
+
+        public ViewResult Index(string message)
         {
-            var model = new UserWebModel {Users = _userService.GetAllUsers()};
-            return View("Index", model);
+            ViewData["Message"] = message;
+            var model = new UserWebModel { Users = _userService.GetAllUsers() };
+            return View("Index", model);  
         }
 
         public ViewResult Create()
@@ -105,6 +113,27 @@ namespace Hulen.WebCode.Controllers
                 ViewData["Message"] = "Feil i underliggende tjenester under lagring av bruker.";
                 return View("Edit", model);
             }
+        }
+
+        public ViewResult Delete(string username)
+        {
+            try
+            {
+                var deleteResult = _userService.DeleteOneUserByUserName(username);
+                if(deleteResult == StorageResult.Success){
+                    return Index("Brukerenkontoen til " + username + " er slettet.");
+                }
+                if(deleteResult == StorageResult.Failed)
+                {
+                    return Index("Feil i underliggende tjenester ved sletting av brukerkontoen til " + username + ".");
+                }
+                return Index("Ukjent feil under sletting.");
+            }
+            catch
+            {
+                return Index("Feil i underliggende tjenester ved sletting av brukerkontoen til " + username + ".");
+            }
+
         }
 
         private static bool IsUsernameChanged(UserWebModel model)

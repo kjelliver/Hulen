@@ -61,6 +61,18 @@ namespace Hulen.Tests.UnitTests.BusinessServices
             _userRepositoryMock.Verify(x => x.UpdateOneUser(user, false), Times.Once()); 
         }
 
+        [Test]
+        public void DeleteOneUserCallsRepository()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            _userRepositoryMock.Setup(x => x.DeleteOneUser(user.Username)).Returns(StorageResult.Success);
+
+            var updateResult = _subject.DeleteOneUserByUserName(user.Username);
+
+            Assert.That(updateResult, Is.EqualTo(StorageResult.Success));
+            _userRepositoryMock.Verify(x => x.DeleteOneUser(user.Username), Times.Once());
+        }
+
         private static UserDTO MockUser()
         {
             return new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };

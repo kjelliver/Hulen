@@ -13,5 +13,6 @@ namespace Hulen.BusinessServices.Interfaces
         StorageResult SaveOneUser(UserDTO user);
         UserDTO GetOneUser(string username);
         StorageResult UpdateOneUser(UserDTO user, bool changedUsername);
+        StorageResult DeleteOneUserByUserName(string username);
     }
 }

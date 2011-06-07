@@ -11,7 +11,7 @@ namespace Hulen.Storage.Interfaces
     {
         StorageResult SaveOneUser(UserDTO user);
         UserDTO GetOneUserByUsername(string username);
-        void DeleteOneUser(UserDTO user);
+        StorageResult DeleteOneUser(string username);
         IEnumerable<UserDTO> GetAllUsers();
         StorageResult UpdateOneUser(UserDTO user, bool usernameChanged);
     }

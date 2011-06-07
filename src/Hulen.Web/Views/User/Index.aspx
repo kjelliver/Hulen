@@ -8,6 +8,8 @@
 
     <h2>Brukeradmininstrasjon</h2>
 
+    <%: ViewData["Message"] %>
+
     <table>
         <tr>
             <th>
@@ -26,7 +28,7 @@
 
             <td>
                 <%: Html.ActionLink("Rediger", "Edit", new { username = item.Username })%> |
-                <%: Html.ActionLink("Slett", "Index", new { id = item.Id })%>
+                <%: Html.ActionLink("Slett", "Delete", new { username = item.Username })%>
             </td>
         </tr>
     

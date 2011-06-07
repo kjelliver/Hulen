@@ -38,5 +38,10 @@ namespace Hulen.BusinessServices.Services
         {
             return _userRepository.UpdateOneUser(user, changedUsername);
         }
+
+        public StorageResult DeleteOneUserByUserName(string username)
+        {
+            return _userRepository.DeleteOneUser(username);
+        }
     }
 }

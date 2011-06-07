@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
@@ -42,7 +41,7 @@ namespace Hulen.Tests.UnitTests.Storage
         {
             var user = new UserDTO {Username = "user", Password = "pass", Name = "name", Disabled = false};
             _userRepository.SaveOneUser(user);
-            _userRepository.DeleteOneUser(user);
+            _userRepository.DeleteOneUser(user.Username);
             Assert.Null(_userRepository.GetOneUserByUsername("user"));
         }
 
@@ -85,9 +84,9 @@ namespace Hulen.Tests.UnitTests.Storage
         [TearDown]
         public void TearDown()
         {
-            _userRepository.DeleteOneUser(_testUser1);
-            _userRepository.DeleteOneUser(_testUser2);
-            _userRepository.DeleteOneUser(_testUser3);
+            _userRepository.DeleteOneUser(_testUser1.Username);
+            _userRepository.DeleteOneUser(_testUser2.Username);
+            _userRepository.DeleteOneUser(_testUser3.Username);
         }
 
         private static bool IsInCollection(UserDTO u, IEnumerable<UserDTO> fromDb)

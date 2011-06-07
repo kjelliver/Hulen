@@ -29,16 +29,16 @@ namespace Hulen.Tests.UnitTests.WebCode
         [Test]
         public void IndexShouldReturnRightView()
         {
-            var result = _subject.Index();
+            var result = _subject.Index("");
             Assert.That(result.ViewName == "Index");
         }
 
         [Test]
         public void IndexShouldFetchAllUsers()
         {
-            _userServiceMock.Setup(x => x.GetAllUsers()).Returns(new List<UserDTO>{new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false }, new UserDTO { Username = "user2", Password = "pass2", Name = "name2", Disabled = true }, new UserDTO { Username = "user3", Password = "pass3", Name = "name3", Disabled = false }});
-            var result = _subject.Index();
-            var model = (UserWebModel) result.ViewData.Model;
+            _userServiceMock.Setup(x => x.GetAllUsers()).Returns(new List<UserDTO> { new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false }, new UserDTO { Username = "user2", Password = "pass2", Name = "name2", Disabled = true }, new UserDTO { Username = "user3", Password = "pass3", Name = "name3", Disabled = false } });
+            var result = _subject.Index("");
+            var model = (UserWebModel)result.ViewData.Model;
             Assert.That(model.Users.Count(), Is.EqualTo(3));
             _userServiceMock.Verify(x => x.GetAllUsers(), Times.Once());
         }
@@ -198,6 +198,44 @@ namespace Hulen.Tests.UnitTests.WebCode
             var result = _subject.Edit(new UserWebModel { User = user, UserNameStoredInDb = "old" });
             Assert.That(result.ViewName, Is.EqualTo("Edit"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("Feil i underliggende tjenester under lagring av bruker."));
+        }
+
+        [Test]
+        public void DeleteShouldRedirectToRightView()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            var result = _subject.Delete(user.Username);
+            Assert.That(result.ViewName, Is.EqualTo("Index"));
+        }
+
+        [Test]
+        public void DeleteShouldReturnRightViewAndMessageWhenSuccessfulDeleting()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            _userServiceMock.Setup(x => x.DeleteOneUserByUserName(user.Username)).Returns(StorageResult.Success);
+            var result = _subject.Delete(user.Username);
+            Assert.That(result.ViewName, Is.EqualTo("Index"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Brukerenkontoen til user1 er slettet."));
+        }
+
+        [Test]
+        public void DeleteShouldReturnRightViewAndMessageWhenFailedDeleting()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            _userServiceMock.Setup(x => x.DeleteOneUserByUserName(user.Username)).Returns(StorageResult.Failed);
+            var result = _subject.Delete(user.Username);
+            Assert.That(result.ViewName, Is.EqualTo("Index"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Feil i underliggende tjenester ved sletting av brukerkontoen til user1."));
+        }
+
+        [Test]
+        public void DeleteShouldReturnRightViewAndMessageWhenCatchingException()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            _userServiceMock.Setup(x => x.DeleteOneUserByUserName(user.Username)).Throws(new Exception());
+            var result = _subject.Delete(user.Username);
+            Assert.That(result.ViewName, Is.EqualTo("Index"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Feil i underliggende tjenester ved sletting av brukerkontoen til user1."));
         }
     }
 }
