@@ -73,6 +73,33 @@ namespace Hulen.Tests.UnitTests.BusinessServices
             _userRepositoryMock.Verify(x => x.DeleteOneUser(user.Username), Times.Once());
         }
 
+        [Test]
+        public void SuccessfullValidationReturnsTrue()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            _userRepositoryMock.Setup(x => x.GetOneUserByUsername(user.Username)).Returns(user);
+            var result = _subject.ValidateUserPassword("user1", "pass1");
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void UserValidationReturnsFalseWhenDisabled()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = true };
+            _userRepositoryMock.Setup(x => x.GetOneUserByUsername(user.Username)).Returns(user);
+            var result = _subject.ValidateUserPassword("user1", "pass1");
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void UserValidationReturnsFalseWhenWrongUserNameAndPassword()
+        {
+            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            _userRepositoryMock.Setup(x => x.GetOneUserByUsername(user.Username)).Returns(user);
+            var result = _subject.ValidateUserPassword("user1", "wrongpass");
+            Assert.IsFalse(result);
+        }
+
         private static UserDTO MockUser()
         {
             return new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };

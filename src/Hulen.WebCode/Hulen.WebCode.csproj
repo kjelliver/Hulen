@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -43,9 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\HulenAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountInfoController.cs" />
     <Compile Include="Controllers\FileImportControllers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -53,6 +56,7 @@
     <Compile Include="Models\FileImportWebModel.cs" />
     <Compile Include="Models\MenuWebModel.cs" />
     <Compile Include="Models\ReportModel.cs" />
+    <Compile Include="Models\UserAccountModels.cs" />
     <Compile Include="Models\UserWebModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

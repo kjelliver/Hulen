@@ -43,5 +43,11 @@ namespace Hulen.BusinessServices.Services
         {
             return _userRepository.DeleteOneUser(username);
         }
+
+        public bool ValidateUserPassword(string userName, string password)
+        {
+            var user = _userRepository.GetOneUserByUsername(userName) ?? new UserDTO();
+            return user.Password == password && !user.Disabled;
+        }
     }
 }
