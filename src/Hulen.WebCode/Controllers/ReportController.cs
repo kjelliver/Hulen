@@ -1,10 +1,12 @@
 ﻿using System.Web.Mvc;
 using Hulen.ReportingServices;
 using Hulen.ReportingServices.Reports;
+using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
+    [HulenAuthorize]
     public class ReportController : Controller
     {
         private readonly IReportingServices _reportService = new ReportingServices.ReportingServices();

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.BusinessServices.Services;
+using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
+    [HulenAuthorize]
     public class AccountInfoController : Controller
     {
         private readonly IAccountInfoService _accountInfoService;

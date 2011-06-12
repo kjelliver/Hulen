@@ -109,6 +109,7 @@
     <Content Include="Views\ResultAccountImport\Index.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="Views\Shared\StayTheFuckAway.aspx" />
     <Content Include="Views\UserAccount\LogIn.aspx" />
     <Content Include="Views\User\Create.aspx" />
     <Content Include="Views\User\Edit.aspx" />

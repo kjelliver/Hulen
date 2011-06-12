@@ -2,10 +2,12 @@
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.Enum;
+using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
+    [HulenAuthorize]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -14,12 +16,6 @@ namespace Hulen.WebCode.Controllers
         {
             _userService = userService;
         }
-
-        //public ViewResult Index()
-        //{
-        //    var model = new UserWebModel {Users = _userService.GetAllUsers()};
-        //    return View("Index", model);
-        //}
 
         public ViewResult Index(string message)
         {

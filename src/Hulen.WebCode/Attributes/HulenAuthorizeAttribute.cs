@@ -25,12 +25,17 @@ namespace Hulen.WebCode.Attributes
             }
 
             return ValidateUserAccess(username, callingController, callingAction);
-            return base.AuthorizeCore(httpContext);
+        }
+
+        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+        {
+            var result = new ViewResult {ViewName = "StayTheFuckAway"};
+            filterContext.Result = result;
         }
 
         private static bool ValidateUserAccess(string username, string callingController, string callingAction)
         {
-            return true;
+            return false;
         }
     }
 }
