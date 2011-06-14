@@ -11,7 +11,7 @@ namespace Hulen.WebCode.Attributes
 {
     public class HulenAuthorizeAttribute : AuthorizeAttribute
     {
-        protected override bool AuthorizeCore(System.Web.HttpContextBase httpContext)
+        protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             string username = "";
             string callingController = "";

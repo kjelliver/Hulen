@@ -87,6 +87,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\LogIn.css" />
     <Content Include="Global.asax" />
     <Content Include="Views\AccountInfoImport\Index.ascx" />
     <Content Include="Views\AccountInfo\Create.aspx" />
