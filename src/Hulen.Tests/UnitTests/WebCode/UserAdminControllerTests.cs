@@ -14,16 +14,16 @@ using NUnit.Framework;
 namespace Hulen.Tests.UnitTests.WebCode
 {
     [TestFixture]
-    public class UserControllerTests
+    public class UserAdminControllerTests
     {
-        private UserController _subject;
+        private UserAdminController _subject;
         private Mock<IUserService> _userServiceMock;
 
         [SetUp]
         public void SetUp()
         {
             _userServiceMock = new Mock<IUserService>();
-            _subject = new UserController(_userServiceMock.Object);
+            _subject = new UserAdminController(_userServiceMock.Object);
         }
 
         [Test]
@@ -54,7 +54,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         [Test]
         public void OtherCreateShouldAcceptPostVerbOnly()
         {
-            Expression<Action<UserController>> expression = c => c.Create(new UserWebModel());
+            Expression<Action<UserAdminController>> expression = c => c.Create(new UserWebModel());
             var methodCall = expression.Body as MethodCallExpression;
             if (methodCall != null)
             {
@@ -145,7 +145,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         [Test]
         public void OtherEditShouldAcceptPostVerbOnly()
         {
-            Expression<Action<UserController>> expression = c => c.Edit(new UserWebModel());
+            Expression<Action<UserAdminController>> expression = c => c.Edit(new UserWebModel());
             var methodCall = expression.Body as MethodCallExpression;
             if (methodCall != null)
             {

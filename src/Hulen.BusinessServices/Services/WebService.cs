@@ -22,5 +22,26 @@ namespace Hulen.BusinessServices.Services
         {
             return _menuRepository.GetAllItems();
         }
+
+        public IEnumerable<MenuItemDTO> GetMenuItemsForUser(UserDTO user)
+        {
+            var result = new List<MenuItemDTO>();
+            var menuItemsOnDatabase = _menuRepository.GetAllItems();
+
+            if (user.HomeAccessTo)
+                result.Add(menuItemsOnDatabase.Where(x => x.Name == "Hjem").First());
+            if (user.UserAdminAccessTo)
+                result.Add(menuItemsOnDatabase.Where(x => x.Name == "Brukeradmin").First());
+            if (user.AccountInfoAccessTo)
+                result.Add(menuItemsOnDatabase.Where(x => x.Name == "Kontoinformasjon").First());
+            if (user.FileImportAccessTo)
+                result.Add(menuItemsOnDatabase.Where(x => x.Name == "Filimportering").First());
+            if (user.AdminAccessTo)
+                result.Add(menuItemsOnDatabase.Where(x => x.Name == "Admin").First());
+            if (user.ReportsAccessTo)
+                result.Add(menuItemsOnDatabase.Where(x => x.Name == "Rapporter").First());
+
+            return result.OrderBy(x => x.SortOrder);
+        }
     }
 }

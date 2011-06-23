@@ -8,11 +8,11 @@ using Hulen.WebCode.Models;
 namespace Hulen.WebCode.Controllers
 {
     [HulenAuthorize]
-    public class UserController : Controller
+    public class UserAdminController : Controller
     {
         private readonly IUserService _userService;
 
-        public UserController(IUserService userService)
+        public UserAdminController(IUserService userService)
         {
             _userService = userService;
         }

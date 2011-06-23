@@ -117,7 +117,6 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Mappings\MenuCategoryDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\UserDTO.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

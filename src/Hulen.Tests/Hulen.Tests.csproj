@@ -60,8 +60,9 @@
     <Compile Include="UnitTests\BusinessServices\UserServiceTests.cs" />
     <Compile Include="UnitTests\Storage\MenuRepositoryTests.cs" />
     <Compile Include="UnitTests\Storage\UserRepositoryTests.cs" />
-    <Compile Include="UnitTests\WebCode\UserAccountControllerTests.cs" />
-    <Compile Include="UnitTests\WebCode\UserControllerTests.cs" />
+    <Compile Include="UnitTests\WebCode\Attributes\HulenAuthorizeTests.cs" />
+    <Compile Include="UnitTests\WebCode\LogInControllerTests.cs" />
+    <Compile Include="UnitTests\WebCode\UserAdminControllerTests.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -14,9 +14,9 @@ using NUnit.Framework;
 namespace Hulen.Tests.UnitTests.WebCode
 {
     [TestFixture]
-    public class UserAccountControllerTests
+    public class LogInControllerTests
     {
-        private UserAccountController _subject;
+        private LogInController _subject;
         private Mock<IUserService> _userService;
         private Mock<HttpRequestBase> _httpRequest;
         private Mock<HttpContextBase> _httpContext;
@@ -25,7 +25,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         public void SetUp()
         {
             _userService = new Mock<IUserService>();
-            _subject = new UserAccountController(_userService.Object);
+            _subject = new LogInController(_userService.Object);
             _httpRequest = new Mock<HttpRequestBase>();
             _httpContext = new Mock<HttpContextBase>();
             _httpContext.Setup(c => c.Request).Returns(_httpRequest.Object);

@@ -11,16 +11,21 @@ namespace Hulen.WebCode.Controllers
     public class MenuController : Controller
     {
         private readonly IWebService _menuService;
+        private readonly IUserService _userService;
 
-        public MenuController(IWebService menuService)
+        public MenuController(IWebService menuService, IUserService userService)
         {
             _menuService = menuService;
+            _userService = userService;
         }
 
         public ActionResult Menu()
         {
-            var model = new MenuWebModel();
-            model.MenuItems = _menuService.GetAllMenuItems();
+            var user = _userService.GetOneUser(Session["currentUserID"].ToString());
+            var model = new MenuWebModel
+                            {
+                                MenuItems = _menuService.GetMenuItemsForUser(user)
+                            };
             return View("Menu", model);
         }
     }

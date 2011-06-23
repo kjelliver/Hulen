@@ -4,11 +4,20 @@
 <table>
 
     <% foreach (var item in Model.MenuItems){%>
-    <tr>
-        <td>
-            <%: Html.ActionLink(item.Name, item.Action, item.Controller) %>
-        </td>
-    </tr>
+
+        <% if (item.MenuLevel == 1){%>
+            <tr>
+                <td style="font-weight:bold;">
+                    <%: Html.ActionLink(item.Name, item.Action, item.Controller) %>
+                </td>
+            </tr>
+        <%} else {%>
+            <tr>
+                <td>
+                    <%: Html.ActionLink(item.Name, item.Action, item.Controller) %>
+                </td>
+            </tr>
+        <%}%>
     <%}%>
 
 </table>

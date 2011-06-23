@@ -9,5 +9,6 @@ namespace Hulen.BusinessServices.Interfaces
     public interface IWebService
     {
         IEnumerable<MenuItemDTO> GetAllMenuItems();
+        IEnumerable<MenuItemDTO> GetMenuItemsForUser(UserDTO user);
     }
 }

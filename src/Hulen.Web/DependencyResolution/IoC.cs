@@ -9,7 +9,7 @@ namespace Hulen.Web {
                                         scan.AssembliesFromApplicationBaseDirectory(i => i.FullName.StartsWith("Hulen"));
                                         scan.WithDefaultConventions();
                                     });
-            //                x.For<IExample>().Use<Example>();
+                            //x.For<IExample>().Use<Example>();
                         });
             return ObjectFactory.Container;
         }

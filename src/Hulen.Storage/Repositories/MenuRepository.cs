@@ -25,7 +25,7 @@ namespace Hulen.Storage.Repositories
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                return session.CreateCriteria(typeof(MenuItemDTO)).List<MenuItemDTO>();
+                return session.CreateCriteria(typeof(MenuItemDTO)).AddOrder(Order.Asc("SortOrder")).List<MenuItemDTO>();
             }
         }
     }

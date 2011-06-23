@@ -8,11 +8,11 @@ using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
-    public class UserAccountController : Controller
+    public class LogInController : Controller
     {
         private readonly IUserService _userService;
 
-        public UserAccountController(IUserService userService)
+        public LogInController(IUserService userService)
         {
             _userService = userService;
         }
@@ -31,7 +31,7 @@ namespace Hulen.WebCode.Controllers
                 return RedirectToAction("Index", "Home");
             }
             TempData["Message"] = "Feil i brukernavn eller passord";
-            return RedirectToAction("LogIn", "UserAccount");
+            return RedirectToAction("LogIn", "LogIn");
         }
     }
 }

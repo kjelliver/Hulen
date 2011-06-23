@@ -111,10 +111,10 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="Views\Shared\StayTheFuckAway.aspx" />
-    <Content Include="Views\UserAccount\LogIn.aspx" />
-    <Content Include="Views\User\Create.aspx" />
-    <Content Include="Views\User\Edit.aspx" />
-    <Content Include="Views\User\Index.aspx" />
+    <Content Include="Views\LogIn\LogIn.aspx" />
+    <Content Include="Views\UserAdmin\Create.aspx" />
+    <Content Include="Views\UserAdmin\Edit.aspx" />
+    <Content Include="Views\UserAdmin\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

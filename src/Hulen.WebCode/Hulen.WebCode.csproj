@@ -48,10 +48,10 @@
     <Compile Include="Controllers\AccountInfoController.cs" />
     <Compile Include="Controllers\FileImportControllers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserAccountController.cs" />
+    <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Models\AccountInfoWebModels.cs" />
     <Compile Include="Models\FileImportWebModel.cs" />
     <Compile Include="Models\MenuWebModel.cs" />
@@ -72,6 +72,10 @@
     <ProjectReference Include="..\Hulen.ReportingServices\Hulen.ReportingServices.csproj">
       <Project>{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}</Project>
       <Name>Hulen.ReportingServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hulen.Storage\Hulen.Storage.csproj">
+      <Project>{B6DE12AC-6837-4A1F-9BB7-B622E40A0259}</Project>
+      <Name>Hulen.Storage</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

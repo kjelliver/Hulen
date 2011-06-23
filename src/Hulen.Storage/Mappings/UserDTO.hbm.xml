@@ -9,6 +9,12 @@
     <property name="Password" column="Password" />
     <property name="Name" column="Name" />
     <property name="Disabled" column="Disabled" />
+    <property name="HomeAccessTo" column="HomeAccessTo" />
+    <property name="UserAdminAccessTo" column="UserAdminAccessTo" />
+    <property name="AccountInfoAccessTo" column="AccountInfoAccessTo" />
+    <property name="FileImportAccessTo" column="FileImportAccessTo" />
+    <property name="AdminAccessTo" column="AdminAccessTo" />
+    <property name="ReportsAccessTo" column="ReportsAccessTo" />
   </class>
 
 </hibernate-mapping>
