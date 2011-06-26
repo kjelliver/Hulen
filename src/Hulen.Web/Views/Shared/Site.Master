@@ -8,14 +8,15 @@
 </head>
 
 <body>
-    <table>
+    <table padding="0" margin="0">
         <tr>
-            <td>Homebutton</td>
-            <td>HeaderText</td>
+            <td class="banner" colspan="2" width="1024px" height="140px">
+                <% Html.RenderAction("Banner", "Master"); %>
+            </td>
         </tr>
         <tr>
             <td>
-                <% Html.RenderAction("Menu", "Menu");%>
+                <% Html.RenderAction("Menu", "Master");%>
 
             </td>
             <td>

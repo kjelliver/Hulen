@@ -100,6 +100,7 @@
     <Content Include="Views\FileImport\Index.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="Views\Shared\Banner.ascx" />
     <Content Include="Views\Shared\Menu.ascx" />
     <Content Include="Views\Report\AccountInfo.aspx" />
     <Content Include="Views\Report\Index.aspx" />
@@ -168,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Report.Master" />

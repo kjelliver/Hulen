@@ -12,4 +12,9 @@ namespace Hulen.WebCode.Models
     {
         public IEnumerable<MenuItemDTO> MenuItems { get; set; }
     }
+
+    public class BannerWebModel
+    {
+        
+    }
 }

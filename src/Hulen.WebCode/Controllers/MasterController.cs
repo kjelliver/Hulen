@@ -8,12 +8,12 @@ using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
-    public class MenuController : Controller
+    public class MasterController : Controller
     {
         private readonly IWebService _menuService;
         private readonly IUserService _userService;
 
-        public MenuController(IWebService menuService, IUserService userService)
+        public MasterController(IWebService menuService, IUserService userService)
         {
             _menuService = menuService;
             _userService = userService;
@@ -27,6 +27,12 @@ namespace Hulen.WebCode.Controllers
                                 MenuItems = _menuService.GetMenuItemsForUser(user)
                             };
             return View("Menu", model);
+        }
+
+        public ActionResult Banner()
+        {
+            var model = new BannerWebModel();
+            return View("Banner", model);
         }
     }
 }

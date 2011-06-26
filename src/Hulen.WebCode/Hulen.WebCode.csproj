@@ -49,7 +49,7 @@
     <Compile Include="Controllers\FileImportControllers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogInController.cs" />
-    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\MasterController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Models\AccountInfoWebModels.cs" />
