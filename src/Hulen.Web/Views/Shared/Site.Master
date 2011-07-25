@@ -16,7 +16,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td width="220px" valign="top">
                     <% Html.RenderAction("Menu", "Master");%>
                 </td>
 
