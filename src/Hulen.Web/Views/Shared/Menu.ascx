@@ -14,7 +14,7 @@
         <%} else {%>
             <tr>
                 <td>
-                    <%: Html.ActionLink(item.Name, item.Action, item.Controller) %>
+                    &nbsp;&nbsp; <%: Html.ActionLink(item.Name, item.Action, item.Controller) %>
                 </td>
             </tr>
         <%}%>

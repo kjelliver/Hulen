@@ -15,6 +15,6 @@ namespace Hulen.WebCode.Models
 
     public class BannerWebModel
     {
-        
+        public UserDTO LoggedOnUser { get; set; }
     }
 }

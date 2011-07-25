@@ -54,7 +54,7 @@
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Models\AccountInfoWebModels.cs" />
     <Compile Include="Models\FileImportWebModel.cs" />
-    <Compile Include="Models\MenuWebModel.cs" />
+    <Compile Include="Models\MasterWebModels.cs" />
     <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Models\UserAccountModels.cs" />
     <Compile Include="Models\UserWebModel.cs" />

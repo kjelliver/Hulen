@@ -31,7 +31,10 @@ namespace Hulen.WebCode.Controllers
 
         public ActionResult Banner()
         {
-            var model = new BannerWebModel();
+            var model = new BannerWebModel
+                            {
+                                LoggedOnUser = _userService.GetOneUser(Session["currentUserID"].ToString())
+                            };
             return View("Banner", model);
         }
     }

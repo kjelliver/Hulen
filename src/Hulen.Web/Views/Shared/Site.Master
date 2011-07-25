@@ -8,17 +8,17 @@
 </head>
 
 <body>
-    <table padding="0" margin="0">
+    <table cellpadding="0" cellspacing="0">
         <tr>
             <td class="banner" colspan="2" width="1024px" height="140px">
                 <% Html.RenderAction("Banner", "Master"); %>
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="mainmenu">
                 <% Html.RenderAction("Menu", "Master");%>
-
             </td>
+
             <td>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             </td>
