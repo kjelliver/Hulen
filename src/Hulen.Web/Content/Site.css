@@ -19,5 +19,29 @@
     font-family:Verdana;
     font-size:12px;
     vertical-align:top;
+    border-style:solid;
+    border-width:1px;
+    border-color:Gray;
+    margin:15px 0px 0px 10px;
+}   
+
+.maincontent
+{
+    border-style:solid;
+    border-width:1px;
+    border-color:Gray;
+    margin:15px 0px 0px 10px;
 }
 
+/* LINKS */
+a:link
+{
+    color:black;
+    text-decoration:none;
+}
+
+a:visited
+{
+    color:Black;
+    text-decoration:none;
+}

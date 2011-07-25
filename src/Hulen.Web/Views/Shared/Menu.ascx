@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Hulen.WebCode.Models.MenuWebModel>" %>
 
 
-<table>
+<table class="mainmenu">
 
     <% foreach (var item in Model.MenuItems){%>
 

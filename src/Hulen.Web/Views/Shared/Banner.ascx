@@ -7,7 +7,7 @@
         <td width="800xpx">
             Pålogget bruker: <%: Model.LoggedOnUser.Name %> 
             &nbsp;&nbsp;&nbsp;&nbsp;
-            Rolle: Some role
+            Rolle: <%: Model.LoggedOnUser.Role %>
         </td>
     </tr>
 </table>

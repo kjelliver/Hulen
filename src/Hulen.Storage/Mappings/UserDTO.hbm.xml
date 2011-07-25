@@ -8,6 +8,7 @@
     <property name="Username" column="Username" />
     <property name="Password" column="Password" />
     <property name="Name" column="Name" />
+    <property name="Role" column="Role" />
     <property name="Disabled" column="Disabled" />
     <property name="HomeAccessTo" column="HomeAccessTo" />
     <property name="UserAdminAccessTo" column="UserAdminAccessTo" />

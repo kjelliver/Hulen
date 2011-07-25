@@ -2,27 +2,35 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
-</head>
 
-<body>
-    <table cellpadding="0" cellspacing="0">
-        <tr>
-            <td class="banner" colspan="2" width="1024px" height="140px">
-                <% Html.RenderAction("Banner", "Master"); %>
-            </td>
-        </tr>
-        <tr>
-            <td class="mainmenu">
-                <% Html.RenderAction("Menu", "Master");%>
-            </td>
+    <head runat="server">
+        <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+        <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    </head>
 
-            <td>
-                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-            </td>
-        </tr>
-    </table>
-</body>
+    <body>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="banner" colspan="2" width="1024px" height="140px">
+                    <% Html.RenderAction("Banner", "Master"); %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <% Html.RenderAction("Menu", "Master");%>
+                </td>
+
+                <td>
+                    <table class="maincontent">
+                        <tr>
+                            <td>
+                                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+
 </html>
