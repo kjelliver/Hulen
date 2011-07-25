@@ -42,7 +42,7 @@ namespace Hulen.WebCode.Controllers
         {
             if (uploadFile.ContentLength > 0)
             {
-                _accountInfoService.ImportFile(uploadFile.InputStream, model.AccountInfoYear);
+                //_accountInfoService.ImportFile(uploadFile.InputStream, model.AccountInfoYear);
             }
             return RedirectToAction("Index", "FileImport");
         }

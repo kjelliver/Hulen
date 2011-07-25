@@ -72,7 +72,8 @@ namespace Hulen.ReportingServices.Reports
 
         private void GenerateTableData()
         {
-            Accounts = _accountInfoRepository.GetAllByYear(Year);
+            Accounts = new List<AccountInfoDTO>();
+            //Accounts = _accountInfoRepository.GetAllByYear(Year);
             Result = _resultRepository.GetResultByMonth(Month, Year);
             Budget = _budgetRepository.GetBudgetByYearAndStatus(Year, UsedBudgetStatus);
             ResultCategories = _categoryRepository.GetAll();

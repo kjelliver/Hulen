@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 using Hulen.Objects.DTO;
 using Hulen.Storage.Repositories;
 
@@ -76,7 +77,8 @@ namespace Hulen.ReportingServices.Reports
 
         private void GenerateTableData()
         {
-            var accountInfos = _repository.GetAll();
+            var accountInfos = new List<AccountInfoDTO>();
+            //var accountInfos = _repository.GetAll();
             foreach(var accountInfo in accountInfos)
             {
                 AddDataRow(accountInfo);

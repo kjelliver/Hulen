@@ -60,9 +60,5 @@ namespace Hulen.Tests.UnitTests.WebCode
             Assert.That(result.RouteValues["action"], Is.EqualTo("LogIn"));
             Assert.That(result.RouteValues["controller"], Is.EqualTo("LogIn"));    
         }
-
-      
-
-
     }
 }

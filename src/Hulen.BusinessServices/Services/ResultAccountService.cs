@@ -64,7 +64,9 @@ namespace Hulen.BusinessServices.Services
 
         private SaveResultModel SortResults(IEnumerable<ResultAccountDTO> results, int year)
         {
-            IEnumerable<int> validAccountNumbers = _accountInfoRepository.GetAllAccountNumbersByYear(year);
+            //IEnumerable<int> validAccountNumbers = _accountInfoRepository.GetAllAccountNumbersByYear(year);
+            IEnumerable<int> validAccountNumbers = new List<int>();
+
             SaveResultModel saveModel = new SaveResultModel();
 
             foreach(var result in results)

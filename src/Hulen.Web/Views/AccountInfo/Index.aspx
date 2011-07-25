@@ -6,66 +6,72 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Kontooversikt</h2>
+    <div class="errormessage">
+        <%: ViewData["Message"]%>                            
+    </div>
 
-    <table>
-        <tr>
-            <th>
-                Kontonr.
-            </th>
-            <th>
-                Kontonavn
-            </th>
-            <th>
-                Resultatrapport
-            </th>
-            <th>
-                Dritsdel
-            </th>
-            <th>
-                Ukesregn
-            </th>
-            <th>
-                Inntekt/Utgift
-            </th>
-            <th>
-                År
-            </th>
-            <th></th>
-        </tr>
+    <% if (Model.AccountInfos != null) {%>
 
-    <% foreach (var item in Model.AccountInfos ) { %>
+        <h2>Kontooversikt</h2>
+
+        <table>
+            <tr>
+                <th>
+                    Kontonr.
+                </th>
+                <th>
+                    Kontonavn
+                </th>
+                <th>
+                    Resultatrapport
+                </th>
+                <th>
+                    Dritsdel
+                </th>
+                <th>
+                    Ukesregn
+                </th>
+                <th>
+                    Inntekt/Utgift
+                </th>
+                <th>
+                    År
+                </th>
+                <th></th>
+            </tr>
+
+        <% foreach (var item in Model.AccountInfos ) { %>
     
-        <tr>
-            <td>
-                <%: item.AccountNumber%>
-            </td>
-            <td>
-                <%: item.AccountName%>
-            </td>
-            <td>
-                <%: item.ResultReportCategory%>
-            </td>
-            <td>
-                <%: item.PartsReportCategory%>
-            </td>
-            <td>
-                <%: item.WeekCategory%>
-            </td>
-            <td>
-                <%: item.IsIncome%>
-            </td>
-            <td>
-                <%: item.Year %>
-            </td>
-            <td>
-                <%: Html.ActionLink("Rediger", "Edit", new { id = item.Id })%> |
-                <%: Html.ActionLink("Slett", "Delete", new { id = item.Id })%>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <%: item.AccountNumber%>
+                </td>
+                <td>
+                    <%: item.AccountName%>
+                </td>
+                <td>
+                    <%: item.ResultReportCategory%>
+                </td>
+                <td>
+                    <%: item.PartsReportCategory%>
+                </td>
+                <td>
+                    <%: item.WeekCategory%>
+                </td>
+                <td>
+                    <%: item.IsIncome%>
+                </td>
+                <td>
+                    <%: item.Year %>
+                </td>
+                <td>
+                    <%: Html.ActionLink("Rediger", "Edit", new { id = item.Id })%> |
+                    <%: Html.ActionLink("Slett", "Delete", new { id = item.Id })%>
+                </td>
+            </tr>
     
+        <% } %>
     <% } %>
-
     </table>
 
     <p>
