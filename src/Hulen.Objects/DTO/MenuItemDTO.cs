@@ -11,5 +11,6 @@ namespace Hulen.Objects.DTO
         public int MenuLevel { get; set; }
         public string Parent { get; set; }
         public int SortOrder { get; set; }
+        public bool IsLink { get; set; }
     }
 }

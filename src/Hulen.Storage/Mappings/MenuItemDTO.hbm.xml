@@ -11,6 +11,7 @@
     <property name="MenuLevel" column="MenuLevel"/>
     <property name="Parent" column="Parent"/>
     <property name="SortOrder" column="SortOrder"/>
+    <property name="IsLink" column="IsLink"/>
   </class>
 
 </hibernate-mapping>

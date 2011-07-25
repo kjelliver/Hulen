@@ -8,7 +8,11 @@
         <% if (item.MenuLevel == 1){%>
             <tr>
                 <td style="font-weight:bold;">
-                    <%: Html.ActionLink(item.Name, item.Action, item.Controller) %>
+                    <% if (item.IsLink){%>
+                        <%: Html.ActionLink(item.Name, item.Action, item.Controller)%>
+                    <%}else{%>
+                        <%: item.Name %>
+                    <%}%>
                 </td>
             </tr>
         <%} else {%>
