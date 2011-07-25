@@ -58,7 +58,7 @@ namespace Hulen.Tests.UnitTests.WebCode
 
             Assert.That(_subject.TempData["Message"], Is.EqualTo("Feil i brukernavn eller passord"));
             Assert.That(result.RouteValues["action"], Is.EqualTo("LogIn"));
-            Assert.That(result.RouteValues["controller"], Is.EqualTo("UserAccount"));    
+            Assert.That(result.RouteValues["controller"], Is.EqualTo("LogIn"));    
         }
 
       
