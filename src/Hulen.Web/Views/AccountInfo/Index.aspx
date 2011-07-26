@@ -14,57 +14,51 @@
 
         <h2>Kontooversikt</h2>
 
-        <table>
+        <table class="contenttable" cellspacing="0">
             <tr>
-                <th>
+                <th class="contentheader">
                     Kontonr.
                 </th>
-                <th>
+                <th class="contentheader">
                     Kontonavn
                 </th>
-                <th>
+                <th class="contentheader">
                     Resultatrapport
                 </th>
-                <th>
+                <th class="contentheader">
                     Dritsdel
                 </th>
-                <th>
+                <th class="contentheader">
                     Ukesregn
                 </th>
-                <th>
+                <th class="contentheader">
                     Inntekt/Utgift
                 </th>
-                <th>
-                    År
-                </th>
-                <th></th>
+                <th class="contentheader"></th>
             </tr>
 
         <% foreach (var item in Model.AccountInfos ) { %>
     
             <tr>
-                <td>
+                <td class="contentcell">
                     <%: item.AccountNumber%>
                 </td>
-                <td>
+                <td class="contentcell">
                     <%: item.AccountName%>
                 </td>
-                <td>
+                <td class="contentcell">
                     <%: item.ResultReportCategory%>
                 </td>
-                <td>
+                <td class="contentcell">
                     <%: item.PartsReportCategory%>
                 </td>
-                <td>
+                <td class="contentcell">
                     <%: item.WeekCategory%>
                 </td>
-                <td>
+                <td class="contentcell">
                     <%: item.IsIncome%>
                 </td>
-                <td>
-                    <%: item.Year %>
-                </td>
-                <td>
+                <td class="contentcell">
                     <%: Html.ActionLink("Rediger", "Edit", new { id = item.Id })%> |
                     <%: Html.ActionLink("Slett", "Delete", new { id = item.Id })%>
                 </td>

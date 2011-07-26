@@ -28,13 +28,53 @@
 
 .maincontent
 {
+    text-align:center;
+    font-family:Verdana;
     width:775px;
     height:auto;
     border-style:solid;
     border-width:1px;
     border-color:Gray;
-    margin:14px 0px 0px 10px;
+    margin:15px 0px 0px 10px;
 }
+
+/* CONTENT TABLE */
+.contenttable
+{
+    margin-left:auto; 
+    margin-right:auto; 
+    border: solid 1px blue;
+    border-collapse: collapse;
+}
+
+.contentheader
+{
+    padding: 6px 5px;
+    font-family:Verdana;
+    font-size:9px;
+    Background-color:#049bf6;
+    border: solid 1px blue;
+}
+
+.contentcell
+{
+    padding:5px;
+    font-family:Verdana;
+    font-size:9px;
+    border: solid 1px blue;
+}
+
+/* HEADERS AND WRITING IN MAINCONTENT */
+h2
+{
+    Font-size:15px;    
+}
+
+p
+{
+    font-size:11px;
+}
+
 
 /* LINKS */
 a:link
@@ -47,4 +87,9 @@ a:visited
 {
     color:Black;
     text-decoration:none;
+}
+
+a:hover
+{
+    color:#049bf6;
 }
