@@ -48,15 +48,17 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
-    //    public ActionResult Create()
-    //    {
-    //        var model = new AccountInfoWebModel();
-    //        model.ResultCategories = _dropDownService.GetDropDownStrings("RESULT");
-    //        model.PartsCategories = _dropDownService.GetDropDownStrings("PARTS");
-    //        model.WeekCategories = _dropDownService.GetDropDownStrings("WEEK");
-    //        model.IsIncomes = new List<string> {"Inntekt", "Utgift"};
-    //        return View(model);
-    //    }
+        public ViewResult Create()
+        {
+            var model = new AccountInfoWebModel
+                            {
+                                ResultCategories = GetDropDownList("RESULT"),
+                                PartsCategories = GetDropDownList("PARTS"),
+                                WeekCategories = GetDropDownList("WEEK"),
+                                IsIncomes = GetDropDownList("INCOME")
+                            };
+            return View("Create", model);
+        }
 
     //    [AcceptVerbs(HttpVerbs.Post)]
     //    public ActionResult Create([Bind(Exclude = "Id")] AccountInfoWebModel accountInfoWebModel)
@@ -136,5 +138,18 @@ namespace Hulen.WebCode.Controllers
     //    { 
     //        return RedirectToAction("AccountInfo", "Report", new { year = 2011});
     //    }
+
+        private List<string> GetDropDownList(string context)
+        {
+            if (context == "RESULT")
+                return new List<string> {"Udefinert", "Salgsinntekter", "AndreInntekter", "Varekjøp", "Personalkostnader", "Driftskostnader", "Finansielle"};
+            if (context == "PARTS")
+                return new List<string> {"Udefinert", "Bar", "Arrangement", "Personalkostnader", "PublicRelations", "Tilskudd", "Økonomi", "Driftskostnader"};
+            if (context == "WEEK")
+                return new List<string> { "Udefinert", "PublicRelations"};
+            if (context == "INCOME")
+                return new List<string> { "Inntekt", "Utgift" };
+            return new List<string>();
+        }
     }
 }

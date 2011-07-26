@@ -64,6 +64,27 @@
     border: solid 1px blue;
 }
 
+/* CREATE TABLE */
+.createtable
+{
+    margin-left:auto; 
+    margin-right:auto; 
+    border-collapse: collapse;
+}
+
+.createheader
+{
+    text-align:left;
+    padding:5px 8px;
+    font-family:Verdana;
+    font-size:12px;
+}
+
+.createcell
+{
+    text-align:left;    
+}
+
 /* HEADERS AND WRITING IN MAINCONTENT */
 h2
 {

@@ -8,6 +8,7 @@ using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
 using Hulen.Objects.ViewModels;
 using Hulen.WebCode.Controllers;
+using Hulen.WebCode.Models;
 using Moq;
 using NUnit.Framework;
 
@@ -52,6 +53,14 @@ namespace Hulen.Tests.UnitTests.WebCode
             ViewResult result = _subject.Index();
             Assert.That(result.ViewName, Is.EqualTo("Index"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("En feil oppstod, vennligst prøv på nytt."));
+        }
+
+        [Test]
+        public void CreateShouldreturnRightView()
+        {
+            ViewResult result = _subject.Create();
+            Assert.That(result.ViewData.Model, Is.InstanceOf(typeof(AccountInfoWebModel)));
+            Assert.That(result.ViewName == "Create");
         }
     }
 }
