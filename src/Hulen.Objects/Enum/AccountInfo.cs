@@ -33,4 +33,10 @@ namespace Hulen.Objects.Enum
         Udefinert = 0,
         PublicRelations = 1
     }
+
+    public enum IsIncome
+    {
+        Inntekt = 1,
+        Utgift = 0
+    }
 }

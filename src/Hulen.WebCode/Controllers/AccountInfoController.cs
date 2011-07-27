@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.BusinessServices.Services;
+using Hulen.Objects.Enum;
 using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
 
@@ -13,142 +15,178 @@ namespace Hulen.WebCode.Controllers
     public class AccountInfoController : Controller
     {
         private readonly IAccountInfoService _accountInfoService;
-        private readonly IDropDownService _dropDownService;
 
         public AccountInfoController(IAccountInfoService accountInfoService)
         {
             _accountInfoService = accountInfoService;
         }
 
-        public AccountInfoController(IAccountInfoService accountInfoService, IDropDownService dropDownService)
-        {
-            _accountInfoService = accountInfoService;
-            _dropDownService = dropDownService; 
-        }
-
-        public ViewResult Index()
+        public ViewResult Index(string message, int year = 0)
         {
             try
             {
-                var model = new AccountInfoWebModel
+                var model = new AccountInfoIndexModel
+                                {
+                                    AccountInfos = _accountInfoService.GetAllAccountInfosByYear(year == 0 ? DateTime.Now.Year : year),
+                                    DefaultYear = year == 0 ? DateTime.Now.Year.ToString() : year.ToString(),
+                                    Years = GetDropDownList("YEAR")
+                                };
+
+                if (!model.AccountInfos.Any())
                 {
-                    AccountInfos = _accountInfoService.GetAllAccountInfosByYear(DateTime.Now.Year)
-                };
-                if (model.AccountInfos.Any())
-                {
+                    ViewData["Message"] = "Ingen kontoer funnet for gitt år.";
                     return View("Index", model);
                 }
-                ViewData["Message"] = "Ingen kontoer funnet for gitt år.";
-                return View("Index");
+                ViewData["Message"] = message;
+                return View("Index", model);
             }
             catch (Exception)
             {
+                var model = new AccountInfoIndexModel();
                 ViewData["Message"] = "En feil oppstod, vennligst prøv på nytt.";
-                return View("Index");
+                return View("Index", model);
             }
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ViewResult Index(AccountInfoIndexModel model)
+        {
+            var year = int.Parse(model.SelectedYear);
+            return Index("", year);
         }
 
         public ViewResult Create()
         {
-            var model = new AccountInfoWebModel
-                            {
-                                ResultCategories = GetDropDownList("RESULT"),
-                                PartsCategories = GetDropDownList("PARTS"),
-                                WeekCategories = GetDropDownList("WEEK"),
-                                IsIncomes = GetDropDownList("INCOME")
-                            };
+            var model = new AccountInfoEditModel();
+            model.FillDropDownLists();
             return View("Create", model);
         }
 
-    //    [AcceptVerbs(HttpVerbs.Post)]
-    //    public ActionResult Create([Bind(Exclude = "Id")] AccountInfoWebModel accountInfoWebModel)
-    //    {
-    //        if (!ModelState.IsValid)
-    //            return View();
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ViewResult Create([Bind(Exclude = "Id")] AccountInfoEditModel model)
+        {
+            if (!ModelState.IsValid)
+                return View("Create", model);
 
-    //        try
-    //        {
-    //            _accountInfoService.SaveOneAccountInfo(accountInfoWebModel.AccountInfo);
-    //            return RedirectToAction("Index");
-    //        }
-    //        catch
-    //        {
-    //            return View();
-    //        }
-    //    }
+            try
+            {
+                var result = _accountInfoService.SaveOneAccountInfo(model.AccountInfo);
+                if(result == StorageResult.Success)
+                {
+                    model.FillDropDownLists();
+                    ViewData["Message"] = "Kontoinformasjonen er opprettet";
+                    return View("Create", model);    
+                }
+                if(result == StorageResult.AllreadyExsists)
+                {
+                    model.FillDropDownLists();
+                    ViewData["Message"] = "Kontoinformasjon med samme nummer og år finnes fra før.";
+                    return View("Create", model);  
+                }
+                model.FillDropDownLists();
+                ViewData["Message"] = "Ukjent feil under lagring.";
+                return View("Create", model);
+            }
+            catch
+            {
+                model.FillDropDownLists(); 
+                ViewData["Message"] = "Feil i underliggende tjenester under lagring.";
+                return View("Create", model);
+            }
+        }
 
-    //    public ActionResult Edit(Guid id)
-    //    {
-            
-    //        AccountInfoWebModel model = new AccountInfoWebModel();
-    //        model.AccountInfo = _accountInfoService.GetOneAccountInfoById(id);
-    //        model.ResultCategories = _dropDownService.GetDropDownStrings("RESULT");
-    //        model.PartsCategories = _dropDownService.GetDropDownStrings("PARTS");
-    //        model.WeekCategories = _dropDownService.GetDropDownStrings("WEEK");
-    //        model.IsIncomes = new List<string> { "Inntekt", "Utgift" };
+        public ViewResult Edit(Guid id)
+        {
 
-    //        return View(model);
-    //    }
+            var model = new AccountInfoEditModel
+                            {
+                                AccountInfo = _accountInfoService.GetOneAccountInfoById(id)
+                            };
+            model.FillDropDownLists();
+            return View(model);
+        }
 
-    //    [AcceptVerbs(HttpVerbs.Post)]
-    //    public ActionResult Edit(AccountInfoWebModel accountInfoWebWebModel)
-    //    {
-    //        if (!ModelState.IsValid)
-    //            return View();
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Edit(AccountInfoEditModel accountInfoWebWebModel)
+        {
+            if (!ModelState.IsValid)
+                return View();
 
-    //        try
-    //        {
-    //            _accountInfoService.UpdateOneAccountInfo(accountInfoWebWebModel.AccountInfo); 
-    //            return RedirectToAction("Index");
-    //        }
-    //        catch
-    //        {
-    //            return View();
-    //        }
-    //    }
- 
-    //    public ActionResult Delete(Guid id)
-    //    {
-    //        try
-    //        {
-    //            _accountInfoService.DeleteOneAccountInfoById(id);
-    //            return RedirectToAction("Index");
-    //        }
-    //        catch
-    //        {
-    //            return View();
-    //        }
-    //    }
+            try
+            {
+                _accountInfoService.UpdateOneAccountInfo(accountInfoWebWebModel.AccountInfo);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
-    //    [AcceptVerbs(HttpVerbs.Post)]
-    //    public ActionResult Delete(AccountInfoWebModel accountInfoWeb)
-    //    {
-    //        try
-    //        {
-    //            _accountInfoService.DeleteOneAccountInfo(accountInfoWeb.AccountInfo);
-    //            return RedirectToAction("Index");
-    //        }
-    //        catch
-    //        {
-    //            return View();
-    //        }
-    //    }
+        public ViewResult Delete(Guid id)
+        {
+            try
+            {
+                _accountInfoService.DeleteOneAccountInfoById(id);
+                return Index("Kontoinformasjonen er slettet.");
+            }
+            catch
+            {
+                return Index("Feil under sletting");
+            }
+        }
 
-    //    public ActionResult OpenReport()
-    //    { 
-    //        return RedirectToAction("AccountInfo", "Report", new { year = 2011});
-    //    }
+        public ViewResult OpenReport()
+        {
+            return Index("Not yet implemented");
+        }
 
-        private List<string> GetDropDownList(string context)
+        public ViewResult Copy()
+        {
+            var model = new AccountInfoCopyModel();
+            model.FillYears();
+            return View("Copy", model);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ViewResult Copy(AccountInfoCopyModel copyModel)
+        {   
+            _accountInfoService.CopyAccountInfo(int.Parse(copyModel.SelectedCopyFromYear), int.Parse(copyModel.SelectedCopyToYear));
+            var model = new AccountInfoCopyModel();
+            model.FillYears();
+            ViewData["Message"] = "Kontoinformasjonen er kopiert";
+            return View("Copy", model);
+        }
+
+        public ViewResult Import()
+        {
+            var model = new AccountInfoImportModel();
+            return View(model);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ViewResult Import(HttpPostedFileBase uploadFile, AccountInfoImportModel importModel)
+        {
+            if (uploadFile.ContentLength > 0)
+            {
+                _accountInfoService.ImportFile(uploadFile.InputStream, importModel.AccountInfoYear);
+            }
+            ViewData["Message"] = "Filen er importert";
+            return View("Import", importModel );
+        }
+
+        private static List<string> GetDropDownList(string context)
         {
             if (context == "RESULT")
-                return new List<string> {"Udefinert", "Salgsinntekter", "AndreInntekter", "Varekjøp", "Personalkostnader", "Driftskostnader", "Finansielle"};
+                return new List<string> { "Udefinert", "Salgsinntekter", "AndreInntekter", "Varekjøp", "Personalkostnader", "Driftskostnader", "Finansielle" };
             if (context == "PARTS")
-                return new List<string> {"Udefinert", "Bar", "Arrangement", "Personalkostnader", "PublicRelations", "Tilskudd", "Økonomi", "Driftskostnader"};
+                return new List<string> { "Udefinert", "Bar", "Arrangement", "Personalkostnader", "PublicRelations", "Tilskudd", "Økonomi", "Driftskostnader" };
             if (context == "WEEK")
-                return new List<string> { "Udefinert", "PublicRelations"};
+                return new List<string> { "Udefinert", "PublicRelations" };
             if (context == "INCOME")
                 return new List<string> { "Inntekt", "Utgift" };
+            if (context == "YEAR")
+                return new List<string> {"2010", "2011", "2012"};
             return new List<string>();
         }
     }

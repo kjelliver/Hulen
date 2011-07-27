@@ -10,11 +10,6 @@ namespace Hulen.WebCode.Models
     {
     }
 
-    public class AccountInfoImportWebModel
-    {
-        public string AccountInfoYear { get; set; }
-    }
-
     public class BudgetImportWebModel
     {
         public string BudgetYear { get; set; }

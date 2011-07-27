@@ -30,22 +30,6 @@ namespace Hulen.WebCode.Controllers
         {
             _accountInfoService = accountInfoService;
         }
-
-        public ActionResult Index()
-        {
-            var model = new FileImportWebModel();
-            return View(model);
-        }
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Index(HttpPostedFileBase uploadFile, AccountInfoImportWebModel model)
-        {
-            if (uploadFile.ContentLength > 0)
-            {
-                //_accountInfoService.ImportFile(uploadFile.InputStream, model.AccountInfoYear);
-            }
-            return RedirectToAction("Index", "FileImport");
-        }
     }
 
     public class BudgetImportController : Controller

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.AccountInfoWebModel>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.AccountInfoEditModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Hulen - Opprett ny kontoinformasjon
@@ -102,6 +102,10 @@
         </p>
 
     <% } %>
+
+    <p>
+        <%: ViewData["Message"] %>
+    </p>
 
     <p>
         <%: Html.ActionLink("Tilbake til oversikten", "Index") %>

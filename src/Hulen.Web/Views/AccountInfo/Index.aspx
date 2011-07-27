@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.AccountInfoWebModel>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.AccountInfoIndexModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Hulen - Kontooversikt
@@ -8,11 +8,19 @@
 
     <div class="errormessage">
         <%: ViewData["Message"]%>                            
-    </div>
+    </div>  
 
     <% if (Model.AccountInfos != null) {%>
 
         <h2>Kontooversikt</h2>
+
+
+        <% using (Html.BeginForm()){%>
+            <%:Html.DropDownListFor(x => x.SelectedYear, new SelectList(Model.Years, Model.DefaultYear))%>
+
+                <input type="submit" value="Oppdater" />
+
+        <% }%>
 
         <table class="contenttable" cellspacing="0">
             <tr>
@@ -26,7 +34,7 @@
                     Resultatrapport
                 </th>
                 <th class="contentheader">
-                    Dritsdel
+                    Driftsdel
                 </th>
                 <th class="contentheader">
                     Ukesregn
@@ -70,7 +78,9 @@
 
     <p>
         <%: Html.ActionLink("Ny konto", "Create") %> | 
-        <%: Html.ActionLink("Åpne rapport", "OpenReport") %>
+        <%: Html.ActionLink("Åpne rapport", "OpenReport") %> |
+        <%: Html.ActionLink("Kopier år", "Copy") %> |
+        <%: Html.ActionLink("Importer", "Import") %> 
     </p>
 
 </asp:Content>

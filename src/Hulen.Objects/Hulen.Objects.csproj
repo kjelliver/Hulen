@@ -41,9 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\AccountInfoDTO.cs" />
-    <Compile Include="DTO\AccountInfoPartsDTO.cs" />
-    <Compile Include="DTO\AccountInfoResultsDTO.cs" />
-    <Compile Include="DTO\AccountInfoWeekDTO.cs" />
     <Compile Include="DTO\BudgetDTO.cs" />
     <Compile Include="DTO\MenuItemDTO.cs" />
     <Compile Include="DTO\ResultAccountDTO.cs" />

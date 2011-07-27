@@ -58,78 +58,53 @@ namespace Hulen.Storage.Repositories
             }
         }
 
-    //    public void SaveMeny(ICollection<AccountInfoDTO> accounts)
-    //    {
-    //        using (ISession session = NHibernateHelper.OpenSession())
-    //        using (ITransaction transaction = session.BeginTransaction())
-    //        {
-    //            foreach (AccountInfoDTO acc in accounts)
-    //            {
-    //                session.Save(acc);
-    //            }
-    //            transaction.Commit();
-    //        }
-    //    }
+        public StorageResult DeleteOneById(Guid id)
+        {
+            return DeleteOne(GetOneById(id));
+        }
 
-    //    public AccountInfoDTO GetOneById(Guid id)
-    //    {
-    //        using (ISession session = NHibernateHelper.OpenSession())
-    //            return session.Get<AccountInfoDTO>(id);
-    //    }
+        public void SaveMeny(IEnumerable<AccountInfoDTO> accounts)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            using (ITransaction transaction = session.BeginTransaction())
+            {
+                foreach (AccountInfoDTO acc in accounts)
+                {
+                    session.Save(acc);
+                }
+                transaction.Commit();
+            }
+        }
 
-    //    public ICollection<AccountInfoDTO> GetAll()
-    //    {
-    //        using (ISession session = NHibernateHelper.OpenSession())
-    //        {
-    //            return session.CreateCriteria(typeof(AccountInfoDTO)).AddOrder(Order.Asc("AccountNumber")).List<AccountInfoDTO>();
-    //        }
-    //    }
+        public void DeleteAllByYear(int year)
+        {
+            var allByYear = GetAllByYear(year);
+            foreach(AccountInfoDTO acc in allByYear)
+            {
+                DeleteOne(acc);
+            }
+        }
 
-    //    public IEnumerable<AccountInfoDTO> GetAllByYear(int year)
-    //    {
-    //        using (ISession session = NHibernateHelper.OpenSession())
-    //        {
-    //            return session
-    //                .CreateCriteria(typeof(AccountInfoDTO))
-    //                .AddOrder(Order.Asc("AccountNumber"))
-    //                .Add(Restrictions.Eq("Year", year))
-    //                .List<AccountInfoDTO>();
-    //        }
-    //    }
+        public AccountInfoDTO GetOneById(Guid id)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+                return session.Get<AccountInfoDTO>(id);
+        }
 
-    //    public AccountInfoDTO GetOneByAccountNumber(int accountNumber)
-    //    {
-    //        using (ISession session = NHibernateHelper.OpenSession())
-    //            return session.Get<AccountInfoDTO>(accountNumber);
-    //    }
+        public AccountInfoDTO GetOneByAccountNumber(int accountNumber)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+                return session.Get<AccountInfoDTO>(accountNumber);
+        }
 
-    //    public void UpdateOne(AccountInfoDTO accountCategory)
-    //    {
-    //        using (ISession session = NHibernateHelper.OpenSession())
-    //        using (ITransaction transaction = session.BeginTransaction())
-    //        {
-    //            session.Update(accountCategory);
-    //            transaction.Commit();
-    //        }
-    //    }
-
-    
-
-    //    public void DeleteExistingAccountInfo()
-    //    {
-    //        var temp = GetAll();
-
-    //        using (ISession session = NHibernateHelper.OpenSession())
-    //        using (ITransaction transaction = session.BeginTransaction())
-    //        {
-    //            foreach (AccountInfoDTO accountInfo in temp)
-    //            {
-    //                session.Delete(accountInfo);                    
-    //            }
-    //            transaction.Commit();
-    //        }
-    //    }
-
-   
+        public void UpdateOne(AccountInfoDTO accountCategory)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            using (ITransaction transaction = session.BeginTransaction())
+            {
+                session.Update(accountCategory);
+                transaction.Commit();
+            }
+        }   
     }
 }

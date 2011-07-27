@@ -96,6 +96,11 @@ p
     font-size:11px;
 }
 
+.errormessage
+{
+    font-size:10px;
+    color:Red;
+}
 
 /* LINKS */
 a:link

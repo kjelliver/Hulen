@@ -9,11 +9,11 @@ namespace Hulen.WebCode.Controllers
     [HulenAuthorize]
     public class ReportController : Controller
     {
-        private readonly IReportingServices _reportService = new ReportingServices.ReportingServices();
+        //private readonly IReportingServices _reportService = new ReportingServices.ReportingServices();
 
         public ReportController(IReportingServices reportService)
         {
-            _reportService = reportService;
+            //_reportService = reportService;
         }
 
         public ActionResult Index()
@@ -32,19 +32,21 @@ namespace Hulen.WebCode.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult ResultReport(ReportModel model)
         {
-            model.HtmlBody = _reportService.GenerateHtmlBodyForResultReport(model.ResultReportMonth, model.ResultReportYear, 0);
-            model.CssStyle = _reportService.GenerateCssStyleForResultReport(model.ResultReportMonth, model.ResultReportYear, 0);
+            //model.HtmlBody = _reportService.GenerateHtmlBodyForResultReport(model.ResultReportMonth, model.ResultReportYear, 0);
+            //model.CssStyle = _reportService.GenerateCssStyleForResultReport(model.ResultReportMonth, model.ResultReportYear, 0);
             return View(model);
         }
 
         private string GenerateCssStyle(string type)
         {
-            return _reportService.GenerateCssStyle(type);
+            return "";
+            //return _reportService.GenerateCssStyle(type);
         }
 
         private string GenerateHtmlBody(string type)
         {
-            return _reportService.GenerateHtmlBody(type);
+            return "";
+            //return _reportService.GenerateHtmlBody(type);
         }
     }
 }

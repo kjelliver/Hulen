@@ -5,6 +5,7 @@ using System.Text;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.BusinessServices.Services;
 using Hulen.Objects.DTO;
+using Hulen.Objects.Enum;
 using Hulen.Objects.ViewModels;
 using Hulen.Storage.Interfaces;
 using Moq;
@@ -40,6 +41,16 @@ namespace Hulen.Tests.UnitTests.BusinessServices
             Assert.That(result.Where(x => x.AccountNumber == 3001).FirstOrDefault().PartsReportCategory, Is.EqualTo("Arrangement"));
             Assert.That(result.Where(x => x.AccountNumber == 3002).FirstOrDefault().ResultReportCategory, Is.EqualTo("AndreInntekter"));
             Assert.That(result.Where(x => x.AccountNumber == 3003).FirstOrDefault().WeekCategory, Is.EqualTo("PublicRelations"));
+        }
+
+        [Test]
+        public void ShouldReturnSuccessStorageResultWhenSuccessful()
+        {
+            var inputModel = new AccountInfoViewModel {AccountNumber = 3000, AccountName = "Test", IsIncome = "Utgift", PartsReportCategory= "Udefinert", ResultReportCategory = "Udefinert", WeekCategory = "Udefinert", Year = 2011};
+            var toDb = new AccountInfoDTO {AccountNumber = 3000, AccountName = "Test", IsIncome = false, PartsReportCategory = 0, ResultReportCategory = 0, WeekCategory = 0, Year = 2011};
+            _accountInfoRepositoryMock.Setup(x => x.SaveOne(toDb)).Returns(StorageResult.Success);
+            var result = _subject.SaveOneAccountInfo(inputModel);
+            Assert.That(result, Is.EqualTo(StorageResult.Success));
         }
     }
 }

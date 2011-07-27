@@ -1,94 +1,123 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.AccountInfoWebModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Edit
+	Hulen - Rediger kontoinformasjon
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Edit</h2>
+    <h2>Rediger kontoinformasjon</h2>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
-        
-        <fieldset>
-            <legend>Fields</legend>
             
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.AccountInfo.Id)%>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(m => m.AccountInfo.Id, new { @readonly = true})%>
-                <%: Html.ValidationMessageFor(m => m.AccountInfo.AccountNumber)%>
-            </div>
+            <table class="createtable">
+                 <tr>
+                    <td class="createheader">
+                        Id
+                    </td>
+                    <td class="createcell">
+                        <%: Html.TextBoxFor(m => m.AccountInfo.Id, new { @readonly = true})%>
+                    </td>
+                    <td>
+                        <%: Html.ValidationMessageFor(m => m.AccountInfo.Id)%>
+                    </td>
+                </tr>  
 
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.AccountInfo.Year)%>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(m => m.AccountInfo.Year)%>
-                <%: Html.ValidationMessageFor(m => m.AccountInfo.Year)%>
-            </div>
+                <tr>
+                    <td class="createheader">
+                        Kontonummer
+                    </td>
+                    <td class="createcell">
+                        <%: Html.TextBoxFor(m => m.AccountInfo.AccountNumber)%>
+                    </td>
+                    <td>
+                        <%: Html.ValidationMessageFor(m => m.AccountInfo.AccountNumber)%>
+                    </td>
+                </tr>    
+            
+                <tr>
+                    <td class="createheader">
+                        Kontonavn
+                    </td>
+                    <td class="createcell">
+                        <%: Html.TextBoxFor(m => m.AccountInfo.AccountName)%>
+                    </td>
+                    <td>
+                        <%: Html.ValidationMessageFor(m => m.AccountInfo.AccountName)%>
+                    </td>
+                </tr>  
+            
+                <tr>
+                    <td class="createheader">
+                        Resultatrapportkategori
+                    </td>
+                    <td class="createcell">
+                        <%: Html.DropDownListFor(m => m.AccountInfo.ResultReportCategory, new SelectList(Model.ResultCategories))%>
+                    </td>
+                    <td>
+                        <%: Html.ValidationMessageFor(m => m.AccountInfo.ResultReportCategory)%>
+                    </td>
+                </tr> 
+               
+                <tr>
+                    <td class="createheader">
+                        Driftsdelkategori
+                    </td>
+                    <td class="createcell">
+                        <%: Html.DropDownListFor(m => m.AccountInfo.PartsReportCategory, new SelectList(Model.PartsCategories))%>
+                    </td>
+                    <td>
+                        <%: Html.ValidationMessageFor(m => m.AccountInfo.PartsReportCategory)%>
+                    </td>
+                </tr> 
 
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.AccountInfo.AccountNumber)%>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(m => m.AccountInfo.AccountNumber)%>
-                <%: Html.ValidationMessageFor(m => m.AccountInfo.AccountNumber)%>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.AccountInfo.AccountName)%>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(m => m.AccountInfo.AccountName)%>
-                <%: Html.ValidationMessageFor(m => m.AccountInfo.AccountName)%>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.AccountInfo.ResultReportCategory)%>
-            </div>
-            <div class="editor-field">
-                <%= Html.DropDownListFor(m => m.AccountInfo.ResultReportCategory, new SelectList(Model.ResultCategories))%>
-                <%: Html.ValidationMessageFor(m => m.AccountInfo.ResultReportCategory)%>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.AccountInfo.PartsReportCategory)%>
-            </div>
-            <div class="editor-field">
-                <%: Html.DropDownListFor(m => m.AccountInfo.PartsReportCategory, new SelectList(Model.PartsCategories))%>
-                <%: Html.ValidationMessageFor(m => m.AccountInfo.PartsReportCategory)%>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.AccountInfo.WeekCategory)%>
-            </div>
-            <div class="editor-field">
-                <%: Html.DropDownListFor(m => m.AccountInfo.WeekCategory, new SelectList(Model.WeekCategories))%>
-                <%: Html.ValidationMessageFor(m => m.AccountInfo.WeekCategory)%>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.AccountInfo.IsIncome)%>
-            </div>
-            <div class="editor-field">
-                <%: Html.DropDownListFor(m => m.AccountInfo.IsIncome, new SelectList(Model.IsIncomes))%>
-                <%: Html.ValidationMessageFor(m => m.AccountInfo.IsIncome)%>
-            </div>
+                <tr>
+                    <td class="createheader">
+                        Ukeskategori
+                    </td>
+                    <td class="createcell">
+                        <%: Html.DropDownListFor(m => m.AccountInfo.WeekCategory, new SelectList(Model.WeekCategories))%>
+                    </td>
+                    <td>
+                        <%: Html.ValidationMessageFor(m => m.AccountInfo.WeekCategory)%>
+                    </td>
+                </tr> 
 
+                <tr>
+                    <td class="createheader">
+                        Inntekt eller utgift?
+                    </td>
+                    <td class="createcell">
+                        <%: Html.DropDownListFor(m => m.AccountInfo.IsIncome, new SelectList(Model.IsIncomes))%>
+                    </td>
+                    <td>
+                        <%: Html.ValidationMessageFor(m => m.AccountInfo.IsIncome)%>
+                    </td>
+                </tr> 
+
+                <tr>
+                    <td class="createheader">
+                        År
+                    </td>
+                    <td class="createcell">
+                        <%: Html.TextBoxFor(m => m.AccountInfo.Year)%>
+                    </td>
+                    <td>
+                        <%: Html.ValidationMessageFor(m => m.AccountInfo.Year)%>
+                    </td>
+                </tr> 
+            </table>
 
             <p>
-                <input type="submit" value="Save" />
+                <input type="submit" value="Lagre" />
             </p>
-        </fieldset>
 
     <% } %>
 
-    <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
-    </div>
+    <p>
+        <%: Html.ActionLink("Tilbake til oversikten", "Index") %>
+    </p>
 
 </asp:Content>
 

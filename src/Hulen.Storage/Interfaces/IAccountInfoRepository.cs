@@ -8,17 +8,13 @@ namespace Hulen.Storage.Interfaces
     public interface IAccountInfoRepository
     {
         StorageResult SaveOne(AccountInfoDTO accountCategory);
+        void SaveMeny(IEnumerable<AccountInfoDTO> accounts);
+        AccountInfoDTO GetOneById(Guid id);
         IEnumerable<AccountInfoDTO> GetAllByYear(int year);
         StorageResult DeleteOne(AccountInfoDTO accountCategory);
-
-
-        //void SaveMeny(ICollection<AccountInfoDTO> accounts);
-        //AccountInfoDTO GetOneById(Guid id);
-        //ICollection<AccountInfoDTO> GetAll();
-        //IEnumerable<AccountInfoDTO> GetAllByYear(int year);
-        //AccountInfoDTO GetOneByAccountNumber(int accountNumber);
-        //void UpdateOne(AccountInfoDTO accountCategory);
-        //void DeleteExistingAccountInfo();
-        //IEnumerable<int> GetAllAccountNumbersByYear(int year);
+        StorageResult DeleteOneById(Guid id);
+        void DeleteAllByYear(int year);
+        AccountInfoDTO GetOneByAccountNumber(int accountNumber);
+        void UpdateOne(AccountInfoDTO accountCategory);
     }
 }

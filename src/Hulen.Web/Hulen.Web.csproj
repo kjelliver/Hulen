@@ -90,10 +90,13 @@
     <Content Include="Content\Images\banner.jpg" />
     <Content Include="Content\LogIn.css" />
     <Content Include="Global.asax" />
-    <Content Include="Views\AccountInfoImport\Index.ascx" />
+    <Content Include="Scripts\jquery-1.6.2.js" />
+    <Content Include="Scripts\views\accountinfo_index.js" />
+    <Content Include="Views\AccountInfo\Copy.aspx" />
     <Content Include="Views\AccountInfo\Create.aspx" />
     <Content Include="Views\AccountInfo\Delete.aspx" />
     <Content Include="Views\AccountInfo\Edit.aspx" />
+    <Content Include="Views\AccountInfo\Import.aspx" />
     <Content Include="Views\AccountInfo\Index.aspx" />
     <Content Include="Views\BudgetImport\Index.ascx">
       <SubType>ASPXCodeBehind</SubType>
@@ -127,9 +130,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
@@ -143,9 +143,6 @@
     <Content Include="Views\Shared\Error.aspx" />
     <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config" />
-    <Content Include="Scripts\jquery-1.4.4.js" />
-    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.4.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -201,7 +198,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>56641</DevelopmentServerPort>
+          <DevelopmentServerPort>57545</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
