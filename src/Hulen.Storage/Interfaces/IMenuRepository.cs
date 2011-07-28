@@ -9,5 +9,6 @@ namespace Hulen.Storage.Interfaces
     public interface IMenuRepository
     {
         IEnumerable<MenuItemDTO> GetAllItems();
+        void SaveOne(MenuItemDTO item);
     }
 }

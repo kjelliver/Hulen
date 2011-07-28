@@ -24,6 +24,22 @@ namespace Hulen.Tests.UnitTests.Storage
             IEnumerable<MenuItemDTO> menuItems = _menuRepository.GetAllItems();
             Assert.Greater(menuItems.Count(), 0);
         }
+
+        //[Test]
+        //public void AddMenuItem()
+        //{
+        //    var menuitem = new MenuItemDTO
+        //                       {
+        //                           Action = "Index",
+        //                           Controller = "AccessGroup",
+        //                           IsLink = true,
+        //                           MenuLevel = 2,
+        //                           Name = "Admin. tilgangsgrupper",
+        //                           Parent = "Admin",
+        //                           SortOrder = 105
+        //                       };
+        //    _menuRepository.SaveOne(menuitem);
+        //}
     }
 }
 

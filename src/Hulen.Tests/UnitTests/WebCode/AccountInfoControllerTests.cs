@@ -61,7 +61,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         public void CreateShouldreturnRightView()
         {
             ViewResult result = _subject.Create();
-            Assert.That(result.ViewData.Model, Is.InstanceOf(typeof(AccountInfoIndexModel)));
+            Assert.That(result.ViewData.Model, Is.InstanceOf(typeof(AccountInfoEditModel)));
             Assert.That(result.ViewName == "Create");
         }
 

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\HulenAuthorizeAttribute.cs" />
+    <Compile Include="Controllers\AccessGroupController.cs" />
     <Compile Include="Controllers\AccountInfoController.cs" />
     <Compile Include="Controllers\FileImportControllers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Controllers\MasterController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Models\AccessGroupWebModels.cs" />
     <Compile Include="Models\AccountInfoWebModels.cs" />
     <Compile Include="Models\FileImportWebModel.cs" />
     <Compile Include="Models\MasterWebModels.cs" />

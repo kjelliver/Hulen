@@ -41,6 +41,8 @@ namespace Hulen.BusinessServices.Services
             if (user.ReportsAccessTo)
                 result.Add(menuItemsOnDatabase.Where(x => x.Name == "Rapporter").First());
 
+            result.Add(menuItemsOnDatabase.Where(x => x.Name == "Admin. tilgangsgrupper").First());
+
             return result.OrderBy(x => x.SortOrder);
         }
     }

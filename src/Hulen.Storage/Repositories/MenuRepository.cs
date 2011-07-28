@@ -18,5 +18,15 @@ namespace Hulen.Storage.Repositories
                 return session.CreateCriteria(typeof(MenuItemDTO)).AddOrder(Order.Asc("SortOrder")).List<MenuItemDTO>();
             }
         }
+
+        public void SaveOne(MenuItemDTO item)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            using (ITransaction transaction = session.BeginTransaction())
+            {
+                session.Save(item);
+                transaction.Commit();
+            }
+        }
     }
 }

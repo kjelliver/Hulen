@@ -39,33 +39,10 @@ namespace Hulen.Tests.UnitTests.Storage
             Assert.That(result3, Is.EqualTo(StorageResult.Success));
         }
 
-        [Test]
-        [ExpectedException(typeof (Exception))]
-        public void SaveAccountInfoFailed()
-        {
-            StorageResult result = _accountInfoRepository.SaveOne(_accountInfo1);
-            Assert.That(result, Is.EqualTo(StorageResult.Failed));
-        }
-
         public void DeleteAccountInfoSuccess()
         {
             StorageResult result = _accountInfoRepository.DeleteOne(_accountInfo1);
             Assert.That(result, Is.EqualTo(result));
-        }
-
-        [Test]
-        [ExpectedException(typeof(Exception))]
-        public void DeleteAccountInfoFailed()
-        {
-            StorageResult result = _accountInfoRepository.DeleteOne(_accountInfo1);
-            Assert.That(result, Is.EqualTo(StorageResult.Failed));
-        }
-
-        [Test]
-        public void GetAllByYearSuccess()
-        {
-            var result = _accountInfoRepository.GetAllByYear(2011);
-            Assert.That(IsInCollection(_accountInfo1, result));
         }
 
         [TearDown]
