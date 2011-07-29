@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
+using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.ViewModels;
 using Hulen.WebCode.Controllers;
@@ -77,6 +79,21 @@ namespace Hulen.Tests.UnitTests.WebCode
             Assert.That(result.ViewName, Is.EqualTo("Create"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("Feil under henting av roller."));
             Assert.That(result.ViewData.Model, Is.InstanceOf(typeof(AccessGroupIndexModel)));
+        }
+
+        [Test]
+        public void OtherCreateShouldAcceptHttpPostVerbOnly()
+        {
+            Expression<Action<AccessGroupController>> expression = c => c.Create(new AccessGroupEditModel(), "", "", "");
+            var methodCall = expression.Body as MethodCallExpression;
+            if (methodCall != null)
+            {
+                var acceptVerbs =
+                    (AcceptVerbsAttribute[])methodCall.Method.GetCustomAttributes(typeof(AcceptVerbsAttribute), false);
+                Assert.That(acceptVerbs, !Is.EqualTo(null));
+                Assert.That(acceptVerbs.Length, Is.EqualTo(1));
+                Assert.That(acceptVerbs[0].Verbs.First(), Is.EqualTo("POST"));
+            }
         }
     }
 }

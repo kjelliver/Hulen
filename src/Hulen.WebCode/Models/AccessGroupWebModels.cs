@@ -15,6 +15,11 @@ namespace Hulen.WebCode.Models
     {
         public AccessGroupViewModel AccessGroup { get; set; }
         public List<string> AvailableRoles { get; set; }
-        public List<string> RegisteredRoles { get; set; }
+        public List<string> RequestedRoles { get; set; }
+
+        public string[] AvailableSelected { get; set; }
+        public string[] RequestedSelected { get; set; }
+
+        public string SavedRequested { get; set; }
     }
 }

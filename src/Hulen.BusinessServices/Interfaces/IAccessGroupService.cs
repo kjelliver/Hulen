@@ -9,6 +9,6 @@ namespace Hulen.BusinessServices.Interfaces
     public interface IAccessGroupService
     {
         List<AccessGroupViewModel> GetAllAccessGroups();
-        List<string> GetAllRoles();
+        IEnumerable<string> GetAllRoles();
     }
 }

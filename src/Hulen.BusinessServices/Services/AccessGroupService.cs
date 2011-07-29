@@ -14,9 +14,9 @@ namespace Hulen.BusinessServices.Services
             throw new NotImplementedException();
         }
 
-        public List<string> GetAllRoles()
+        public IEnumerable<string> GetAllRoles()
         {
-            throw new NotImplementedException();
+            return new List<string> {"Administrator", "Leder"};
         }
     }
 }
