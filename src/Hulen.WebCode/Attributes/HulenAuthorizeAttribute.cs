@@ -53,6 +53,8 @@ namespace Hulen.WebCode.Attributes
                     return user.AccountInfoAccessTo;
                 if (callingController == "FileImport")
                     return user.FileImportAccessTo;
+                if (callingController == "AccessGroup")
+                    return true;
                 return false;
             }
             return false;

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
+using Hulen.Objects.Enum;
 using Hulen.Objects.ViewModels;
 using Hulen.WebCode.Controllers;
 using Hulen.WebCode.Models;
@@ -56,10 +56,10 @@ namespace Hulen.Tests.UnitTests.WebCode
         }
 
         [Test]
-        public void IndexShouldFetchAllRoles()
+        public void CreateShouldFetchAllRoles()
         {
             _accessGroupServiceMock.Setup(x => x.GetAllAccessGroups()).Returns(_viewModels);
-            _subject.Index();
+            _subject.Create();
             _accessGroupServiceMock.Verify(x => x.GetAllRoles(), Times.Once());
         }
 
@@ -75,10 +75,10 @@ namespace Hulen.Tests.UnitTests.WebCode
         public void FailedFetchShouldReturnCreateWithMessage()
         {
             _accessGroupServiceMock.Setup(x => x.GetAllRoles()).Throws(new Exception());
-            var result = _subject.Index();
+            var result = _subject.Create();
             Assert.That(result.ViewName, Is.EqualTo("Create"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("Feil under henting av roller."));
-            Assert.That(result.ViewData.Model, Is.InstanceOf(typeof(AccessGroupIndexModel)));
+            Assert.That(result.ViewData.Model, Is.InstanceOf(typeof(AccessGroupEditModel)));
         }
 
         [Test]
@@ -94,6 +94,85 @@ namespace Hulen.Tests.UnitTests.WebCode
                 Assert.That(acceptVerbs.Length, Is.EqualTo(1));
                 Assert.That(acceptVerbs[0].Verbs.First(), Is.EqualTo("POST"));
             }
+        }
+
+        [Test]
+        public void InvalidModelShoulReturnCreateView()
+        {
+            _subject.ModelState.AddModelError("key", "Model is invalid");
+            var result = _subject.Create(new AccessGroupEditModel(), "", "", "save");
+            Assert.That(result.ViewName, Is.EqualTo("Create"));
+        }
+
+        [Test]
+        public void SuccessfulStorageShouldReturnCreateWithMessage()
+        {
+            var model = new AccessGroupEditModel
+            {
+                AccessGroup = new AccessGroupViewModel { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
+            };
+
+            _accessGroupServiceMock.Setup(x => x.SaveOneAccessGroup(model.AccessGroup)).Returns(StorageResult.Success);
+            var result = _subject.Create(model, "", "", "save");
+            Assert.That(result.ViewName, Is.EqualTo("Create"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Tilgangsgruppen er opprettet"));
+            _accessGroupServiceMock.Verify(x => x.SaveOneAccessGroup(model.AccessGroup), Times.Once());
+        }
+
+        [Test]
+        public void AllreadyExistsStorageShouldReturnToCreateWithErrorMessage()
+        {
+            var model = new AccessGroupEditModel
+            {
+                AccessGroup = new AccessGroupViewModel { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> {"1", "2"}}    
+            };
+
+            _accessGroupServiceMock.Setup(x => x.SaveOneAccessGroup(model.AccessGroup)).Returns(StorageResult.AllreadyExsists);
+            var result = _subject.Create(model, "", "", "save");
+            Assert.That(result.ViewName, Is.EqualTo("Create"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Tilgangsgruppe med samme navn finnes fra før."));
+            _accessGroupServiceMock.Verify(x => x.SaveOneAccessGroup(model.AccessGroup), Times.Once());
+        }
+
+        [Test]
+        public void FailedStorageReturnsRightErrorMessage()
+        {
+            var model = new AccessGroupEditModel
+            {
+                AccessGroup = new AccessGroupViewModel { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
+            };
+
+            _accessGroupServiceMock.Setup(x => x.SaveOneAccessGroup(model.AccessGroup)).Throws(new Exception());
+            var result = _subject.Create(model, "", "", "save");
+            Assert.That(result.ViewName, Is.EqualTo("Create"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Feil i underliggende tjenester under lagring."));
+            _accessGroupServiceMock.Verify(x => x.SaveOneAccessGroup(model.AccessGroup), Times.Once());
+        }
+
+        [Test]
+        public void CanAddRole()
+        {
+            var model = new AccessGroupEditModel
+                            {
+                                AvailableSelected = new[] {"Administrator"}
+                            };
+            _accessGroupServiceMock.Setup(x => x.GetAllRoles()).Returns(new List<string> {"Administrator", "Leder"});
+            var resultModel = (AccessGroupEditModel) _subject.Create(model, ">>", "", "").Model;
+            Assert.That(resultModel.RequestedRoles, Contains.Item("Administrator"));
+            Assert.That(resultModel.AvailableRoles, Contains.Item("Leder"));
+        }
+
+        [Test]
+        public void CanRemoveRole()
+        {
+            var model = new AccessGroupEditModel
+                            {
+                RequestedSelected = new[] { "Administrator" }
+            };
+            _accessGroupServiceMock.Setup(x => x.GetAllRoles()).Returns(new List<string> { "Administrator", "Leder" });
+            var resultModel = (AccessGroupEditModel)_subject.Create(model, "", "<<", "").Model;
+            Assert.That(resultModel.AvailableRoles, Contains.Item("Leder"));
+            Assert.That(resultModel.AvailableRoles, Contains.Item("Administrator"));
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Hulen.Objects.Enum;
 using Hulen.Objects.ViewModels;
 
 namespace Hulen.BusinessServices.Interfaces
@@ -10,5 +11,6 @@ namespace Hulen.BusinessServices.Interfaces
     {
         List<AccessGroupViewModel> GetAllAccessGroups();
         IEnumerable<string> GetAllRoles();
+        StorageResult SaveOneAccessGroup(AccessGroupViewModel accessGroup);
     }
 }

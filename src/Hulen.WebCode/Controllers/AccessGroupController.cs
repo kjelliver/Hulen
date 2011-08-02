@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
+using Hulen.Objects.Enum;
 using Hulen.Objects.ViewModels;
 using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
-    //[HulenAuthorize]
+    [HulenAuthorize]
     public class AccessGroupController : Controller
     {
         private readonly IAccessGroupService _accessGroupService;
@@ -58,16 +58,43 @@ namespace Hulen.WebCode.Controllers
             ModelState.Clear();
             RestoreSavedState(editModel);
             if (!string.IsNullOrEmpty(add))
-                AddProducts(editModel);
+                AddRoles(editModel);
             else if (!string.IsNullOrEmpty(remove))
-                RemoveProducts(editModel);
+                RemoveRoles(editModel);
             else if (!string.IsNullOrEmpty(save))
             {
-                return View("Create", editModel);
-                //todo: implement SendListToSanta method...
+                return SaveAccessGroupAndReturnView(editModel);
             }
             SaveState(editModel);
             return View("Create", editModel);
+        }
+
+        private ViewResult SaveAccessGroupAndReturnView(AccessGroupEditModel editModel)
+        {
+            if (!ModelState.IsValid)
+                return View("Create", editModel);
+
+            try
+            {
+                var result = _accessGroupService.SaveOneAccessGroup(editModel.AccessGroup);
+                if (result == StorageResult.Success)
+                {
+                    ViewData["Message"] = "Tilgangsgruppen er opprettet";
+                    return View("Create", editModel);
+                }
+                if (result == StorageResult.AllreadyExsists)
+                {
+                    ViewData["Message"] = "Tilgangsgruppe med samme navn finnes fra før.";
+                    return View("Create", editModel);
+                }
+                ViewData["Message"] = "Ukjent feil under lagring.";
+                return View("Create", editModel);
+            }
+            catch
+            {
+                ViewData["Message"] = "Feil i underliggende tjenester under lagring.";
+                return View("Create", editModel);
+            }
         }
 
         private void SaveState(AccessGroupEditModel model)
@@ -88,17 +115,17 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
-        private void AddProducts(AccessGroupEditModel model)
+        private void AddRoles(AccessGroupEditModel model)
         {
             if (model.AvailableSelected != null)
             {
                 var roles = _accessGroupService.GetAllRoles().Where(x => model.AvailableSelected.Contains(x));
                 model.RequestedRoles.AddRange(roles);
-                model.AvailableSelected = null;
+                model.AvailableSelected = null; 
             }
         }
 
-        private static void RemoveProducts(AccessGroupEditModel model)
+        private static void RemoveRoles(AccessGroupEditModel model)
         {
             if (model.RequestedSelected != null)
             {
