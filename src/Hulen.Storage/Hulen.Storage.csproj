@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IAccessGroupRepository.cs" />
     <Compile Include="Interfaces\IAccountInfoRepository.cs" />
     <Compile Include="Interfaces\IBudgetRepository.cs" />
     <Compile Include="Interfaces\IMenuRepository.cs" />

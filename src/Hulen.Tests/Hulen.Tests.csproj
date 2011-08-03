@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTests\BusinessServices\AccessGroupServiceTests.cs" />
     <Compile Include="UnitTests\BusinessServices\AccountInfoServiceTests.cs" />
     <Compile Include="UnitTests\BusinessServices\UserServiceTests.cs" />
     <Compile Include="UnitTests\Objects\Mappers\AccessGroupMapperTests.cs" />

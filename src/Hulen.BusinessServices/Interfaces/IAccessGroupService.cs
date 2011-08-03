@@ -12,5 +12,8 @@ namespace Hulen.BusinessServices.Interfaces
         List<AccessGroupViewModel> GetAllAccessGroups();
         IEnumerable<string> GetAllRoles();
         StorageResult SaveOneAccessGroup(AccessGroupViewModel accessGroup);
+        AccessGroupViewModel GetOneAccessGroup(Guid id);
+        StorageResult UpdateOneAccessGroup(AccessGroupViewModel accessGroup);
+        StorageResult DeleteOneAccessGroup(AccessGroupViewModel accessGroup);
     }
 }

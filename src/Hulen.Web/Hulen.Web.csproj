@@ -93,6 +93,8 @@
     <Content Include="Scripts\jquery-1.6.2.js" />
     <Content Include="Scripts\views\accountinfo_index.js" />
     <Content Include="Views\AccessGroup\Create.aspx" />
+    <Content Include="Views\AccessGroup\Delete.aspx" />
+    <Content Include="Views\AccessGroup\Edit.aspx" />
     <Content Include="Views\AccessGroup\Index.aspx" />
     <Content Include="Views\AccountInfo\Copy.aspx" />
     <Content Include="Views\AccountInfo\Create.aspx" />
