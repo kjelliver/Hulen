@@ -61,6 +61,7 @@
     <Compile Include="UnitTests\BusinessServices\AccountInfoServiceTests.cs" />
     <Compile Include="UnitTests\BusinessServices\UserServiceTests.cs" />
     <Compile Include="UnitTests\Objects\Mappers\AccessGroupMapperTests.cs" />
+    <Compile Include="UnitTests\Storage\AccessGroupRepositoryTests.cs" />
     <Compile Include="UnitTests\Storage\AccountInfoRepositoryTests.cs" />
     <Compile Include="UnitTests\Storage\MenuRepositoryTests.cs" />
     <Compile Include="UnitTests\Storage\UserRepositoryTests.cs" />
