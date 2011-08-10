@@ -73,10 +73,6 @@ namespace Hulen.Storage.Repositories
         {
             try
             {
-                if (NameAllreadyInUse(acc.Name))
-                {
-                    return StorageResult.AllreadyExsists;
-                }
                 using (ISession session = NHibernateHelper.OpenSession())
                 using (ITransaction transaction = session.BeginTransaction())
                 {

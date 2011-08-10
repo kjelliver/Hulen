@@ -144,21 +144,28 @@ namespace Hulen.WebCode.Controllers
         {
             if (!ModelState.IsValid)
                 return View("Create", editModel);
-
             try
             {
+                if (editModel.AccessGroup.RolesThatHaveAccess == null)
+                    editModel.AccessGroup.RolesThatHaveAccess = new List<string>();
+                editModel.AccessGroup.RolesThatHaveAccess.AddRange(editModel.RequestedRoles);
+
                 var result = _accessGroupService.SaveOneAccessGroup(editModel.AccessGroup);
-                if (result == StorageResult.Success)
+
+                editModel.AvailableRoles = _accessGroupService.GetAllRoles().Except(editModel.RequestedRoles).ToList();
+
+                switch (result)
                 {
-                    ViewData["Message"] = "Tilgangsgruppen er opprettet";
-                    return View("Create", editModel);
+                    case StorageResult.Success:
+                        ViewData["Message"] = "Tilgangsgruppen er lagret";
+                        break;
+                    case StorageResult.AllreadyExsists:
+                        ViewData["Message"] = "Tilgangsgruppe med samme navn finnes fra før.";
+                        break;
+                    case StorageResult.Failed:
+                        ViewData["Message"] = "Ukjent feil under lagring.";
+                        break;
                 }
-                if (result == StorageResult.AllreadyExsists)
-                {
-                    ViewData["Message"] = "Tilgangsgruppe med samme navn finnes fra før.";
-                    return View("Create", editModel);
-                }
-                ViewData["Message"] = "Ukjent feil under lagring.";
                 return View("Create", editModel);
             }
             catch
@@ -172,10 +179,16 @@ namespace Hulen.WebCode.Controllers
         {
             if (!ModelState.IsValid)
                 return View("Edit", editModel);
-
             try
             {
+                if (editModel.AccessGroup.RolesThatHaveAccess == null)
+                    editModel.AccessGroup.RolesThatHaveAccess = new List<string>();
+                editModel.AccessGroup.RolesThatHaveAccess.AddRange(editModel.RequestedRoles);
+
                 var result = _accessGroupService.UpdateOneAccessGroup(editModel.AccessGroup);
+
+                editModel.AvailableRoles = _accessGroupService.GetAllRoles().Except(editModel.RequestedRoles).ToList();
+
                 if (result == StorageResult.Success)
                 {
                     ViewData["Message"] = "Tilgangsgruppen er endret";
@@ -208,19 +221,20 @@ namespace Hulen.WebCode.Controllers
 
             if (!string.IsNullOrEmpty(model.SavedRequested))
             {
-                string[] savedRoles = model.SavedRequested.Split(',');
-                var roles = _accessGroupService.GetAllRoles().Where(x => x == savedRoles.ToString());
-                model.RequestedRoles.AddRange(roles);
+                string[] prodids = model.SavedRequested.Split(',');
+                var prods = _accessGroupService.GetAllRoles().Where(p => prodids.Contains(p.ToString()));
+                model.RequestedRoles.AddRange(prods);
             }
         }
 
         private void AddRoles(AccessGroupEditModel model)
         {
+
             if (model.AvailableSelected != null)
             {
                 var roles = _accessGroupService.GetAllRoles().Where(x => model.AvailableSelected.Contains(x));
                 model.RequestedRoles.AddRange(roles);
-                model.AvailableSelected = null; 
+                model.AvailableSelected = null;
             }
         }
 

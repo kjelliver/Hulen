@@ -51,7 +51,8 @@ namespace Hulen.Objects.Mappers
             {
                 sb.Append((int)System.Enum.Parse(typeof (UserRole), role) + ",");
             }
-            sb.Remove(sb.Length - 1, 1);
+            if(sb.Length > 0)
+                sb.Remove(sb.Length - 1, 1);
             return sb.ToString();
         }
     }

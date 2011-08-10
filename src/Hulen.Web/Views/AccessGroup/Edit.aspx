@@ -16,12 +16,25 @@
         <%: Html.ValidationSummary(true) %>
 
         <table class="createtable">
+
+            <tr>
+                <td class="createheader">
+                    Id
+                </td>
+                <td class="createcell">
+                    <%: Html.TextBoxFor(m => m.AccessGroup.Id, new { @readonly = true})%>
+                </td>
+                <td>
+                    <%: Html.ValidationMessageFor(m => m.AccessGroup.Id)%>
+                </td>
+            </tr>
+
             <tr>
                 <td class="createheader">
                     Navn
                 </td>
                 <td class="createcell">
-                    <%: Html.TextBoxFor(m => m.AccessGroup.Name)%>
+                    <%: Html.TextBoxFor(m => m.AccessGroup.Name, new { @readonly = true})%>
                 </td>
                 <td>
                     <%: Html.ValidationMessageFor(m => m.AccessGroup.Name)%>
