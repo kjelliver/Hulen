@@ -77,6 +77,7 @@ namespace Hulen.WebCode.Controllers
                 model.AccessGroup = _accessGroupService.GetOneAccessGroup(id);
                 model.RequestedRoles = model.AccessGroup.RolesThatHaveAccess;
                 model.AvailableRoles = _accessGroupService.GetAllRoles().Except(model.AccessGroup.RolesThatHaveAccess).ToList();
+                model.GetSaved();
                 return View("Edit", model);
             }
             catch (Exception)

@@ -73,19 +73,19 @@
                         </tr>
                         <tr>
                             <td valign="top">
-                                <%=Html.ListBoxFor(model => model.AvailableSelected, new MultiSelectList(Model.AvailableRoles, Model.AvailableSelected), new { size = "10", style = "width:150px;" })%>
+                                <%=Html.ListBoxFor(m => m.AvailableSelected, new MultiSelectList(Model.AvailableRoles, Model.AvailableSelected), new { size = "10", style = "width:150px;" })%>
                             </td>
                             <td valign="top">
                                 <input type="submit" name="add" id="add" value=">>" /><br />
                                 <input type="submit" name="remove" id="remove" value="<<" />
                             </td>
                             <td valign="top">
-                                <%=Html.ListBoxFor(model => model.RequestedSelected, new MultiSelectList(Model.RequestedRoles, Model.RequestedSelected), new { size = "10", style = "width:150px;" })%>
+                                <%=Html.ListBoxFor(m => m.RequestedSelected, new MultiSelectList(Model.RequestedRoles, Model.RequestedSelected), new { size = "10", style = "width:150px;" })%>
                             </td>
                         </tr>
                     </table>
                 </td>
-                <%=Html.HiddenFor(model=>model.SavedRequested) %>
+                <%=Html.HiddenFor(m => m.SavedRequested) %>
             </tr>      
         </table>
 

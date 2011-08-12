@@ -21,5 +21,17 @@ namespace Hulen.WebCode.Models
         public string[] RequestedSelected { get; set; }
 
         public string SavedRequested { get; set; }
+
+        public void GetSaved()
+        {
+            var sb = new StringBuilder();
+            foreach(string role in RequestedRoles)
+            {
+                sb.Append(role + ",");
+            }
+            if (sb.Length > 0)
+                sb.Remove(sb.Length - 1, 1);
+            SavedRequested = sb.ToString();
+        }
     }
 }

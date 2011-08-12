@@ -44,8 +44,7 @@ namespace Hulen.BusinessServices.Services
 
         public StorageResult UpdateOneAccessGroup(AccessGroupViewModel accessGroup)
         {
-            var test = _accessGroupMapper.ToDTO(accessGroup);
-            return _accessGroupRepository.UpdateOne(test);
+            return _accessGroupRepository.UpdateOne(_accessGroupMapper.ToDTO(accessGroup));
         }
 
         public StorageResult DeleteOneAccessGroup(AccessGroupViewModel accessGroup)
