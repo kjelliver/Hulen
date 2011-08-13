@@ -31,12 +31,12 @@ namespace Hulen.Tests.UnitTests.Storage
         //    var menuitem = new MenuItemDTO
         //                       {
         //                           Action = "Index",
-        //                           Controller = "AccessGroup",
+        //                           Controller = "MenuItem",
         //                           IsLink = true,
         //                           MenuLevel = 2,
         //                           Name = "Admin. tilgangsgrupper",
         //                           Parent = "Admin",
-        //                           SortOrder = 105
+        //                           SortOrder = 106
         //                       };
         //    _menuRepository.SaveOne(menuitem);
         //}

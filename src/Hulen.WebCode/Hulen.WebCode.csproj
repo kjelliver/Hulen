@@ -51,12 +51,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\MasterController.cs" />
+    <Compile Include="Controllers\MenuItemController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Models\AccessGroupWebModels.cs" />
     <Compile Include="Models\AccountInfoWebModels.cs" />
     <Compile Include="Models\FileImportWebModel.cs" />
     <Compile Include="Models\MasterWebModels.cs" />
+    <Compile Include="Models\MenuItemWebModels.cs" />
     <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Models\LogInModels.cs" />
     <Compile Include="Models\UserWebModel.cs" />
