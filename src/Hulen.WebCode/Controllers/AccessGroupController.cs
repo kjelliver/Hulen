@@ -77,7 +77,7 @@ namespace Hulen.WebCode.Controllers
                 model.AccessGroup = _accessGroupService.GetOneAccessGroup(id);
                 model.RequestedRoles = model.AccessGroup.RolesThatHaveAccess;
                 model.AvailableRoles = _accessGroupService.GetAllRoles().Except(model.AccessGroup.RolesThatHaveAccess).ToList();
-                model.GetSaved();
+                model.GetSavedRoles();
                 return View("Edit", model);
             }
             catch (Exception)
@@ -111,6 +111,9 @@ namespace Hulen.WebCode.Controllers
             try
             {
                 model.AccessGroup = _accessGroupService.GetOneAccessGroup(id);
+                model.RequestedRoles = model.AccessGroup.RolesThatHaveAccess;
+                model.AvailableRoles = _accessGroupService.GetAllRoles().Except(model.AccessGroup.RolesThatHaveAccess).ToList();
+                model.GetSavedRoles();
                 return View("Delete", model);
             }
             catch (Exception)
@@ -125,7 +128,13 @@ namespace Hulen.WebCode.Controllers
         {
             try
             {
+                ModelState.Clear();
+                RestoreSavedState(editModel);
+                editModel.AddRolesToAccessGroup();
                 var result = _accessGroupService.DeleteOneAccessGroup(editModel.AccessGroup);
+
+                editModel.AvailableRoles = _accessGroupService.GetAllRoles().Except(editModel.AccessGroup.RolesThatHaveAccess).ToList();
+
                 if (result == StorageResult.Success)
                 {
                     ViewData["Message"] = "Tilgangsgruppen er slettet";
@@ -147,9 +156,7 @@ namespace Hulen.WebCode.Controllers
                 return View(context, editModel);
             try
             {
-                if (editModel.AccessGroup.RolesThatHaveAccess == null)
-                    editModel.AccessGroup.RolesThatHaveAccess = new List<string>();
-                editModel.AccessGroup.RolesThatHaveAccess.AddRange(editModel.RequestedRoles);
+                editModel.AddRolesToAccessGroup();
 
                 StorageResult result = context == "Create" ? _accessGroupService.SaveOneAccessGroup(editModel.AccessGroup) : _accessGroupService.UpdateOneAccessGroup(editModel.AccessGroup);
 

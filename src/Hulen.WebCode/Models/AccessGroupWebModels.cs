@@ -22,7 +22,7 @@ namespace Hulen.WebCode.Models
 
         public string SavedRequested { get; set; }
 
-        public void GetSaved()
+        public void GetSavedRoles()
         {
             var sb = new StringBuilder();
             foreach(string role in RequestedRoles)
@@ -32,6 +32,13 @@ namespace Hulen.WebCode.Models
             if (sb.Length > 0)
                 sb.Remove(sb.Length - 1, 1);
             SavedRequested = sb.ToString();
+        }
+
+        public void AddRolesToAccessGroup()
+        {
+            if (AccessGroup.RolesThatHaveAccess == null)
+                AccessGroup.RolesThatHaveAccess = new List<string>();
+            AccessGroup.RolesThatHaveAccess.AddRange(RequestedRoles);
         }
     }
 }

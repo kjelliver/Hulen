@@ -59,16 +59,6 @@ namespace Hulen.Tests.UnitTests.Storage
             Assert.That(result, Is.EqualTo(StorageResult.Success));
         }
 
-        [Test]
-        public void UpdateResultAllreadyExcists()
-        {
-            _subject.SaveOne(_ag1);
-            _subject.SaveOne(_ag3);
-            _ag1.Name = "Test3";
-            var result = _subject.UpdateOne(_ag1);
-            Assert.That(result, Is.EqualTo(StorageResult.AllreadyExsists));
-        }
-
         [Ignore]
         [Test]
         public void UpdateResultFailed()
