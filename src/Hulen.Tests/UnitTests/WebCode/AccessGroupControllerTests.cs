@@ -115,7 +115,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             _accessGroupServiceMock.Setup(x => x.SaveOneAccessGroup(model.AccessGroup)).Returns(StorageResult.Success);
             var result = _subject.Create(model, "", "", "save");
             Assert.That(result.ViewName, Is.EqualTo("Create"));
-            Assert.That(result.ViewData["Message"], Is.EqualTo("Tilgangsgruppen er opprettet"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Tilgangsgruppen er lagret"));
             _accessGroupServiceMock.Verify(x => x.SaveOneAccessGroup(model.AccessGroup), Times.Once());
         }
 
@@ -207,7 +207,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             _accessGroupServiceMock.Setup(x => x.UpdateOneAccessGroup(model.AccessGroup)).Returns(StorageResult.Success);
             var result = _subject.Edit(model, "", "", "save");
             Assert.That(result.ViewName, Is.EqualTo("Edit"));
-            Assert.That(result.ViewData["Message"], Is.EqualTo("Tilgangsgruppen er endret"));
+            Assert.That(result.ViewData["Message"], Is.EqualTo("Tilgangsgruppen er lagret"));
             _accessGroupServiceMock.Verify(x => x.UpdateOneAccessGroup(model.AccessGroup), Times.Once());
         }
 

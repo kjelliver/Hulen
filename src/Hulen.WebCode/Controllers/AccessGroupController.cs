@@ -63,7 +63,7 @@ namespace Hulen.WebCode.Controllers
                 RemoveRoles(editModel);
             else if (!string.IsNullOrEmpty(save))
             {
-                return SaveAccessGroupAndReturnView(editModel);
+                return SaveAndReturnView(editModel, "Create");
             }
             SaveState(editModel);
             return View("Create", editModel);
@@ -99,7 +99,7 @@ namespace Hulen.WebCode.Controllers
                 RemoveRoles(editModel);
             else if (!string.IsNullOrEmpty(save))
             {
-                return UpdateAccessGroupAndReturnView(editModel);
+                return SaveAndReturnView(editModel, "Edit");
             }
             SaveState(editModel);
             return View("Edit", editModel); 
@@ -141,17 +141,17 @@ namespace Hulen.WebCode.Controllers
             }    
         }
 
-        private ViewResult SaveAccessGroupAndReturnView(AccessGroupEditModel editModel)
+        private ViewResult SaveAndReturnView(AccessGroupEditModel editModel, string context)
         {
             if (!ModelState.IsValid)
-                return View("Create", editModel);
+                return View(context, editModel);
             try
             {
                 if (editModel.AccessGroup.RolesThatHaveAccess == null)
                     editModel.AccessGroup.RolesThatHaveAccess = new List<string>();
                 editModel.AccessGroup.RolesThatHaveAccess.AddRange(editModel.RequestedRoles);
 
-                var result = _accessGroupService.SaveOneAccessGroup(editModel.AccessGroup);
+                StorageResult result = context == "Create" ? _accessGroupService.SaveOneAccessGroup(editModel.AccessGroup) : _accessGroupService.UpdateOneAccessGroup(editModel.AccessGroup);
 
                 editModel.AvailableRoles = _accessGroupService.GetAllRoles().Except(editModel.RequestedRoles).ToList();
 
@@ -167,46 +167,12 @@ namespace Hulen.WebCode.Controllers
                         ViewData["Message"] = "Ukjent feil under lagring.";
                         break;
                 }
-                return View("Create", editModel);
+                return View(context, editModel);
             }
             catch
             {
                 ViewData["Message"] = "Feil i underliggende tjenester under lagring.";
-                return View("Create", editModel);
-            }
-        }
-
-        private ViewResult UpdateAccessGroupAndReturnView(AccessGroupEditModel editModel)
-        {
-            if (!ModelState.IsValid)
-                return View("Edit", editModel);
-            try
-            {
-                if (editModel.AccessGroup.RolesThatHaveAccess == null)
-                    editModel.AccessGroup.RolesThatHaveAccess = new List<string>();
-                editModel.AccessGroup.RolesThatHaveAccess.AddRange(editModel.RequestedRoles);
-
-                var result = _accessGroupService.UpdateOneAccessGroup(editModel.AccessGroup);
-
-                editModel.AvailableRoles = _accessGroupService.GetAllRoles().Except(editModel.RequestedRoles).ToList();
-
-                if (result == StorageResult.Success)
-                {
-                    ViewData["Message"] = "Tilgangsgruppen er endret";
-                    return View("Edit", editModel);
-                }
-                if (result == StorageResult.AllreadyExsists)
-                {
-                    ViewData["Message"] = "Tilgangsgruppe med samme navn finnes fra før.";
-                    return View("Edit", editModel);
-                }
-                ViewData["Message"] = "Ukjent feil under lagring.";
-                return View("Edit", editModel);
-            }
-            catch
-            {
-                ViewData["Message"] = "Feil i underliggende tjenester under lagring.";
-                return View("Edit", editModel);
+                return View(context, editModel);
             }
         }
 
