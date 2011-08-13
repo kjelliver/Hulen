@@ -47,6 +47,7 @@
     <Compile Include="Interfaces\IAccessGroupService.cs" />
     <Compile Include="Interfaces\IAccountInfoService.cs" />
     <Compile Include="Interfaces\IBudgetService.cs" />
+    <Compile Include="Interfaces\IMenuService.cs" />
     <Compile Include="Interfaces\IResultAccountService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Interfaces\IWebService.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Services\AccessGroupService.cs" />
     <Compile Include="Services\AccountInfoService.cs" />
     <Compile Include="Services\BudgetService.cs" />
+    <Compile Include="Services\MenuService.cs" />
     <Compile Include="Services\ResultAccountService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\WebService.cs" />

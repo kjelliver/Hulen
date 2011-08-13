@@ -1,21 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.MenuItemWebModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Hulen - Opprett menyelement
+    Hulen - Rediger menyelement
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<div class="errormessage">
+    <div class="errormessage">
         <%: ViewData["Message"]%>                            
     </div>  
 
-    <h2>Opprett tilgangsgruppe</h2>
+    <h2>Opprett menyelement</h2>
 
         <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
 
         <table class="createtable">
+
+            <tr>
+                <td class="createheader">
+                    Id
+                </td>
+                <td class="createcell">
+                    <%: Html.TextBoxFor(m => m.MenuItem.Id, new { @readonly = true })%>
+                </td>
+                <td>
+                    <%: Html.ValidationMessageFor(m => m.MenuItem.Id)%>
+                </td>
+            </tr>  
+
             <tr>
                 <td class="createheader">
                     Navn
@@ -114,7 +127,7 @@
         </table>
 
         <p>
-            <input type="submit" name="save" id="save" value="Opprett menyelement" />
+            <input type="submit" name="save" id="save" value="Lagre menyelement" />
         </p>
 
     <% } %>

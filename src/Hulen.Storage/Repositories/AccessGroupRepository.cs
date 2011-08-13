@@ -58,8 +58,7 @@ namespace Hulen.Storage.Repositories
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
-                    var test = session.Get<AccessGroupDTO>(id);
-                    return test;
+                    return session.Get<AccessGroupDTO>(id);
                 }
             }
             catch (Exception)

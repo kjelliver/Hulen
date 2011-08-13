@@ -109,6 +109,8 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="Views\MenuItem\Create.aspx" />
+    <Content Include="Views\MenuItem\Delete.aspx" />
+    <Content Include="Views\MenuItem\Edit.aspx" />
     <Content Include="Views\MenuItem\Index.aspx" />
     <Content Include="Views\Shared\Banner.ascx" />
     <Content Include="Views\Shared\Menu.ascx" />

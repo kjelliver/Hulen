@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Hulen.Objects.DTO;
+using Hulen.Objects.Enum;
 using Hulen.Storage.Interfaces;
 using NHibernate;
 using NHibernate.Criterion;
@@ -19,13 +20,73 @@ namespace Hulen.Storage.Repositories
             }
         }
 
-        public void SaveOne(MenuItemDTO item)
+        public StorageResult SaveOne(MenuItemDTO item)
         {
-            using (ISession session = NHibernateHelper.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
+            try
             {
-                session.Save(item);
-                transaction.Commit();
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(item);
+                    transaction.Commit();
+                }
+                return StorageResult.Success;
+            }
+            catch (Exception)
+            {
+                return StorageResult.Failed;
+            }
+            
+        }
+
+        public MenuItemDTO GetOneById(Guid id)
+        {
+            try
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                {
+                    return session.Get<MenuItemDTO>(id);
+                }
+            }
+            catch (Exception)
+            {
+                return new MenuItemDTO();
+            }
+        }
+
+        public StorageResult UpdateOne(MenuItemDTO menuItem)
+        {
+            try
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Update(menuItem);
+                    transaction.Commit();
+                }
+                return StorageResult.Success;
+            }
+            catch (Exception)
+            {
+                return StorageResult.Failed;
+            }  
+        }
+
+        public StorageResult DeleteOne(MenuItemDTO menuItem)
+        {
+            try
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Delete(menuItem);
+                    transaction.Commit();
+                }
+                return StorageResult.Success;
+            }
+            catch (Exception)
+            {
+                return StorageResult.Failed;
             }
         }
     }
