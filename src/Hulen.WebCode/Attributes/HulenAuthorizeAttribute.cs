@@ -43,21 +43,23 @@ namespace Hulen.WebCode.Attributes
 
         private static bool ValidateUserAccess(UserDTO user, string callingController, string callingAction)
         {
-            if(user != null)
-            {
-                if (callingController == "Home")
-                    return user.HomeAccessTo;
-                if (callingController == "UserAdmin")
-                    return user.UserAdminAccessTo;
-                if (callingController == "AccountInfo")
-                    return user.AccountInfoAccessTo;
-                if (callingController == "FileImport")
-                    return user.FileImportAccessTo;
-                if (callingController == "AccessGroup")
-                    return true;
-                return false;
-            }
-            return false;
+            return true;
+
+            //if(user != null)
+            //{
+            //    if (callingController == "Home")
+            //        return user.HomeAccessTo;
+            //    if (callingController == "UserAdmin")
+            //        return user.UserAdminAccessTo;
+            //    if (callingController == "AccountInfo")
+            //        return user.AccountInfoAccessTo;
+            //    if (callingController == "FileImport")
+            //        return user.FileImportAccessTo;
+            //    if (callingController == "AccessGroup")
+            //        return true;
+            //    return false;
+            //}
+            //return false;
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)

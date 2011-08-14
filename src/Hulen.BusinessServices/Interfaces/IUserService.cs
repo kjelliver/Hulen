@@ -15,5 +15,6 @@ namespace Hulen.BusinessServices.Interfaces
         StorageResult UpdateOneUser(UserDTO user, bool changedUsername);
         StorageResult DeleteOneUserByUserName(string username);
         bool ValidateUserPassword(string userName, string password);
+        IEnumerable<string> GetAllRoles();
     }
 }

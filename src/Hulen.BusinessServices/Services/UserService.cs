@@ -49,5 +49,10 @@ namespace Hulen.BusinessServices.Services
             var user = _userRepository.GetOneUserByUsername(userName) ?? new UserDTO();
             return user.Password == password && !user.Disabled;
         }
+
+        public IEnumerable<string> GetAllRoles()
+        {
+            return new List<string> { "Administrator", "Leder" };
+        }
     }
 }

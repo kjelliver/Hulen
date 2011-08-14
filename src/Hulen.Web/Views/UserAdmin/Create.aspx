@@ -6,58 +6,86 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Ny bruker</h2>
+    <div class="errormessage">
+        <%: ViewData["Message"]%>                            
+    </div>  
 
-    <%: ViewData["Message"] %>
+    <h2>Ny bruker</h2>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
 
-        <fieldset>
-            <legend>Fields</legend>
+        <table class="createtable">
+            <tr>
+                <td class="createheader">
+                    <%: Html.LabelFor(m => m.User.Username)%>
+                </td>
+                <td class="createcell">
+                    <%: Html.TextBoxFor(m => m.User.Username)%>
+                    <%: Html.ValidationMessageFor(m => m.User.Username)%>
+                </td>
+            </tr>  
             
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.User.Username)%>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(m => m.User.Username)%>
-                <%: Html.ValidationMessageFor(m => m.User.Username)%>
-            </div>
+            <tr>
+                <td class="createheader">
+                    Passord
+                </td>
+                <td class="createcell">
+                    <%:Html.PasswordFor(m => m.User.Password)%>
+                    <%: Html.ValidationMessageFor(m => m.User.Password)%>
+                </td>
+            </tr>
 
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.User.Password)%>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(m => m.User.Password)%>
-                <%: Html.ValidationMessageFor(m => m.User.Password)%>
-            </div>
+            <tr>
+                <td class="createheader">
+                    Navn
+                </td>
+                <td class="createcell">
+                    <%: Html.TextBoxFor(m => m.User.Name)%>
+                    <%: Html.ValidationMessageFor(m => m.User.Name)%>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="createheader">
+                    Rolle
+                </td>
+                <td class="createcell">
+                    <%: Html.DropDownListFor(m => m.User.Role, new SelectList(Model.Roles))%>
+                    <%: Html.ValidationMessageFor(m => m.User.Role)%>
+                </td>
+            </tr>
 
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.User.Name)%>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(m => m.User.Name)%>
-                <%: Html.ValidationMessageFor(m => m.User.Name)%>
-            </div>
+            <tr>
+                <td class="createheader">
+                    Deaktivert
+                </td>
+                <td class="createcell">
+                    <%: Html.CheckBoxFor(m => m.User.Disabled)%>
+                    <%: Html.ValidationMessageFor(m => m.User.Disabled)%>
+                </td>
+            </tr>
 
-            <div class="editor-label">
-                <%: Html.LabelFor(m => m.User.Disabled)%>
-            </div>
-            <div class="editor-field">
-                <%: Html.CheckBoxFor(m => m.User.Disabled)%>
-                <%: Html.ValidationMessageFor(m => m.User.Disabled)%>
-            </div>
+            <tr>
+                <td class="createheader">
+                    Må endre passord
+                </td>
+                <td class="createcell">
+                    <%: Html.CheckBoxFor(m => m.User.MustChangePassword)%>
+                    <%: Html.ValidationMessageFor(m => m.User.MustChangePassword)%>
+                </td>
+            </tr>
+        </table>
 
-            <p>
-                <input type="submit" value="Opprett" />
-            </p>
-        </fieldset>
+        <p>
+            <input type="submit" value="Opprett" />
+        </p>
 
     <% } %>
 
-    <div>
+    <p>
         <%: Html.ActionLink("Tilbake til brukeroversikt", "Index") %>
-    </div>
+    </p>
 
 </asp:Content>
 

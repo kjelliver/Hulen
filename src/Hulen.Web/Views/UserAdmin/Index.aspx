@@ -6,29 +6,54 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+    <div class="errormessage">
+        <%: ViewData["Message"]%>                            
+    </div>
+
     <h2>Brukeradmininstrasjon</h2>
 
-    <%: ViewData["Message"] %>
-
-    <table>
+    <table  class="contenttable" cellspacing="0">
         <tr>
-            <th>
+            <th class="contentheader">
                 Navn
             </th>
+
+            <th class="contentheader">
+                Brukernavn
+            </th>
+
+            <th class="contentheader">
+                Rolle
+            </th>
+
+            <th class="contentheader">
+                Inaktiv
+            </th>
             
-            <th></th>
+            <th class="contentheader"></th>
         </tr>
 
     <% foreach (var item in Model.Users ) { %>
     
         <tr>
-            <td>
+            <td class="contentcell">
                 <%: item.Name %>
             </td>
 
-            <td>
-                <%: Html.ActionLink("Rediger", "Edit", new { username = item.Username })%> |
-                <%: Html.ActionLink("Slett", "Delete", new { username = item.Username })%>
+            <td class="contentcell">
+                <%: item.Username %>
+            </td>
+
+            <td class="contentcell">
+                <%: item.Role %>
+            </td>
+
+            <td class="contentcell">
+                <%: Html.CheckBox("Disabled", item.Disabled, new { disabled = "disabled" })%>
+            </td>
+
+            <td class="contentcell">
+                <%: Html.ActionLink("Rediger", "Edit", new { username = item.Username })%>
             </td>
         </tr>
     

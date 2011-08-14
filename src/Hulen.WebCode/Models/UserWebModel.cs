@@ -11,5 +11,6 @@ namespace Hulen.WebCode.Models
         public string UserNameStoredInDb { get; set; }
         public IEnumerable<UserDTO> Users { get; set; }
         public UserDTO User { get; set; }
+        public IEnumerable<string> Roles { get; set; }
     }
 }

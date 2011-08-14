@@ -13,15 +13,6 @@ namespace Hulen.Objects.DTO
         public string Name { get; set; }
         public string Role { get; set; }
         public bool Disabled { get; set; }
-
-        //Access controllers
-        public bool HomeAccessTo { get; set; }
-        public bool UserAdminAccessTo { get; set; }
-        public bool AccountInfoAccessTo { get; set; }
-        public bool FileImportAccessTo { get; set; }
-        public bool ReportsAccessTo { get; set; }
-
-        //Visible menu items
-        public bool AdminAccessTo { get; set; }
+        public bool MustChangePassword { get; set; }
     }
 }

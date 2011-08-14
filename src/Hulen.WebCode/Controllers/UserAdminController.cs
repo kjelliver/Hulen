@@ -26,7 +26,7 @@ namespace Hulen.WebCode.Controllers
 
         public ViewResult Create()
         {
-            var model = new UserWebModel();
+            var model = new UserWebModel {Roles = _userService.GetAllRoles()};
             return View("Create", model);
         }
 
@@ -44,7 +44,7 @@ namespace Hulen.WebCode.Controllers
 
                 if (storageresult == StorageResult.Success)
                 {
-                    model = new UserWebModel(); 
+                    model = new UserWebModel(){Roles = _userService.GetAllRoles()}; 
                     ViewData["Message"] = "Brukeren er opprettet";
                     return View("Create", model);
                 }
@@ -67,7 +67,7 @@ namespace Hulen.WebCode.Controllers
         {
             try
             {
-                var model = new UserWebModel { User = _userService.GetOneUser(username) };
+                var model = new UserWebModel { User = _userService.GetOneUser(username), Roles = _userService.GetAllRoles()};
                 model.UserNameStoredInDb = model.User.Username;
                 return View("Edit", model);
             }
@@ -79,36 +79,11 @@ namespace Hulen.WebCode.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ViewResult Edit(UserWebModel model)
+        public ViewResult Edit(UserWebModel model, string save, string reset)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("Edit", model);
-            }
-
-            try
-            {
-                var result = _userService.UpdateOneUser(model.User, IsUsernameChanged(model));
-
-                if (result == StorageResult.Success)
-                {
-                    model.UserNameStoredInDb = model.User.Username;
-                    ViewData["Message"] = "Brukeren er endret.";
-                    return View("Edit", model);
-                }
-                if (result == StorageResult.AllreadyExsists)
-                {
-                    ViewData["Message"] = "Brukernavn finnes fra før.";
-                    return View("Edit", model);
-                }
-                ViewData["Message"] = "Ukjent feil under lagring.";
-                return View("Edit", model);
-            }
-            catch
-            {
-                ViewData["Message"] = "Feil i underliggende tjenester under lagring av bruker.";
-                return View("Edit", model);
-            }
+            if (!string.IsNullOrEmpty(save))
+                return UpdateUser(model);
+            return ResetPassword(model);
         }
 
         public ViewResult Delete(string username)
@@ -135,6 +110,64 @@ namespace Hulen.WebCode.Controllers
         private static bool IsUsernameChanged(UserWebModel model)
         {
             return model.User.Username != model.UserNameStoredInDb;
+        }
+
+        private ViewResult UpdateUser(UserWebModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit", model);
+            }
+
+            try
+            {
+                model.Roles = _userService.GetAllRoles(); 
+                var result = _userService.UpdateOneUser(model.User, IsUsernameChanged(model));
+
+                if (result == StorageResult.Success)
+                {
+                    model.UserNameStoredInDb = model.User.Username;
+                    ViewData["Message"] = "Brukeren er endret.";
+                    return View("Edit", model);
+                }
+                if (result == StorageResult.AllreadyExsists)
+                {
+                    ViewData["Message"] = "Brukernavn finnes fra før.";
+                    return View("Edit", model);
+                }
+                ViewData["Message"] = "Ukjent feil under lagring.";
+                return View("Edit", model);
+            }
+            catch
+            {
+                ViewData["Message"] = "Feil i underliggende tjenester under lagring av bruker.";
+                return View("Edit", model);
+            }
+        }
+
+        private ViewResult ResetPassword(UserWebModel model)
+        {
+            try
+            {
+                model.User.Password = "12345";
+                model.User.MustChangePassword = true;
+                model.Roles = _userService.GetAllRoles(); 
+                var result = _userService.UpdateOneUser(model.User, IsUsernameChanged(model));
+
+                if (result == StorageResult.Success)
+                {
+                    model.UserNameStoredInDb = model.User.Username;
+                    ViewData["Message"] = "Passordet er resatt.";
+                    return View("Edit", model);
+                }
+                ViewData["Message"] = "Ukjent feil under resetting av passord.";
+                return View("Edit", model);
+            }
+            catch
+            {
+                ViewData["Message"] = "Feil i underliggende tjenester under resetting av passord.";
+                return View("Edit", model);
+            }
         }
     }
 }

@@ -145,7 +145,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         [Test]
         public void OtherEditShouldAcceptPostVerbOnly()
         {
-            Expression<Action<UserAdminController>> expression = c => c.Edit(new UserWebModel());
+            Expression<Action<UserAdminController>> expression = c => c.Edit(new UserWebModel(), "", "");
             var methodCall = expression.Body as MethodCallExpression;
             if (methodCall != null)
             {
@@ -162,7 +162,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         {
             _subject.ModelState.AddModelError("key", "Model is invalid");
 
-            var result = _subject.Edit(new UserWebModel());
+            var result = _subject.Edit(new UserWebModel(), "", "");
             Assert.That(result.ViewName, Is.EqualTo("Edit"));
         }
 
@@ -172,7 +172,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
             _userServiceMock.Setup(x => x.UpdateOneUser(user, false)).Returns(StorageResult.Success);
 
-            var result = _subject.Edit(new UserWebModel { User = user, UserNameStoredInDb = "user1" });
+            var result = _subject.Edit(new UserWebModel { User = user, UserNameStoredInDb = "user1" }, "", "");
 
             Assert.That(result.ViewName, Is.EqualTo("Edit"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("Brukeren er endret."));
@@ -184,7 +184,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
             _userServiceMock.Setup(x => x.UpdateOneUser(user, true)).Returns(StorageResult.AllreadyExsists);
 
-            var result = _subject.Edit(new UserWebModel {User = user, UserNameStoredInDb = "old"});
+            var result = _subject.Edit(new UserWebModel {User = user, UserNameStoredInDb = "old"}, "", "");
 
             Assert.That(result.ViewName, Is.EqualTo("Edit"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("Brukernavn finnes fra før."));
@@ -195,7 +195,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         {
             var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
             _userServiceMock.Setup(x => x.UpdateOneUser(user, true)).Throws(new Exception());
-            var result = _subject.Edit(new UserWebModel { User = user, UserNameStoredInDb = "old" });
+            var result = _subject.Edit(new UserWebModel { User = user, UserNameStoredInDb = "old" }, "", "");
             Assert.That(result.ViewName, Is.EqualTo("Edit"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("Feil i underliggende tjenester under lagring av bruker."));
         }

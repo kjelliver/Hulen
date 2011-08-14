@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<div class="errormessage">
+    <div class="errormessage">
         <%: ViewData["Message"]%>                            
     </div>  
 

@@ -20,9 +20,9 @@ namespace Hulen.Tests.UnitTests.Storage
         public void SetUp()
         {
             _userRepository = new UserRepository();
-            _userRepository.SaveOneUser(_testUser1 = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false });
-            _userRepository.SaveOneUser(_testUser2 = new UserDTO { Username = "user2", Password = "pass2", Name = "name2", Disabled = true });
-            _userRepository.SaveOneUser(_testUser3 = new UserDTO { Username = "user3", Password = "pass3", Name = "name3", Disabled = false });
+            _userRepository.SaveOneUser(_testUser1 = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false, Role = "0", MustChangePassword = false });
+            _userRepository.SaveOneUser(_testUser2 = new UserDTO { Username = "user2", Password = "pass2", Name = "name2", Disabled = true, Role = "0", MustChangePassword = false });
+            _userRepository.SaveOneUser(_testUser3 = new UserDTO { Username = "user3", Password = "pass3", Name = "name3", Disabled = false, Role = "0", MustChangePassword = false });
         }
 
         [Test]
@@ -35,6 +35,21 @@ namespace Hulen.Tests.UnitTests.Storage
             Assert.AreEqual(_testUser1.Name, fromDb.Name);
             Assert.AreEqual(_testUser1.Disabled, fromDb.Disabled);
         }
+    
+        //[Test]
+        //public void test()
+        //{
+        //    var test = new UserDTO()
+        //                   {
+        //                       Disabled = false,
+        //                       MustChangePassword = false,
+        //                       Name = "Kjell Iver Breistøl",
+        //                       Password = "12345",
+        //                       Role = "Administrator",
+        //                       Username = "kjelliverb@gmail.com"
+        //                   };
+        //    _userRepository.SaveOneUser(test);
+        //}
 
         [Test]
         public void CanDeleteUser()
