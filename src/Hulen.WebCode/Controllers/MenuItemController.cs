@@ -42,7 +42,7 @@ namespace Hulen.WebCode.Controllers
 
         public ViewResult Create()
         {
-            var model = new MenuItemWebModel {MenuLevels = new List<int> {1, 2}, AccessGroups = GetAccessGroups(),};
+            var model = new MenuItemWebModel {MenuLevels = new List<int> {1, 2}, AccessGroups = GetAccessGroups(), Parents = GetParents()};
             return View("Create", model);
         }
 
@@ -56,7 +56,7 @@ namespace Hulen.WebCode.Controllers
         {
             try
             {
-                var model = new MenuItemWebModel { MenuItem = _menuService.GetOneById(id), MenuLevels = new List<int> { 1, 2 }, AccessGroups = GetAccessGroups() };
+                var model = new MenuItemWebModel { MenuItem = _menuService.GetOneById(id), MenuLevels = new List<int> { 1, 2 }, AccessGroups = GetAccessGroups(), Parents = GetParents() };
                 return View("Edit", model);
             }
             catch
@@ -83,6 +83,7 @@ namespace Hulen.WebCode.Controllers
             {
                 model.MenuLevels = new List<int> { 1, 2 };
                 model.AccessGroups = GetAccessGroups();
+                model.Parents = GetParents();
 
                 var storageresult = context == "Create" ? _menuService.SaveOneMenuItem(model.MenuItem) : _menuService.UpdateOne(model.MenuItem);
 
@@ -111,7 +112,7 @@ namespace Hulen.WebCode.Controllers
         {
             try
             {
-                var model = new MenuItemWebModel { MenuItem = _menuService.GetOneById(id), MenuLevels = new List<int> { 1, 2 }, AccessGroups = GetAccessGroups() };
+                var model = new MenuItemWebModel { MenuItem = _menuService.GetOneById(id), MenuLevels = new List<int> { 1, 2 }, AccessGroups = GetAccessGroups(), Parents = GetParents() };
                 return View("Delete", model);
             }
             catch (Exception)
@@ -126,6 +127,10 @@ namespace Hulen.WebCode.Controllers
         {
             try
             {
+                editModel.MenuLevels = new List<int> {1, 2};
+                editModel.AccessGroups = GetAccessGroups();
+                editModel.Parents = GetParents();
+            
                 var result = _menuService.DeleteOneMenuItem(editModel.MenuItem );
 
                 if (result == StorageResult.Success)
@@ -152,6 +157,16 @@ namespace Hulen.WebCode.Controllers
             {
                 names.Add(group.Name);
             }
+
+            return names;
+        }
+
+        private List<string> GetParents()
+        {
+            var names = new List<string> {"-"};
+            var parents = _webService.GetAllMenuItems();
+
+            names.AddRange(from item in parents where item.Parent == "-" select item.Name);
 
             return names;
         }

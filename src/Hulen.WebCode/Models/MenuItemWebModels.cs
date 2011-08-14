@@ -13,5 +13,6 @@ namespace Hulen.WebCode.Models
 
         public List<int> MenuLevels { get; set; }
         public List<string> AccessGroups { get; set; }
+        public List<string> Parents { get; set; }
     }
 }

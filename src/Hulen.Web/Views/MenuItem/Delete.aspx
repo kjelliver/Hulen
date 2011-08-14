@@ -82,7 +82,7 @@
                     Forelder
                 </td>
                 <td class="createcell">
-                    <%: Html.TextBoxFor(m => m.MenuItem.Parent)%>
+                    <%: Html.DropDownListFor(m => m.MenuItem.Parent, new SelectList(Model.Parents))%>
                 </td>
                 <td>
                     <%: Html.ValidationMessageFor(m => m.MenuItem.Parent)%>

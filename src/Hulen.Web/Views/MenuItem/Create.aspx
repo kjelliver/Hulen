@@ -69,7 +69,7 @@
                     Forelder
                 </td>
                 <td class="createcell">
-                    <%: Html.TextBoxFor(m => m.MenuItem.Parent)%>
+                    <%: Html.DropDownListFor(m => m.MenuItem.Parent, new SelectList(Model.Parents))%>
                 </td>
                 <td>
                     <%: Html.ValidationMessageFor(m => m.MenuItem.Parent)%>
@@ -105,7 +105,7 @@
                     Tilgangsgruppe
                 </td>
                 <td class="createcell">
-                    <%: Html.DropDownListFor(m => m.MenuItem.MenuLevel, new SelectList(Model.AccessGroups))%>
+                    <%: Html.DropDownListFor(m => m.MenuItem.AccessGroup, new SelectList(Model.AccessGroups))%>
                 </td>
                 <td>
                     <%: Html.ValidationMessageFor(m => m.MenuItem.AccessGroup)%>
