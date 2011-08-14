@@ -14,5 +14,7 @@ namespace Hulen.Storage.Interfaces
         AccessGroupDTO GetOne(Guid id);
         StorageResult UpdateOne(AccessGroupDTO acc);
         StorageResult DeleteOne(AccessGroupDTO acc);
+        IEnumerable<AccessGroupDTO> GetAllByType(string type);
+        AccessGroupDTO GetOneByName(string name);
     }
 }

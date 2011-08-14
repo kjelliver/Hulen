@@ -7,10 +7,12 @@ using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
 using Hulen.Objects.ViewModels;
+using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
+    [HulenAuthorize]
     public class MenuItemController : Controller
     {
         private readonly IWebService _webService;

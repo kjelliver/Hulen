@@ -17,5 +17,6 @@ namespace Hulen.BusinessServices.Interfaces
         bool ValidateUserPassword(string userName, string password);
         IEnumerable<string> GetAllRoles();
         void UpdatePassword(string userName, string newPassword);
+        bool HasUserAccessTo(string username, string callingController, string callingAction);
     }
 }

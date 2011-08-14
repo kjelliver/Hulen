@@ -14,13 +14,15 @@ namespace Hulen.Tests.UnitTests.BusinessServices
     public class UserServiceTests
     {
         private Mock<IUserRepository> _userRepositoryMock;
+        private Mock<IAccessGroupService> _accessGroupService;
         private IUserService _subject;
 
         [SetUp]
         public void SetUp()
         {
             _userRepositoryMock = new Mock<IUserRepository>();
-            _subject = new UserService(_userRepositoryMock.Object);
+            _accessGroupService = new Mock<IAccessGroupService>();
+            _subject = new UserService(_userRepositoryMock.Object, _accessGroupService.Object);
         }
 
         [Test]

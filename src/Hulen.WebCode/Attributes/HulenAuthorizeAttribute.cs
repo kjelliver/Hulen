@@ -9,6 +9,8 @@ using System.Web.Security;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.BusinessServices.Services;
 using Hulen.Objects.DTO;
+using Hulen.Objects.Mappers;
+using Hulen.Objects.Mappers.Interfaces;
 using Hulen.Storage.Interfaces;
 using Hulen.Storage.Repositories;
 
@@ -18,11 +20,17 @@ namespace Hulen.WebCode.Attributes
     {
         private readonly IUserService _userService;
         private readonly IUserRepository _userRepository;
+        private readonly IAccessGroupService _accessGroupService;
+        private readonly IAccessGroupRepository _accessGroupRepository;
+        private readonly IAccessGroupMapper _accessGroupMapper;
 
         public HulenAuthorizeAttribute()
         {
             _userRepository = new UserRepository();
-            _userService = new UserService(_userRepository);
+            _accessGroupRepository = new AccessGroupRepository();
+            _accessGroupMapper = new AccessGroupMapper();
+            _accessGroupService = new AccessGroupService(_accessGroupRepository, _accessGroupMapper);
+            _userService = new UserService(_userRepository, _accessGroupService);
         }
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
@@ -38,29 +46,7 @@ namespace Hulen.WebCode.Attributes
                 callingAction = RouteTable.Routes.GetRouteData(httpContext).Values["action"].ToString();
             }
 
-            return ValidateUserAccess(_userService.GetOneUser(username), callingController, callingAction);
-        }
-
-        private static bool ValidateUserAccess(UserDTO user, string callingController, string callingAction)
-        {
-
-            return true;
-
-            //if(user != null)
-            //{
-            //    if (callingController == "Home")
-            //        return user.HomeAccessTo;
-            //    if (callingController == "UserAdmin")
-            //        return user.UserAdminAccessTo;
-            //    if (callingController == "AccountInfo")
-            //        return user.AccountInfoAccessTo;
-            //    if (callingController == "FileImport")
-            //        return user.FileImportAccessTo;
-            //    if (callingController == "AccessGroup")
-            //        return true;
-            //    return false;
-            //}
-            //return false;
+            return _userService.HasUserAccessTo(username, callingController, callingAction);
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)

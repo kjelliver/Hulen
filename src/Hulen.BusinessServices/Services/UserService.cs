@@ -13,10 +13,12 @@ namespace Hulen.BusinessServices.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IAccessGroupService _accessGroupService;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IAccessGroupService accessGroupService)
         {
             _userRepository = userRepository;
+            _accessGroupService = accessGroupService;
         }
 
         public IEnumerable<UserDTO> GetAllUsers()
@@ -60,6 +62,18 @@ namespace Hulen.BusinessServices.Services
             var user = _userRepository.GetOneUserByUsername(userName);
             user.Password = newPassword;
             _userRepository.UpdateOneUser(user, false);
+        }
+
+        public bool HasUserAccessTo(string username, string callingController, string callingAction)
+        {
+            var accessGroupName = "CONTROLLER_" + callingController.ToUpper() + "_" + callingAction == ""
+                                                                    ? callingAction.ToUpper()
+                                                                    : "ALL";
+            var accessGroup = _accessGroupService.GetAccessGroupByName(accessGroupName);
+
+            if(accessGroup.RolesThatHaveAccess.Contains(_userRepository.GetOneUserByUsername(username).Role))
+                return true;
+            return false;
         }
     }
 }

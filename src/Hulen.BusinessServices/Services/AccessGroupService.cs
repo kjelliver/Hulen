@@ -51,5 +51,15 @@ namespace Hulen.BusinessServices.Services
         {
             return _accessGroupRepository.DeleteOne(_accessGroupMapper.ToDTO(accessGroup));
         }
+
+        public IEnumerable<AccessGroupViewModel> GetAccessGroupsByType(string type)
+        {
+            return _accessGroupRepository.GetAllByType(type).Select(dto => _accessGroupMapper.ToViewModel(dto)).ToList();
+        }
+
+        public AccessGroupViewModel GetAccessGroupByName(string name)
+        {
+            return _accessGroupMapper.ToViewModel(_accessGroupRepository.GetOneByName(name));
+        }
     }
 }

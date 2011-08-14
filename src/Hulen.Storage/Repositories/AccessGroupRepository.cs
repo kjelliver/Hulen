@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using Hulen.Objects.Enum;
 using Hulen.Storage.Interfaces;
 using NHibernate;
 using NHibernate.Criterion;
+using NHibernate.Mapping;
 
 namespace Hulen.Storage.Repositories
 {
@@ -101,6 +103,37 @@ namespace Hulen.Storage.Repositories
             catch (Exception)
             {
                 return StorageResult.Failed;
+            }
+        }
+
+        public IEnumerable<AccessGroupDTO> GetAllByType(string type)
+        {
+            try
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                {
+                    return session
+                        .CreateCriteria(typeof(AccessGroupDTO))
+                        .Add(Restrictions.Eq("Type", type))
+                        .List<AccessGroupDTO>();
+                }
+            }
+            catch (Exception)
+            {
+                return new List<AccessGroupDTO>();
+            }
+        }
+
+        public AccessGroupDTO GetOneByName(string name)
+        {
+            try
+            {
+                return GetAll().Where(x => x.Name == name).FirstOrDefault();
+
+            }
+            catch (Exception)
+            {
+                return new AccessGroupDTO();
             }
         }
 
