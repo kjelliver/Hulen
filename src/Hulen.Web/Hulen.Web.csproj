@@ -108,6 +108,7 @@
     <Content Include="Views\FileImport\Index.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="Views\LogIn\ChangePassword.aspx" />
     <Content Include="Views\MenuItem\Create.aspx" />
     <Content Include="Views\MenuItem\Delete.aspx" />
     <Content Include="Views\MenuItem\Edit.aspx" />

@@ -18,4 +18,19 @@ namespace Hulen.WebCode.Models
         [DisplayName("Passord")]
         public string Password { get; set; }
     }
+
+    public class NewPasswordModel
+    {
+        public string UserName { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [DisplayName("NewPassord")]
+        public string NewPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [DisplayName("RepeatPassord")]
+        public string RepeatPassword { get; set; }
+    }
 }

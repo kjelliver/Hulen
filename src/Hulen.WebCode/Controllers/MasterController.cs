@@ -31,11 +31,18 @@ namespace Hulen.WebCode.Controllers
 
         public ActionResult Banner()
         {
-            var model = new BannerWebModel
-                            {
-                                LoggedOnUser = _userService.GetOneUser(Session["currentUserID"].ToString())
-                            };
-            return View("Banner", model);
+            try
+            {
+                var model = new BannerWebModel
+                {
+                    LoggedOnUser = _userService.GetOneUser(Session["currentUserID"].ToString())
+                };
+                return View("Banner", model);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("LogIn", "LogIn");
+            }
         }
     }
 }

@@ -43,6 +43,7 @@ namespace Hulen.WebCode.Attributes
 
         private static bool ValidateUserAccess(UserDTO user, string callingController, string callingAction)
         {
+
             return true;
 
             //if(user != null)

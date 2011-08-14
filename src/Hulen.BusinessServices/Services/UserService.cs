@@ -54,5 +54,12 @@ namespace Hulen.BusinessServices.Services
         {
             return new List<string> { "Administrator", "Leder" };
         }
+
+        public void UpdatePassword(string userName, string newPassword)
+        {
+            var user = _userRepository.GetOneUserByUsername(userName);
+            user.Password = newPassword;
+            _userRepository.UpdateOneUser(user, false);
+        }
     }
 }
