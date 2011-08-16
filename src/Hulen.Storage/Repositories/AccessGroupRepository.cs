@@ -67,7 +67,6 @@ namespace Hulen.Storage.Repositories
             {
                 return new AccessGroupDTO();
             }
-            
         }
 
         public StorageResult UpdateOne(AccessGroupDTO acc)
