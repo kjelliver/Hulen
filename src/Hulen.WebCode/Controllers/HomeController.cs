@@ -4,6 +4,7 @@ using Hulen.WebCode.Attributes;
 namespace Hulen.WebCode.Controllers
 {
     [HandleError]
+    [HulenAuthorize]
     public class HomeController : Controller
     {
         public ActionResult Index()

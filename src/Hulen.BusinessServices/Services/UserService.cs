@@ -66,12 +66,39 @@ namespace Hulen.BusinessServices.Services
 
         public bool HasUserAccessTo(string username, string callingController, string callingAction)
         {
-            var accessGroupName = "CONTROLLER_" + callingController.ToUpper() + "_" + callingAction == ""
-                                                                    ? callingAction.ToUpper()
-                                                                    : "ALL";
+            try
+            {
+                if (UserGotAccessToHoleController(username, callingController))
+                    return true;
+                if (UserGotAccessToControllerAndAction(username, callingController, callingAction))
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }  
+        }
+
+        private bool UserGotAccessToControllerAndAction(string username, string callingController, string callingAction)
+        {
+            var controller = callingController.ToUpper();
+            var action = "_" + callingAction.ToUpper();
+            var accessGroupName = "CONTROLLER_" + controller + action;
             var accessGroup = _accessGroupService.GetAccessGroupByName(accessGroupName);
 
-            if(accessGroup.RolesThatHaveAccess.Contains(_userRepository.GetOneUserByUsername(username).Role))
+            if (accessGroup.RolesThatHaveAccess.Contains(_userRepository.GetOneUserByUsername(username).Role))
+                return true;
+            return false;
+        }
+
+        private bool UserGotAccessToHoleController(string username, string callingController)
+        {
+            var controller = callingController.ToUpper();
+            var accessGroupName = "CONTROLLER_" + controller;
+            var accessGroup = _accessGroupService.GetAccessGroupByName(accessGroupName);
+
+            if (accessGroup.RolesThatHaveAccess.Contains(_userRepository.GetOneUserByUsername(username).Role))
                 return true;
             return false;
         }
