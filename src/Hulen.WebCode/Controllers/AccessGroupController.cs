@@ -14,10 +14,12 @@ namespace Hulen.WebCode.Controllers
     public class AccessGroupController : Controller
     {
         private readonly IAccessGroupService _accessGroupService;
+        private readonly IRoleService _roleService;
 
-        public AccessGroupController(IAccessGroupService srv)
+        public AccessGroupController(IAccessGroupService srv, IRoleService roleService)
         {
             _accessGroupService = srv;
+            _roleService = roleService;
         }
 
         public ViewResult Index()
@@ -41,7 +43,7 @@ namespace Hulen.WebCode.Controllers
             var model = new AccessGroupEditModel {RequestedRoles = new List<string>()};
             try
             {
-                model.AvailableRoles = _accessGroupService.GetAllRoles().ToList();
+                model.AvailableRoles = _roleService.GetAllRoles().ToList();
                 return View("Create", model);
             }
             catch (Exception)
@@ -76,7 +78,7 @@ namespace Hulen.WebCode.Controllers
             {
                 model.AccessGroup = _accessGroupService.GetOneAccessGroup(id);
                 model.RequestedRoles = model.AccessGroup.RolesThatHaveAccess;
-                model.AvailableRoles = _accessGroupService.GetAllRoles().Except(model.AccessGroup.RolesThatHaveAccess).ToList();
+                model.AvailableRoles = _roleService.GetAllRoles().Except(model.AccessGroup.RolesThatHaveAccess).ToList();
                 model.GetSavedRoles();
                 return View("Edit", model);
             }
@@ -112,7 +114,7 @@ namespace Hulen.WebCode.Controllers
             {
                 model.AccessGroup = _accessGroupService.GetOneAccessGroup(id);
                 model.RequestedRoles = model.AccessGroup.RolesThatHaveAccess;
-                model.AvailableRoles = _accessGroupService.GetAllRoles().Except(model.AccessGroup.RolesThatHaveAccess).ToList();
+                model.AvailableRoles = _roleService.GetAllRoles().Except(model.AccessGroup.RolesThatHaveAccess).ToList();
                 model.GetSavedRoles();
                 return View("Delete", model);
             }
@@ -133,7 +135,7 @@ namespace Hulen.WebCode.Controllers
                 editModel.AddRolesToAccessGroup();
                 var result = _accessGroupService.DeleteOneAccessGroup(editModel.AccessGroup);
 
-                editModel.AvailableRoles = _accessGroupService.GetAllRoles().Except(editModel.AccessGroup.RolesThatHaveAccess).ToList();
+                editModel.AvailableRoles = _roleService.GetAllRoles().Except(editModel.AccessGroup.RolesThatHaveAccess).ToList();
 
                 if (result == StorageResult.Success)
                 {
@@ -160,7 +162,7 @@ namespace Hulen.WebCode.Controllers
 
                 StorageResult result = context == "Create" ? _accessGroupService.SaveOneAccessGroup(editModel.AccessGroup) : _accessGroupService.UpdateOneAccessGroup(editModel.AccessGroup);
 
-                editModel.AvailableRoles = _accessGroupService.GetAllRoles().Except(editModel.RequestedRoles).ToList();
+                editModel.AvailableRoles = _roleService.GetAllRoles().Except(editModel.RequestedRoles).ToList();
 
                 switch (result)
                 {
@@ -186,7 +188,7 @@ namespace Hulen.WebCode.Controllers
         private void SaveState(AccessGroupEditModel model)
         {
             model.SavedRequested = string.Join(",", model.RequestedRoles.Select(x => x.ToString()).ToArray());
-            model.AvailableRoles = _accessGroupService.GetAllRoles().Except(model.RequestedRoles).ToList();
+            model.AvailableRoles = _roleService.GetAllRoles().Except(model.RequestedRoles).ToList();
         }
 
         private void RestoreSavedState(AccessGroupEditModel model)
@@ -196,7 +198,7 @@ namespace Hulen.WebCode.Controllers
             if (!string.IsNullOrEmpty(model.SavedRequested))
             {
                 string[] prodids = model.SavedRequested.Split(',');
-                var prods = _accessGroupService.GetAllRoles().Where(p => prodids.Contains(p.ToString()));
+                var prods = _roleService.GetAllRoles().Where(p => prodids.Contains(p.ToString()));
                 model.RequestedRoles.AddRange(prods);
             }
         }
@@ -206,7 +208,7 @@ namespace Hulen.WebCode.Controllers
 
             if (model.AvailableSelected != null)
             {
-                var roles = _accessGroupService.GetAllRoles().Where(x => model.AvailableSelected.Contains(x));
+                var roles = _roleService.GetAllRoles().Where(x => model.AvailableSelected.Contains(x));
                 model.RequestedRoles.AddRange(roles);
                 model.AvailableSelected = null;
             }

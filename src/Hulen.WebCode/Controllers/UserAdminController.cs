@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.Enum;
 using Hulen.WebCode.Attributes;
@@ -11,10 +10,12 @@ namespace Hulen.WebCode.Controllers
     public class UserAdminController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IRoleService _roleService;
 
-        public UserAdminController(IUserService userService)
+        public UserAdminController(IUserService userService, IRoleService roleService)
         {
             _userService = userService;
+            _roleService = roleService;
         }
 
         public ViewResult Index(string message)
@@ -26,7 +27,7 @@ namespace Hulen.WebCode.Controllers
 
         public ViewResult Create()
         {
-            var model = new UserWebModel {Roles = _userService.GetAllRoles()};
+            var model = new UserWebModel {Roles = _roleService.GetAllRoles()};
             return View("Create", model);
         }
 
@@ -44,7 +45,7 @@ namespace Hulen.WebCode.Controllers
 
                 if (storageresult == StorageResult.Success)
                 {
-                    model = new UserWebModel(){Roles = _userService.GetAllRoles()}; 
+                    model = new UserWebModel {Roles = _roleService.GetAllRoles()}; 
                     ViewData["Message"] = "Brukeren er opprettet";
                     return View("Create", model);
                 }
@@ -67,7 +68,7 @@ namespace Hulen.WebCode.Controllers
         {
             try
             {
-                var model = new UserWebModel { User = _userService.GetOneUser(username), Roles = _userService.GetAllRoles()};
+                var model = new UserWebModel { User = _userService.GetOneUser(username), Roles = _roleService.GetAllRoles()};
                 model.UserNameStoredInDb = model.User.Username;
                 return View("Edit", model);
             }
@@ -121,7 +122,7 @@ namespace Hulen.WebCode.Controllers
 
             try
             {
-                model.Roles = _userService.GetAllRoles(); 
+                model.Roles = _roleService.GetAllRoles(); 
                 var result = _userService.UpdateOneUser(model.User, IsUsernameChanged(model));
 
                 if (result == StorageResult.Success)
@@ -151,7 +152,7 @@ namespace Hulen.WebCode.Controllers
             {
                 model.User.Password = "12345";
                 model.User.MustChangePassword = true;
-                model.Roles = _userService.GetAllRoles(); 
+                model.Roles = _roleService.GetAllRoles(); 
                 var result = _userService.UpdateOneUser(model.User, IsUsernameChanged(model));
 
                 if (result == StorageResult.Success)

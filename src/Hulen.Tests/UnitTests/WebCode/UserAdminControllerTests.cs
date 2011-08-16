@@ -18,12 +18,14 @@ namespace Hulen.Tests.UnitTests.WebCode
     {
         private UserAdminController _subject;
         private Mock<IUserService> _userServiceMock;
+        private Mock<IRoleService> _roleService;
 
         [SetUp]
         public void SetUp()
         {
             _userServiceMock = new Mock<IUserService>();
-            _subject = new UserAdminController(_userServiceMock.Object);
+            _roleService = new Mock<IRoleService>();
+            _subject = new UserAdminController(_userServiceMock.Object, _roleService.Object);
         }
 
         [Test]

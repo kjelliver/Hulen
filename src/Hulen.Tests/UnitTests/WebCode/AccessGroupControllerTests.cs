@@ -17,6 +17,7 @@ namespace Hulen.Tests.UnitTests.WebCode
     public class AccessGroupControllerTests
     {
         private Mock<IAccessGroupService> _accessGroupServiceMock;
+        private Mock<IRoleService> _roleServiceMock;
         private AccessGroupController _subject;
         private List<AccessGroupViewModel> _viewModels;
 
@@ -24,7 +25,8 @@ namespace Hulen.Tests.UnitTests.WebCode
         public void SetUp()
         {
             _accessGroupServiceMock = new Mock<IAccessGroupService>();
-            _subject = new AccessGroupController(_accessGroupServiceMock.Object);
+            _roleServiceMock = new Mock<IRoleService>();
+            _subject = new AccessGroupController(_accessGroupServiceMock.Object, _roleServiceMock.Object);
             _viewModels = new List<AccessGroupViewModel>();
         }
 
@@ -60,7 +62,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         {
             _accessGroupServiceMock.Setup(x => x.GetAllAccessGroups()).Returns(_viewModels);
             _subject.Create();
-            _accessGroupServiceMock.Verify(x => x.GetAllRoles(), Times.Once());
+            _roleServiceMock.Verify(x => x.GetAllRoles(), Times.Once());
         }
 
         [Test]
@@ -74,7 +76,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         [Test]
         public void FailedFetchShouldReturnCreateWithMessage()
         {
-            _accessGroupServiceMock.Setup(x => x.GetAllRoles()).Throws(new Exception());
+            _roleServiceMock.Setup(x => x.GetAllRoles()).Throws(new Exception());
             var result = _subject.Create();
             Assert.That(result.ViewName, Is.EqualTo("Create"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("Feil under henting av roller."));
@@ -163,14 +165,14 @@ namespace Hulen.Tests.UnitTests.WebCode
                                     RolesThatHaveAccess = new List<string> {"Administrator"}
                                 };
             _accessGroupServiceMock.Setup(x => x.GetOneAccessGroup(guid)).Returns(viewModel);
-            _accessGroupServiceMock.Setup(x => x.GetAllRoles()).Returns(new List<string> { "Administrator", "Leder" });
+            _roleServiceMock.Setup(x => x.GetAllRoles()).Returns(new List<string> { "Administrator", "Leder" });
             var result = _subject.Edit(guid);
             var resultModel = (AccessGroupEditModel) result.Model;
             Assert.That(result.ViewName, Is.EqualTo("Edit"));
             Assert.That(resultModel.AccessGroup, Is.EqualTo(viewModel));
             Assert.That(resultModel.RequestedRoles, Contains.Item("Administrator"));
             Assert.That(resultModel.AvailableRoles, Contains.Item("Leder"));
-            _accessGroupServiceMock.Verify(x => x.GetAllRoles(), Times.Once());
+            _roleServiceMock.Verify(x => x.GetAllRoles(), Times.Once());
         }
 
         [Test]
@@ -312,7 +314,7 @@ namespace Hulen.Tests.UnitTests.WebCode
                             {
                                 AvailableSelected = new[] {"Administrator"}
                             };
-            _accessGroupServiceMock.Setup(x => x.GetAllRoles()).Returns(new List<string> {"Administrator", "Leder"});
+            _roleServiceMock.Setup(x => x.GetAllRoles()).Returns(new List<string> {"Administrator", "Leder"});
             var resultModel = (AccessGroupEditModel) _subject.Create(model, ">>", "", "").Model;
             Assert.That(resultModel.RequestedRoles, Contains.Item("Administrator"));
             Assert.That(resultModel.AvailableRoles, Contains.Item("Leder"));
@@ -325,7 +327,7 @@ namespace Hulen.Tests.UnitTests.WebCode
                             {
                 RequestedSelected = new[] { "Administrator" }
             };
-            _accessGroupServiceMock.Setup(x => x.GetAllRoles()).Returns(new List<string> { "Administrator", "Leder" });
+            _roleServiceMock.Setup(x => x.GetAllRoles()).Returns(new List<string> { "Administrator", "Leder" });
             var resultModel = (AccessGroupEditModel)_subject.Create(model, "", "<<", "").Model;
             Assert.That(resultModel.AvailableRoles, Contains.Item("Leder"));
             Assert.That(resultModel.AvailableRoles, Contains.Item("Administrator"));
