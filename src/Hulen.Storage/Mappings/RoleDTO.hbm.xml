@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Objects.DTO">
 
-  <class name="Hulen.Objects.DTO.UserDTO, Hulen.Objects" table="Users" lazy="false">
+  <class name="Hulen.Objects.DTO.RoleDTO, Hulen.Objects" table="Roles" lazy="false">
     <id name ="Id" column="Id" />
     <property name="Name" column="Name" />
   </class>

@@ -52,11 +52,6 @@ namespace Hulen.BusinessServices.Services
             return user.Password == password && !user.Disabled;
         }
 
-        public IEnumerable<string> GetAllRoles()
-        {
-            return new List<string> { "Administrator", "Leder" };
-        }
-
         public void UpdatePassword(string userName, string newPassword)
         {
             var user = _userRepository.GetOneUserByUsername(userName);
