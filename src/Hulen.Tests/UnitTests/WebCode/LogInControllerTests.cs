@@ -39,6 +39,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             Assert.That(result.ViewName, Is.EqualTo("LogIn"));
         }
 
+        [Ignore]
         [Test]
         public void HttpPostLogInShouldReturnReightViewWhenSuccessfullLogIn()
         {

@@ -35,26 +35,11 @@ namespace Hulen.Tests.UnitTests.Storage
             Assert.AreEqual(_testUser1.Name, fromDb.Name);
             Assert.AreEqual(_testUser1.Disabled, fromDb.Disabled);
         }
-    
-        //[Test]
-        //public void test()
-        //{
-        //    var test = new UserDTO()
-        //                   {
-        //                       Disabled = false,
-        //                       MustChangePassword = false,
-        //                       Name = "Kjell Iver Breistøl",
-        //                       Password = "12345",
-        //                       Role = "Administrator",
-        //                       Username = "kjelliverb@gmail.com"
-        //                   };
-        //    _userRepository.SaveOneUser(test);
-        //}
 
         [Test]
         public void CanDeleteUser()
         {
-            var user = new UserDTO {Username = "user", Password = "pass", Name = "name", Disabled = false};
+            var user = new UserDTO {Username = "user", Password = "pass", Name = "name", Disabled = false, Role = "Testings"};
             _userRepository.SaveOneUser(user);
             _userRepository.DeleteOneUser(user.Username);
             Assert.Null(_userRepository.GetOneUserByUsername("user"));
