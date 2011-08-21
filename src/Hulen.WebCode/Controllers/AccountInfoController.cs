@@ -142,7 +142,12 @@ namespace Hulen.WebCode.Controllers
 
         public ActionResult OpenReport()
         {
-            string pdfTemplate = @"C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\data\test.pdf";
+            var serverAddress = @Server.MapPath("~");
+            var templateAddress = @"Content\PdfTemplates\test.pdf";
+
+            var pdfTemplate = serverAddress + templateAddress;
+            
+
             PdfReader pdfReader = new PdfReader(pdfTemplate);
 
             MemoryStream stream = new MemoryStream();
