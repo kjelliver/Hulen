@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.BusinessServices.Services;
 using Hulen.Objects.Enum;
+using Hulen.PdfGenerator;
 using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace Hulen.WebCode.Controllers
 {
@@ -136,9 +140,31 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
-        public ViewResult OpenReport()
+        public ActionResult OpenReport()
         {
-            return Index("Not yet implemented");
+            string pdfTemplate = @"C:\Users\Kjell Iver\Dropbox\Utvikling\Projects\Hulen\data\test.pdf";
+            PdfReader pdfReader = new PdfReader(pdfTemplate);
+
+            MemoryStream stream = new MemoryStream();
+            PdfStamper stamper = new PdfStamper(pdfReader, stream);
+
+            AcroFields pdfFormFields = stamper.AcroFields;
+
+            pdfFormFields.SetField("EN_TEST", "Hei på deg!");
+
+            stamper.FormFlattening = true;
+
+
+            pdfReader.Close();
+            stamper.Close();
+            stream.Flush();
+            stream.Close();
+            byte[] pdfByte = stream.ToArray();
+
+
+            MemoryStream ms = new MemoryStream(pdfByte);
+
+            return new FileStreamResult(ms, "application/pdf");
         }
 
         public ViewResult Copy()
@@ -174,6 +200,8 @@ namespace Hulen.WebCode.Controllers
             ViewData["Message"] = "Filen er importert";
             return View("Import", importModel );
         }
+
+
 
         private static List<string> GetDropDownList(string context)
         {

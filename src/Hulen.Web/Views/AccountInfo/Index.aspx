@@ -78,7 +78,7 @@
 
     <p>
         <%: Html.ActionLink("Ny konto", "Create") %> | 
-        <%: Html.ActionLink("Åpne rapport", "OpenReport") %> |
+        <%: Html.ActionLink("Åpne rapport", "OpenReport", "AccountInfo", null, new {target = "_blank"}) %> |
         <%: Html.ActionLink("Kopier år", "Copy") %> |
         <%: Html.ActionLink("Importer", "Import") %> 
     </p>

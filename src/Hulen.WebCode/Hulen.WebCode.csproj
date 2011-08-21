@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.1.1.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.1.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -73,6 +76,10 @@
       <Project>{DDEA231F-8E50-4538-A79D-55A45A686B22}</Project>
       <Name>Hulen.Objects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hulen.PdfGenerator\Hulen.PdfGenerator.csproj">
+      <Project>{7BBA7BBC-DE90-464B-AD1B-25AEF414DDDE}</Project>
+      <Name>Hulen.PdfGenerator</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hulen.ReportingServices\Hulen.ReportingServices.csproj">
       <Project>{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}</Project>
       <Name>Hulen.ReportingServices</Name>
@@ -81,6 +88,9 @@
       <Project>{B6DE12AC-6837-4A1F-9BB7-B622E40A0259}</Project>
       <Name>Hulen.Storage</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
