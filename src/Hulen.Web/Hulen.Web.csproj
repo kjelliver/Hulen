@@ -105,6 +105,7 @@
     <Content Include="Views\BudgetImport\Index.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="Views\Budget\Index.aspx" />
     <Content Include="Views\FileImport\Index.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

@@ -55,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AccessGroupViewModel.cs" />
     <Compile Include="ViewModels\AccountInfoViewModel.cs" />
+    <Compile Include="ViewModels\BudgetOverviewViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

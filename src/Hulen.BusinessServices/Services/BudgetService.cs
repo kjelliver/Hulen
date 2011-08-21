@@ -8,6 +8,7 @@ using System.Text;
 using Excel;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
+using Hulen.Objects.ViewModels;
 using Hulen.Storage.Interfaces;
 using Hulen.Storage.Repositories;
 
@@ -22,6 +23,22 @@ namespace Hulen.BusinessServices.Services
         {
             _budgetRepository = budgetRepository;
         }
+
+        public IEnumerable<BudgetOverviewViewModel> GetOverviewAllStoredBudgets()
+        {
+            return new List<BudgetOverviewViewModel>();
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         public void DeleteAllBudgetsByYearAndStatus(int year, string budgetStatus)
         {
