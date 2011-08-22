@@ -2,7 +2,7 @@
 
 namespace Hulen.Objects.DTO
 {
-    public class BudgetDTO
+    public class BudgetAccountDTO
     {
         public virtual Guid Id { get; set; }
         public virtual int AccountNumber { get; set; }

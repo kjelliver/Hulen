@@ -10,7 +10,7 @@ namespace Hulen.WebCode.Models
     {
     }
 
-    public class BudgetImportWebModel
+    public class BudgetImportWebModelOld
     {
         public string BudgetYear { get; set; }
         public List<string> BudgetStatusList { get; set; }

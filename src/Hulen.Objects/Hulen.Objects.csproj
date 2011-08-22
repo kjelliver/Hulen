@@ -42,7 +42,8 @@
   <ItemGroup>
     <Compile Include="DTO\AccessGroupDTO.cs" />
     <Compile Include="DTO\AccountInfoDTO.cs" />
-    <Compile Include="DTO\BudgetDTO.cs" />
+    <Compile Include="DTO\BudgetAccountDTO.cs" />
+    <Compile Include="DTO\BudgetOverviewDTO.cs" />
     <Compile Include="DTO\MenuItemDTO.cs" />
     <Compile Include="DTO\ResultAccountDTO.cs" />
     <Compile Include="DTO\RoleDTO.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AccessGroupViewModel.cs" />
     <Compile Include="ViewModels\AccountInfoViewModel.cs" />
-    <Compile Include="ViewModels\BudgetOverviewViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

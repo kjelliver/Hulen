@@ -115,6 +115,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Mappings\BudgetOverviewDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\RoleDTO.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -123,7 +124,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\MenuItemDTO.hbm.xml" />
-    <EmbeddedResource Include="Mappings\BudgetDTO.hbm.xml" />
+    <EmbeddedResource Include="Mappings\BudgetAccountDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\ResultAccountDTO.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

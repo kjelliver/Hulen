@@ -8,7 +8,6 @@ using System.Text;
 using Excel;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
-using Hulen.Objects.ViewModels;
 using Hulen.Storage.Interfaces;
 using Hulen.Storage.Repositories;
 
@@ -24,33 +23,29 @@ namespace Hulen.BusinessServices.Services
             _budgetRepository = budgetRepository;
         }
 
-        public IEnumerable<BudgetOverviewViewModel> GetOverviewAllStoredBudgets()
+        public IEnumerable<BudgetOverviewDTO> GetOverview()
         {
-            return new List<BudgetOverviewViewModel>();
+            return _budgetRepository.GetOverview();
         }
 
-
-
-
-
-
-
-
-
-
-
+        public BudgetOverviewDTO GetOneBudgetByYearAndStatus(int year, string status)
+        {
+            return _budgetRepository.GetOverviewByYearAndStatus(year, status);
+        }
 
         public void DeleteAllBudgetsByYearAndStatus(int year, string budgetStatus)
         {
             _budgetRepository.DeleteExistingBudgetByYearAndStatus(year, GetBudgetStatus(budgetStatus));
+            _budgetRepository.DeleteExistingBudgetBudgetOverview(year, budgetStatus);
         }
 
-        public void ImportFile(Stream inputStream, string year, string budgetStatus)
+        public void ImportFile(Stream inputStream, string year, string budgetStatus, string comment)
         {
             DeleteAllBudgetsByYearAndStatus(Convert.ToInt32(year), budgetStatus);
             var dataSet = ConvertStreamToDataSet(inputStream);
-            List<BudgetDTO> budgets = ConvertDataSetToObjectCollection(dataSet, Convert.ToInt32(year), budgetStatus);
+            List<BudgetAccountDTO> budgets = ConvertDataSetToObjectCollection(dataSet, Convert.ToInt32(year), budgetStatus);
             _budgetRepository.Add(budgets);
+            SaveInBudgetOverView(year, budgetStatus, comment);
         }
 
         private DataSet ConvertStreamToDataSet(Stream inputStream)
@@ -59,13 +54,13 @@ namespace Hulen.BusinessServices.Services
             return reader.AsDataSet();
         }
 
-        private List<BudgetDTO> ConvertDataSetToObjectCollection(DataSet dataSet, int year, string budgetStatus)
+        private List<BudgetAccountDTO> ConvertDataSetToObjectCollection(DataSet dataSet, int year, string budgetStatus)
         {
-            var budgets = new List<BudgetDTO>();
+            var budgets = new List<BudgetAccountDTO>();
 
             foreach (DataRow dataRow in dataSet.Tables[GetSheetName(budgetStatus)].Rows)
             {
-                var temp = new BudgetDTO();
+                var temp = new BudgetAccountDTO();
                 if (dataRow[0].ToString() != "")
                 {
                     temp.AccountNumber = Convert.ToInt32(dataRow[0]) ;
@@ -102,6 +97,11 @@ namespace Hulen.BusinessServices.Services
             if (budgetStatus == "Revidert")
                 return "Revidert_mnd";
             return "Budsjett_mnd";
+        }
+
+        private void SaveInBudgetOverView(string year, string budgetStatus, string comment)
+        {
+            _budgetRepository.SaveOneOverView(new BudgetOverviewDTO { Year = Convert.ToInt32(year), BudgetStatus = budgetStatus, Comment = comment });
         }
     }
 }

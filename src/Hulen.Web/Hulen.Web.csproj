@@ -102,9 +102,8 @@
     <Content Include="Views\AccountInfo\Edit.aspx" />
     <Content Include="Views\AccountInfo\Import.aspx" />
     <Content Include="Views\AccountInfo\Index.aspx" />
-    <Content Include="Views\BudgetImport\Index.ascx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="Views\Budget\Delete.aspx" />
+    <Content Include="Views\Budget\ImportBudget.aspx" />
     <Content Include="Views\Budget\Index.aspx" />
     <Content Include="Views\FileImport\Index.aspx">
       <SubType>ASPXCodeBehind</SubType>

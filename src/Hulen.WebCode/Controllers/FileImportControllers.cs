@@ -32,33 +32,6 @@ namespace Hulen.WebCode.Controllers
         }
     }
 
-    public class BudgetImportController : Controller
-    {
-        private readonly IBudgetService _budgetService;
-
-        public BudgetImportController(IBudgetService budgetService)
-        {
-            _budgetService = budgetService;
-        }
-
-        public ActionResult Index()
-        {
-            var model = new BudgetImportWebModel();
-            model.BudgetStatusList = new List<string> { "Orginalt", "Revidert" };
-            return View(model);
-        }
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Index(HttpPostedFileBase uploadFile, BudgetImportWebModel model)
-        {
-            if (uploadFile.ContentLength > 0)
-            {
-                _budgetService.ImportFile(uploadFile.InputStream, model.BudgetYear, model.BudgetStatus);
-            }
-            return RedirectToAction("Index", "FileImport");
-        }
-    }
-
     public class ResultAccountImportController : Controller
     {
         private readonly IResultAccountService _resultAccountService;
