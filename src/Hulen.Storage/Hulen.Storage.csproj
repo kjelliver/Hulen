@@ -115,7 +115,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Mappings\ResultDTO.hmb.xml" />
+    <EmbeddedResource Include="Mappings\ResultDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\BudgetDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\RoleDTO.hbm.xml">
       <SubType>Designer</SubType>

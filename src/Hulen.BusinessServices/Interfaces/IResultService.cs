@@ -12,15 +12,11 @@ namespace Hulen.BusinessServices.Interfaces
     {
         IEnumerable<ResultDTO> GetOverview();
         ResultDTO GetOneResultByYearAndStatus(int year, string period);
-        void DeleteResultByYearAndStatus(int year, string period);
+        void DeleteResultByMonth(string period, int year);
         IEnumerable<ResultAccountDTO> TryToImportFile(Stream inputStream, string month, string year, string comment);
 
-
-
-
-        //void ImportFile(Stream inputStream, string month, string year, string comment);
         ResultAccountDTO GetOneResultAccountById(Guid id);
         ResultAccountDTO GetOneByAccountNumberMonthAndYear(string accountNumber, string month, string year);
-        void UpdateMenyResultAccounts(List<ResultAccountDTO> resultAccounts);
+        void SaveMenyResultAccounts(List<ResultAccountDTO> resultAccounts);
     }
 }

@@ -6,57 +6,56 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+    <div class="errormessage">
+        <%: ViewData["Message"]%>                            
+    </div> 
+
     <h2>Gi nytt kontonummer på følgende</h2>
 
-     <% using (Html.BeginForm("EditedAccounts", "Result", FormMethod.Post))
+
+     <% using (Html.BeginForm("FailedAccounts", "Result", FormMethod.Post))
         {%>
-    <table>
+    <table class="contenttable" cellspacing="0">
         <tr>
-            <th>
-                Id
+            <th class="contentheader">
+                Kontonr fra Visma
             </th>
-            <th>
-                Kontonummer
-            </th>
-            <th>
+            <th class="contentheader">
                 Måned
             </th>
-            <th>
+            <th class="contentheader">
                 År
             </th>
-            <th>
+            <th class="contentheader">
                 Beløp mnd
             </th>
-            <th>
+            <th class="contentheader">
                 Beløp år
             </th>
-            <th>
-                RealAccount
+            <th class="contentheader">
+                Skal føres på
             </th>
         </tr>
 
     <% foreach (var item in Model.FailedAccounts ) { %>
     
         <tr>
-            <td>
-                <%: Html.TextBoxFor(m => m.FailedAccounts[Model.FailedAccounts.IndexOf(item)].Id, new { @readonly = true, style = "width:150px;" })%>
-            </td>
-            <td>
+            <td class="contentcell">
                 <%: Html.TextBoxFor(m => m.FailedAccounts[Model.FailedAccounts.IndexOf(item)].AccountNumber, new { @readonly = true, style = "width:75px;" })%>
             </td>
-            <td>
+            <td class="contentcell">
                 <%: Html.TextBoxFor(m => m.FailedAccounts[Model.FailedAccounts.IndexOf(item)].Month, new { @readonly = true, style = "width:75px;" })%>
             </td>
-            <td>
+            <td class="contentcell">
                 <%: Html.TextBoxFor(m => m.FailedAccounts[Model.FailedAccounts.IndexOf(item)].Year, new { @readonly = true, style = "width:75px;" })%>
             </td>
-            <td>
+            <td class="contentcell">
                 <%: Html.TextBoxFor(m => m.FailedAccounts[Model.FailedAccounts.IndexOf(item)].AmountMonth, new { @readonly = true, style = "width:75px;" })%>
             </td>
-            <td>
+            <td class="contentcell">
                 <%: Html.TextBoxFor(m => m.FailedAccounts[Model.FailedAccounts.IndexOf(item)].AmountSoFar, new { @readonly = true, style = "width:75px;" })%>
             </td>
-            <td>
+            <td class="contentcell">
                 <%: Html.TextBoxFor(m => m.FailedAccounts[Model.FailedAccounts.IndexOf(item)].RealAccount) %>
             </td>
         </tr>
@@ -69,8 +68,11 @@
         <input type="submit" value="Save" />
     </p>
 
-
     <% } %>
+
+    <p>
+        <%: Html.ActionLink("Tilbake til oversikten", "Index") %>
+    </p>
 
 </asp:Content>
 

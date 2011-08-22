@@ -68,9 +68,9 @@ namespace Hulen.BusinessServices.Services
                                                                               Convert.ToInt32(year));
         }
 
-        public void UpdateMenyResultAccounts(List<ResultAccountDTO> resultAccounts)
+        public void SaveMenyResultAccounts(List<ResultAccountDTO> resultAccounts)
         {
-            _resultAccountRepository.UpdateMeny(resultAccounts);
+            _resultAccountRepository.SaveMeny(resultAccounts);
         }
 
         private SaveResultModel SortResults(IEnumerable<ResultAccountDTO> results, int year)
@@ -89,7 +89,7 @@ namespace Hulen.BusinessServices.Services
             return saveModel;
         }
 
-        private void DeleteResultByMonth(string period, int year)
+        public void DeleteResultByMonth(string period, int year)
         {
             _resultAccountRepository.DeleteExcistingOverview(period, year);
             _resultAccountRepository.DeleteExcistingAccounts((int)Enum.Parse(typeof(ResultPeriod), period), year);

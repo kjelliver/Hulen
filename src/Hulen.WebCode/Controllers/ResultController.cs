@@ -53,7 +53,7 @@ namespace Hulen.WebCode.Controllers
         {
             try
             {
-                _resultService.DeleteResultByYearAndStatus(model.SelectedResult.Year, model.SelectedResult.Period);
+                _resultService.DeleteResultByMonth(model.SelectedResult.Period, model.SelectedResult.Year);
                 ViewData["Message"] = "Regnskapet er slettet.";
                 return View("Delete", model);
             }
@@ -66,8 +66,28 @@ namespace Hulen.WebCode.Controllers
 
         public ViewResult ImportResult()
         {
-            var model = new ResultImportWebModel();
-            model.PeriodList = new List<string> { "Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember", "Revidert" };
+            var model = new ResultImportWebModel
+                            {
+                                PeriodList =
+                                    new List<string>
+                                        {
+                                            "Januar",
+                                            "Februar",
+                                            "Mars",
+                                            "April",
+                                            "Mai",
+                                            "Juni",
+                                            "Juli",
+                                            "August",
+                                            "September",
+                                            "Oktober",
+                                            "November",
+                                            "Desember",
+                                            "Revidert"
+                                        },
+                                Year = DateTime.Now.Year
+                                        
+                            };
             return View("ImportResult", model);
         }
 
@@ -85,6 +105,7 @@ namespace Hulen.WebCode.Controllers
             }
 
             model.PeriodList = new List<string> { "Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember", "Revidert" };
+            model.Year = DateTime.Now.Year;
             ViewData["Message"] = "Regnskapet er importert.";
             return View("ImportResult", model);
         }
@@ -92,7 +113,8 @@ namespace Hulen.WebCode.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult FailedAccounts(ResultImportWebModel model)
         {
-            _resultService.UpdateMenyResultAccounts(SetRealAccounts(model.FailedAccounts));
+            _resultService.SaveMenyResultAccounts(SetRealAccounts(model.FailedAccounts));
+            ViewData["Message"] = "Endringene er lagret.";
             return View("FailedAccounts", model);
         }
 

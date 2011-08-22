@@ -10,7 +10,7 @@
         <%: ViewData["Message"]%>                            
     </div>  
 
-    <h2>Importer budsjett</h2>
+    <h2>Importer regnskapsrapport</h2>
 
     <% using (Html.BeginForm("ImportResult", "Result", FormMethod.Post, new { enctype = "multipart/form-data" })){%>
 
