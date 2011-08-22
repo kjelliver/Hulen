@@ -23,12 +23,12 @@ namespace Hulen.BusinessServices.Services
             _budgetRepository = budgetRepository;
         }
 
-        public IEnumerable<BudgetOverviewDTO> GetOverview()
+        public IEnumerable<BudgetDTO> GetOverview()
         {
             return _budgetRepository.GetOverview();
         }
 
-        public BudgetOverviewDTO GetOneBudgetByYearAndStatus(int year, string status)
+        public BudgetDTO GetOneBudgetByYearAndStatus(int year, string status)
         {
             return _budgetRepository.GetOverviewByYearAndStatus(year, status);
         }
@@ -101,7 +101,7 @@ namespace Hulen.BusinessServices.Services
 
         private void SaveInBudgetOverView(string year, string budgetStatus, string comment)
         {
-            _budgetRepository.SaveOneOverView(new BudgetOverviewDTO { Year = Convert.ToInt32(year), BudgetStatus = budgetStatus, Comment = comment });
+            _budgetRepository.SaveOneOverView(new BudgetDTO { Year = Convert.ToInt32(year), BudgetStatus = budgetStatus, Comment = comment });
         }
     }
 }

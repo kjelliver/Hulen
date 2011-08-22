@@ -5,10 +5,10 @@ namespace Hulen.Storage.Interfaces
 {
     public interface IBudgetRepository
     {
-        IEnumerable<BudgetOverviewDTO> GetOverview();
-        void SaveOneOverView(BudgetOverviewDTO budgetOverview);
+        IEnumerable<BudgetDTO> GetOverview();
+        void SaveOneOverView(BudgetDTO budgetOverview);
         void DeleteExistingBudgetBudgetOverview(int year, string budgetStatus);
-        BudgetOverviewDTO GetOverviewByYearAndStatus(int year, string budgetStatus);
+        BudgetDTO GetOverviewByYearAndStatus(int year, string budgetStatus);
 
 
         void Add(IEnumerable<BudgetAccountDTO> budgets);

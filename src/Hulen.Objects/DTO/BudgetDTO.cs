@@ -2,7 +2,7 @@ using System;
 
 namespace Hulen.Objects.DTO
 {
-    public class BudgetOverviewDTO
+    public class BudgetDTO
     {
         public Guid Id { get; set; }
         public int Year { get; set; }

@@ -5,12 +5,12 @@ namespace Hulen.WebCode.Models
 {
     public class BudgetIndexWebModel
     {
-        public IEnumerable<BudgetOverviewDTO> StoredBudgets { get; set; }   
+        public IEnumerable<BudgetDTO> StoredBudgets { get; set; }   
     }
 
     public class BudgetDeleteWebModel
     {
-        public BudgetOverviewDTO SelectedBudget { get; set; }
+        public BudgetDTO SelectedBudget { get; set; }
     }
 
     public class BudgetImportWebModel

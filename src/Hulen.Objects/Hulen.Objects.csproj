@@ -43,12 +43,14 @@
     <Compile Include="DTO\AccessGroupDTO.cs" />
     <Compile Include="DTO\AccountInfoDTO.cs" />
     <Compile Include="DTO\BudgetAccountDTO.cs" />
-    <Compile Include="DTO\BudgetOverviewDTO.cs" />
+    <Compile Include="DTO\BudgetDTO.cs" />
     <Compile Include="DTO\MenuItemDTO.cs" />
     <Compile Include="DTO\ResultAccountDTO.cs" />
+    <Compile Include="DTO\ResultDTO.cs" />
     <Compile Include="DTO\RoleDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Enum\AccountInfo.cs" />
+    <Compile Include="Enum\ResultPeriod.cs" />
     <Compile Include="Enum\StorageResult.cs" />
     <Compile Include="Enum\UserAccessEnums.cs" />
     <Compile Include="Mappers\AccessGroupMapper.cs" />

@@ -6,8 +6,8 @@ namespace Hulen.BusinessServices.Interfaces
 {
     public interface IBudgetService
     {
-        IEnumerable<BudgetOverviewDTO> GetOverview();
-        BudgetOverviewDTO GetOneBudgetByYearAndStatus(int year, string status);
+        IEnumerable<BudgetDTO> GetOverview();
+        BudgetDTO GetOneBudgetByYearAndStatus(int year, string status);
 
 
 

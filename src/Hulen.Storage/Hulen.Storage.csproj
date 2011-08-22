@@ -65,7 +65,7 @@
     <Compile Include="Interfaces\IAccountInfoRepository.cs" />
     <Compile Include="Interfaces\IBudgetRepository.cs" />
     <Compile Include="Interfaces\IMenuRepository.cs" />
-    <Compile Include="Interfaces\IResultAccountRepository.cs" />
+    <Compile Include="Interfaces\IResultRepository.cs" />
     <Compile Include="Interfaces\IRoleRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="NHibernateHelper.cs" />
@@ -74,7 +74,7 @@
     <Compile Include="Repositories\AccountInfoRepository.cs" />
     <Compile Include="Repositories\BudgetRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
-    <Compile Include="Repositories\ResultAccountRepository.cs" />
+    <Compile Include="Repositories\ResultRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
@@ -115,7 +115,8 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Mappings\BudgetOverviewDTO.hbm.xml" />
+    <Content Include="Mappings\ResultDTO.hmb.xml" />
+    <EmbeddedResource Include="Mappings\BudgetDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\RoleDTO.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

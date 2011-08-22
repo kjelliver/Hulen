@@ -16,5 +16,6 @@ namespace Hulen.Storage.Interfaces
         void DeleteAllByYear(int year);
         AccountInfoDTO GetOneByAccountNumber(int accountNumber);
         void UpdateOne(AccountInfoDTO accountCategory);
+        IEnumerable<int> GetAllAccountNumbersByYear(int year);
     }
 }

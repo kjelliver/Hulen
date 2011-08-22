@@ -105,6 +105,17 @@ namespace Hulen.Storage.Repositories
                 session.Update(accountCategory);
                 transaction.Commit();
             }
-        }   
+        }
+
+        public IEnumerable<int> GetAllAccountNumbersByYear(int year)
+        {
+            var accountInfos = GetAllByYear(year);
+            var accountNumbers = new List<int>();
+            foreach (var account in accountInfos)
+            {
+                accountNumbers.Add(account.AccountNumber);
+            }
+            return accountNumbers;
+        }
     }
 }

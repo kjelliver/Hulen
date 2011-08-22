@@ -32,7 +32,7 @@ namespace Hulen.WebCode.Controllers
             catch (Exception)
             {
                 ViewData["Message"] = "Feil under henting av budsjetter.";
-                indexModel.StoredBudgets = new List<BudgetOverviewDTO>();
+                indexModel.StoredBudgets = new List<BudgetDTO>();
                 return View("Index", indexModel);
             }
         }

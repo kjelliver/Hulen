@@ -27,10 +27,10 @@ namespace Hulen.BusinessServices.Services
             return _accessGroupRepository.GetAll().Select(dto => _accessGroupMapper.ToViewModel(dto)).ToList();
         }
 
-        public IEnumerable<string> GetAllRoles()
-        {
-            return new List<string> {"Administrator", "Leder"};
-        }
+        //public IEnumerable<string> GetAllRoles()
+        //{
+        //    return new List<string> {"Administrator", "Leder"};
+        //}
 
         public StorageResult SaveOneAccessGroup(AccessGroupViewModel accessGroup)
         {

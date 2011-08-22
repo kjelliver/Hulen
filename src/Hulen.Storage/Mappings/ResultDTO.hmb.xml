@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Objects.DTO">
 
-  <class name="Hulen.Objects.DTO.BudgetOverviewDTO, Hulen.Objects" table="BudgetOverview" lazy="false">
+  <class name="Hulen.Objects.DTO.ResultDTO, Hulen.Objects" table="Results" lazy="false">
     <id name ="Id" column="Id">
       <generator class="guid" />
     </id>
     <property name="Year" column="Year"/>
-    <property name="BudgetStatus" column="BudgetStatus"/>
+    <property name="Period" column="Period"/>
     <property name="Comment" column="Comment"/>
   </class>
 

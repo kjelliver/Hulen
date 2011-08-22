@@ -8,41 +8,52 @@ using System.Text;
 using Excel;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
+using Hulen.Objects.Enum;
 using Hulen.Storage.Interfaces;
-using Hulen.Storage.Repositories;
 
 namespace Hulen.BusinessServices.Services
 {
-    public class ResultAccountService : IResultAccountService
+    public class ResultService : IResultService
     {
-        private readonly IResultAccountRepository _resultAccountRepository;
+        private readonly IResultRepository _resultAccountRepository;
         private readonly IAccountInfoRepository _accountInfoRepository;
 
 
-        public ResultAccountService(IResultAccountRepository resultAccountRepository, IAccountInfoRepository accountInfoRepository)
+        public ResultService(IResultRepository resultAccountRepository, IAccountInfoRepository accountInfoRepository)
         {
             _resultAccountRepository = resultAccountRepository;
             _accountInfoRepository = accountInfoRepository;
         }
 
-        public void ImportFile(Stream inputStream, string month, string year)
+        public IEnumerable<ResultDTO> GetOverview()
         {
-            DeleteResultByMonth(Convert.ToInt32(month), Convert.ToInt32(year));
-            var dataSet = ConvertStreamToDataSet(inputStream);
-            IEnumerable<ResultAccountDTO> results = ConvertDataSetToObjectCollection(dataSet, Convert.ToInt32(month), Convert.ToInt32(year));
-            SaveResultModel saveModel = SortResults(results, Convert.ToInt32(year));
-            _resultAccountRepository.SaveMeny(results);
+            return _resultAccountRepository.GetOverview();
         }
 
-        public List<ResultAccountDTO> TryToImportFile(Stream inputStream, string month, string year)
+        public ResultDTO GetOneResultByYearAndStatus(int year, string period)
         {
-            DeleteResultByMonth(Convert.ToInt32(month), Convert.ToInt32(year));
+            return _resultAccountRepository.GetOverviewByPeriodAndYear(year, period);
+        }
+
+        public void DeleteResultByYearAndStatus(int year, string period)
+        {
+            _resultAccountRepository.DeleteExcistingOverview(period, year);
+        }
+
+        public IEnumerable<ResultAccountDTO> TryToImportFile(Stream inputStream, string period, string year, string comment)
+        {
+            DeleteResultByMonth(period, Convert.ToInt32(year));
             var dataSet = ConvertStreamToDataSet(inputStream);
-            IEnumerable<ResultAccountDTO> results = ConvertDataSetToObjectCollection(dataSet, Convert.ToInt32(month), Convert.ToInt32(year));
+            IEnumerable<ResultAccountDTO> results = ConvertDataSetToObjectCollection(dataSet, (int)Enum.Parse(typeof(ResultPeriod), period), Convert.ToInt32(year));
             SaveResultModel saveModel = SortResults(results, Convert.ToInt32(year));
             _resultAccountRepository.SaveMeny(saveModel.SavedResults);
-            _resultAccountRepository.SaveMeny(saveModel.FailedResults);
+            SaveOverview(period, Convert.ToInt32(year), comment);
             return saveModel.FailedResults;
+        }
+
+        private void SaveOverview(string period, int year, string comment)
+        {
+            _resultAccountRepository.SaveNewOverview(new ResultDTO() {Period = period, Year = year, Comment = comment});
         }
 
         public ResultAccountDTO GetOneResultAccountById(Guid id)
@@ -64,8 +75,7 @@ namespace Hulen.BusinessServices.Services
 
         private SaveResultModel SortResults(IEnumerable<ResultAccountDTO> results, int year)
         {
-            //IEnumerable<int> validAccountNumbers = _accountInfoRepository.GetAllAccountNumbersByYear(year);
-            IEnumerable<int> validAccountNumbers = new List<int>();
+            IEnumerable<int> validAccountNumbers = _accountInfoRepository.GetAllAccountNumbersByYear(year);
 
             SaveResultModel saveModel = new SaveResultModel();
 
@@ -79,9 +89,10 @@ namespace Hulen.BusinessServices.Services
             return saveModel;
         }
 
-        private void DeleteResultByMonth(int month, int year)
+        private void DeleteResultByMonth(string period, int year)
         {
-            _resultAccountRepository.DeleteExistingResult(_resultAccountRepository.GetResultByMonth(month, year));
+            _resultAccountRepository.DeleteExcistingOverview(period, year);
+            _resultAccountRepository.DeleteExcistingAccounts((int)Enum.Parse(typeof(ResultPeriod), period), year);
         }
 
         private DataSet ConvertStreamToDataSet(Stream inputStream)

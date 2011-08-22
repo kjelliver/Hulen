@@ -8,10 +8,17 @@ using Hulen.Objects.ViewModels;
 
 namespace Hulen.BusinessServices.Interfaces
 {
-    public interface IResultAccountService
+    public interface IResultService
     {
-        void ImportFile(Stream inputStream, string month, string year);
-        List<ResultAccountDTO> TryToImportFile(Stream inputStream, string month, string year);
+        IEnumerable<ResultDTO> GetOverview();
+        ResultDTO GetOneResultByYearAndStatus(int year, string period);
+        void DeleteResultByYearAndStatus(int year, string period);
+        IEnumerable<ResultAccountDTO> TryToImportFile(Stream inputStream, string month, string year, string comment);
+
+
+
+
+        //void ImportFile(Stream inputStream, string month, string year, string comment);
         ResultAccountDTO GetOneResultAccountById(Guid id);
         ResultAccountDTO GetOneByAccountNumberMonthAndYear(string accountNumber, string month, string year);
         void UpdateMenyResultAccounts(List<ResultAccountDTO> resultAccounts);

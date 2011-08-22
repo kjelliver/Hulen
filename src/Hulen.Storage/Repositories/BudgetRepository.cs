@@ -9,18 +9,18 @@ namespace Hulen.Storage.Repositories
 {
     public class BudgetRepository : IBudgetRepository
     {
-        public IEnumerable<BudgetOverviewDTO> GetOverview()
+        public IEnumerable<BudgetDTO> GetOverview()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 var budget = session
-                    .CreateCriteria(typeof(BudgetOverviewDTO))
-                    .List<BudgetOverviewDTO>();
+                    .CreateCriteria(typeof(BudgetDTO))
+                    .List<BudgetDTO>();
                 return budget;
             }
         }
 
-        public void SaveOneOverView(BudgetOverviewDTO budgetOverview)
+        public void SaveOneOverView(BudgetDTO budgetOverview)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             using (ITransaction transaction = session.BeginTransaction())
@@ -45,15 +45,15 @@ namespace Hulen.Storage.Repositories
             }
         }
 
-        public BudgetOverviewDTO GetOverviewByYearAndStatus(int year, string budgetStatus)
+        public BudgetDTO GetOverviewByYearAndStatus(int year, string budgetStatus)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 var budgets =  session
-                    .CreateCriteria(typeof (BudgetOverviewDTO))
+                    .CreateCriteria(typeof (BudgetDTO))
                     .Add(Restrictions.Eq("Year", year))
                     .Add(Restrictions.Eq("BudgetStatus", budgetStatus))
-                    .List<BudgetOverviewDTO>();
+                    .List<BudgetDTO>();
                 if (budgets.Count < 1)
                     return null;
                 return budgets[0];
