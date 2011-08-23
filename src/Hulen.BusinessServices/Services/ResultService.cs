@@ -73,6 +73,11 @@ namespace Hulen.BusinessServices.Services
             _resultAccountRepository.SaveMeny(resultAccounts);
         }
 
+        public IEnumerable<ResultAccountDTO> GetAllResultAccountsByYearAndPeriod(int year, string period)
+        {
+            return _resultAccountRepository.GetResultByMonth((int) Enum.Parse(typeof (ResultPeriod), period), year);
+        }
+
         private SaveResultModel SortResults(IEnumerable<ResultAccountDTO> results, int year)
         {
             IEnumerable<int> validAccountNumbers = _accountInfoRepository.GetAllAccountNumbersByYear(year);
