@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Hulen.Objects.DTO;
 
@@ -22,5 +23,9 @@ namespace Hulen.WebCode.Models
 
         public List<ResultAccountDTO> FailedAccounts { get; set; }
         public string Period { get; set; }
+
+        public IEnumerable BudgetStatusList { get; set; }
+
+        public string UsedBudget { get; set; }
     }
 }

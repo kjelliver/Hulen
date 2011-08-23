@@ -13,5 +13,6 @@ namespace Hulen.BusinessServices.Interfaces
 
         void DeleteAllBudgetsByYearAndStatus(int year, string budgetStatus);
         void ImportFile(Stream inputStream, string year, string budgetStatus, string comment);
+        IEnumerable<BudgetAccountDTO> GetAllBudgetAccountsByYearAndStatus(int year, string budgetStatus);
     }
 }

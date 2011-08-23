@@ -13,7 +13,7 @@ namespace Hulen.BusinessServices.Interfaces
         IEnumerable<ResultDTO> GetOverview();
         ResultDTO GetOneResultByYearAndStatus(int year, string period);
         void DeleteResultByMonth(string period, int year);
-        IEnumerable<ResultAccountDTO> TryToImportFile(Stream inputStream, string month, string year, string comment);
+        IEnumerable<ResultAccountDTO> TryToImportFile(Stream inputStream, string month, string year, string comment, string usedBudget);
 
         ResultAccountDTO GetOneResultAccountById(Guid id);
         ResultAccountDTO GetOneByAccountNumberMonthAndYear(string accountNumber, string month, string year);

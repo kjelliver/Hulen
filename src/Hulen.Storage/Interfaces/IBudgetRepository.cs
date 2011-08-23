@@ -12,7 +12,7 @@ namespace Hulen.Storage.Interfaces
 
 
         void Add(IEnumerable<BudgetAccountDTO> budgets);
-        IEnumerable<BudgetAccountDTO> GetBudgetByYearAndStatus(int year, int status);
         void DeleteExistingBudgetByYearAndStatus(int year, int status);
+        IEnumerable<BudgetAccountDTO> GetBudgetAccountsByYearAndStatus(int year, int budgetStatus);
     }
 }

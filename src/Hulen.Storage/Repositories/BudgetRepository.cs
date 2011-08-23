@@ -73,22 +73,9 @@ namespace Hulen.Storage.Repositories
             }
         }
 
-        public IEnumerable<BudgetAccountDTO> GetBudgetByYearAndStatus(int year, int status)
-        {
-            using (ISession session = NHibernateHelper.OpenSession())
-            {
-                var budget = session
-                    .CreateCriteria(typeof(BudgetAccountDTO))
-                    .Add(Restrictions.Eq("Year", year))
-                    .Add(Restrictions.Eq("BudgetStatus", status))
-                    .List<BudgetAccountDTO>();
-                return budget;
-            }
-        }
-
         public void DeleteExistingBudgetByYearAndStatus(int year, int status)
         {
-            var budgetsToDelete = GetBudgetByYearAndStatus(year, status);
+            var budgetsToDelete = GetBudgetAccountsByYearAndStatus(year, status);
 
             using (ISession session = NHibernateHelper.OpenSession())
             using (ITransaction transaction = session.BeginTransaction())
@@ -99,6 +86,19 @@ namespace Hulen.Storage.Repositories
 
                 }
                 transaction.Commit();
+            }
+        }
+
+        public IEnumerable<BudgetAccountDTO> GetBudgetAccountsByYearAndStatus(int year, int budgetStatus)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                var budget = session
+                    .CreateCriteria(typeof(BudgetAccountDTO))
+                    .Add(Restrictions.Eq("Year", year))
+                    .Add(Restrictions.Eq("BudgetStatus", budgetStatus))
+                    .List<BudgetAccountDTO>();
+                return budget;
             }
         }
     }

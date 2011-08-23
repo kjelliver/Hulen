@@ -167,6 +167,12 @@ namespace Hulen.WebCode.Controllers
             byte[] pdfByte = stream.ToArray();
 
 
+
+
+
+
+
+
             MemoryStream ms = new MemoryStream(pdfByte);
 
             return new FileStreamResult(ms, "application/pdf");

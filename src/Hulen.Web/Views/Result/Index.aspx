@@ -21,6 +21,9 @@
                 Periode
             </th>
             <th class="contentheader">
+                Brukt budsjett
+            </th>
+            <th class="contentheader">
                 Kommentar
             </th>
             <th class="contentheader"></th>
@@ -36,10 +39,13 @@
                 <%: item.Period%>
             </td>
             <td class="contentcell">
+                <%: item.UsedBudget %>
+            </td>
+            <td class="contentcell">
                 <%: item.Comment %>
             </td>
             <td class="contentcell">
-                <%: Html.ActionLink("Åpne", "OpenReport", new { year = item.Year, period = item.Period })%> |
+                <%: Html.ActionLink("Åpne", "OpenReport", new { year = item.Year, period = item.Period, item.UsedBudget })%> |
                 <%: Html.ActionLink("Slett", "Delete", new { year = item.Year, period = item.Period })%>
             </td>
         </tr>

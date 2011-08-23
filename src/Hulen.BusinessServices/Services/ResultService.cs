@@ -40,20 +40,20 @@ namespace Hulen.BusinessServices.Services
             _resultAccountRepository.DeleteExcistingOverview(period, year);
         }
 
-        public IEnumerable<ResultAccountDTO> TryToImportFile(Stream inputStream, string period, string year, string comment)
+        public IEnumerable<ResultAccountDTO> TryToImportFile(Stream inputStream, string period, string year, string comment, string usedbudget)
         {
             DeleteResultByMonth(period, Convert.ToInt32(year));
             var dataSet = ConvertStreamToDataSet(inputStream);
             IEnumerable<ResultAccountDTO> results = ConvertDataSetToObjectCollection(dataSet, (int)Enum.Parse(typeof(ResultPeriod), period), Convert.ToInt32(year));
             SaveResultModel saveModel = SortResults(results, Convert.ToInt32(year));
             _resultAccountRepository.SaveMeny(saveModel.SavedResults);
-            SaveOverview(period, Convert.ToInt32(year), comment);
+            SaveOverview(period, Convert.ToInt32(year), comment, usedbudget);
             return saveModel.FailedResults;
         }
 
-        private void SaveOverview(string period, int year, string comment)
+        private void SaveOverview(string period, int year, string comment, string usedBudget)
         {
-            _resultAccountRepository.SaveNewOverview(new ResultDTO() {Period = period, Year = year, Comment = comment});
+            _resultAccountRepository.SaveNewOverview(new ResultDTO() {Period = period, Year = year, Comment = comment, UsedBudget = usedBudget});
         }
 
         public ResultAccountDTO GetOneResultAccountById(Guid id)

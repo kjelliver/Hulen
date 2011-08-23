@@ -8,6 +8,7 @@
     <property name="Year" column="Year"/>
     <property name="Period" column="Period"/>
     <property name="Comment" column="Comment"/>
+    <property name="UsedBudget" column="UsedBudget"/>
   </class>
 
 </hibernate-mapping>

@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
+using Hulen.PdfGenerator;
 using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
 
@@ -14,10 +16,12 @@ namespace Hulen.WebCode.Controllers
     public class ResultController : Controller
     {
         private readonly IResultService _resultService;
+        private readonly IPdfGenerator _pdfGenerator;
 
-        public ResultController(IResultService resultService)
+        public ResultController(IResultService resultService, IPdfGenerator pdfGenerator)
         {
             _resultService = resultService;
+            _pdfGenerator = pdfGenerator;
         }
 
         public ViewResult Index()
@@ -26,11 +30,12 @@ namespace Hulen.WebCode.Controllers
             return View("Index", indexModel);
         }
 
-        public ViewResult OpenReport(int year, string period)
+        public ActionResult OpenReport(int year, string period, string usedBudget)
         {
-            var indexModel = new ResultIndexWebModel { Results = _resultService.GetOverview() };
-            ViewData["Message"] = "Denne funksjonen er ikke implemmentert enda.";
-            return View("Index", indexModel);
+            var dir = new Dictionary<string, string> {{"Year", year.ToString()}, {"Period", period}, {"UsedBudget", usedBudget}};
+            var fileStream = _pdfGenerator.GetPdf("RESULT_REPORT", dir); 
+            var ms = new MemoryStream(fileStream);
+            return new FileStreamResult(ms, "application/pdf");
         }
 
         public ViewResult Delete(int year, string period)
@@ -85,8 +90,7 @@ namespace Hulen.WebCode.Controllers
                                             "Desember",
                                             "Revidert"
                                         },
-                                Year = DateTime.Now.Year
-                                        
+                                Year = DateTime.Now.Year, BudgetStatusList = new List<string> {"Orginalt", "Revidert"}          
                             };
             return View("ImportResult", model);
         }
@@ -96,7 +100,7 @@ namespace Hulen.WebCode.Controllers
         {
             if (uploadFile.ContentLength > 0)
             {
-                model.FailedAccounts = _resultService.TryToImportFile(uploadFile.InputStream, model.Period, model.Year.ToString(), model.Comment).ToList();
+                model.FailedAccounts = _resultService.TryToImportFile(uploadFile.InputStream, model.Period, model.Year.ToString(), model.Comment, model.UsedBudget).ToList();
             }
 
             if(model.FailedAccounts.Any())

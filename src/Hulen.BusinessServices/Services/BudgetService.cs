@@ -48,6 +48,11 @@ namespace Hulen.BusinessServices.Services
             SaveInBudgetOverView(year, budgetStatus, comment);
         }
 
+        public IEnumerable<BudgetAccountDTO> GetAllBudgetAccountsByYearAndStatus(int year, string budgetStatus)
+        {
+            return _budgetRepository.GetBudgetAccountsByYearAndStatus(year, GetBudgetStatus(budgetStatus));
+        }
+
         private DataSet ConvertStreamToDataSet(Stream inputStream)
         {
             IExcelDataReader reader = ExcelReaderFactory.CreateBinaryReader(inputStream);

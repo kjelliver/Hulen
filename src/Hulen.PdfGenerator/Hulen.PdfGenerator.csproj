@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,11 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Generators\ResultReport.cs" />
+    <Compile Include="PdfGenerator.cs" />
+    <Compile Include="IPdfGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hulen.BusinessServices\Hulen.BusinessServices.csproj">
+      <Project>{04C78095-6734-4B6B-9409-D72E71ED31AD}</Project>
+      <Name>Hulen.BusinessServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hulen.Objects\Hulen.Objects.csproj">
+      <Project>{DDEA231F-8E50-4538-A79D-55A45A686B22}</Project>
+      <Name>Hulen.Objects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

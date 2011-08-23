@@ -41,6 +41,18 @@
 
                 <tr>
                     <td class="createheader">
+                        Brukt budsjett
+                    </td>
+                    <td class="createcell">
+                        <%: Html.DropDownListFor(m => m.UsedBudget, new SelectList(Model.BudgetStatusList))%>
+                    </td>
+                    <td>
+                        <%: Html.ValidationMessageFor(m => m.PeriodList)%>
+                    </td>
+                </tr> 
+
+                <tr>
+                    <td class="createheader">
                         Kommentar
                     </td>
                     <td class="createcell">
