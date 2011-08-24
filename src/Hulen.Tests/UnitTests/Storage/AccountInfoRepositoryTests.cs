@@ -27,6 +27,7 @@ namespace Hulen.Tests.UnitTests.Storage
             _accountInfo3 = new AccountInfoDTO { AccountNumber = 3003, AccountName = "testkonto3", IsIncome = true, PartsReportCategory = 3, ResultReportCategory = 3, WeekCategory = 3, Year = 2013 };            
         }
 
+        [Ignore]
         [Test]
         public void SaveAccountInfoSuccess()
         {
