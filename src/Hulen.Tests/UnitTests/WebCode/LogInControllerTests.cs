@@ -20,12 +20,14 @@ namespace Hulen.Tests.UnitTests.WebCode
         private Mock<IUserService> _userService;
         private Mock<HttpRequestBase> _httpRequest;
         private Mock<HttpContextBase> _httpContext;
+        private Mock<IAccessGroupService> _accessgroupService;
 
         [SetUp]
         public void SetUp()
         {
             _userService = new Mock<IUserService>();
-            _subject = new LogInController(_userService.Object);
+            _accessgroupService = new Mock<IAccessGroupService>();
+            _subject = new LogInController(_userService.Object, _accessgroupService.Object);
             _httpRequest = new Mock<HttpRequestBase>();
             _httpContext = new Mock<HttpContextBase>();
             _httpContext.Setup(c => c.Request).Returns(_httpRequest.Object);

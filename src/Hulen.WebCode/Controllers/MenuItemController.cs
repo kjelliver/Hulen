@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
-using Hulen.Objects.ViewModels;
 using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
 
@@ -15,13 +13,11 @@ namespace Hulen.WebCode.Controllers
     [HulenAuthorize]
     public class MenuItemController : Controller
     {
-        private readonly IWebService _webService;
         private readonly IAccessGroupService _accessGroupService;
         private readonly IMenuService _menuService;
 
-        public MenuItemController(IWebService webService, IAccessGroupService accessGroupService, IMenuService menuService)
+        public MenuItemController(IAccessGroupService accessGroupService, IMenuService menuService)
         {
-            _webService = webService;
             _menuService = menuService;
             _accessGroupService = accessGroupService;
         }
@@ -31,7 +27,7 @@ namespace Hulen.WebCode.Controllers
             var model = new MenuItemWebModel();
             try
             {
-                model.AllMenuItems = _webService.GetAllMenuItems();
+                model.AllMenuItems = _menuService.GetAllMenuItems();
                 return View("Index", model);
             }
             catch (Exception)
@@ -166,7 +162,7 @@ namespace Hulen.WebCode.Controllers
         private List<string> GetParents()
         {
             var names = new List<string> {"-"};
-            var parents = _webService.GetAllMenuItems();
+            var parents = _menuService.GetAllMenuItems();
 
             names.AddRange(from item in parents where item.Parent == "-" select item.Name);
 

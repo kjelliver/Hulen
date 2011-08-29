@@ -16,6 +16,6 @@ namespace Hulen.BusinessServices.Interfaces
         StorageResult DeleteOneUserByUserName(string username);
         bool ValidateUserPassword(string userName, string password);
         void UpdatePassword(string userName, string newPassword);
-        bool HasUserAccessTo(string username, string callingController, string callingAction);
+        bool HasUserAccessTo(string callingController, string callingAction, IEnumerable<string> accessGroups);
     }
 }

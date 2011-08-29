@@ -51,7 +51,6 @@
     <Compile Include="Interfaces\IResultService.cs" />
     <Compile Include="Interfaces\IRoleService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
-    <Compile Include="Interfaces\IWebService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccessGroupService.cs" />
     <Compile Include="Services\AccountInfoService.cs" />
@@ -60,7 +59,6 @@
     <Compile Include="Services\ResultService.cs" />
     <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\UserService.cs" />
-    <Compile Include="Services\WebService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hulen.Objects\Hulen.Objects.csproj">

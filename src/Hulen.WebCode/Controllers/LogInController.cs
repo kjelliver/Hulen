@@ -11,10 +11,12 @@ namespace Hulen.WebCode.Controllers
     public class LogInController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IAccessGroupService _accessGroupService;
 
-        public LogInController(IUserService userService)
+        public LogInController(IUserService userService, IAccessGroupService accessGroupService)
         {
             _userService = userService;
+            _accessGroupService = accessGroupService;
         }
 
         public ViewResult LogIn()
@@ -29,9 +31,15 @@ namespace Hulen.WebCode.Controllers
             {
                 if (_userService.ValidateUserPassword(model.UserName, model.Password))
                 {
-                    if (_userService.GetOneUser(model.UserName).MustChangePassword)
+                    var user = _userService.GetOneUser(model.UserName);
+
+                    if (user.MustChangePassword)
                         return RedirectToAction("ChangePassword", "LogIn");
-                    if (HttpContext.Session != null) HttpContext.Session["currentUserID"] = model.UserName;
+                    if (HttpContext.Session != null)
+                    {
+                        HttpContext.Session["currentUserID"] = model.UserName;
+                        HttpContext.Session["accessGroups"] = _accessGroupService.GetAccessGroupsForUser(user);
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 TempData["Message"] = "Feil i brukernavn eller passord";

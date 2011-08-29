@@ -27,11 +27,6 @@ namespace Hulen.BusinessServices.Services
             return _accessGroupRepository.GetAll().Select(dto => _accessGroupMapper.ToViewModel(dto)).ToList();
         }
 
-        //public IEnumerable<string> GetAllRoles()
-        //{
-        //    return new List<string> {"Administrator", "Leder"};
-        //}
-
         public StorageResult SaveOneAccessGroup(AccessGroupViewModel accessGroup)
         {
             return _accessGroupRepository.SaveOne(_accessGroupMapper.ToDTO(accessGroup));
@@ -60,6 +55,20 @@ namespace Hulen.BusinessServices.Services
         public AccessGroupViewModel GetAccessGroupByName(string name)
         {
             return _accessGroupMapper.ToViewModel(_accessGroupRepository.GetOneByName(name));
+        }
+
+        public IEnumerable<string> GetAccessGroupsForUser(UserDTO user)
+        {
+            var allAccessGroups = _accessGroupRepository.GetAll();
+            var result = new List<string>();
+
+            foreach(var accessGroup in allAccessGroups)
+            {
+                if (_accessGroupMapper.ToViewModel(accessGroup).RolesThatHaveAccess.Contains(user.Role))
+                    result.Add(accessGroup.Name);
+            }
+
+            return result;
         }
     }
 }

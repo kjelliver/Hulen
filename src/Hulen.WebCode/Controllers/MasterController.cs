@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.WebCode.Models;
@@ -10,10 +7,10 @@ namespace Hulen.WebCode.Controllers
 {
     public class MasterController : Controller
     {
-        private readonly IWebService _menuService;
         private readonly IUserService _userService;
+        private readonly IMenuService _menuService;
 
-        public MasterController(IWebService menuService, IUserService userService)
+        public MasterController(IMenuService menuService, IUserService userService)
         {
             _menuService = menuService;
             _userService = userService;

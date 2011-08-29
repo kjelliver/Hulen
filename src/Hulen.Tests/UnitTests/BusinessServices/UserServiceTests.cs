@@ -22,7 +22,7 @@ namespace Hulen.Tests.UnitTests.BusinessServices
         {
             _userRepositoryMock = new Mock<IUserRepository>();
             _accessGroupService = new Mock<IAccessGroupService>();
-            _subject = new UserService(_userRepositoryMock.Object, _accessGroupService.Object);
+            _subject = new UserService(_userRepositoryMock.Object);
         }
 
         [Test]

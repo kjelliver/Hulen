@@ -13,12 +13,10 @@ namespace Hulen.BusinessServices.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IAccessGroupService _accessGroupService;
 
-        public UserService(IUserRepository userRepository, IAccessGroupService accessGroupService)
+        public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _accessGroupService = accessGroupService;
         }
 
         public IEnumerable<UserDTO> GetAllUsers()
@@ -59,13 +57,13 @@ namespace Hulen.BusinessServices.Services
             _userRepository.UpdateOneUser(user, false);
         }
 
-        public bool HasUserAccessTo(string username, string callingController, string callingAction)
+        public bool HasUserAccessTo(string callingController, string callingAction, IEnumerable<string> accessGroups)
         {
             try
             {
-                if (UserGotAccessToHoleController(username, callingController))
+                if (UserGotAccessToHoleController(callingController, accessGroups))
                     return true;
-                if (UserGotAccessToControllerAndAction(username, callingController, callingAction))
+                if (UserGotAccessToControllerAndAction(callingController, callingAction, accessGroups))
                     return true;
                 return false;
             }
@@ -75,25 +73,23 @@ namespace Hulen.BusinessServices.Services
             }  
         }
 
-        private bool UserGotAccessToControllerAndAction(string username, string callingController, string callingAction)
+        private bool UserGotAccessToControllerAndAction(string callingController, string callingAction, IEnumerable<string> accessGroups)
         {
             var controller = callingController.ToUpper();
             var action = "_" + callingAction.ToUpper();
             var accessGroupName = "CONTROLLER_" + controller + action;
-            var accessGroup = _accessGroupService.GetAccessGroupByName(accessGroupName);
 
-            if (accessGroup.RolesThatHaveAccess.Contains(_userRepository.GetOneUserByUsername(username).Role))
+            if (accessGroups.Contains(accessGroupName))
                 return true;
             return false;
         }
 
-        private bool UserGotAccessToHoleController(string username, string callingController)
+        private bool UserGotAccessToHoleController(string callingController, IEnumerable<string> accessGroups)
         {
             var controller = callingController.ToUpper();
             var accessGroupName = "CONTROLLER_" + controller;
-            var accessGroup = _accessGroupService.GetAccessGroupByName(accessGroupName);
 
-            if (accessGroup.RolesThatHaveAccess.Contains(_userRepository.GetOneUserByUsername(username).Role))
+            if (accessGroups.Contains(accessGroupName))
                 return true;
             return false;
         }

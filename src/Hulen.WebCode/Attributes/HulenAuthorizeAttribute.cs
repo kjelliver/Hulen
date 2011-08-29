@@ -30,23 +30,24 @@ namespace Hulen.WebCode.Attributes
             _accessGroupRepository = new AccessGroupRepository();
             _accessGroupMapper = new AccessGroupMapper();
             _accessGroupService = new AccessGroupService(_accessGroupRepository, _accessGroupMapper);
-            _userService = new UserService(_userRepository, _accessGroupService);
+            _userService = new UserService(_userRepository);
         }
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            string username = "";
             string callingController = "";
-            string callingAction = ""; 
+            string callingAction = "";
+            List<string> accessGroups = new List<string>();
 
             if (httpContext.Session != null)
             {
-                username = httpContext.Session["currentUserID"].ToString();
                 callingController = RouteTable.Routes.GetRouteData(httpContext).Values["controller"].ToString();
                 callingAction = RouteTable.Routes.GetRouteData(httpContext).Values["action"].ToString();
+                accessGroups = (List<string>) httpContext.Session["accessGroups"];
+
             }
 
-            return _userService.HasUserAccessTo(username, callingController, callingAction);
+            return _userService.HasUserAccessTo(callingController, callingAction, accessGroups);
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
