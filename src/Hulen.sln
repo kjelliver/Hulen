@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hulen.Objects", "Hulen.Obje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hulen.PdfGenerator", "Hulen.PdfGenerator\Hulen.PdfGenerator.csproj", "{7BBA7BBC-DE90-464B-AD1B-25AEF414DDDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hulen.ReportingServices", "Hulen.ReportingServices\Hulen.ReportingServices.csproj", "{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,16 +101,6 @@ Global
 		{7BBA7BBC-DE90-464B-AD1B-25AEF414DDDE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{7BBA7BBC-DE90-464B-AD1B-25AEF414DDDE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{7BBA7BBC-DE90-464B-AD1B-25AEF414DDDE}.Release|x86.ActiveCfg = Release|Any CPU
-		{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{2A84AF44-EA5D-4C87-A282-86821E3FD9F7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
