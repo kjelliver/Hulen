@@ -36,23 +36,23 @@
     <% foreach (var item in Model.Users ) { %>
     
         <tr>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Name %>
             </td>
 
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Username %>
             </td>
 
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Role %>
             </td>
 
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: Html.CheckBox("Disabled", item.Disabled, new { disabled = "disabled" })%>
             </td>
 
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: Html.ActionLink("Rediger", "Edit", new { username = item.Username })%>
             </td>
         </tr>

@@ -10,7 +10,6 @@ using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
-    [HulenAuthorize]
     public class AccessGroupController : Controller
     {
         private readonly IAccessGroupService _accessGroupService;
@@ -22,6 +21,7 @@ namespace Hulen.WebCode.Controllers
             _roleService = roleService;
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Index()
         {
             var model = new AccessGroupIndexModel();
@@ -38,6 +38,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Create()
         {
             var model = new AccessGroupEditModel {RequestedRoles = new List<string>()};
@@ -54,6 +55,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("ADMIN")]
         [AcceptVerbsAttribute(HttpVerbs.Post)]
         public ViewResult Create(AccessGroupEditModel editModel, string add, string remove, string save)
         {
@@ -71,6 +73,7 @@ namespace Hulen.WebCode.Controllers
             return View("Create", editModel);
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Edit(Guid id)
         {
             var model = new AccessGroupEditModel();
@@ -90,6 +93,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("ADMIN")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Edit(AccessGroupEditModel editModel, string add, string remove, string save)
         {
@@ -107,6 +111,7 @@ namespace Hulen.WebCode.Controllers
             return View("Edit", editModel); 
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Delete(Guid id)
         {
             var model = new AccessGroupEditModel();
@@ -125,6 +130,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("ADMIN")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Delete(AccessGroupEditModel editModel)
         {

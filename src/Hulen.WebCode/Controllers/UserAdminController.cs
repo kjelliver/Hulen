@@ -6,7 +6,6 @@ using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
-    [HulenAuthorize]
     public class UserAdminController : Controller
     {
         private readonly IUserService _userService;
@@ -18,6 +17,7 @@ namespace Hulen.WebCode.Controllers
             _roleService = roleService;
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Index(string message)
         {
             ViewData["Message"] = message;
@@ -25,12 +25,14 @@ namespace Hulen.WebCode.Controllers
             return View("Index", model);  
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Create()
         {
             var model = new UserWebModel {Roles = _roleService.GetAllRoles()};
             return View("Create", model);
         }
 
+        [HulenAuthorize("ADMIN")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Create(UserWebModel model)
         {
@@ -64,6 +66,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Edit(string username)
         {
             try
@@ -87,6 +90,7 @@ namespace Hulen.WebCode.Controllers
             return ResetPassword(model);
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Delete(string username)
         {
             try

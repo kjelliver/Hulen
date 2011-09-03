@@ -10,7 +10,6 @@ using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
-    [HulenAuthorize]
     public class MenuItemController : Controller
     {
         private readonly IAccessGroupService _accessGroupService;
@@ -22,6 +21,7 @@ namespace Hulen.WebCode.Controllers
             _accessGroupService = accessGroupService;
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Index()
         {
             var model = new MenuItemWebModel();
@@ -38,18 +38,21 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Create()
         {
             var model = new MenuItemWebModel {MenuLevels = new List<int> {1, 2}, AccessGroups = GetAccessGroups(), Parents = GetParents()};
             return View("Create", model);
         }
 
+        [HulenAuthorize("ADMIN")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Create(MenuItemWebModel model)
         {
             return SaveAndReturnView(model, "Create");
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Edit(Guid id)
         {
             try
@@ -64,6 +67,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("ADMIN")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Edit(MenuItemWebModel model)
         {
@@ -106,6 +110,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("ADMIN")]
         public ViewResult Delete(Guid id)
         {
             try
@@ -120,6 +125,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("ADMIN")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Delete(MenuItemWebModel editModel)
         {

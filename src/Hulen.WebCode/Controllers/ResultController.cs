@@ -12,7 +12,6 @@ using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
-    [HulenAuthorize]
     public class ResultController : Controller
     {
         private readonly IResultService _resultService;
@@ -24,12 +23,14 @@ namespace Hulen.WebCode.Controllers
             _pdfGenerator = pdfGenerator;
         }
 
+        [HulenAuthorize("PAGE_RESULT")]
         public ViewResult Index()
         {
             var indexModel = new ResultIndexWebModel {Results = _resultService.GetOverview()};
             return View("Index", indexModel);
         }
 
+        [HulenAuthorize("PAGE_RESULT")]
         public ActionResult OpenReport(int year, string period, string usedBudget)
         {
             var dir = new Dictionary<string, string> {{"Year", year.ToString()}, {"Period", period}, {"UsedBudget", usedBudget}};
@@ -38,6 +39,7 @@ namespace Hulen.WebCode.Controllers
             return new FileStreamResult(ms, "application/pdf");
         }
 
+        [HulenAuthorize("TEST")]
         public ViewResult Delete(int year, string period)
         {
             var model = new ResultDeleteWebModel();
@@ -53,6 +55,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("TEST")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Delete(ResultDeleteWebModel model)
         {
@@ -69,6 +72,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("TEST")]
         public ViewResult ImportResult()
         {
             var model = new ResultImportWebModel
@@ -95,6 +99,7 @@ namespace Hulen.WebCode.Controllers
             return View("ImportResult", model);
         }
 
+        [HulenAuthorize("TEST")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult ImportResult(HttpPostedFileBase uploadFile, ResultImportWebModel model)
         {
@@ -114,6 +119,7 @@ namespace Hulen.WebCode.Controllers
             return View("ImportResult", model);
         }
 
+        [HulenAuthorize("TEST")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult FailedAccounts(ResultImportWebModel model)
         {

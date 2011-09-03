@@ -65,6 +65,7 @@
     <Compile Include="Models\LogInModels.cs" />
     <Compile Include="Models\ResultWebModels.cs" />
     <Compile Include="Models\UserWebModel.cs" />
+    <Compile Include="MvcBase\ViewBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

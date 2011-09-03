@@ -15,7 +15,6 @@ using iTextSharp.text.pdf;
 
 namespace Hulen.WebCode.Controllers
 {
-    [HulenAuthorize]
     public class AccountInfoController : Controller
     {
         private readonly IAccountInfoService _accountInfoService;
@@ -25,6 +24,7 @@ namespace Hulen.WebCode.Controllers
             _accountInfoService = accountInfoService;
         }
 
+        [HulenAuthorize("PAGE_ACCOUNTINFO")]
         public ViewResult Index(string message, int year = 0)
         {
             try
@@ -52,6 +52,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("PAGE_ACCOUNTINFO")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Index(AccountInfoIndexModel model)
         {
@@ -59,6 +60,7 @@ namespace Hulen.WebCode.Controllers
             return Index("", year);
         }
 
+        [HulenAuthorize("FEAURE_ACCOUNTINFO_EDIT")]
         public ViewResult Create()
         {
             var model = new AccountInfoEditModel();
@@ -66,6 +68,7 @@ namespace Hulen.WebCode.Controllers
             return View("Create", model);
         }
 
+        [HulenAuthorize("FEAURE_ACCOUNTINFO_EDIT")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Create([Bind(Exclude = "Id")] AccountInfoEditModel model)
         {
@@ -99,6 +102,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("FEAURE_ACCOUNTINFO_EDIT")]
         public ViewResult Edit(Guid id)
         {
 
@@ -110,6 +114,7 @@ namespace Hulen.WebCode.Controllers
             return View(model);
         }
 
+        [HulenAuthorize("FEAURE_ACCOUNTINFO_EDIT")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Edit(AccountInfoEditModel accountInfoWebWebModel)
         {
@@ -127,6 +132,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("FEAURE_ACCOUNTINFO_EDIT")]
         public ViewResult Delete(Guid id)
         {
             try
@@ -140,44 +146,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
-        public ActionResult OpenReport()
-        {
-            var serverAddress = @Server.MapPath("~");
-            var templateAddress = @"Content\PdfTemplates\test.pdf";
-
-            var pdfTemplate = serverAddress + templateAddress;
-            
-
-            PdfReader pdfReader = new PdfReader(pdfTemplate);
-
-            MemoryStream stream = new MemoryStream();
-            PdfStamper stamper = new PdfStamper(pdfReader, stream);
-
-            AcroFields pdfFormFields = stamper.AcroFields;
-
-            pdfFormFields.SetField("EN_TEST", "Hei på deg!");
-
-            stamper.FormFlattening = true;
-
-
-            pdfReader.Close();
-            stamper.Close();
-            stream.Flush();
-            stream.Close();
-            byte[] pdfByte = stream.ToArray();
-
-
-
-
-
-
-
-
-            MemoryStream ms = new MemoryStream(pdfByte);
-
-            return new FileStreamResult(ms, "application/pdf");
-        }
-
+        [HulenAuthorize("FEAURE_ACCOUNTINFO_EDIT")]
         public ViewResult Copy()
         {
             var model = new AccountInfoCopyModel();
@@ -185,6 +154,7 @@ namespace Hulen.WebCode.Controllers
             return View("Copy", model);
         }
 
+        [HulenAuthorize("FEAURE_ACCOUNTINFO_EDIT")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Copy(AccountInfoCopyModel copyModel)
         {   
@@ -195,12 +165,14 @@ namespace Hulen.WebCode.Controllers
             return View("Copy", model);
         }
 
+        [HulenAuthorize("FEAURE_ACCOUNTINFO_EDIT")]
         public ViewResult Import()
         {
             var model = new AccountInfoImportModel();
             return View(model);
         }
 
+        [HulenAuthorize("FEAURE_ACCOUNTINFO_EDIT")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Import(HttpPostedFileBase uploadFile, AccountInfoImportModel importModel)
         {
@@ -211,8 +183,6 @@ namespace Hulen.WebCode.Controllers
             ViewData["Message"] = "Filen er importert";
             return View("Import", importModel );
         }
-
-
 
         private static List<string> GetDropDownList(string context)
         {

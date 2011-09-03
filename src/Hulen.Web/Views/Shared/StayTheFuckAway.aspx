@@ -10,5 +10,10 @@
     <div>
         Du har ingen tilgang til denne siden.
     </div>
+    
+    <div>
+        <%: Html.ActionLink("Hjem", "Index", "Home") %>
+    </div>
+
 </body>
 </html>

@@ -32,19 +32,19 @@
     <% foreach (var item in Model.AllMenuItems ) { %>
     
         <tr>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Name%>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Controller%>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Action %>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.AccessGroup %>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: Html.ActionLink("Rediger", "Edit", new { id = item.Id })%> |
                 <%: Html.ActionLink("Slett", "Delete", new { id = item.Id })%>
             </td>
@@ -55,8 +55,7 @@
     </table>
 
     <p>
-        <%: Html.ActionLink("Nytt menyelement", "Create") %> | 
-        <%: Html.ActionLink("Åpne rapport", "OpenReport") %>
+        <%: Html.ActionLink("Nytt menyelement", "Create") %>
     </p>
 
 </asp:Content>

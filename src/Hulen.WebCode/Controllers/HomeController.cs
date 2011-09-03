@@ -4,9 +4,9 @@ using Hulen.WebCode.Attributes;
 namespace Hulen.WebCode.Controllers
 {
     [HandleError]
-    [HulenAuthorize]
     public class HomeController : Controller
     {
+        [HulenAuthorize("PAGE_HOME")]
         public ActionResult Index()
         {
             ViewData["Message"] = "Welcome to ASP.NET MVC!";

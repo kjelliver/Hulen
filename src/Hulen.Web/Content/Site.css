@@ -56,12 +56,21 @@
     border: solid 1px blue;
 }
 
-.contentcell
+.contentcell_centeralign
 {
     padding:5px;
     font-family:Verdana;
     font-size:9px;
     border: solid 1px blue;
+}
+
+.contentcell_leftalign
+{
+    padding:5px;
+    font-family:Verdana;
+    font-size:9px;
+    border: solid 1px blue;
+    text-align:left;
 }
 
 /* CREATE TABLE */

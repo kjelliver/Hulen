@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.AccountInfoIndexModel>" %>
+<%@ Import Namespace="Hulen.WebCode.MvcBase" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Hulen - Kontooversikt
@@ -42,34 +43,41 @@
                 <th class="contentheader">
                     Inntekt/Utgift
                 </th>
+
+                <% if (ViewBase.UserHasAccessTo("FEAURE_ACCOUNTINFO_EDIT")){%>
                 <th class="contentheader"></th>
+                <% } %>
             </tr>
 
         <% foreach (var item in Model.AccountInfos ) { %>
     
             <tr>
-                <td class="contentcell">
+                <td class="contentcell_centeralign">
                     <%: item.AccountNumber%>
                 </td>
-                <td class="contentcell">
+                <td class="contentcell_centeralign">
                     <%: item.AccountName%>
                 </td>
-                <td class="contentcell">
+                <td class="contentcell_centeralign">
                     <%: item.ResultReportCategory%>
                 </td>
-                <td class="contentcell">
+                <td class="contentcell_centeralign">
                     <%: item.PartsReportCategory%>
                 </td>
-                <td class="contentcell">
+                <td class="contentcell_centeralign">
                     <%: item.WeekCategory%>
                 </td>
-                <td class="contentcell">
+                <td class="contentcell_centeralign">
                     <%: item.IsIncome%>
                 </td>
-                <td class="contentcell">
+
+                <% if (ViewBase.UserHasAccessTo("FEAURE_ACCOUNTINFO_EDIT")){%>
+                <td class="contentcell_centeralign">
                     <%: Html.ActionLink("Rediger", "Edit", new { id = item.Id })%> |
                     <%: Html.ActionLink("Slett", "Delete", new { id = item.Id })%>
                 </td>
+                <% } %>
+
             </tr>
     
         <% } %>
@@ -77,10 +85,11 @@
     </table>
 
     <p>
+        <% if (ViewBase.UserHasAccessTo("FEAURE_ACCOUNTINFO_EDIT")){%>
         <%: Html.ActionLink("Ny konto", "Create") %> | 
-        <%: Html.ActionLink("Åpne rapport", "OpenReport", "AccountInfo", null, new {target = "_blank"}) %> |
         <%: Html.ActionLink("Kopier år", "Copy") %> |
         <%: Html.ActionLink("Importer", "Import") %> 
+        <% } %>
     </p>
 
 </asp:Content>

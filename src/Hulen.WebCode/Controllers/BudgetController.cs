@@ -11,7 +11,6 @@ using Hulen.WebCode.Models;
 
 namespace Hulen.WebCode.Controllers
 {
-    [HulenAuthorize]
     public class BudgetController : Controller
     {
         private readonly IBudgetService _budgetService;
@@ -21,6 +20,7 @@ namespace Hulen.WebCode.Controllers
             _budgetService = budgetService;
         }
 
+        [HulenAuthorize("PAGE_BUDGET")]
         public ViewResult Index()
         {
             var indexModel = new BudgetIndexWebModel();
@@ -37,6 +37,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("PAGE_RESULT")]
         public ViewResult OpenReport(int year, string budgetStatus)
         {
             var indexModel = new BudgetIndexWebModel { StoredBudgets = _budgetService.GetOverview() };
@@ -44,6 +45,7 @@ namespace Hulen.WebCode.Controllers
             return View("Index", indexModel);
         }
 
+        [HulenAuthorize("TEST")]
         public ViewResult Delete(int year, string budgetStatus)
         {
             var model = new BudgetDeleteWebModel();
@@ -59,6 +61,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("TEST")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Delete(BudgetDeleteWebModel model)
         {
@@ -75,6 +78,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
+        [HulenAuthorize("TEST")]
         public ViewResult ImportBudget()
         {
             var model = new BudgetImportWebModel();
@@ -82,6 +86,7 @@ namespace Hulen.WebCode.Controllers
             return View("ImportBudget", model);
         }
 
+        [HulenAuthorize("TEST")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult ImportBudget(HttpPostedFileBase uploadFile, BudgetImportWebModel model)
         {

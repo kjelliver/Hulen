@@ -19,7 +19,7 @@ namespace Hulen.Tests.UnitTests.WebCode.Attributes
         public void SetUp()
         {
             _userServiceMock = new Mock<UserService>();
-            _subject = new HulenAuthorizeAttribute();
+            _subject = new HulenAuthorizeAttribute("Test");
         }
     }
 }

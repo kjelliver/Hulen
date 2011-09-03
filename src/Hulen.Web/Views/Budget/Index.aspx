@@ -29,16 +29,16 @@
     <% foreach (var item in Model.StoredBudgets ) { %>
     
         <tr>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Year%>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.BudgetStatus%>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Comment %>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: Html.ActionLink("Åpne", "OpenReport", new { year = item.Year, budgetStatus = item.BudgetStatus })%> |
                 <%: Html.ActionLink("Slett", "Delete", new { year = item.Year, budgetStatus = item.BudgetStatus })%>
             </td>

@@ -29,16 +29,16 @@
     <% foreach (var item in Model.AllAccessGroups ) { %>
     
         <tr>
-            <td class="contentcell">
+            <td class="contentcell_leftalign">
                 <%: item.Name%>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Type%>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_leftalign">
                 <%: item.Description %>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: Html.ActionLink("Rediger", "Edit", new { id = item.Id })%> |
                 <%: Html.ActionLink("Slett", "Delete", new { id = item.Id })%>
             </td>
@@ -49,8 +49,7 @@
     </table>
 
     <p>
-        <%: Html.ActionLink("Ny tilgangsgruppe", "Create") %> | 
-        <%: Html.ActionLink("Åpne rapport", "OpenReport") %>
+        <%: Html.ActionLink("Ny tilgangsgruppe", "Create") %>
     </p>
 
 </asp:Content>

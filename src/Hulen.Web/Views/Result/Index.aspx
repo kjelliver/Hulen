@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.ResultIndexWebModel>" %>
+<%@ Import Namespace="Hulen.WebCode.MvcBase" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Hulen - Regnskapsrapporter
@@ -32,19 +33,19 @@
     <% foreach (var item in Model.Results ) { %>
     
         <tr>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Year%>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Period%>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.UsedBudget %>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: item.Comment %>
             </td>
-            <td class="contentcell">
+            <td class="contentcell_centeralign">
                 <%: Html.ActionLink("Åpne", "OpenReport", new { year = item.Year, period = item.Period, item.UsedBudget })%> |
                 <%: Html.ActionLink("Slett", "Delete", new { year = item.Year, period = item.Period })%>
             </td>
@@ -54,9 +55,13 @@
 
     </table>
 
-    <p> 
-        <%: Html.ActionLink("Importer regnskapsrapport", "ImportResult") %>
-    </p>
 
+    
+    <p> 
+        <% if(ViewBase.UserHasAccessTo("TEST")){%>
+            <%: Html.ActionLink("Importer regnskapsrapport", "ImportResult") %>
+        <% } %>
+    </p>
+     
 
 </asp:Content>
