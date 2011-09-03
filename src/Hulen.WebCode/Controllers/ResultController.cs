@@ -39,7 +39,7 @@ namespace Hulen.WebCode.Controllers
             return new FileStreamResult(ms, "application/pdf");
         }
 
-        [HulenAuthorize("TEST")]
+        [HulenAuthorize("FEATURE_RESULT_EDIT")]
         public ViewResult Delete(int year, string period)
         {
             var model = new ResultDeleteWebModel();
@@ -55,7 +55,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
-        [HulenAuthorize("TEST")]
+        [HulenAuthorize("FEATURE_RESULT_EDIT")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Delete(ResultDeleteWebModel model)
         {
@@ -72,7 +72,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
-        [HulenAuthorize("TEST")]
+        [HulenAuthorize("FEATURE_RESULT_EDIT")]
         public ViewResult ImportResult()
         {
             var model = new ResultImportWebModel
@@ -99,7 +99,7 @@ namespace Hulen.WebCode.Controllers
             return View("ImportResult", model);
         }
 
-        [HulenAuthorize("TEST")]
+        [HulenAuthorize("FEATURE_RESULT_EDIT")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult ImportResult(HttpPostedFileBase uploadFile, ResultImportWebModel model)
         {
@@ -119,7 +119,7 @@ namespace Hulen.WebCode.Controllers
             return View("ImportResult", model);
         }
 
-        [HulenAuthorize("TEST")]
+        [HulenAuthorize("FEATURE_RESULT_EDIT")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult FailedAccounts(ResultImportWebModel model)
         {
