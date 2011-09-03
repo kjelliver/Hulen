@@ -7,12 +7,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: ViewData["Message"] %></h2>
     <p>
-        To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+        <img src="/Content/Images/home.jpg" alt="some_text"/>
     </p>
-
-    hei på deg
-
-    hei på deg 
-
-    hei på deg
+    <p>
+        Dersom du oppdager feil eller mangler ved denne portalen, ta kontakt med kjelliverb@gmail.com.
+    </p>
 </asp:Content>

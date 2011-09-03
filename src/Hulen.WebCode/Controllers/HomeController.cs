@@ -9,7 +9,7 @@ namespace Hulen.WebCode.Controllers
         [HulenAuthorize("PAGE_HOME")]
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
+            ViewData["Message"] = "Velkommen til et nettsted av og for hulenpeeps";
 
             return View();
         }
