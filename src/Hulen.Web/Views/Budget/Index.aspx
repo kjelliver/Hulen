@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Hulen.WebCode.Models.BudgetIndexWebModel>" %>
+<%@ Import Namespace="Hulen.WebCode.MvcBase" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Hulen - Budsjett
@@ -39,8 +40,12 @@
                 <%: item.Comment %>
             </td>
             <td class="contentcell_centeralign">
-                <%: Html.ActionLink("Åpne", "OpenReport", new { year = item.Year, budgetStatus = item.BudgetStatus })%> |
-                <%: Html.ActionLink("Slett", "Delete", new { year = item.Year, budgetStatus = item.BudgetStatus })%>
+                <%: Html.ActionLink("Åpne", "OpenReport", new { year = item.Year, budgetStatus = item.BudgetStatus })%> 
+
+                <% if (ViewBase.UserHasAccessTo("FEAURE_BUDGET_EDIT")){%>
+                | <%: Html.ActionLink("Slett", "Delete", new { year = item.Year, budgetStatus = item.BudgetStatus })%>
+                <% } %>
+
             </td>
         </tr>
     
@@ -49,7 +54,9 @@
     </table>
 
     <p> 
+        <% if (ViewBase.UserHasAccessTo("FEAURE_BUDGET_EDIT")){%>
         <%: Html.ActionLink("Importer budsjett", "ImportBudget") %>
+        <% } %>
     </p>
 
 </asp:Content>

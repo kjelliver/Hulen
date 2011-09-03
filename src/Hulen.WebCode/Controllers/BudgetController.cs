@@ -45,7 +45,7 @@ namespace Hulen.WebCode.Controllers
             return View("Index", indexModel);
         }
 
-        [HulenAuthorize("TEST")]
+        [HulenAuthorize("FEATURE_BUDGET_EDIT")]
         public ViewResult Delete(int year, string budgetStatus)
         {
             var model = new BudgetDeleteWebModel();
@@ -61,7 +61,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
-        [HulenAuthorize("TEST")]
+        [HulenAuthorize("FEATURE_BUDGET_EDIT")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Delete(BudgetDeleteWebModel model)
         {
@@ -78,7 +78,7 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
-        [HulenAuthorize("TEST")]
+        [HulenAuthorize("FEATURE_BUDGET_EDIT")]
         public ViewResult ImportBudget()
         {
             var model = new BudgetImportWebModel();
@@ -86,7 +86,7 @@ namespace Hulen.WebCode.Controllers
             return View("ImportBudget", model);
         }
 
-        [HulenAuthorize("TEST")]
+        [HulenAuthorize("FEATURE_BUDGET_EDIT")]
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult ImportBudget(HttpPostedFileBase uploadFile, BudgetImportWebModel model)
         {
