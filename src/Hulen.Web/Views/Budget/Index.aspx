@@ -54,7 +54,7 @@
     </table>
 
     <p> 
-        <% if (ViewBase.UserHasAccessTo("FEAURE_BUDGET_EDIT")){%>
+        <% if (ViewBase.UserHasAccessTo("FEATURE_BUDGET_EDIT")){%>
         <%: Html.ActionLink("Importer budsjett", "ImportBudget") %>
         <% } %>
     </p>
