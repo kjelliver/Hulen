@@ -463,29 +463,29 @@ namespace Hulen.PdfGenerator.Generators
         {
             double sum = 0.0;
             int period = (int) Enum.Parse(typeof (ResultPeriod), Dictionary["Period"]);
-            if(period <= 1)
+            if(period >= 1)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().JanuaryAmount;
-            if (period <= 2)
+            if (period >= 2)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().FebruaryAmount;
-            if (period <= 3)
+            if (period >= 3)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().MarchAmount;
-            if (period <= 4)
+            if (period >= 4)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().AprilAmount ;
-            if (period <= 5)
+            if (period >= 5)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().MayAmount;
-            if (period <= 6)
+            if (period >= 6)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().JuneAmount;
-            if (period <= 7)
+            if (period >= 7)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().JulyAmount;
-            if (period <= 8)
+            if (period >= 8)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().AugustAmount;
-            if (period <= 9)
+            if (period >= 9)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().SeptemberAmount;
-            if (period <= 10)
+            if (period >= 10)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().OctoberAmount;
-            if (period <= 11)
+            if (period >= 11)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().NovemberAmount;
-            if (period <= 12)
+            if (period >= 12)
                 sum += _budget.Where(x => x.AccountNumber == accountNumber).FirstOrDefault().DecemberAmount;
             return sum;
         }
