@@ -31,7 +31,7 @@ namespace Hulen.WebCode.Controllers
             {
                 var model = new ResultIndexWebModel
                 {
-                    Results = _resultService.GetOverviewByYear(year == 0 ? DateTime.Now.Year : year),
+                    Results = _resultService.NewGetOverviewByYear(year == 0 ? DateTime.Now.Year : year),
                     DefaultYear = year == 0 ? DateTime.Now.Year : year,
                     Years = GetYearsForCombobox()
                 };
@@ -75,7 +75,7 @@ namespace Hulen.WebCode.Controllers
             var model = new ResultDeleteWebModel();
             try
             {
-                model.SelectedResult = _resultService.GetOneResultByYearAndStatus(year, period);
+                model.SelectedResult = _resultService.NewGetOneResultByYearAndStatus(period, year);
                 return View("Delete", model);
             }
             catch (Exception)

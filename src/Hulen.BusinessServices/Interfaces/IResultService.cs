@@ -10,8 +10,6 @@ namespace Hulen.BusinessServices.Interfaces
 {
     public interface IResultService
     {
-        IEnumerable<ResultDTO> GetOverview();
-        ResultDTO GetOneResultByYearAndStatus(int year, string period);
         void DeleteResultByMonth(string period, int year);
         IEnumerable<ResultAccountDTO> TryToImportFile(Stream inputStream, string month, string year, string comment, string usedBudget);
 
@@ -19,6 +17,12 @@ namespace Hulen.BusinessServices.Interfaces
         ResultAccountDTO GetOneByAccountNumberMonthAndYear(string accountNumber, string month, string year);
         void SaveMenyResultAccounts(List<ResultAccountDTO> resultAccounts);
         IEnumerable<ResultAccountDTO> GetAllResultAccountsByYearAndPeriod(int year, string period);
-        IEnumerable<ResultDTO> GetOverviewByYear(int year);
+
+        IEnumerable<Result> NewGetOverviewByYear(int year);
+        //IEnumerable<ResultDTO> GetOverviewByYear(int year);
+
+        Result NewGetOneResultByYearAndStatus(string period, int year);
+        //ResultDTO GetOneResultByYearAndStatus(int year, string period);
+
     }
 }

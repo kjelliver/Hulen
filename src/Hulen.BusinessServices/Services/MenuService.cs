@@ -13,9 +13,9 @@ namespace Hulen.BusinessServices.Services
     {
         private readonly IMenuRepository _menuRepository;
         private readonly IAccessGroupRepository _accessGroupRepository;
-        private readonly IAccessGroupMapper _accessGroupMapper;
+        private readonly IMapAccessGroup _accessGroupMapper;
 
-        public MenuService(IMenuRepository menuRepository, IAccessGroupRepository accessGroupRepository, IAccessGroupMapper accessGroupMapper)
+        public MenuService(IMenuRepository menuRepository, IAccessGroupRepository accessGroupRepository, IMapAccessGroup accessGroupMapper)
         {
             _menuRepository = menuRepository;
             _accessGroupMapper = accessGroupMapper;

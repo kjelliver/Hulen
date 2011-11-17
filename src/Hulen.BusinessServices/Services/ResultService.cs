@@ -9,35 +9,38 @@ using Excel;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
+using Hulen.Objects.Mappers.Interfaces;
+using Hulen.Objects.ViewModels;
 using Hulen.Storage.Interfaces;
 
 namespace Hulen.BusinessServices.Services
 {
     public class ResultService : IResultService
     {
-        private readonly IResultRepository _resultAccountRepository;
+        private readonly IResultRepository _resultRepository;
         private readonly IAccountInfoRepository _accountInfoRepository;
+        private readonly IMapResult _resultMapper;
 
-
-        public ResultService(IResultRepository resultAccountRepository, IAccountInfoRepository accountInfoRepository)
+        public ResultService(IResultRepository resultRepository, IAccountInfoRepository accountInfoRepository, IMapResult resultMapper)
         {
-            _resultAccountRepository = resultAccountRepository;
+            _resultRepository = resultRepository;
+            _resultMapper = resultMapper;
             _accountInfoRepository = accountInfoRepository;
         }
 
-        public IEnumerable<ResultDTO> GetOverview()
-        {
-            return _resultAccountRepository.GetOverview();
-        }
+        //public ResultDTO GetOneResultByYearAndStatus(int year, string period)
+        //{
+        //    return _resultRepository.GetOverviewByPeriodAndYear(year, period);
+        //}
 
-        public ResultDTO GetOneResultByYearAndStatus(int year, string period)
+        public Result NewGetOneResultByYearAndStatus(string period, int year)
         {
-            return _resultAccountRepository.GetOverviewByPeriodAndYear(year, period);
+            return _resultMapper.FromDTO(_resultRepository.GetOverviewByPeriodAndYear(year, period));
         }
 
         public void DeleteResultByYearAndStatus(int year, string period)
         {
-            _resultAccountRepository.DeleteExcistingOverview(period, year);
+            _resultRepository.DeleteExcistingOverview(period, year);
         }
 
         public IEnumerable<ResultAccountDTO> TryToImportFile(Stream inputStream, string period, string year, string comment, string usedbudget)
@@ -46,41 +49,48 @@ namespace Hulen.BusinessServices.Services
             var dataSet = ConvertStreamToDataSet(inputStream);
             IEnumerable<ResultAccountDTO> results = ConvertDataSetToObjectCollection(dataSet, (int)Enum.Parse(typeof(ResultPeriod), period), Convert.ToInt32(year));
             SaveResultModel saveModel = SortResults(results, Convert.ToInt32(year));
-            _resultAccountRepository.SaveMeny(saveModel.SavedResults);
+            _resultRepository.SaveMeny(saveModel.SavedResults);
             SaveOverview(period, Convert.ToInt32(year), comment, usedbudget);
             return saveModel.FailedResults;
         }
 
         private void SaveOverview(string period, int year, string comment, string usedBudget)
         {
-            _resultAccountRepository.SaveNewOverview(new ResultDTO() {Period = period, Year = year, Comment = comment, UsedBudget = usedBudget});
+            var result = new Result {Period = period, Year = year, Comment = comment, UsedBudget = usedBudget};
+            _resultRepository.SaveNewOverview(_resultMapper.ToDTO(result));
+            //_resultRepository.SaveNewOverview(new ResultDTO() {Period = period, Year = year, Comment = comment, UsedBudget = usedBudget});
         }
 
         public ResultAccountDTO GetOneResultAccountById(Guid id)
         {
-            return _resultAccountRepository.GetOneResultAccountById(id);
+            return _resultRepository.GetOneResultAccountById(id);
         }
 
         public ResultAccountDTO GetOneByAccountNumberMonthAndYear(string accountNumber, string month, string year)
         {
-            return _resultAccountRepository.GetOneByAccountNumberMonthAndYear(Convert.ToInt32(accountNumber),
+            return _resultRepository.GetOneByAccountNumberMonthAndYear(Convert.ToInt32(accountNumber),
                                                                               Convert.ToInt32(month),
                                                                               Convert.ToInt32(year));
         }
 
         public void SaveMenyResultAccounts(List<ResultAccountDTO> resultAccounts)
         {
-            _resultAccountRepository.SaveMeny(resultAccounts);
+            _resultRepository.SaveMeny(resultAccounts);
         }
 
         public IEnumerable<ResultAccountDTO> GetAllResultAccountsByYearAndPeriod(int year, string period)
         {
-            return _resultAccountRepository.GetResultByMonth((int) Enum.Parse(typeof (ResultPeriod), period), year);
+            return _resultRepository.GetResultByMonth((int) Enum.Parse(typeof (ResultPeriod), period), year);
         }
 
-        public IEnumerable<ResultDTO> GetOverviewByYear(int year)
+        //public IEnumerable<ResultDTO> GetOverviewByYear(int year)
+        //{
+        //    return _resultRepository.GetOverviewByYear(year);
+        //}
+
+        public IEnumerable<Result> NewGetOverviewByYear(int year)
         {
-            return _resultAccountRepository.GetOverviewByYear(year);
+            return _resultMapper.ManyFromDTO(_resultRepository.GetOverviewByYear(year));
         }
 
         private SaveResultModel SortResults(IEnumerable<ResultAccountDTO> results, int year)
@@ -101,8 +111,8 @@ namespace Hulen.BusinessServices.Services
 
         public void DeleteResultByMonth(string period, int year)
         {
-            _resultAccountRepository.DeleteExcistingOverview(period, year);
-            _resultAccountRepository.DeleteExcistingAccounts((int)Enum.Parse(typeof(ResultPeriod), period), year);
+            _resultRepository.DeleteExcistingOverview(period, year);
+            _resultRepository.DeleteExcistingAccounts((int)Enum.Parse(typeof(ResultPeriod), period), year);
         }
 
         private DataSet ConvertStreamToDataSet(Stream inputStream)

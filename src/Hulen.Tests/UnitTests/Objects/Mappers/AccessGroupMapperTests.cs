@@ -12,12 +12,12 @@ namespace Hulen.Tests.UnitTests.Objects.Mappers
     [TestFixture]
     public class AccessGroupMapperTests
     {
-        private AccessGroupMapper _subject;
+        private MapAccessGroup _subject;
 
         [SetUp]
         public void SetUp()
         {
-            _subject = new AccessGroupMapper();
+            _subject = new MapAccessGroup();
         }
 
         [Test]

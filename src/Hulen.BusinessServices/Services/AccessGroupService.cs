@@ -14,9 +14,9 @@ namespace Hulen.BusinessServices.Services
     public class AccessGroupService : IAccessGroupService
     {
         private readonly IAccessGroupRepository _accessGroupRepository;
-        private readonly IAccessGroupMapper _accessGroupMapper;
+        private readonly IMapAccessGroup _accessGroupMapper;
 
-        public AccessGroupService(IAccessGroupRepository repository, IAccessGroupMapper mapper)
+        public AccessGroupService(IAccessGroupRepository repository, IMapAccessGroup mapper)
         {
             _accessGroupRepository = repository;
             _accessGroupMapper = mapper;

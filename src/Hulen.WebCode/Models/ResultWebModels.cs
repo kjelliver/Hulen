@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Hulen.Objects.DTO;
+using Hulen.Objects.ViewModels;
 
 namespace Hulen.WebCode.Models
 {
     public class ResultIndexWebModel
     {
-        public IEnumerable<ResultDTO> Results { get; set; }
+        public IEnumerable<Result> Results { get; set; }
         public IEnumerable<int> Years { get; set; }
         public int SelectedYear { get; set; }
         public int DefaultYear { get; set; }
@@ -15,7 +16,7 @@ namespace Hulen.WebCode.Models
 
     public class ResultDeleteWebModel
     {
-        public ResultDTO SelectedResult { get; set; }
+        public Result SelectedResult { get; set; }
     }
 
     public class ResultImportWebModel

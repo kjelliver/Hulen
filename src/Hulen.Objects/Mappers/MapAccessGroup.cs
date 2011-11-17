@@ -7,7 +7,7 @@ using Hulen.Objects.ViewModels;
 
 namespace Hulen.Objects.Mappers
 {
-    public class AccessGroupMapper : IAccessGroupMapper
+    public class MapAccessGroup : IMapAccessGroup
     {
         public AccessGroupDTO ToDTO(AccessGroupViewModel viewModel)
         {

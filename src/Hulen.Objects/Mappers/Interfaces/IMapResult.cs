@@ -7,9 +7,10 @@ using Hulen.Objects.ViewModels;
 
 namespace Hulen.Objects.Mappers.Interfaces
 {
-    public interface IAccessGroupMapper
+    public interface IMapResult
     {
-        AccessGroupDTO ToDTO(AccessGroupViewModel viewModel);
-        AccessGroupViewModel ToViewModel(AccessGroupDTO dto);
+        ResultDTO ToDTO(Result result);
+        Result FromDTO(ResultDTO dto);
+        IEnumerable<Result> ManyFromDTO(IEnumerable<ResultDTO> dtos);
     }
 }

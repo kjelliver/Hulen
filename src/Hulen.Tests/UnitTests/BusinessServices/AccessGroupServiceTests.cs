@@ -15,14 +15,14 @@ namespace Hulen.Tests.UnitTests.BusinessServices
     public class AccessGroupServiceTests
     {
         private Mock<IAccessGroupRepository> _accessGroupRepositoryMock;
-        private Mock<IAccessGroupMapper> _accessGroupMapper;
+        private Mock<IMapAccessGroup> _accessGroupMapper;
         private AccessGroupService _subject;
 
         [SetUp]
         public void SetUp()
         {
             _accessGroupRepositoryMock = new Mock<IAccessGroupRepository>();
-            _accessGroupMapper = new Mock<IAccessGroupMapper>();
+            _accessGroupMapper = new Mock<IMapAccessGroup>();
             _subject = new AccessGroupService(_accessGroupRepositoryMock.Object, _accessGroupMapper.Object);
         }
 
