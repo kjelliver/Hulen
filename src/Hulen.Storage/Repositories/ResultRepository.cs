@@ -75,6 +75,17 @@ namespace Hulen.Storage.Repositories
             } 
         }
 
+        public IEnumerable<ResultDTO> GetOverviewByYear(int year)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return session
+                    .CreateCriteria(typeof(ResultDTO))
+                    .Add(Restrictions.Eq("Year", year))
+                    .List<ResultDTO>();
+            } 
+        }
+
 
         public void SaveMeny(IEnumerable<ResultAccountDTO> results)
         {

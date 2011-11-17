@@ -9,10 +9,11 @@ using Hulen.Objects.DTO;
 using Hulen.PdfGenerator;
 using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
+using Hulen.WebCode.MvcBase;
 
 namespace Hulen.WebCode.Controllers
 {
-    public class ResultController : Controller
+    public class ResultController : HulenController
     {
         private readonly IResultService _resultService;
         private readonly IPdfGenerator _pdfGenerator;
@@ -24,10 +25,39 @@ namespace Hulen.WebCode.Controllers
         }
 
         [HulenAuthorize("PAGE_RESULT")]
-        public ViewResult Index()
+        public ViewResult Index(string message, int year = 0)
         {
-            var indexModel = new ResultIndexWebModel {Results = _resultService.GetOverview()};
-            return View("Index", indexModel);
+            try
+            {
+                var model = new ResultIndexWebModel
+                {
+                    Results = _resultService.GetOverviewByYear(year == 0 ? DateTime.Now.Year : year),
+                    DefaultYear = year == 0 ? DateTime.Now.Year : year,
+                    Years = GetYearsForCombobox()
+                };
+
+                if (!model.Results.Any())
+                {
+                    ViewData["Message"] = "Ingen regnskapskontoer funnet for gitt år.";
+                    return View("Index", model);
+                }
+                ViewData["Message"] = message;
+                return View("Index", model);
+            }
+            catch (Exception)
+            {
+                var model = new ResultIndexWebModel();
+                ViewData["Message"] = "En feil oppstod, vennligst prøv på nytt.";
+                return View("Index", model);
+            }
+        }
+
+        [HulenAuthorize("PAGE_RESULT")]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ViewResult Index(ResultIndexWebModel model)
+        {
+            var year = model.SelectedYear;
+            return Index("", year);
         }
 
         [HulenAuthorize("PAGE_RESULT")]

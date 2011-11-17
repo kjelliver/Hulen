@@ -19,5 +19,6 @@ namespace Hulen.BusinessServices.Interfaces
         ResultAccountDTO GetOneByAccountNumberMonthAndYear(string accountNumber, string month, string year);
         void SaveMenyResultAccounts(List<ResultAccountDTO> resultAccounts);
         IEnumerable<ResultAccountDTO> GetAllResultAccountsByYearAndPeriod(int year, string period);
+        IEnumerable<ResultDTO> GetOverviewByYear(int year);
     }
 }

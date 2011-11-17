@@ -195,7 +195,7 @@ namespace Hulen.WebCode.Controllers
             if (context == "INCOME")
                 return new List<string> { "Inntekt", "Utgift" };
             if (context == "YEAR")
-                return new List<string> {"2010", "2011", "2012"};
+                return new List<string> {"2010", "2011", "2012", "2013"};
             return new List<string>();
         }
     }

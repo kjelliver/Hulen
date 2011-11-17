@@ -8,6 +8,9 @@ namespace Hulen.WebCode.Models
     public class ResultIndexWebModel
     {
         public IEnumerable<ResultDTO> Results { get; set; }
+        public IEnumerable<int> Years { get; set; }
+        public int SelectedYear { get; set; }
+        public int DefaultYear { get; set; }
     }
 
     public class ResultDeleteWebModel

@@ -13,6 +13,13 @@
 
     <h2>Regnskapsrapporter for Hulen</h2>
 
+    <% using (Html.BeginForm()){%>
+        <%:Html.DropDownListFor(x => x.SelectedYear, new SelectList(Model.Years, Model.DefaultYear))%>
+
+        <input type="submit" value="Oppdater" />
+
+    <% }%>
+
     <table class="contenttable" cellspacing="0">
         <tr>
             <th class="contentheader">

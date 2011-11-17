@@ -11,6 +11,7 @@ namespace Hulen.Storage.Interfaces
         void DeleteExcistingAccounts(int period, int year);
         void SaveNewOverview(ResultDTO resultDTO);
         ResultDTO GetOverviewByPeriodAndYear(int year, string period);
+        IEnumerable<ResultDTO> GetOverviewByYear(int year);
 
 
 
@@ -21,6 +22,5 @@ namespace Hulen.Storage.Interfaces
         ResultAccountDTO GetOneResultAccountById(Guid id);
         ResultAccountDTO GetOneByAccountNumberMonthAndYear(int accountNumber, int month, int year);
         void UpdateMeny(List<ResultAccountDTO> resultAccounts);
-
     }
 }
