@@ -20,9 +20,9 @@ namespace Hulen.Storage.Repositories
             }
         }
 
-        public void DeleteExcistingOverview(string period, int year)
+        public void DeleteExcistingOverview(int period, int year)
         {
-            var resultToDelete = GetOverviewByPeriodAndYear(year, period);
+            var resultToDelete = GetOverviewByPeriodAndYear(period, year);
 
             if (resultToDelete != null)
             {
@@ -60,7 +60,7 @@ namespace Hulen.Storage.Repositories
             }
         }
 
-        public ResultDTO GetOverviewByPeriodAndYear(int year, string period)
+        public ResultDTO GetOverviewByPeriodAndYear(int period, int year)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {

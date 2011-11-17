@@ -11,60 +11,62 @@
         <%: ViewData["Message"]%>                            
     </div>  
 
-    <h2>Regnskapsrapporter for Hulen</h2>
+        <h2>Regnskapsrapporter for Hulen</h2>
 
-    <% using (Html.BeginForm()){%>
-        <%:Html.DropDownListFor(x => x.SelectedYear, new SelectList(Model.Years, Model.DefaultYear))%>
+        <% using (Html.BeginForm()){%>
+            <%:Html.DropDownListFor(x => x.SelectedYear, new SelectList(Model.Years, Model.DefaultYear))%>
 
-        <input type="submit" value="Oppdater" />
+            <input type="submit" value="Oppdater" />
 
-    <% }%>
+        <% }%>
 
-    <table class="contenttable" cellspacing="0">
-        <tr>
-            <th class="contentheader">
-                År
-            </th>
-            <th class="contentheader">
-                Periode
-            </th>
-            <th class="contentheader">
-                Brukt budsjett
-            </th>
-            <th class="contentheader">
-                Kommentar
-            </th>
-            <th class="contentheader"></th>
-        </tr>
+        <% if (Model.Results.Any()) {%>
 
-    <% foreach (var item in Model.Results ) { %>
+        <table class="contenttable" cellspacing="0">
+            <tr>
+                <th class="contentheader">
+                    År
+                </th>
+                <th class="contentheader">
+                    Periode
+                </th>
+                <th class="contentheader">
+                    Brukt budsjett
+                </th>
+                <th class="contentheader">
+                    Kommentar
+                </th>
+                <th class="contentheader"></th>
+            </tr>
+
+        <% foreach (var item in Model.Results ) { %>
     
-        <tr>
-            <td class="contentcell_centeralign">
-                <%: item.Year%>
-            </td>
-            <td class="contentcell_centeralign">
-                <%: item.Period%>
-            </td>
-            <td class="contentcell_centeralign">
-                <%: item.UsedBudget %>
-            </td>
-            <td class="contentcell_centeralign">
-                <%: item.Comment %>
-            </td>
-            <td class="contentcell_centeralign">
-                <%: Html.ActionLink("Åpne", "OpenReport", new { year = item.Year, period = item.Period, item.UsedBudget })%> 
-                <% if(ViewBase.UserHasAccessTo("FEATURE_RESULT_EDIT")){%>
-                |<%: Html.ActionLink("Slett", "Delete", new { year = item.Year, period = item.Period })%>
-                <% } %>
-            </td>
-        </tr>
+            <tr>
+                <td class="contentcell_centeralign">
+                    <%: item.Year%>
+                </td>
+                <td class="contentcell_centeralign">
+                    <%: item.Period%>
+                </td>
+                <td class="contentcell_centeralign">
+                    <%: item.UsedBudget %>
+                </td>
+                <td class="contentcell_centeralign">
+                    <%: item.Comment %>
+                </td>
+                <td class="contentcell_centeralign">
+                    <%: Html.ActionLink("Åpne", "OpenReport", new { year = item.Year, period = item.Period, item.UsedBudget })%> 
+                    <% if(ViewBase.UserHasAccessTo("FEATURE_RESULT_EDIT")){%>
+                    |<%: Html.ActionLink("Slett", "Delete", new { year = item.Year, period = item.Period })%>
+                    <% } %>
+                </td>
+            </tr>
     
+        <% } %>
+
+        </table>
+
     <% } %>
-
-    </table>
-
-
     
     <p> 
         <% if(ViewBase.UserHasAccessTo("FEATURE_RESULT_EDIT")){%>

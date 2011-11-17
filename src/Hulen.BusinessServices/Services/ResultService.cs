@@ -30,12 +30,7 @@ namespace Hulen.BusinessServices.Services
 
         public Result GetOneResultByYearAndStatus(string period, int year)
         {
-            return _resultMapper.FromDTO(_resultRepository.GetOverviewByPeriodAndYear(year, period));
-        }
-
-        public void DeleteResultByYearAndStatus(int year, string period)
-        {
-            _resultRepository.DeleteExcistingOverview(period, year);
+            return _resultMapper.FromDTO(_resultRepository.GetOverviewByPeriodAndYear((int) Enum.Parse(typeof(ResultPeriod), period), year));
         }
 
         public IEnumerable<ResultAccountDTO> TryToImportFile(Stream inputStream, string period, string year, string comment, string usedbudget)
@@ -100,7 +95,7 @@ namespace Hulen.BusinessServices.Services
 
         public void DeleteResultByMonth(string period, int year)
         {
-            _resultRepository.DeleteExcistingOverview(period, year);
+            _resultRepository.DeleteExcistingOverview((int) Enum.Parse(typeof(ResultPeriod), period), year);
             _resultRepository.DeleteExcistingAccounts((int)Enum.Parse(typeof(ResultPeriod), period), year);
         }
 

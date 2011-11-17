@@ -30,11 +30,11 @@ namespace Hulen.WebCode.Controllers
             try
             {
                 var model = new ResultIndexWebModel
-                {
-                    Results = _resultService.GetOverviewByYear(year == 0 ? DateTime.Now.Year : year),
-                    DefaultYear = year == 0 ? DateTime.Now.Year : year,
-                    Years = GetYearsForCombobox()
-                };
+                                {
+                                    Results = _resultService.GetOverviewByYear(year == 0 ? DateTime.Now.Year : year),
+                                    DefaultYear = year == 0 ? DateTime.Now.Year.ToString() : year.ToString(),
+                                    Years = GetYearsForCombobox()
+                                };
 
                 if (!model.Results.Any())
                 {
@@ -56,7 +56,7 @@ namespace Hulen.WebCode.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult Index(ResultIndexWebModel model)
         {
-            var year = model.SelectedYear;
+            var year = Convert.ToInt32(model.SelectedYear);
             return Index("", year);
         }
 

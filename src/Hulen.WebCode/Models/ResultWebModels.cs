@@ -9,9 +9,9 @@ namespace Hulen.WebCode.Models
     public class ResultIndexWebModel
     {
         public IEnumerable<Result> Results { get; set; }
-        public IEnumerable<int> Years { get; set; }
-        public int SelectedYear { get; set; }
-        public int DefaultYear { get; set; }
+        public IEnumerable<string> Years { get; set; }
+        public string SelectedYear { get; set; }
+        public string DefaultYear { get; set; }
     }
 
     public class ResultDeleteWebModel
