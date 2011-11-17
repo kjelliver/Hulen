@@ -34,7 +34,7 @@
                     År
                 </td>
                 <td class="createcell">
-                    <%: Html.TextBoxFor(m => m.SelectedResult.Year)%>
+                    <%: Html.TextBoxFor(m => m.SelectedResult.Year, new { @readonly = true })%>
                 </td>
                 <td>
                     <%: Html.ValidationMessageFor(m => m.SelectedResult.Year)%>
@@ -46,7 +46,7 @@
                     Controller
                 </td>
                 <td class="createcell">
-                    <%: Html.TextBoxFor(m => m.SelectedResult.Period)%>
+                    <%: Html.TextBoxFor(m => m.SelectedResult.Period, new { @readonly = true })%>
                 </td>
                 <td>
                     <%: Html.ValidationMessageFor(m => m.SelectedResult.Period)%>
@@ -58,7 +58,7 @@
                     Action
                 </td>
                 <td class="createcell">
-                    <%: Html.TextAreaFor(m => m.SelectedResult.Comment)%>
+                    <%: Html.TextAreaFor(m => m.SelectedResult.Comment, new { @readonly = true })%>
                 </td>
                 <td>
                     <%: Html.ValidationMessageFor(m => m.SelectedResult.Comment)%>
