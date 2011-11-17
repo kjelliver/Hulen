@@ -81,6 +81,7 @@ namespace Hulen.Storage.Repositories
             {
                 return session
                     .CreateCriteria(typeof(ResultDTO))
+                    .AddOrder(Order.Asc("Period"))
                     .Add(Restrictions.Eq("Year", year))
                     .List<ResultDTO>();
             } 
