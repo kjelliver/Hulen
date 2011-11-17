@@ -28,12 +28,7 @@ namespace Hulen.BusinessServices.Services
             _accountInfoRepository = accountInfoRepository;
         }
 
-        //public ResultDTO GetOneResultByYearAndStatus(int year, string period)
-        //{
-        //    return _resultRepository.GetOverviewByPeriodAndYear(year, period);
-        //}
-
-        public Result NewGetOneResultByYearAndStatus(string period, int year)
+        public Result GetOneResultByYearAndStatus(string period, int year)
         {
             return _resultMapper.FromDTO(_resultRepository.GetOverviewByPeriodAndYear(year, period));
         }
@@ -58,7 +53,6 @@ namespace Hulen.BusinessServices.Services
         {
             var result = new Result {Period = period, Year = year, Comment = comment, UsedBudget = usedBudget};
             _resultRepository.SaveNewOverview(_resultMapper.ToDTO(result));
-            //_resultRepository.SaveNewOverview(new ResultDTO() {Period = period, Year = year, Comment = comment, UsedBudget = usedBudget});
         }
 
         public ResultAccountDTO GetOneResultAccountById(Guid id)
@@ -83,12 +77,7 @@ namespace Hulen.BusinessServices.Services
             return _resultRepository.GetResultByMonth((int) Enum.Parse(typeof (ResultPeriod), period), year);
         }
 
-        //public IEnumerable<ResultDTO> GetOverviewByYear(int year)
-        //{
-        //    return _resultRepository.GetOverviewByYear(year);
-        //}
-
-        public IEnumerable<Result> NewGetOverviewByYear(int year)
+        public IEnumerable<Result> GetOverviewByYear(int year)
         {
             return _resultMapper.ManyFromDTO(_resultRepository.GetOverviewByYear(year));
         }

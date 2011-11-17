@@ -18,11 +18,7 @@ namespace Hulen.BusinessServices.Interfaces
         void SaveMenyResultAccounts(List<ResultAccountDTO> resultAccounts);
         IEnumerable<ResultAccountDTO> GetAllResultAccountsByYearAndPeriod(int year, string period);
 
-        IEnumerable<Result> NewGetOverviewByYear(int year);
-        //IEnumerable<ResultDTO> GetOverviewByYear(int year);
-
-        Result NewGetOneResultByYearAndStatus(string period, int year);
-        //ResultDTO GetOneResultByYearAndStatus(int year, string period);
-
+        IEnumerable<Result> GetOverviewByYear(int year);
+        Result GetOneResultByYearAndStatus(string period, int year);
     }
 }
