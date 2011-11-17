@@ -17,10 +17,12 @@ namespace Hulen.WebCode.Controllers
     {
         private readonly IResultService _resultService;
         private readonly IPdfGenerator _pdfGenerator;
+        private readonly IAccountInfoService _accountInfoService;
 
-        public ResultController(IResultService resultService, IPdfGenerator pdfGenerator)
+        public ResultController(IResultService resultService, IPdfGenerator pdfGenerator, IAccountInfoService accountInfoService)
         {
             _resultService = resultService;
+            _accountInfoService = accountInfoService;
             _pdfGenerator = pdfGenerator;
         }
 
@@ -140,6 +142,7 @@ namespace Hulen.WebCode.Controllers
 
             if(model.FailedAccounts.Any())
             {
+                model.Accounts = _accountInfoService.GetAllAccountInfosByYear(model.Year);
                 return View("FailedAccounts", model);
             }
 
@@ -154,6 +157,7 @@ namespace Hulen.WebCode.Controllers
         public ViewResult FailedAccounts(ResultImportWebModel model)
         {
             _resultService.SaveMenyResultAccounts(SetRealAccounts(model.FailedAccounts));
+            model.Accounts = _accountInfoService.GetAllAccountInfosByYear(model.Year);
             ViewData["Message"] = "Endringene er lagret.";
             return View("FailedAccounts", model);
         }

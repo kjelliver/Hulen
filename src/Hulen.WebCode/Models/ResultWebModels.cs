@@ -31,5 +31,7 @@ namespace Hulen.WebCode.Models
         public IEnumerable BudgetStatusList { get; set; }
 
         public string UsedBudget { get; set; }
+
+        public IEnumerable<AccountInfoViewModel> Accounts { get; set; }
     }
 }

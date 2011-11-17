@@ -126,7 +126,8 @@ namespace Hulen.BusinessServices.Services
                             PartsReportCategory = ((PartsReportCategory)accountInfo.PartsReportCategory).ToString(),
                             WeekCategory = ((WeekCategory)accountInfo.WeekCategory).ToString(),
                             IsIncome = ((IsIncome)Convert.ToInt32(accountInfo.IsIncome)).ToString(),
-                            Year = accountInfo.Year
+                            Year = accountInfo.Year,
+                            NumberAndName = accountInfo.AccountNumber + ", " + accountInfo.AccountName
                         };
         }
 

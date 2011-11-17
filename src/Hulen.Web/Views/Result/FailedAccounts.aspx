@@ -56,7 +56,8 @@
                 <%: Html.TextBoxFor(m => m.FailedAccounts[Model.FailedAccounts.IndexOf(item)].AmountSoFar, new { @readonly = true, style = "width:75px;" })%>
             </td>
             <td class="contentcell">
-                <%: Html.TextBoxFor(m => m.FailedAccounts[Model.FailedAccounts.IndexOf(item)].RealAccount) %>
+                <%: Html.DropDownListFor(m => m.FailedAccounts[Model.FailedAccounts.IndexOf(item)].RealAccount, new SelectList(Model.Accounts, "AccountNumber", "NumberAndName"))%>
+                <%--<%: Html.TextBoxFor(m => m.FailedAccounts[Model.FailedAccounts.IndexOf(item)].RealAccount) %>--%>
             </td>
         </tr>
     

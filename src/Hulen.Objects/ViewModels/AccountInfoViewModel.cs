@@ -15,5 +15,6 @@ namespace Hulen.Objects.ViewModels
         public string WeekCategory { get; set; }
         public string IsIncome { get; set; }
         public int Year { get; set; }
+        public string NumberAndName { get; set; }
     }
 }
