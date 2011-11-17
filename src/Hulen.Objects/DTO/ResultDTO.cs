@@ -9,8 +9,8 @@ namespace Hulen.Objects.DTO
     {
         public Guid Id { get; set; }
         public int Year { get; set; }
-        public string Period { get; set; }
+        public int Period { get; set; }
         public string Comment { get; set; }
-        public string UsedBudget { get; set; }
+        public int UsedBudget { get; set; }
     }
 }
