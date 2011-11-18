@@ -55,7 +55,7 @@
                     <%: item.Comment %>
                 </td>
                 <td class="contentcell_centeralign">
-                    <%: Html.ActionLink("Åpne", "OpenReport", new { year = item.Year, period = item.Period, item.UsedBudget })%> 
+                    <%: Html.ActionLink("Åpne", "OpenReport", new { year = item.Year, period = item.Period, item.UsedBudget}, new { target = "_blank" })%> 
                     <% if(ViewBase.UserHasAccessTo("FEATURE_RESULT_EDIT")){%>
                     |<%: Html.ActionLink("Slett", "Delete", new { year = item.Year, period = item.Period })%>
                     <% } %>

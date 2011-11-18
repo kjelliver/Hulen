@@ -156,10 +156,20 @@ namespace Hulen.WebCode.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ViewResult FailedAccounts(ResultImportWebModel model)
         {
-            _resultService.SaveMenyResultAccounts(SetRealAccounts(model.FailedAccounts));
-            model.Accounts = _accountInfoService.GetAllAccountInfosByYear(model.Year);
-            ViewData["Message"] = "Endringene er lagret.";
-            return View("FailedAccounts", model);
+            try
+            {
+                _resultService.SaveMenyResultAccounts(SetRealAccounts(model.FailedAccounts));
+                model.FailedAccounts = new List<ResultAccountDTO>();
+                model.Accounts = _accountInfoService.GetAllAccountInfosByYear(model.Year);
+                ViewData["Message"] = "Endringene er lagret.";
+                return View("FailedAccounts", model);
+            }
+            catch (Exception)
+            {
+                model.Accounts = _accountInfoService.GetAllAccountInfosByYear(model.Year);
+                ViewData["Message"] = "Endringene er lagret.";
+                return View("FailedAccounts", model);
+            }
         }
 
         private List<ResultAccountDTO> SetRealAccounts(List<ResultAccountDTO> failedAccountsCollection)

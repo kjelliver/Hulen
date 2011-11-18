@@ -25,10 +25,9 @@ namespace Hulen.WebCode.Attributes
             if (httpContext.Session != null)
             {
                 accessGroups = (List<string>) httpContext.Session["accessGroups"];
+                return accessGroups.Contains(_accessGroup);
             }
-
-            return accessGroups.Contains(_accessGroup);
-
+            return false;
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
