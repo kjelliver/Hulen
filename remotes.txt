@@ -1,1 +1,5 @@
 git remote add github git@github.com:kjelliver/Hulen.git
+
+git remote add hulentest https://kjelliverb@appharbor.com/Hulen.git
+
+git remote add hulenprod https://kjelliverb@appharbor.com/hulenprod.git
