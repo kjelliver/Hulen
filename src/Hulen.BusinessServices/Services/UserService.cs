@@ -54,6 +54,7 @@ namespace Hulen.BusinessServices.Services
         {
             var user = _userRepository.GetOneUserByUsername(userName);
             user.Password = newPassword;
+            user.MustChangePassword = false;
             _userRepository.UpdateOneUser(user, false);
         }
     }

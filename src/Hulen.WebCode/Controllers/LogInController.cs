@@ -33,13 +33,17 @@ namespace Hulen.WebCode.Controllers
                 {
                     var user = _userService.GetOneUser(model.UserName);
 
-                    if (user.MustChangePassword)
-                        return RedirectToAction("ChangePassword", "LogIn");
                     if (HttpContext.Session != null)
                     {
                         HttpContext.Session["currentUserID"] = model.UserName;
                         HttpContext.Session["accessGroups"] = _accessGroupService.GetAccessGroupsForUser(user);
                     }
+
+                    if (user.MustChangePassword)
+                    {
+                        return RedirectToAction("ChangePassword", "LogIn");
+                    }
+                    
                     return RedirectToAction("Index", "Home");
                 }
                 TempData["Message"] = "Feil i brukernavn eller passord";
@@ -55,14 +59,18 @@ namespace Hulen.WebCode.Controllers
         public ViewResult ChangePassword()
         {
             var model = new NewPasswordModel();
+            if (HttpContext.Session != null)
+            {
+               model.UserName = HttpContext.Session["currentUserID"].ToString();
+            }
             return View("ChangePassword", model);
         }
 
         [HttpPost]
         public ActionResult ChangePassword(NewPasswordModel model)
         {
-            try
-            {
+            //try
+            //{
                 if(model.NewPassword == model.RepeatPassword)
                 {
                     _userService.UpdatePassword(model.UserName, model.NewPassword);
@@ -70,12 +78,12 @@ namespace Hulen.WebCode.Controllers
                 }
                 TempData["Message"] = "Nytt passord og gjentatt passord er ikke likt.";
                 return View("ChangePassword", model);
-            }
-            catch (Exception)
-            {
-                TempData["Message"] = "Ukjent feil har oppstått";
-                return RedirectToAction("LogIn", "LogIn");
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    TempData["Message"] = "Ukjent feil har oppstått";
+            //    return RedirectToAction("LogIn", "LogIn");
+            //}
         }
 
         public ActionResult LogOut()

@@ -19,10 +19,18 @@
                         <legend>Bytt passord:</legend>
                 
                         <div class="label">
+                            Brukernavn
+                        </div>
+                        <div>
+                            <%: Html.TextBoxFor(m => m.UserName, new { @readonly = true })%>
+                            <%: Html.ValidationMessageFor(m => m.UserName) %>
+                        </div>
+
+                        <div class="label">
                             Passord
                         </div>
                         <div>
-                            <%: Html.TextBoxFor(m => m.NewPassword) %>
+                            <%: Html.PasswordFor(m => m.NewPassword) %>
                             <%: Html.ValidationMessageFor(m => m.NewPassword) %>
                         </div>
                 
@@ -34,7 +42,7 @@
                             <%: Html.ValidationMessageFor(m => m.RepeatPassword) %>
                         </div>
 
-                        <%: Html.HiddenFor(m => m.UserName) %>
+                        <%--<%: Html.HiddenFor(m => m.UserName) %>--%>
 
                         <p>
                             <input type="submit" value="Logg inn" />
