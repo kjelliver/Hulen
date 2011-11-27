@@ -25,7 +25,10 @@ namespace Hulen.WebCode.Attributes
             if (httpContext.Session != null)
             {
                 accessGroups = (List<string>) httpContext.Session["accessGroups"];
-                return accessGroups.Contains(_accessGroup);
+                if(accessGroups != null)
+                {
+                    return accessGroups.Contains(_accessGroup);
+                }
             }
             return false;
         }

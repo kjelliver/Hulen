@@ -69,8 +69,8 @@ namespace Hulen.WebCode.Controllers
         [HttpPost]
         public ActionResult ChangePassword(NewPasswordModel model)
         {
-            //try
-            //{
+            try
+            {
                 if(model.NewPassword == model.RepeatPassword)
                 {
                     _userService.UpdatePassword(model.UserName, model.NewPassword);
@@ -78,12 +78,12 @@ namespace Hulen.WebCode.Controllers
                 }
                 TempData["Message"] = "Nytt passord og gjentatt passord er ikke likt.";
                 return View("ChangePassword", model);
-            //}
-            //catch (Exception)
-            //{
-            //    TempData["Message"] = "Ukjent feil har oppstått";
-            //    return RedirectToAction("LogIn", "LogIn");
-            //}
+            }
+            catch (Exception)
+            {
+                TempData["Message"] = "Ukjent feil har oppstått";
+                return RedirectToAction("LogIn", "LogIn");
+            }
         }
 
         public ActionResult LogOut()

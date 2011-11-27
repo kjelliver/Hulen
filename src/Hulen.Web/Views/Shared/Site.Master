@@ -22,7 +22,7 @@
                     <% Html.RenderAction("Menu", "Master");%>
                 </td>
 
-                <td>
+                <td valign="top">
                     <table class="maincontent">
                         <tr>
                             <td>
@@ -34,7 +34,7 @@
             </tr>
             <tr>
                 <td class="footer">
-                    <br>
+                    <br/>
                 </td>
             </tr>
         </table>

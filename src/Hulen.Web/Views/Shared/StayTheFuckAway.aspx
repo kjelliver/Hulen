@@ -4,15 +4,16 @@
 
 <html>
 <head runat="server">
-    <title>Ingen tilgang til denne siden!</title>
+    <title>Timeout eler ingen tilgang.</title>
 </head>
 <body>
     <div>
-        Du har ingen tilgang til denne siden.
+        Timeout eller ingen tilgang til denne siden.
     </div>
     
     <div>
-        <%: Html.ActionLink("Hjem", "Index", "Home") %>
+        <%: Html.ActionLink("Hjem", "Index", "Home") %> | 
+        <%: Html.ActionLink("Login", "LogIn", "LogIn") %>
     </div>
 
 </body>

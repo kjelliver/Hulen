@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: ViewData["Message"] %></h2>
     <p>
-        <img src="/Content/Images/home.jpg" alt="some_text"/>
+        <img src="/Content/Images/home.jpg" alt="Konsert på Hulen"/>
     </p>
     <p>
         Dersom du oppdager feil eller mangler ved denne portalen, ta kontakt med kjelliverb@gmail.com.
