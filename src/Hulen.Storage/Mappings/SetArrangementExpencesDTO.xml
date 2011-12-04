@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Objects.DTO">
+
+  <class name="Hulen.Objects.DTO.SetArrangementExpencesDTO, Hulen.Objects" table="SetArrangementExpences" lazy="false">
+    <id name ="Id" column="Id">
+      <generator class="guid" />
+    </id>
+    
+    <property name="Name" column="Name" />
+    <property name="GeneratedDate" column="GeneratedDate" />
+    <property name="PricePerBeer" column="PricePerBeer" />
+    <property name="PricePerWine" column="PricePerWine" />
+    <property name="SetTechRental" column="SetTechRental" />
+    <property name="SoundmanSalery" column="SoundmanSalery" />
+    <property name="SoundmanSaleryPerWarmUp" column="SoundmanSaleryPerWarmUp" />
+    <property name="PromotionExpences" column="PromotionExpences" />
+    <property name="SetExpences" column="SetExpences" />
+    <property name="DocumentId" column="DocumentId" />
+  </class>
+</hibernate-mapping>

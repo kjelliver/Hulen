@@ -11,7 +11,7 @@ namespace Hulen.Objects.SystemData
         public virtual DateTime GeneratedDate { get; set; }
         public virtual double PricePerBeer { get; set; }
         public virtual double PricePerWine { get; set; }
-        public virtual int SetcTechRental { get; set; }
+        public virtual int SetTechRental { get; set; }
         public virtual int SoundmanSalery { get; set; }
         public virtual int SoundmanSaleryPerWarmUp { get; set; }
         public virtual int PromotionExpences { get; set; }

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Objects.DTO">
+
+  <class name="Hulen.Objects.DTO.AccessGroupDTO, Hulen.Objects" table="AccessGroup" lazy="false">
+    <id name ="Id" column="Id">
+      <generator class="guid" />
+    </id>
+    
+    <property name="HotelId" column="Name" />
+    <property name="BudgetId" column="Type" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Objects.DTO">
+
+  <class name="Hulen.Objects.DTO.ArrangementBudgetDTO, Hulen.Objects" table="ArrangementBudget" lazy="false">
+    <id name ="Id" column="Id">
+      <generator class="guid" />
+    </id>
+    
+    <property name="Artist" column="Artist" />
+    <property name="SuggestedDate" column="SuggestedDate" />
+    <property name="SetDate" column="SetDate" />
+    <property name="ArtistFee" column="ArtistFee" />
+    <property name="BeerAmount" column="BeerAmount" />
+    <property name="BeerExpences" column="BeerExpences" />
+    <property name="WineAmount" column="WineAmount" />
+    <property name="WineExpences" column="WineExpences" />
+    <property name="NumberOfPeopleInBand" column="NumberOfPeopleInBand" />
+    <property name="BuyOutPerPerson" column="BuyOutPerPerson" />
+    <property name="Catering" column="Catering" />
+    <property name="SetTechRental" column="SetTechRental" />
+    <property name="ExtraTechRental" column="ExtraTechRental" />
+    <property name="SoundmanSalery" column="SoundmanSalery" />
+    <property name="SoundmanSaleryWarmUp" column="SoundmanSaleryWarmUp" />
+    <property name="NumberOfWarmupBands" column="NumberOfWarmupBands" />
+    <property name="TicketFee" column="TicketFee" />
+    <property name="TonoFee" column="TonoFee" />
+    <property name="SetPromotionExpences" column="SetPromotionExpences" />
+    <property name="ExtraPromotionExpences" column="ExtraPromotionExpences" />
+    <property name="SetExpences" column="SetExpences" />
+    <property name="TicketPrice" column="TicketPrice" />
+    <property name="ExpectedNumberOfVisitors" column="ExpectedNumberOfVisitors" />
+    <property name="PromotorsFee" column="PromotorsFee" />
+    <property name="PromotorsFeePercent" column="PromotorsFeePercent" />
+    <property name="BreakEvenToArtist" column="BreakEvenToArtist" />
+    <property name="DocumentId" column="DocumentId" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Objects.DTO">
+
+  <class name="Hulen.Objects.DTO.HotelDTO, Hulen.Objects" table="Hotel" lazy="false">
+    <id name ="Id" column="Id">
+      <generator class="guid" />
+    </id>
+    
+    <property name="Name" column="Name" />
+    <property name="SingleRoomPrice" column="SingleRoomPrice" />
+    <property name="DoubleRoomPrice" column="DoubleRoomPrice" />
+    <property name="TripleRoomPrice" column="TripleRoomPrice" />
+    <property name="GroupRoomPrice" column="GroupRoomPrice" />
+    <property name="ExtraBedPrice" column="ExtraBedPrice" />
+    <property name="ExtraBedPrice" column="ExtraBedPrice" />
+    <property name="IsActive" column="ExtraBedPrice" />
+  </class>
+</hibernate-mapping>

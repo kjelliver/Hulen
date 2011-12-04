@@ -136,6 +136,10 @@
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Mappings\ArrangementBudgetDTO.hbm.xml" />
+    <EmbeddedResource Include="Mappings\HotelCollectionDTO.hbm.xml" />
+    <EmbeddedResource Include="Mappings\HotelDTO.hbm.xml" />
+    <EmbeddedResource Include="Mappings\SetArrangementExpencesDTO.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

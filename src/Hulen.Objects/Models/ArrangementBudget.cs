@@ -25,7 +25,7 @@ namespace Hulen.Objects.Models
         public int ExtraTechRental { get; set; }
         public int SoundmanSalery { get; set; }
         public int SoundmanSaleryWarmUp { get; set; }
-        public int NumberOfWarmupbands { get; set; }
+        public int NumberOfWarmupBands { get; set; }
         public int TicketFee { get; set; }
         public int TonoFee { get; set; }
         public int SetPromotionExpences { get; set; }

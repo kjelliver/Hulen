@@ -23,7 +23,7 @@ namespace Hulen.Objects.DTO
         public virtual int ExtraTechRental { get; set; }
         public virtual int SoundmanSalery { get; set; }
         public virtual int SoundmanSaleryWarmUp { get; set; }
-        public virtual int NumberOfWarmupbands { get; set; }
+        public virtual int NumberOfWarmupBands { get; set; }
         public virtual int TicketFee { get; set; }
         public virtual int TonoFee { get; set; }
         public virtual int SetPromotionExpences { get; set; }
