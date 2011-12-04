@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Hulen.Objects.DTO;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 
 namespace Hulen.WebCode.Models
 {
@@ -32,6 +32,6 @@ namespace Hulen.WebCode.Models
 
         public string UsedBudget { get; set; }
 
-        public IEnumerable<AccountInfoViewModel> Accounts { get; set; }
+        public IEnumerable<AccountInfo> Accounts { get; set; }
     }
 }

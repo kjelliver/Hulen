@@ -1,4 +1,5 @@
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\hibernate.cfg.xml
+C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Content\PdfTemplates\ResultReport2011.pdf
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.Web.dll
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.Web.pdb
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.Storage.dll
@@ -24,4 +25,3 @@ C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.PdfGenerator.pdb
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\obj\Debug\Hulen.Web.dll
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\obj\Debug\Hulen.Web.pdb
-C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Content\PdfTemplates\ResultReport2011.pdf

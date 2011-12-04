@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.Enum;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
 
@@ -32,7 +32,7 @@ namespace Hulen.WebCode.Controllers
             }
             catch (Exception)
             {
-                model.AllAccessGroups = new List<AccessGroupViewModel>();
+                model.AllAccessGroups = new List<AccessGroup>();
                 ViewData["Message"] = "Feil under henting av tilgangsgrupper.";
                 return View("Index", model);
             }

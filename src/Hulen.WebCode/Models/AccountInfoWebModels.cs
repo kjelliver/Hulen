@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 
 namespace Hulen.WebCode.Models
 {
     public class AccountInfoIndexModel
     {
-        public IEnumerable<AccountInfoViewModel> AccountInfos { get; set; }
+        public IEnumerable<AccountInfo> AccountInfos { get; set; }
         
 
         public string SelectedYear { get; set; }
@@ -18,7 +18,7 @@ namespace Hulen.WebCode.Models
 
     public class AccountInfoEditModel
     {
-        public AccountInfoViewModel AccountInfo { get; set; }
+        public AccountInfo AccountInfo { get; set; }
         public List<string> PartsCategories { get; set; }
         public List<string> ResultCategories { get; set; }
         public List<string> WeekCategories { get; set; }

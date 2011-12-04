@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.IO;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 
 namespace Hulen.BusinessServices.Interfaces
 {
     public interface IAccountInfoService
     {
-        AccountInfoViewModel GetOneAccountInfoById(Guid id);    
-        void UpdateOneAccountInfo(AccountInfoViewModel accountInfo);
+        AccountInfo GetOneAccountInfoById(Guid id);    
+        void UpdateOneAccountInfo(AccountInfo accountInfo);
         void DeleteAllAccountInfosByYear(int year);
         void ImportFile(Stream inputStream, string year);
-        IEnumerable<AccountInfoViewModel> GetAllAccountInfosByYear(int year);
-        StorageResult SaveOneAccountInfo(AccountInfoViewModel accountInfo);
+        IEnumerable<AccountInfo> GetAllAccountInfosByYear(int year);
+        StorageResult SaveOneAccountInfo(AccountInfo accountInfo);
         StorageResult DeleteOneAccountInfoById(Guid id);
         void CopyAccountInfo(int fromYear, int toYear);
     }

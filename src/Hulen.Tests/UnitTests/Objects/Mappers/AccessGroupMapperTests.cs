@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Mappers;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 using NUnit.Framework;
 
 namespace Hulen.Tests.UnitTests.Objects.Mappers
@@ -23,7 +23,7 @@ namespace Hulen.Tests.UnitTests.Objects.Mappers
         [Test]
         public void CanMapToDTOWithOneRole()
         {
-            var viewModel = new AccessGroupViewModel
+            var viewModel = new AccessGroup
                                 {
                                     Id = new Guid(),
                                     Name = "AccessTest",
@@ -42,7 +42,7 @@ namespace Hulen.Tests.UnitTests.Objects.Mappers
         [Test]
         public void CanMapToDTOWithSeveralRoles()
         {
-            var viewModel = new AccessGroupViewModel
+            var viewModel = new AccessGroup
             {
                 Id = new Guid(),
                 Name = "AccessTest",

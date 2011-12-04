@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.Enum;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 using Hulen.WebCode.Controllers;
 using Hulen.WebCode.Models;
 using Moq;
@@ -19,7 +19,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         private Mock<IAccessGroupService> _accessGroupServiceMock;
         private Mock<IRoleService> _roleServiceMock;
         private AccessGroupController _subject;
-        private List<AccessGroupViewModel> _viewModels;
+        private List<AccessGroup> _viewModels;
 
         [SetUp]
         public void SetUp()
@@ -27,7 +27,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             _accessGroupServiceMock = new Mock<IAccessGroupService>();
             _roleServiceMock = new Mock<IRoleService>();
             _subject = new AccessGroupController(_accessGroupServiceMock.Object, _roleServiceMock.Object);
-            _viewModels = new List<AccessGroupViewModel>();
+            _viewModels = new List<AccessGroup>();
         }
 
         [Test]
@@ -111,7 +111,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         {
             var model = new AccessGroupEditModel
             {
-                AccessGroup = new AccessGroupViewModel { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
+                AccessGroup = new AccessGroup { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
             };
 
             _accessGroupServiceMock.Setup(x => x.SaveOneAccessGroup(model.AccessGroup)).Returns(StorageResult.Success);
@@ -126,7 +126,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         {
             var model = new AccessGroupEditModel
             {
-                AccessGroup = new AccessGroupViewModel { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> {"1", "2"}}    
+                AccessGroup = new AccessGroup { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> {"1", "2"}}    
             };
 
             _accessGroupServiceMock.Setup(x => x.SaveOneAccessGroup(model.AccessGroup)).Returns(StorageResult.AllreadyExsists);
@@ -141,7 +141,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         {
             var model = new AccessGroupEditModel
             {
-                AccessGroup = new AccessGroupViewModel { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
+                AccessGroup = new AccessGroup { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
             };
 
             _accessGroupServiceMock.Setup(x => x.SaveOneAccessGroup(model.AccessGroup)).Throws(new Exception());
@@ -155,7 +155,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         public void EditShouldFetchAllRolesAndReturnRightViewAndModel()
         {
             var guid = new Guid();
-            var viewModel = new AccessGroupViewModel
+            var viewModel = new AccessGroup
                                 {
 
                                     Id = guid,
@@ -203,7 +203,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         {
             var model = new AccessGroupEditModel
             {
-                AccessGroup = new AccessGroupViewModel { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
+                AccessGroup = new AccessGroup { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
             };
 
             _accessGroupServiceMock.Setup(x => x.UpdateOneAccessGroup(model.AccessGroup)).Returns(StorageResult.Success);
@@ -218,7 +218,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         {
             var model = new AccessGroupEditModel
             {
-                AccessGroup = new AccessGroupViewModel { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
+                AccessGroup = new AccessGroup { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
             };
 
             _accessGroupServiceMock.Setup(x => x.UpdateOneAccessGroup(model.AccessGroup)).Returns(StorageResult.AllreadyExsists);
@@ -233,7 +233,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         {
             var model = new AccessGroupEditModel
             {
-                AccessGroup = new AccessGroupViewModel { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
+                AccessGroup = new AccessGroup { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
             };
 
             _accessGroupServiceMock.Setup(x => x.UpdateOneAccessGroup(model.AccessGroup)).Throws(new Exception());
@@ -247,7 +247,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         public void DeleteShouldFetchAccessGroup()
         {
             var guid = new Guid();
-            var viewModel = new AccessGroupViewModel
+            var viewModel = new AccessGroup
             {
 
                 Id = guid,
@@ -282,7 +282,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         {
             var model = new AccessGroupEditModel
             {
-                AccessGroup = new AccessGroupViewModel { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
+                AccessGroup = new AccessGroup { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
             };
 
             _accessGroupServiceMock.Setup(x => x.DeleteOneAccessGroup(model.AccessGroup)).Returns(StorageResult.Success);
@@ -297,7 +297,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         {
             var model = new AccessGroupEditModel
             {
-                AccessGroup = new AccessGroupViewModel { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
+                AccessGroup = new AccessGroup { Name = "TEST", Description = "En testgruppe", RolesThatHaveAccess = new List<string> { "1", "2" } }
             };
 
             _accessGroupServiceMock.Setup(x => x.DeleteOneAccessGroup(model.AccessGroup)).Throws(new Exception());

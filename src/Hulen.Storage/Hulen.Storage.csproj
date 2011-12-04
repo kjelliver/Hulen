@@ -111,10 +111,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="hibernate.cfg.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="Mappings\ResultDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\BudgetDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\RoleDTO.hbm.xml">
@@ -135,6 +131,11 @@
       <Project>{DDEA231F-8E50-4538-A79D-55A45A686B22}</Project>
       <Name>Hulen.Objects</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

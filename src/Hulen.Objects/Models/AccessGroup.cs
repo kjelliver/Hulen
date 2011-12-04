@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Hulen.Objects.ViewModels
+namespace Hulen.Objects.Models
 {
-    public class AccessGroupViewModel
+    public class AccessGroup
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

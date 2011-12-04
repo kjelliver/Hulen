@@ -5,7 +5,7 @@ using System.Text;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
 using Hulen.Objects.Mappers.Interfaces;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 
 namespace Hulen.Objects.Mappers
 {

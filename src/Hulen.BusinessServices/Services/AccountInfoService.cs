@@ -7,7 +7,7 @@ using Excel;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 using Hulen.Storage.Interfaces;
 
 namespace Hulen.BusinessServices.Services
@@ -21,12 +21,12 @@ namespace Hulen.BusinessServices.Services
             _accountInfoRepository = accountInfoRepository;
         }
 
-        public IEnumerable<AccountInfoViewModel> GetAllAccountInfosByYear(int year)
+        public IEnumerable<AccountInfo> GetAllAccountInfosByYear(int year)
         {
             return MapMenyForView(_accountInfoRepository.GetAllByYear(year));
         }
 
-        public StorageResult SaveOneAccountInfo(AccountInfoViewModel accountInfo)
+        public StorageResult SaveOneAccountInfo(AccountInfo accountInfo)
         {
             return _accountInfoRepository.SaveOne(MapOneForDataBase(accountInfo));
         }
@@ -49,12 +49,12 @@ namespace Hulen.BusinessServices.Services
             _accountInfoRepository.SaveMeny(toAccounts);
         }
 
-        public AccountInfoViewModel GetOneAccountInfoById(Guid id)
+        public AccountInfo GetOneAccountInfoById(Guid id)
         {
             return MapOneForView(_accountInfoRepository.GetOneById(id));
         }
 
-        public void UpdateOneAccountInfo(AccountInfoViewModel accountInfo)
+        public void UpdateOneAccountInfo(AccountInfo accountInfo)
         {
             _accountInfoRepository.UpdateOne(MapOneForDataBase(accountInfo));
         }
@@ -100,7 +100,7 @@ namespace Hulen.BusinessServices.Services
             return allAccountInfos;
         }
 
-        public AccountInfoDTO MapOneForDataBase(AccountInfoViewModel account)
+        public AccountInfoDTO MapOneForDataBase(AccountInfo account)
         {
             return new AccountInfoDTO
             {
@@ -115,9 +115,9 @@ namespace Hulen.BusinessServices.Services
             };
         }
 
-        public AccountInfoViewModel MapOneForView(AccountInfoDTO accountInfo)
+        public AccountInfo MapOneForView(AccountInfoDTO accountInfo)
         {
-            return new AccountInfoViewModel
+            return new AccountInfo
                         {
                             Id = accountInfo.Id,
                             AccountNumber = accountInfo.AccountNumber,
@@ -131,9 +131,9 @@ namespace Hulen.BusinessServices.Services
                         };
         }
 
-        public ICollection<AccountInfoViewModel> MapMenyForView(IEnumerable<AccountInfoDTO> accountInfos)
+        public ICollection<AccountInfo> MapMenyForView(IEnumerable<AccountInfoDTO> accountInfos)
         {
-            var accountInfoViewModels = new Collection<AccountInfoViewModel>();
+            var accountInfoViewModels = new Collection<AccountInfo>();
 
             foreach (var accountInfo in accountInfos)
             {

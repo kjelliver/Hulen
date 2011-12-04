@@ -42,8 +42,11 @@
   <ItemGroup>
     <Compile Include="DTO\AccessGroupDTO.cs" />
     <Compile Include="DTO\AccountInfoDTO.cs" />
+    <Compile Include="DTO\ArrangementBudgetDTO.cs" />
     <Compile Include="DTO\BudgetAccountDTO.cs" />
     <Compile Include="DTO\BudgetDTO.cs" />
+    <Compile Include="DTO\HotelCollectionDTO.cs" />
+    <Compile Include="DTO\HotelDTO.cs" />
     <Compile Include="DTO\MenuItemDTO.cs" />
     <Compile Include="DTO\ResultAccountDTO.cs" />
     <Compile Include="DTO\ResultDTO.cs" />
@@ -58,10 +61,12 @@
     <Compile Include="Mappers\MapAccessGroup.cs" />
     <Compile Include="Mappers\Interfaces\IMapAccessGroup.cs" />
     <Compile Include="Mappers\MapResult.cs" />
+    <Compile Include="Models\ArrangementBudget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\AccessGroupViewModel.cs" />
-    <Compile Include="ViewModels\AccountInfoViewModel.cs" />
-    <Compile Include="ViewModels\Result.cs" />
+    <Compile Include="DTO\SetArrangementExpencesDTO.cs" />
+    <Compile Include="Models\AccessGroup.cs" />
+    <Compile Include="Models\AccountInfo.cs" />
+    <Compile Include="Models\Result.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

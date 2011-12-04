@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Hulen.Objects.ViewModels
+namespace Hulen.Objects.Models
 {
-    public class AccountInfoViewModel
+    public class AccountInfo
     {
         public Guid Id { get; set; }
         public int AccountNumber { get; set; }

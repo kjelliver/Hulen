@@ -3,27 +3,27 @@ using System.Text;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
 using Hulen.Objects.Mappers.Interfaces;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 
 namespace Hulen.Objects.Mappers
 {
     public class MapAccessGroup : IMapAccessGroup
     {
-        public AccessGroupDTO ToDTO(AccessGroupViewModel viewModel)
+        public AccessGroupDTO ToDTO(AccessGroup model)
         {
             return new AccessGroupDTO
                           {
-                              Id = viewModel.Id,
-                              Name = viewModel.Name,
-                              Type = viewModel.Type,
-                              Description = viewModel.Description,
-                              RolesThatHaveAccess = MapRolesInViewModel(viewModel.RolesThatHaveAccess)
+                              Id = model.Id,
+                              Name = model.Name,
+                              Type = model.Type,
+                              Description = model.Description,
+                              RolesThatHaveAccess = MapRolesInViewModel(model.RolesThatHaveAccess)
                           };
         }
 
-        public AccessGroupViewModel ToViewModel(AccessGroupDTO dto)
+        public AccessGroup ToViewModel(AccessGroupDTO dto)
         {
-            return new AccessGroupViewModel
+            return new AccessGroup
                        {
                            Id = dto.Id,
                            Name = dto.Name,

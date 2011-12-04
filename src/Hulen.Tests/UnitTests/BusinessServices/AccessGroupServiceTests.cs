@@ -4,7 +4,7 @@ using Hulen.BusinessServices.Services;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
 using Hulen.Objects.Mappers.Interfaces;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 using Hulen.Storage.Interfaces;
 using Moq;
 using NUnit.Framework;
@@ -38,7 +38,7 @@ namespace Hulen.Tests.UnitTests.BusinessServices
         public void SaveOneAccessGroupShouldCallRepository()
         {
             var acc = new AccessGroupDTO();
-            var accView = new AccessGroupViewModel();
+            var accView = new AccessGroup();
             _accessGroupRepositoryMock.Setup(x => x.SaveOne(acc)).Returns(StorageResult.Success);
              var result = _subject.SaveOneAccessGroup(accView);
             Assert.That(result, Is.EqualTo(StorageResult.Success));
@@ -54,7 +54,7 @@ namespace Hulen.Tests.UnitTests.BusinessServices
                               Name = "Test"
                           };
             _accessGroupRepositoryMock.Setup(x => x.GetOne(id)).Returns(acc);
-            _accessGroupMapper.Setup(x => x.ToViewModel(acc)).Returns(new AccessGroupViewModel {Id = id, Name = "Test"});
+            _accessGroupMapper.Setup(x => x.ToViewModel(acc)).Returns(new AccessGroup {Id = id, Name = "Test"});
             var result = _subject.GetOneAccessGroup(id);
             Assert.That(result.Name, Is.EqualTo("Test"));
         }
@@ -63,7 +63,7 @@ namespace Hulen.Tests.UnitTests.BusinessServices
         public void UpdateOneGroupAccessShouldCallRepository()
         {
             var acc = new AccessGroupDTO();
-            var accView = new AccessGroupViewModel();
+            var accView = new AccessGroup();
             _accessGroupRepositoryMock.Setup(x => x.UpdateOne(acc)).Returns(StorageResult.Success);
             var result = _subject.UpdateOneAccessGroup(accView);
             Assert.That(result, Is.EqualTo(StorageResult.Success));
@@ -73,7 +73,7 @@ namespace Hulen.Tests.UnitTests.BusinessServices
         public void DeleteOneAccessGroupShouldCallRepository()
         {
             var acc = new AccessGroupDTO();
-            var accView = new AccessGroupViewModel();
+            var accView = new AccessGroup();
             _accessGroupRepositoryMock.Setup(x => x.DeleteOne(acc)).Returns(StorageResult.Success);
             var result = _subject.DeleteOneAccessGroup(accView);
             Assert.That(result, Is.EqualTo(StorageResult.Success));

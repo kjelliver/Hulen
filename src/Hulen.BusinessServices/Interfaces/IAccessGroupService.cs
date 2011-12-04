@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 
 namespace Hulen.BusinessServices.Interfaces
 {
     public interface IAccessGroupService
     {
-        List<AccessGroupViewModel> GetAllAccessGroups();
-        StorageResult SaveOneAccessGroup(AccessGroupViewModel accessGroup);
-        AccessGroupViewModel GetOneAccessGroup(Guid id);
-        StorageResult UpdateOneAccessGroup(AccessGroupViewModel accessGroup);
-        StorageResult DeleteOneAccessGroup(AccessGroupViewModel accessGroup);
-        IEnumerable<AccessGroupViewModel> GetAccessGroupsByType(string type);
-        AccessGroupViewModel GetAccessGroupByName(string name);
+        List<AccessGroup> GetAllAccessGroups();
+        StorageResult SaveOneAccessGroup(AccessGroup accessGroup);
+        AccessGroup GetOneAccessGroup(Guid id);
+        StorageResult UpdateOneAccessGroup(AccessGroup accessGroup);
+        StorageResult DeleteOneAccessGroup(AccessGroup accessGroup);
+        IEnumerable<AccessGroup> GetAccessGroupsByType(string type);
+        AccessGroup GetAccessGroupByName(string name);
         IEnumerable<string> GetAccessGroupsForUser(UserDTO user);
     }
 }

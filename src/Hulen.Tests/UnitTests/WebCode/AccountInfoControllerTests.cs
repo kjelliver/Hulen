@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 using Hulen.WebCode.Controllers;
 using Hulen.WebCode.Models;
 using Moq;
@@ -21,14 +21,14 @@ namespace Hulen.Tests.UnitTests.WebCode
     {
         private AccountInfoController _subject;
         private Mock<IAccountInfoService> _accountInfoServiceMock;
-        private IEnumerable<AccountInfoViewModel> _accountInfos;
+        private IEnumerable<AccountInfo> _accountInfos;
 
         [SetUp]
         public void SetUp()
         {
             _accountInfoServiceMock = new Mock<IAccountInfoService>();
             _subject = new AccountInfoController(_accountInfoServiceMock.Object);
-            _accountInfos = new List<AccountInfoViewModel> {new AccountInfoViewModel {AccountNumber = 3001}, new AccountInfoViewModel {AccountNumber=3002}};
+            _accountInfos = new List<AccountInfo> {new AccountInfo {AccountNumber = 3001}, new AccountInfo {AccountNumber=3002}};
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         [Test]
         public void IndexShouldReturnRightViewAndMesssageWhenNoAccountInfosFound()
         {
-            _accountInfoServiceMock.Setup(x => x.GetAllAccountInfosByYear(2011)).Returns(new List<AccountInfoViewModel>());
+            _accountInfoServiceMock.Setup(x => x.GetAllAccountInfosByYear(2011)).Returns(new List<AccountInfo>());
             ViewResult result = _subject.Index("");
             Assert.That(result.ViewName, Is.EqualTo("Index"));
             Assert.That(result.ViewData["Message"], Is.EqualTo("Ingen kontoer funnet for gitt år."));
@@ -94,7 +94,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             var model = new AccountInfoEditModel
                             {
                 AccountInfo =
-                    new AccountInfoViewModel { AccountNumber = 3000, AccountName = "testkonto", ResultReportCategory = "Test", IsIncome = "Inntekt"}
+                    new AccountInfo { AccountNumber = 3000, AccountName = "testkonto", ResultReportCategory = "Test", IsIncome = "Inntekt"}
             };
 
             _accountInfoServiceMock.Setup(x => x.SaveOneAccountInfo(model.AccountInfo)).Returns(StorageResult.Success);
@@ -109,7 +109,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             var model = new AccountInfoEditModel
             {
                 AccountInfo =
-                    new AccountInfoViewModel { AccountNumber = 3000, AccountName = "testkonto", ResultReportCategory = "Test", IsIncome = "Inntekt" }
+                    new AccountInfo { AccountNumber = 3000, AccountName = "testkonto", ResultReportCategory = "Test", IsIncome = "Inntekt" }
             };
 
             _accountInfoServiceMock.Setup(x => x.SaveOneAccountInfo(model.AccountInfo)).Returns(StorageResult.AllreadyExsists);
@@ -124,7 +124,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             var model = new AccountInfoEditModel
             {
                 AccountInfo =
-                    new AccountInfoViewModel { AccountNumber = 3000, AccountName = "testkonto", ResultReportCategory = "Test", IsIncome = "Inntekt" }
+                    new AccountInfo { AccountNumber = 3000, AccountName = "testkonto", ResultReportCategory = "Test", IsIncome = "Inntekt" }
             };
 
             _accountInfoServiceMock.Setup(x => x.SaveOneAccountInfo(model.AccountInfo)).Throws(new Exception());

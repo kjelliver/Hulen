@@ -6,7 +6,7 @@ using System.Linq;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
-using Hulen.Objects.ViewModels;
+using Hulen.Objects.Models;
 using iTextSharp.text.pdf;
 
 namespace Hulen.PdfGenerator.Generators
@@ -17,7 +17,7 @@ namespace Hulen.PdfGenerator.Generators
         private readonly IBudgetService _budgetService;
         private readonly IAccountInfoService _accountInfoService;
 
-        private IEnumerable<AccountInfoViewModel> _accounts;
+        private IEnumerable<AccountInfo> _accounts;
         private IEnumerable<BudgetAccountDTO> _budget;
         private IEnumerable<ResultAccountDTO> _result;
 
