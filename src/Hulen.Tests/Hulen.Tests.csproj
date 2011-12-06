@@ -63,7 +63,10 @@
     <Compile Include="UnitTests\Objects\Mappers\AccessGroupMapperTests.cs" />
     <Compile Include="UnitTests\Storage\AccessGroupRepositoryTests.cs" />
     <Compile Include="UnitTests\Storage\AccountInfoRepositoryTests.cs" />
+    <Compile Include="UnitTests\Storage\ArrangementBudgetRepositoryTests.cs" />
+    <Compile Include="UnitTests\Storage\HotelRepositoryTests.cs" />
     <Compile Include="UnitTests\Storage\MenuRepositoryTests.cs" />
+    <Compile Include="UnitTests\Storage\SetArrangementExpencesRepositoryTests.cs" />
     <Compile Include="UnitTests\Storage\UserRepositoryTests.cs" />
     <Compile Include="UnitTests\WebCode\AccessGroupControllerTests.cs" />
     <Compile Include="UnitTests\WebCode\AccountInfoControllerTests.cs" />

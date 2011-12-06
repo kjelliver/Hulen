@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Hulen.Objects.Models;
+using Hulen.Objects.Model;
 
 namespace Hulen.WebCode.Models
 {

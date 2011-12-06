@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hulen.Objects.Models
+namespace Hulen.Objects.Model
 {
     public class Result
     {

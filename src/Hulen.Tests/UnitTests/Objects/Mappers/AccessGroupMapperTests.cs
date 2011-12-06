@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Mappers;
-using Hulen.Objects.Models;
+using Hulen.Objects.Model;
 using NUnit.Framework;
 
 namespace Hulen.Tests.UnitTests.Objects.Mappers

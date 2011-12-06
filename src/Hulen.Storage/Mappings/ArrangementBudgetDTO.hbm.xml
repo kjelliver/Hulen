@@ -3,9 +3,8 @@
 
   <class name="Hulen.Objects.DTO.ArrangementBudgetDTO, Hulen.Objects" table="ArrangementBudget" lazy="false">
     <id name ="Id" column="Id">
-      <generator class="guid" />
+      <generator class="native" />
     </id>
-    
     <property name="Artist" column="Artist" />
     <property name="SuggestedDate" column="SuggestedDate" />
     <property name="SetDate" column="SetDate" />
@@ -33,5 +32,9 @@
     <property name="PromotorsFeePercent" column="PromotorsFeePercent" />
     <property name="BreakEvenToArtist" column="BreakEvenToArtist" />
     <property name="DocumentId" column="DocumentId" />
+    <bag name="HotelReservationDTO">
+      <key column="BudgetId" />
+      <one-to-many class="HotelReservationDTO" />  
+    </bag>
   </class>
 </hibernate-mapping>

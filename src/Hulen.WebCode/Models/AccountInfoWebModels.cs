@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using Hulen.Objects.Models;
+using Hulen.Objects.Model;
 
 namespace Hulen.WebCode.Models
 {

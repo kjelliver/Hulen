@@ -6,7 +6,7 @@ using Hulen.BusinessServices.Interfaces;
 using Hulen.BusinessServices.Services;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
-using Hulen.Objects.Models;
+using Hulen.Objects.Model;
 using Hulen.Storage.Interfaces;
 using Moq;
 using NUnit.Framework;

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Hulen.Objects.DTO
 {
@@ -16,10 +14,11 @@ namespace Hulen.Objects.DTO
         public virtual int BeerExpences { get; set; }
         public virtual int WineAmount { get; set; }
         public virtual int WineExpences { get; set; }
+        public virtual List<HotelReservationDTO> HotelReservations { get; set; }
         public virtual int NumberOfPeopleInBand { get; set; }
         public virtual int BuyOutPerPerson { get; set; }
         public virtual int Catering { get; set; }
-        public virtual int SetTechRental { get; set; }        
+        public virtual int SetTechRental { get; set; }
         public virtual int ExtraTechRental { get; set; }
         public virtual int SoundmanSalery { get; set; }
         public virtual int SoundmanSaleryWarmUp { get; set; }
@@ -35,5 +34,7 @@ namespace Hulen.Objects.DTO
         public virtual double PromotorsFeePercent { get; set; }
         public virtual int BreakEvenToArtist { get; set; }
         public virtual int DocumentId { get; set; }
+        public virtual int Status { get; set; }
+        public virtual string BookerInCharge { get; set; }
     }
 }

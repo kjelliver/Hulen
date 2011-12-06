@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
-using Hulen.Objects.Models;
+using Hulen.Objects.Model;
 using Hulen.WebCode.Controllers;
 using Hulen.WebCode.Models;
 using Moq;

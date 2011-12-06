@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Hulen.Objects.DTO;
-using Hulen.Objects.Models;
+using Hulen.Objects.Model;
 
 namespace Hulen.BusinessServices.Interfaces
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Hulen.Objects.Models
+namespace Hulen.Objects.Model
 {
     public class AccessGroup
     {

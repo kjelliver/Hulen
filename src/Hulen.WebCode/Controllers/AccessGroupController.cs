@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.Enum;
-using Hulen.Objects.Models;
+using Hulen.Objects.Model;
 using Hulen.WebCode.Attributes;
 using Hulen.WebCode.Models;
 

@@ -6,7 +6,7 @@ using Hulen.BusinessServices.Interfaces;
 using Hulen.Objects.DTO;
 using Hulen.Objects.Enum;
 using Hulen.Objects.Mappers.Interfaces;
-using Hulen.Objects.Models;
+using Hulen.Objects.Model;
 using Hulen.Storage.Interfaces;
 
 namespace Hulen.BusinessServices.Services

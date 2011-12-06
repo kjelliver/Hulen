@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Hulen.Objects.DTO;
-using Hulen.Objects.Models;
+using Hulen.Objects.Model;
 
 namespace Hulen.WebCode.Models
 {

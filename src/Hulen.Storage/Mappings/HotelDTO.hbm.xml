@@ -3,9 +3,8 @@
 
   <class name="Hulen.Objects.DTO.HotelDTO, Hulen.Objects" table="Hotel" lazy="false">
     <id name ="Id" column="Id">
-      <generator class="guid" />
-    </id>
-    
+      <generator class="native" />
+    </id>   
     <property name="Name" column="Name" />
     <property name="SingleRoomPrice" column="SingleRoomPrice" />
     <property name="DoubleRoomPrice" column="DoubleRoomPrice" />

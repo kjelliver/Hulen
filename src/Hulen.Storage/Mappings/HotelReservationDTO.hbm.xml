@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Objects.DTO">
+
+  <class name="Hulen.Objects.DTO.HotelReservationDTO, Hulen.Objects" table="HotelDTOReservation" lazy="false">
+    <id name ="Id" column="Id">
+      <generator class="native" />
+    </id>
+    <property name="HotelId" column="HotelId" />
+    <property name="BudgetId" column="BudgetId" />
+    <property name="SingleRooms" column="SingleRooms" />
+    <property name="DoubleRooms" column="DoubleRooms" />
+    <property name="TripleRooms" column="TripleRooms" />
+    <property name="GroupRooms" column="GroupRooms" />
+    <property name="ExtraBeds" column="ExtraBeds" />
+  </class>
+</hibernate-mapping>
