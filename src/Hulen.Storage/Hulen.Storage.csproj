@@ -61,9 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\FixedArrangementCostsDTO.cs" />
     <Compile Include="Interfaces\IAccessGroupRepository.cs" />
     <Compile Include="Interfaces\IAccountInfoRepository.cs" />
     <Compile Include="Interfaces\IBudgetRepository.cs" />
+    <Compile Include="Interfaces\IFixedArrangementCostsRepository.cs" />
     <Compile Include="Interfaces\IMenuRepository.cs" />
     <Compile Include="Interfaces\IResultRepository.cs" />
     <Compile Include="Interfaces\IRoleRepository.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Repositories\AccessGroupRepository.cs" />
     <Compile Include="Repositories\AccountInfoRepository.cs" />
     <Compile Include="Repositories\BudgetRepository.cs" />
+    <Compile Include="Repositories\FixedArrangementCostsRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
     <Compile Include="Repositories\ResultRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
@@ -139,7 +142,7 @@
     <EmbeddedResource Include="Mappings\ArrangementBudgetDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\HotelReservationDTO.hbm.xml" />
     <EmbeddedResource Include="Mappings\HotelDTO.hbm.xml" />
-    <EmbeddedResource Include="Mappings\SetArrangementExpencesDTO.xml" />
+    <EmbeddedResource Include="Mappings\FixedArrangementCostsDTO.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
