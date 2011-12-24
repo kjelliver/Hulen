@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
+using Hulen.Storage.DTO;
+using Hulen.Utils.Enum;
 
 namespace Hulen.Storage.Interfaces
 {

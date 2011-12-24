@@ -1,4 +1,3 @@
-C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\hibernate.cfg.xml
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Content\PdfTemplates\ResultReport2011.pdf
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.Web.dll
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.Web.pdb
@@ -7,7 +6,6 @@ C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.WebCode.dll
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\NHibernate.ByteCode.Castle.dll
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\StructureMap.dll
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\WebActivator.dll
-C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.Objects.dll
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\NHibernate.dll
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.BusinessServices.dll
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.PdfGenerator.dll
@@ -19,9 +17,11 @@ C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.WebCode.pdb
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\StructureMap.pdb
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\StructureMap.xml
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\WebActivator.pdb
-C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.Objects.pdb
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.BusinessServices.pdb
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.PdfGenerator.pdb
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\obj\Debug\Hulen.Web.dll
 C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\obj\Debug\Hulen.Web.pdb
+C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.Utils.dll
+C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\Hulen.Utils.pdb
+C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Web\bin\hibernate.cfg.xml

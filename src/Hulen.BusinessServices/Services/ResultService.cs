@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using Excel;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
-using Hulen.Objects.Mappers.Interfaces;
-using Hulen.Objects.Model;
+using Hulen.BusinessServices.Modelmapper.Interfaces;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
+using Hulen.Utils.Enum;
 
 namespace Hulen.BusinessServices.Services
 {
@@ -19,11 +19,13 @@ namespace Hulen.BusinessServices.Services
     {
         private readonly IResultRepository _resultRepository;
         private readonly IAccountInfoRepository _accountInfoRepository;
-        private readonly IMapResult _resultMapper;
+        private readonly IResultModelMapper _resultMapper;
+        private readonly IResultAccountModelMapper _resultAccountModelMapper;
 
-        public ResultService(IResultRepository resultRepository, IAccountInfoRepository accountInfoRepository, IMapResult resultMapper)
+        public ResultService(IResultRepository resultRepository, IAccountInfoRepository accountInfoRepository, IResultModelMapper resultMapper, IResultAccountModelMapper resultAccountModelMapper)
         {
             _resultRepository = resultRepository;
+            _resultAccountModelMapper = resultAccountModelMapper;
             _resultMapper = resultMapper;
             _accountInfoRepository = accountInfoRepository;
         }
@@ -33,15 +35,25 @@ namespace Hulen.BusinessServices.Services
             return _resultMapper.FromDTO(_resultRepository.GetOverviewByPeriodAndYear((int) Enum.Parse(typeof(ResultPeriod), period), year));
         }
 
-        public IEnumerable<ResultAccountDTO> TryToImportFile(Stream inputStream, string period, string year, string comment, string usedbudget)
+        public IEnumerable<ResultAccount> TryToImportFile(Stream inputStream, string period, string year, string comment, string usedbudget)
         {
             DeleteResultByMonth(period, Convert.ToInt32(year));
             var dataSet = ConvertStreamToDataSet(inputStream);
-            IEnumerable<ResultAccountDTO> results = ConvertDataSetToObjectCollection(dataSet, (int)Enum.Parse(typeof(ResultPeriod), period), Convert.ToInt32(year));
+            IEnumerable<ResultAccount> results = ConvertDataSetToObjectCollection(dataSet, (int)Enum.Parse(typeof(ResultPeriod), period), Convert.ToInt32(year));
             SaveResultModel saveModel = SortResults(results, Convert.ToInt32(year));
-            _resultRepository.SaveMeny(saveModel.SavedResults);
+            _resultRepository.SaveMeny(MapManyToDTO(saveModel.SavedResults));
             SaveOverview(period, Convert.ToInt32(year), comment, usedbudget);
             return saveModel.FailedResults;
+        }
+
+        private IEnumerable<ResultAccountDTO> MapManyToDTO(List<ResultAccount> savedResults)
+        {
+            var result = new List<ResultAccountDTO>();
+            foreach(var model in savedResults)
+            {
+                result.Add(_resultAccountModelMapper.ToDTO(model));
+            }
+            return result;
         }
 
         private void SaveOverview(string period, int year, string comment, string usedBudget)
@@ -50,26 +62,32 @@ namespace Hulen.BusinessServices.Services
             _resultRepository.SaveNewOverview(_resultMapper.ToDTO(result));
         }
 
-        public ResultAccountDTO GetOneResultAccountById(Guid id)
+        public ResultAccount GetOneResultAccountById(Guid id)
         {
-            return _resultRepository.GetOneResultAccountById(id);
+            return _resultAccountModelMapper.FromDTO(_resultRepository.GetOneResultAccountById(id));
         }
 
-        public ResultAccountDTO GetOneByAccountNumberMonthAndYear(string accountNumber, string month, string year)
+        public ResultAccount GetOneByAccountNumberMonthAndYear(string accountNumber, string month, string year)
         {
-            return _resultRepository.GetOneByAccountNumberMonthAndYear(Convert.ToInt32(accountNumber),
+            return _resultAccountModelMapper.FromDTO(_resultRepository.GetOneByAccountNumberMonthAndYear(Convert.ToInt32(accountNumber),
                                                                               Convert.ToInt32(month),
-                                                                              Convert.ToInt32(year));
+                                                                              Convert.ToInt32(year)));
         }
 
-        public void SaveMenyResultAccounts(List<ResultAccountDTO> resultAccounts)
+        public void SaveMenyResultAccounts(List<ResultAccount> resultAccounts)
         {
-            _resultRepository.SaveMeny(resultAccounts);
+            _resultRepository.SaveMeny(MapManyToDTO(resultAccounts));
         }
 
-        public IEnumerable<ResultAccountDTO> GetAllResultAccountsByYearAndPeriod(int year, string period)
+        public IEnumerable<ResultAccount> GetAllResultAccountsByYearAndPeriod(int year, string period)
         {
-            return _resultRepository.GetResultByMonth((int) Enum.Parse(typeof (ResultPeriod), period), year);
+            var result = new List<ResultAccount>();
+            var fromDb =  _resultRepository.GetResultByMonth((int) Enum.Parse(typeof (ResultPeriod), period), year);
+            foreach(var dto in fromDb)
+            {
+                result.Add(_resultAccountModelMapper.FromDTO(dto));
+            }
+            return result;
         }
 
         public IEnumerable<Result> GetOverviewByYear(int year)
@@ -77,7 +95,7 @@ namespace Hulen.BusinessServices.Services
             return _resultMapper.ManyFromDTO(_resultRepository.GetOverviewByYear(year));
         }
 
-        private SaveResultModel SortResults(IEnumerable<ResultAccountDTO> results, int year)
+        private SaveResultModel SortResults(IEnumerable<ResultAccount> results, int year)
         {
             IEnumerable<int> validAccountNumbers = _accountInfoRepository.GetAllAccountNumbersByYear(year);
 
@@ -105,13 +123,13 @@ namespace Hulen.BusinessServices.Services
             return reader.AsDataSet();
         }
 
-        private IEnumerable<ResultAccountDTO> ConvertDataSetToObjectCollection(DataSet dataSet, int month, int year)
+        private IEnumerable<ResultAccount> ConvertDataSetToObjectCollection(DataSet dataSet, int month, int year)
         {
-            var results = new List<ResultAccountDTO>();
+            var results = new List<ResultAccount>();
 
             foreach (DataRow dataRow in dataSet.Tables[0].Rows)
             {
-                var temp = new ResultAccountDTO();
+                var temp = new ResultAccount();
                 if (dataRow[0].ToString() != "")
                 {
                     temp.AccountNumber = Convert.ToInt32(dataRow[0]);
@@ -131,11 +149,11 @@ namespace Hulen.BusinessServices.Services
     {
         public SaveResultModel()
         {
-            SavedResults = new List<ResultAccountDTO>();
-            FailedResults = new List<ResultAccountDTO>();
+            SavedResults = new List<ResultAccount>();
+            FailedResults = new List<ResultAccount>();
         }
         
-        public List<ResultAccountDTO> SavedResults { get; set; }
-        public List<ResultAccountDTO> FailedResults { get; set; }
+        public List<ResultAccount> SavedResults { get; set; }
+        public List<ResultAccount> FailedResults { get; set; }
     }
 }

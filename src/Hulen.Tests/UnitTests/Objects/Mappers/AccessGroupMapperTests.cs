@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Mappers;
-using Hulen.Objects.Model;
+using Hulen.BusinessServices.Modelmapper;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Storage.DTO;
 using NUnit.Framework;
 
 namespace Hulen.Tests.UnitTests.Objects.Mappers
@@ -12,12 +12,12 @@ namespace Hulen.Tests.UnitTests.Objects.Mappers
     [TestFixture]
     public class AccessGroupMapperTests
     {
-        private MapAccessGroup _subject;
+        private AccessGroupModelMapper _subject;
 
         [SetUp]
         public void SetUp()
         {
-            _subject = new MapAccessGroup();
+            _subject = new AccessGroupModelMapper();
         }
 
         [Test]

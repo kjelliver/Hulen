@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Hulen.BusinessServices.Interfaces;
+using Hulen.BusinessServices.ServiceModel;
 using Hulen.BusinessServices.Services;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
-using Hulen.Objects.Model;
+using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
+using Hulen.Utils.Enum;
 using Moq;
 using NUnit.Framework;
 

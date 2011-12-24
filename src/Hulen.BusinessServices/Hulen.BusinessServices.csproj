@@ -52,10 +52,37 @@
     <Compile Include="Interfaces\IResultService.cs" />
     <Compile Include="Interfaces\IRoleService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Modelmapper\AccessGroupModelMapper.cs" />
+    <Compile Include="Modelmapper\AccountInfoModelMapper.cs" />
+    <Compile Include="Modelmapper\BudgetAccountModelMapper.cs" />
+    <Compile Include="Modelmapper\BudgetModelMapper.cs" />
     <Compile Include="Modelmapper\FixedArrangementCostsModelMapper.cs" />
+    <Compile Include="Modelmapper\Interfaces\IAccessGroupModelMapper.cs" />
+    <Compile Include="Modelmapper\Interfaces\IAccountInfoModelMapper.cs" />
+    <Compile Include="Modelmapper\Interfaces\IBudgetAccountModelMapper.cs" />
+    <Compile Include="Modelmapper\Interfaces\IBudgetModelMapper.cs" />
     <Compile Include="Modelmapper\Interfaces\IFixedArrangementCostsModelMapper.cs" />
+    <Compile Include="Modelmapper\Interfaces\IMenuItemModelMapper.cs" />
+    <Compile Include="Modelmapper\Interfaces\IResultAccountModelMapper.cs" />
+    <Compile Include="Modelmapper\Interfaces\IResultModelMapper.cs" />
+    <Compile Include="Modelmapper\Interfaces\IRoleModelMapper.cs" />
+    <Compile Include="Modelmapper\Interfaces\IUserModelMapper.cs" />
+    <Compile Include="Modelmapper\MenuItemModelMapper.cs" />
+    <Compile Include="Modelmapper\ResultAccountModelMapper.cs" />
+    <Compile Include="Modelmapper\ResultModelMapper.cs" />
+    <Compile Include="Modelmapper\RoleModelMapper.cs" />
+    <Compile Include="Modelmapper\UserModelMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceModel\AccessGroup.cs" />
+    <Compile Include="ServiceModel\AccountInfo.cs" />
+    <Compile Include="ServiceModel\Budget.cs" />
+    <Compile Include="ServiceModel\BudgetAccount.cs" />
     <Compile Include="ServiceModel\FixedArrangementCosts.cs" />
+    <Compile Include="ServiceModel\MenuItem.cs" />
+    <Compile Include="ServiceModel\Result.cs" />
+    <Compile Include="ServiceModel\ResultAccount.cs" />
+    <Compile Include="ServiceModel\Role.cs" />
+    <Compile Include="ServiceModel\User.cs" />
     <Compile Include="Services\AccessGroupService.cs" />
     <Compile Include="Services\AccountInfoService.cs" />
     <Compile Include="Services\BudgetService.cs" />
@@ -66,13 +93,13 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hulen.Objects\Hulen.Objects.csproj">
-      <Project>{DDEA231F-8E50-4538-A79D-55A45A686B22}</Project>
-      <Name>Hulen.Objects</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Hulen.Storage\Hulen.Storage.csproj">
       <Project>{B6DE12AC-6837-4A1F-9BB7-B622E40A0259}</Project>
       <Name>Hulen.Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hulen.Utils\Hulen.Utils.csproj">
+      <Project>{992EA8D2-B1AC-4A83-A10F-2BAD1DABEA03}</Project>
+      <Name>Hulen.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

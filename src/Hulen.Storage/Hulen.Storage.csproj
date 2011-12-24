@@ -61,7 +61,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\AccessGroupDTO.cs" />
+    <Compile Include="DTO\AccountInfoDTO.cs" />
+    <Compile Include="DTO\ArrangementBudgetDTO.cs" />
+    <Compile Include="DTO\BudgetAccountDTO.cs" />
+    <Compile Include="DTO\BudgetDTO.cs" />
     <Compile Include="DTO\FixedArrangementCostsDTO.cs" />
+    <Compile Include="DTO\HotelDTO.cs" />
+    <Compile Include="DTO\HotelReservationDTO.cs" />
+    <Compile Include="DTO\MenuItemDTO.cs" />
+    <Compile Include="DTO\ResultAccountDTO.cs" />
+    <Compile Include="DTO\ResultDTO.cs" />
+    <Compile Include="DTO\RoleDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Interfaces\IAccessGroupRepository.cs" />
     <Compile Include="Interfaces\IAccountInfoRepository.cs" />
     <Compile Include="Interfaces\IBudgetRepository.cs" />
@@ -130,19 +142,23 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hulen.Objects\Hulen.Objects.csproj">
-      <Project>{DDEA231F-8E50-4538-A79D-55A45A686B22}</Project>
-      <Name>Hulen.Objects</Name>
+    <ProjectReference Include="..\Hulen.Utils\Hulen.Utils.csproj">
+      <Project>{992EA8D2-B1AC-4A83-A10F-2BAD1DABEA03}</Project>
+      <Name>Hulen.Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\ArrangementBudgetDTO.hbm.xml" />
+    <EmbeddedResource Include="Mappings\HotelReservationDTO.hbm.xml" />
+    <EmbeddedResource Include="Mappings\HotelDTO.hbm.xml" />
+    <EmbeddedResource Include="Mappings\FixedArrangementCostsDTO.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Mappings\ArrangementBudgetDTO.hbm.xml" />
-    <EmbeddedResource Include="Mappings\HotelReservationDTO.hbm.xml" />
-    <EmbeddedResource Include="Mappings\HotelDTO.hbm.xml" />
-    <EmbeddedResource Include="Mappings\FixedArrangementCostsDTO.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

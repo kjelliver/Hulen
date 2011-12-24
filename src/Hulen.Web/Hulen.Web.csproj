@@ -87,6 +87,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Hulen.css" />
     <Content Include="Content\Images\banner.jpg" />
     <Content Include="Content\Images\home.JPG" />
     <Content Include="Content\LogIn.css" />
@@ -106,6 +107,7 @@
     <Content Include="Views\Budget\Delete.aspx" />
     <Content Include="Views\Budget\ImportBudget.aspx" />
     <Content Include="Views\Budget\Index.aspx" />
+    <Content Include="Views\FixedArrangementCosts\Index.aspx" />
     <Content Include="Views\LogIn\ChangePassword.aspx" />
     <Content Include="Views\MenuItem\Create.aspx" />
     <Content Include="Views\MenuItem\Delete.aspx" />
@@ -172,12 +174,13 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Report.Master" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Hulen.Storage\Hulen.Storage.csproj">
       <Project>{B6DE12AC-6837-4A1F-9BB7-B622E40A0259}</Project>
       <Name>Hulen.Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hulen.Utils\Hulen.Utils.csproj">
+      <Project>{992EA8D2-B1AC-4A83-A10F-2BAD1DABEA03}</Project>
+      <Name>Hulen.Utils</Name>
     </ProjectReference>
     <ProjectReference Include="..\Hulen.WebCode\Hulen.WebCode.csproj">
       <Project>{C852431A-3055-4E63-9C11-8003E08B309E}</Project>
@@ -191,6 +194,9 @@
     <Content Include="Content\PdfTemplates\ResultReport2011.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Hulen.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

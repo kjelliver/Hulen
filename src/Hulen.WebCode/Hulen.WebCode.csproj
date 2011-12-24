@@ -48,23 +48,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\HulenAuthorizeAttribute.cs" />
+    <Compile Include="Attributes\HulenHandlesErrorsAttribute.cs" />
     <Compile Include="Controllers\AccessGroupController.cs" />
     <Compile Include="Controllers\AccountInfoController.cs" />
     <Compile Include="Controllers\BudgetController.cs" />
+    <Compile Include="Controllers\FixedArrangementCostsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\MasterController.cs" />
     <Compile Include="Controllers\MenuItemController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
-    <Compile Include="Models\AccessGroupWebModels.cs" />
-    <Compile Include="Models\AccountInfoWebModels.cs" />
-    <Compile Include="Models\BudgetWebModels.cs" />
-    <Compile Include="Models\MasterWebModels.cs" />
-    <Compile Include="Models\MenuItemWebModels.cs" />
-    <Compile Include="Models\LogInModels.cs" />
-    <Compile Include="Models\ResultWebModels.cs" />
-    <Compile Include="Models\UserWebModel.cs" />
+    <Compile Include="ViewModels\AccessGroupWebModels.cs" />
+    <Compile Include="ViewModels\AccountInfoWebModels.cs" />
+    <Compile Include="ViewModels\BudgetWebModels.cs" />
+    <Compile Include="ViewModels\FixedArrangementCostsViewModel.cs" />
+    <Compile Include="ViewModels\MasterWebModels.cs" />
+    <Compile Include="ViewModels\MenuItemWebModels.cs" />
+    <Compile Include="ViewModels\LogInModels.cs" />
+    <Compile Include="ViewModels\ResultWebModels.cs" />
+    <Compile Include="ViewModels\UserWebModel.cs" />
     <Compile Include="MvcBase\HulenController.cs" />
     <Compile Include="MvcBase\ViewBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,17 +77,13 @@
       <Project>{04C78095-6734-4B6B-9409-D72E71ED31AD}</Project>
       <Name>Hulen.BusinessServices</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hulen.Objects\Hulen.Objects.csproj">
-      <Project>{DDEA231F-8E50-4538-A79D-55A45A686B22}</Project>
-      <Name>Hulen.Objects</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Hulen.PdfGenerator\Hulen.PdfGenerator.csproj">
       <Project>{7BBA7BBC-DE90-464B-AD1B-25AEF414DDDE}</Project>
       <Name>Hulen.PdfGenerator</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hulen.Storage\Hulen.Storage.csproj">
-      <Project>{B6DE12AC-6837-4A1F-9BB7-B622E40A0259}</Project>
-      <Name>Hulen.Storage</Name>
+    <ProjectReference Include="..\Hulen.Utils\Hulen.Utils.csproj">
+      <Project>{992EA8D2-B1AC-4A83-A10F-2BAD1DABEA03}</Project>
+      <Name>Hulen.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

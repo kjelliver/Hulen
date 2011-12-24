@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Utils.Enum;
 using Hulen.WebCode.Attributes;
-using Hulen.WebCode.Models;
+using Hulen.WebCode.ViewModels;
 
 namespace Hulen.WebCode.Controllers
 {
@@ -32,7 +32,7 @@ namespace Hulen.WebCode.Controllers
             }
             catch (Exception)
             {
-                model.AllMenuItems = new List<MenuItemDTO>();
+                model.AllMenuItems = new List<MenuItem>();
                 ViewData["Message"] = "Feil under henting av menyelementer.";
                 return View("Index", model);
             }

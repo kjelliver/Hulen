@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
+using Hulen.Storage.DTO;
 using Hulen.Storage.Repositories;
+using Hulen.Utils.Enum;
 using NUnit.Framework;
 
 namespace Hulen.Tests.UnitTests.Storage

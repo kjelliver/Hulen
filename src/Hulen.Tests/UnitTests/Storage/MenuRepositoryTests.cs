@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Hulen.Objects.DTO;
+using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
 using Hulen.Storage.Repositories;
 using NUnit.Framework;

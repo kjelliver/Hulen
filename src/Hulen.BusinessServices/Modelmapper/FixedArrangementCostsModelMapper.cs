@@ -25,19 +25,20 @@ namespace Hulen.BusinessServices.Modelmapper
 
         public FixedArrangementCosts ToServiceModel(FixedArrangementCostsDTO dto)
         {
-            return new FixedArrangementCosts
-            {
-                Id = dto.Id,
-                GeneratedDate = dto.GeneratedDate,
-                PricePerBeer = dto.PricePerBeer,
-                PricePerWine = dto.PricePerWine,
-                FixedTechRental = dto.FixedTechRental,
-                SoundmanSalery = dto.SoundmanSalery,
-                SoundmanSaleryPerWarmUp = dto.SoundmanSaleryPerWarmUp,
-                PromotionExpences = dto.PromotionExpences,
-                FixedCosts = dto.FixedCosts,
-                DocumentId = dto.DocumentId
-            };
+            var test = new FixedArrangementCosts();
+            //{
+            test.Id = dto.Id;
+            test.GeneratedDate = dto.GeneratedDate;
+            test.PricePerBeer = dto.PricePerBeer;
+            test.PricePerWine = dto.PricePerWine;
+            test.FixedTechRental = dto.FixedTechRental;
+            test.SoundmanSalery = dto.SoundmanSalery;
+            test.SoundmanSaleryPerWarmUp = dto.SoundmanSaleryPerWarmUp;
+            test.PromotionExpences = dto.PromotionExpences;
+            test.FixedCosts = dto.FixedCosts;
+            test.DocumentId = dto.DocumentId;
+            return test;
+            //};
         }
     }
 }

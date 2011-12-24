@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Objects.DTO">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Storage.DTO">
 
-  <class name="Hulen.Objects.DTO.ArrangementBudgetDTO, Hulen.Objects" table="ArrangementBudget" lazy="false">
+  <class name="Hulen.Storage.DTO.ArrangementBudgetDTO, Hulen.Storage" table="ArrangementBudget" lazy="false">
     <id name ="Id" column="Id">
       <generator class="native" />
     </id>
@@ -32,9 +32,9 @@
     <property name="PromotorsFeePercent" column="PromotorsFeePercent" />
     <property name="BreakEvenToArtist" column="BreakEvenToArtist" />
     <property name="DocumentId" column="DocumentId" />
-    <bag name="HotelReservationDTO">
+    <!--<bag name="HotelReservationDTO">
       <key column="BudgetId" />
       <one-to-many class="HotelReservationDTO" />  
-    </bag>
+    </bag>-->
   </class>
 </hibernate-mapping>

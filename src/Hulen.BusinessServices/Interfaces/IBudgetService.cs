@@ -1,18 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Hulen.Objects.DTO;
+using Hulen.BusinessServices.ServiceModel;
 
 namespace Hulen.BusinessServices.Interfaces
 {
     public interface IBudgetService
     {
-        IEnumerable<BudgetDTO> GetOverview();
-        BudgetDTO GetOneBudgetByYearAndStatus(int year, string status);
-
-
+        IEnumerable<Budget> GetOverview();
+        Budget GetOneBudgetByYearAndStatus(int year, string status);
 
         void DeleteAllBudgetsByYearAndStatus(int year, string budgetStatus);
         void ImportFile(Stream inputStream, string year, string budgetStatus, string comment);
-        IEnumerable<BudgetAccountDTO> GetAllBudgetAccountsByYearAndStatus(int year, string budgetStatus);
+        IEnumerable<BudgetAccount> GetAllBudgetAccountsByYearAndStatus(int year, string budgetStatus);
     }
 }

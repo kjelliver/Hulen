@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
-using Hulen.Objects.Model;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Utils.Enum;
 
 namespace Hulen.BusinessServices.Interfaces
 {
@@ -17,6 +16,6 @@ namespace Hulen.BusinessServices.Interfaces
         StorageResult DeleteOneAccessGroup(AccessGroup accessGroup);
         IEnumerable<AccessGroup> GetAccessGroupsByType(string type);
         AccessGroup GetAccessGroupByName(string name);
-        IEnumerable<string> GetAccessGroupsForUser(UserDTO user);
+        IEnumerable<string> GetAccessGroupsForUser(User user);
     }
 }

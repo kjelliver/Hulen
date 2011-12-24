@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.WebCode.Controllers;
-using Hulen.WebCode.Models;
+using Hulen.WebCode.ViewModels;
 using Moq;
 using NUnit.Framework;
 

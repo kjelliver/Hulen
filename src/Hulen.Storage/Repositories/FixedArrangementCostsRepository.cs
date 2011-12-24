@@ -18,7 +18,7 @@ namespace Hulen.Storage.Repositories
             }
             catch (Exception)
             {
-                return null;
+                throw new HibernateException("Error when getting fixed arrangement costs");
             }
         }
 

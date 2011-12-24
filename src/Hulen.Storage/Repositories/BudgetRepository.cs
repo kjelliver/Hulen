@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Hulen.Objects.DTO;
+using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
 using NHibernate;
 using NHibernate.Criterion;

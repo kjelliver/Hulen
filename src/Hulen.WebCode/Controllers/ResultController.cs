@@ -5,11 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.DTO;
+using Hulen.BusinessServices.ServiceModel;
 using Hulen.PdfGenerator;
 using Hulen.WebCode.Attributes;
-using Hulen.WebCode.Models;
 using Hulen.WebCode.MvcBase;
+using Hulen.WebCode.ViewModels;
 
 namespace Hulen.WebCode.Controllers
 {
@@ -159,7 +159,7 @@ namespace Hulen.WebCode.Controllers
             try
             {
                 _resultService.SaveMenyResultAccounts(SetRealAccounts(model.FailedAccounts));
-                model.FailedAccounts = new List<ResultAccountDTO>();
+                model.FailedAccounts = new List<ResultAccount>();
                 model.Accounts = _accountInfoService.GetAllAccountInfosByYear(model.Year);
                 ViewData["Message"] = "Endringene er lagret.";
                 return View("FailedAccounts", model);
@@ -172,10 +172,10 @@ namespace Hulen.WebCode.Controllers
             }
         }
 
-        private List<ResultAccountDTO> SetRealAccounts(List<ResultAccountDTO> failedAccountsCollection)
+        private List<ResultAccount> SetRealAccounts(List<ResultAccount> failedAccountsCollection)
         {
-            var transformedCollection = new List<ResultAccountDTO>();
-            foreach (ResultAccountDTO result in failedAccountsCollection)
+            var transformedCollection = new List<ResultAccount>();
+            foreach (ResultAccount result in failedAccountsCollection)
             {
                 var tempReal = result.AccountNumber;
                 result.AccountNumber = result.RealAccount;

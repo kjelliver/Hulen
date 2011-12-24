@@ -6,10 +6,10 @@ using System.Web;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.BusinessServices.Services;
-using Hulen.Objects.Enum;
 using Hulen.PdfGenerator;
+using Hulen.Utils.Enum;
 using Hulen.WebCode.Attributes;
-using Hulen.WebCode.Models;
+using Hulen.WebCode.ViewModels;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 

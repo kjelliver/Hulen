@@ -79,13 +79,13 @@
       <Project>{04C78095-6734-4B6B-9409-D72E71ED31AD}</Project>
       <Name>Hulen.BusinessServices</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hulen.Objects\Hulen.Objects.csproj">
-      <Project>{DDEA231F-8E50-4538-A79D-55A45A686B22}</Project>
-      <Name>Hulen.Objects</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Hulen.Storage\Hulen.Storage.csproj">
       <Project>{B6DE12AC-6837-4A1F-9BB7-B622E40A0259}</Project>
       <Name>Hulen.Storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hulen.Utils\Hulen.Utils.csproj">
+      <Project>{992EA8D2-B1AC-4A83-A10F-2BAD1DABEA03}</Project>
+      <Name>Hulen.Utils</Name>
     </ProjectReference>
     <ProjectReference Include="..\Hulen.WebCode\Hulen.WebCode.csproj">
       <Project>{C852431A-3055-4E63-9C11-8003E08B309E}</Project>

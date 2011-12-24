@@ -5,10 +5,10 @@ using System.Data;
 using System.IO;
 using Excel;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
-using Hulen.Objects.Model;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
+using Hulen.Utils.Enum;
 
 namespace Hulen.BusinessServices.Services
 {

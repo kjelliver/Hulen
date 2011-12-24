@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.DTO;
 using Hulen.Storage.Interfaces;
 
 namespace Hulen.BusinessServices.Services

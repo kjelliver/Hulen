@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
+using Hulen.Utils.Enum;
+using MenuItemDTO = Hulen.Storage.DTO.MenuItemDTO;
 
 namespace Hulen.Storage.Interfaces
 {

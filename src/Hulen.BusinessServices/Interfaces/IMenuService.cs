@@ -1,17 +1,17 @@
 using System;
 using System.Collections.Generic;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Utils.Enum;
 
 namespace Hulen.BusinessServices.Interfaces
 {
     public interface IMenuService
     {
-        IEnumerable<MenuItemDTO> GetAllMenuItems();
-        IEnumerable<MenuItemDTO> GetMenuItemsForUser(UserDTO user);
-        StorageResult SaveOneMenuItem(MenuItemDTO menuItem);
-        MenuItemDTO GetOneById(Guid id);
-        StorageResult UpdateOne(MenuItemDTO menuItem);
-        StorageResult DeleteOneMenuItem(MenuItemDTO menuItem);
+        IEnumerable<MenuItem> GetAllMenuItems();
+        IEnumerable<MenuItem> GetMenuItemsForUser(User user);
+        StorageResult SaveOneMenuItem(MenuItem menuItem);
+        MenuItem GetOneById(Guid id);
+        StorageResult UpdateOne(MenuItem menuItem);
+        StorageResult DeleteOneMenuItem(MenuItem menuItem);
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.WebCode.Models;
+using Hulen.WebCode.ViewModels;
 
 namespace Hulen.WebCode.Controllers
 {
@@ -27,8 +27,8 @@ namespace Hulen.WebCode.Controllers
         [HttpPost]
         public ActionResult LogIn(LogInModel model)
         {
-            try
-            {
+            //try
+            //{
                 if (_userService.ValidateUserPassword(model.UserName, model.Password))
                 {
                     var user = _userService.GetOneUser(model.UserName);
@@ -48,12 +48,12 @@ namespace Hulen.WebCode.Controllers
                 }
                 TempData["Message"] = "Feil i brukernavn eller passord";
                 return RedirectToAction("LogIn", "LogIn");
-            }
-            catch (Exception)
-            {
-                TempData["Message"] = "Ukjent feil har oppstått";
-                return RedirectToAction("LogIn", "LogIn");
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    TempData["Message"] = "Ukjent feil har oppstått";
+            //    return RedirectToAction("LogIn", "LogIn");
+            //}
         }
 
         public ViewResult ChangePassword()

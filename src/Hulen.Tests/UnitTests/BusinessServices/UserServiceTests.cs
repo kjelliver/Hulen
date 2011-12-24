@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Hulen.BusinessServices.Interfaces;
+using Hulen.BusinessServices.Modelmapper.Interfaces;
+using Hulen.BusinessServices.ServiceModel;
 using Hulen.BusinessServices.Services;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
+using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
+using Hulen.Utils.Enum;
 using Moq;
 using NUnit.Framework;
 
@@ -14,6 +16,7 @@ namespace Hulen.Tests.UnitTests.BusinessServices
     public class UserServiceTests
     {
         private Mock<IUserRepository> _userRepositoryMock;
+        private Mock<IUserModelMapper> _userModelMapperMock;
         private Mock<IAccessGroupService> _accessGroupService;
         private IUserService _subject;
 
@@ -22,16 +25,18 @@ namespace Hulen.Tests.UnitTests.BusinessServices
         {
             _userRepositoryMock = new Mock<IUserRepository>();
             _accessGroupService = new Mock<IAccessGroupService>();
-            _subject = new UserService(_userRepositoryMock.Object);
+            _userModelMapperMock = new Mock<IUserModelMapper>();
+            _subject = new UserService(_userRepositoryMock.Object, _userModelMapperMock.Object);
         }
 
         [Test]
         public void GetAllUsersCallsGetAllUsers()
         {
             var users = MockUsers();
-            _userRepositoryMock.Setup(x => x.GetAllUsers()).Returns(users);
+            var usersDTO = MockUsersDTO();
+            _userRepositoryMock.Setup(x => x.GetAllUsers()).Returns(usersDTO);
 
-            IEnumerable<UserDTO> result = _subject.GetAllUsers();
+            IEnumerable<User> result = _subject.GetAllUsers();
 
             Assert.That(result.Count(), Is.EqualTo(3));
             Assert.That(IsInCollection(result.ElementAt(0), result));
@@ -43,24 +48,27 @@ namespace Hulen.Tests.UnitTests.BusinessServices
         public void SaveOneUserCallsRepository()
         {
             var user = MockUser();
-            _userRepositoryMock.Setup(x => x.SaveOneUser(user)).Returns(StorageResult.Success);
+            var userDTO = MockUserDTO();
+            _userRepositoryMock.Setup(x => x.SaveOneUser(userDTO)).Returns(StorageResult.Success);
 
-            var createResult = _subject.SaveOneUser(user);
+            var createResult = _subject.SaveOneUser( user);
 
             Assert.That(createResult, Is.EqualTo(StorageResult.Success));
-            _userRepositoryMock.Verify(x => x.SaveOneUser(user), Times.Once()); 
+            _userRepositoryMock.Verify(x => x.SaveOneUser(userDTO), Times.Once()); 
         }
 
         [Test]
         public void UpdateOneUserCallsRepository()
         {
-            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
-            _userRepositoryMock.Setup(x => x.UpdateOneUser(user, false)).Returns(StorageResult.AllreadyExsists);
+            var user = new User { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            var userDTO = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+
+            _userRepositoryMock.Setup(x => x.UpdateOneUser(userDTO, false)).Returns(StorageResult.AllreadyExsists);
 
             var updateResult = _subject.UpdateOneUser(user, false);
 
             Assert.That(updateResult, Is.EqualTo(StorageResult.AllreadyExsists));
-            _userRepositoryMock.Verify(x => x.UpdateOneUser(user, false), Times.Once()); 
+            _userRepositoryMock.Verify(x => x.UpdateOneUser(userDTO, false), Times.Once()); 
         }
 
         [Test]
@@ -102,12 +110,28 @@ namespace Hulen.Tests.UnitTests.BusinessServices
             Assert.IsFalse(result);
         }
 
-        private static UserDTO MockUser()
+        private static User MockUser()
+        {
+            return new User { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+        }
+
+        private static UserDTO MockUserDTO()
         {
             return new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
         }
 
-        private static IEnumerable<UserDTO> MockUsers()
+        private static IEnumerable<User> MockUsers()
+        {
+            var users = new List<User>
+                            {
+                                new User {Username = "user1", Password = "pass1", Name = "name1", Disabled = false},
+                                new User {Username = "user2", Password = "pass2", Name = "name2", Disabled = true},
+                                new User {Username = "user3", Password = "pass3", Name = "name3", Disabled = false}
+                            };
+            return users;
+        }
+
+        private static IEnumerable<UserDTO> MockUsersDTO()
         {
             var users = new List<UserDTO>
                             {
@@ -118,7 +142,12 @@ namespace Hulen.Tests.UnitTests.BusinessServices
             return users;
         }
 
-        private static bool IsInCollection(UserDTO u, IEnumerable<UserDTO> fromDb)
+        private static bool IsInCollection(User u, IEnumerable<User> fromDb)
+        {
+            return fromDb.Any(d => d.Id == u.Id && d.Username == u.Username && d.Password == u.Password && d.Name == u.Name && d.Disabled == u.Disabled);
+        }
+
+        private static bool IsDTOInCollection(UserDTO u, IEnumerable<UserDTO> fromDb)
         {
             return fromDb.Any(d => d.Id == u.Id && d.Username == u.Username && d.Password == u.Password && d.Name == u.Name && d.Disabled == u.Disabled);
         }

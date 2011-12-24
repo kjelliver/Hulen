@@ -4,10 +4,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.Enum;
-using Hulen.Objects.Model;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Utils.Enum;
 using Hulen.WebCode.Controllers;
-using Hulen.WebCode.Models;
+using Hulen.WebCode.ViewModels;
 using Moq;
 using NUnit.Framework;
 

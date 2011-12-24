@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
-using Hulen.Objects.Model;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Utils.Enum;
 
 namespace Hulen.BusinessServices.Interfaces
 {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.Enum;
-using Hulen.Objects.Model;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Utils.Enum;
 using Hulen.WebCode.Attributes;
-using Hulen.WebCode.Models;
+using Hulen.WebCode.ViewModels;
 
 namespace Hulen.WebCode.Controllers
 {

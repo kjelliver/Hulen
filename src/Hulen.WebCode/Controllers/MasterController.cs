@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.WebCode.Models;
+using Hulen.WebCode.ViewModels;
 
 namespace Hulen.WebCode.Controllers
 {

@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
-using Hulen.Objects.Mappers.Interfaces;
-using Hulen.Objects.Model;
+using Hulen.BusinessServices.Modelmapper.Interfaces;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
+using Hulen.Utils.Enum;
 
 namespace Hulen.BusinessServices.Services
 {
     public class AccessGroupService : IAccessGroupService
     {
         private readonly IAccessGroupRepository _accessGroupRepository;
-        private readonly IMapAccessGroup _accessGroupMapper;
+        private readonly IAccessGroupModelMapper _accessGroupMapper;
 
-        public AccessGroupService(IAccessGroupRepository repository, IMapAccessGroup mapper)
+        public AccessGroupService(IAccessGroupRepository repository, IAccessGroupModelMapper mapper)
         {
             _accessGroupRepository = repository;
             _accessGroupMapper = mapper;
@@ -57,7 +57,7 @@ namespace Hulen.BusinessServices.Services
             return _accessGroupMapper.ToViewModel(_accessGroupRepository.GetOneByName(name));
         }
 
-        public IEnumerable<string> GetAccessGroupsForUser(UserDTO user)
+        public IEnumerable<string> GetAccessGroupsForUser(User user)
         {
             var allAccessGroups = _accessGroupRepository.GetAll();
             var result = new List<string>();

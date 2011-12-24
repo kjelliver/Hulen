@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Objects.DTO">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Hulen.Objects" namespace="Hulen.Storage.DTO">
 
-  <class name="Hulen.Objects.DTO.HotelDTO, Hulen.Objects" table="Hotel" lazy="false">
+  <class name="Hulen.Storage.DTO.HotelDTO, Hulen.Storage" table="Hotel" lazy="false">
     <id name ="Id" column="Id">
       <generator class="native" />
     </id>   
@@ -11,7 +11,6 @@
     <property name="TripleRoomPrice" column="TripleRoomPrice" />
     <property name="GroupRoomPrice" column="GroupRoomPrice" />
     <property name="ExtraBedPrice" column="ExtraBedPrice" />
-    <property name="ExtraBedPrice" column="ExtraBedPrice" />
-    <property name="IsActive" column="ExtraBedPrice" />
+    <property name="IsActive" column="IsActive" />
   </class>
 </hibernate-mapping>

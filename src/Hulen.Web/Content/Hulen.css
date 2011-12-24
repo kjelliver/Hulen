@@ -1,0 +1,17 @@
+﻿body
+{
+    margin:0px;    
+}
+
+header
+{
+    height:140px;
+    width:1024px;
+    color:white;
+    font-family:Verdana;
+    font-size:12px;
+    font-weight:bold;
+    background-image:url('Images/banner.jpg');
+}
+
+nav

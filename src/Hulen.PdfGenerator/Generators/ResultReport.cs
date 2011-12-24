@@ -4,9 +4,8 @@ using System.IO;
 using System.Web;
 using System.Linq;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
-using Hulen.Objects.Model;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Utils.Enum;
 using iTextSharp.text.pdf;
 
 namespace Hulen.PdfGenerator.Generators
@@ -18,8 +17,8 @@ namespace Hulen.PdfGenerator.Generators
         private readonly IAccountInfoService _accountInfoService;
 
         private IEnumerable<AccountInfo> _accounts;
-        private IEnumerable<BudgetAccountDTO> _budget;
-        private IEnumerable<ResultAccountDTO> _result;
+        private IEnumerable<BudgetAccount> _budget;
+        private IEnumerable<ResultAccount> _result;
 
         private string _templatePath;
         private PdfReader _pdfReader;

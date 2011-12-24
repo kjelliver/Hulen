@@ -4,10 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Storage.DTO;
+using Hulen.Utils.Enum;
 using Hulen.WebCode.Controllers;
-using Hulen.WebCode.Models;
+using Hulen.WebCode.ViewModels;
 using Moq;
 using NUnit.Framework;
 
@@ -38,7 +39,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         [Test]
         public void IndexShouldFetchAllUsers()
         {
-            _userServiceMock.Setup(x => x.GetAllUsers()).Returns(new List<UserDTO> { new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false }, new UserDTO { Username = "user2", Password = "pass2", Name = "name2", Disabled = true }, new UserDTO { Username = "user3", Password = "pass3", Name = "name3", Disabled = false } });
+            _userServiceMock.Setup(x => x.GetAllUsers()).Returns(new List<User> { new User { Username = "user1", Password = "pass1", Name = "name1", Disabled = false }, new User { Username = "user2", Password = "pass2", Name = "name2", Disabled = true }, new User { Username = "user3", Password = "pass3", Name = "name3", Disabled = false } });
             var result = _subject.Index("");
             var model = (UserWebModel)result.ViewData.Model;
             Assert.That(model.Users.Count(), Is.EqualTo(3));
@@ -83,7 +84,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             var model = new UserWebModel
                             {
                                 User =
-                                    new UserDTO {Username = "user1", Password = "pass1", Name = "name1", Disabled = false}
+                                    new User {Username = "user1", Password = "pass1", Name = "name1", Disabled = false}
                             };
 
             _userServiceMock.Setup(x => x.SaveOneUser(model.User)).Returns(StorageResult.Success);
@@ -98,7 +99,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             var model = new UserWebModel
                             {
                 User =
-                    new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false }
+                    new User { Username = "user1", Password = "pass1", Name = "name1", Disabled = false }
             };
 
             _userServiceMock.Setup(x => x.SaveOneUser(model.User)).Returns(StorageResult.AllreadyExsists);
@@ -113,7 +114,7 @@ namespace Hulen.Tests.UnitTests.WebCode
             var model = new UserWebModel
                             {
                 User =
-                    new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false }
+                    new User { Username = "user1", Password = "pass1", Name = "name1", Disabled = false }
             };
 
             _userServiceMock.Setup(x => x.SaveOneUser(model.User)).Throws(new Exception());
@@ -126,7 +127,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         public void EditShouldReturnRightView()
         {
             const string username = "testuser1";
-            _userServiceMock.Setup(x => x.GetOneUser(username)).Returns(new UserDTO {Username = username});
+            _userServiceMock.Setup(x => x.GetOneUser(username)).Returns(new User {Username = username});
             var result = _subject.Edit(username);
 
             Assert.That(result.ViewData.Model, Is.InstanceOf(typeof(UserWebModel)));
@@ -172,7 +173,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         [Test]
         public void PostEditShouldReturnSuccessWhenUpdateIsSuccessfulWhenNotChangedUsername()
         {
-            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            var user = new User { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
             _userServiceMock.Setup(x => x.UpdateOneUser(user, false)).Returns(StorageResult.Success);
 
             var result = _subject.Edit(new UserWebModel { User = user, UserNameStoredInDb = "user1" }, "", "");
@@ -185,7 +186,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         [Test]
         public void PostEditShouldReturnAllreadyExcistsWhenUpdateIsUpdatingUsername()
         {
-            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            var user = new User { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
             _userServiceMock.Setup(x => x.UpdateOneUser(user, true)).Returns(StorageResult.AllreadyExsists);
 
             var result = _subject.Edit(new UserWebModel {User = user, UserNameStoredInDb = "old"}, "", "");
@@ -198,7 +199,7 @@ namespace Hulen.Tests.UnitTests.WebCode
         [Test]
         public void FailedUpdateReturnsErrorMessage()
         {
-            var user = new UserDTO { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
+            var user = new User { Username = "user1", Password = "pass1", Name = "name1", Disabled = false };
             _userServiceMock.Setup(x => x.UpdateOneUser(user, true)).Throws(new Exception());
             var result = _subject.Edit(new UserWebModel { User = user, UserNameStoredInDb = "old" }, "", "");
             Assert.That(result.ViewName, Is.EqualTo("Edit"));

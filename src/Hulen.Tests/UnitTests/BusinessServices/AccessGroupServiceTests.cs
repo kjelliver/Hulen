@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Hulen.BusinessServices.Modelmapper.Interfaces;
+using Hulen.BusinessServices.ServiceModel;
 using Hulen.BusinessServices.Services;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
-using Hulen.Objects.Mappers.Interfaces;
-using Hulen.Objects.Model;
+using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
+using Hulen.Utils.Enum;
 using Moq;
 using NUnit.Framework;
 
@@ -15,14 +15,14 @@ namespace Hulen.Tests.UnitTests.BusinessServices
     public class AccessGroupServiceTests
     {
         private Mock<IAccessGroupRepository> _accessGroupRepositoryMock;
-        private Mock<IMapAccessGroup> _accessGroupMapper;
+        private Mock<IAccessGroupModelMapper> _accessGroupMapper;
         private AccessGroupService _subject;
 
         [SetUp]
         public void SetUp()
         {
             _accessGroupRepositoryMock = new Mock<IAccessGroupRepository>();
-            _accessGroupMapper = new Mock<IMapAccessGroup>();
+            _accessGroupMapper = new Mock<IAccessGroupModelMapper>();
             _subject = new AccessGroupService(_accessGroupRepositoryMock.Object, _accessGroupMapper.Object);
         }
 

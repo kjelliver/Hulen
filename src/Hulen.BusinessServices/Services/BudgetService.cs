@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using Excel;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.DTO;
+using Hulen.BusinessServices.Modelmapper.Interfaces;
+using Hulen.BusinessServices.ServiceModel;
+using Hulen.Storage.DTO;
 using Hulen.Storage.Interfaces;
 using Hulen.Storage.Repositories;
 
@@ -16,21 +18,31 @@ namespace Hulen.BusinessServices.Services
     public class BudgetService : IBudgetService
     {
         private readonly IBudgetRepository _budgetRepository;
+        private readonly IBudgetAccountModelMapper _budgetAccountModelMapper;
+        private readonly IBudgetModelMapper _budgetModelMapper;
 
 
-        public BudgetService(IBudgetRepository budgetRepository)
+        public BudgetService(IBudgetRepository budgetRepository, IBudgetAccountModelMapper budgetAccountModelMapper, IBudgetModelMapper budgetModelMapper)
         {
             _budgetRepository = budgetRepository;
+            _budgetModelMapper = budgetModelMapper;
+            _budgetAccountModelMapper = budgetAccountModelMapper;
         }
 
-        public IEnumerable<BudgetDTO> GetOverview()
+        public IEnumerable<Budget> GetOverview()
         {
-            return _budgetRepository.GetOverview();
+            var result = new List<Budget>();
+            var fromDb = _budgetRepository.GetOverview();
+            foreach(var dto in fromDb)
+            {
+                result.Add(_budgetModelMapper.FromDTO(dto));
+            }
+            return result;
         }
 
-        public BudgetDTO GetOneBudgetByYearAndStatus(int year, string status)
+        public Budget GetOneBudgetByYearAndStatus(int year, string status)
         {
-            return _budgetRepository.GetOverviewByYearAndStatus(year, status);
+            return _budgetModelMapper.FromDTO(_budgetRepository.GetOverviewByYearAndStatus(year, status));
         }
 
         public void DeleteAllBudgetsByYearAndStatus(int year, string budgetStatus)
@@ -48,9 +60,15 @@ namespace Hulen.BusinessServices.Services
             SaveInBudgetOverView(year, budgetStatus, comment);
         }
 
-        public IEnumerable<BudgetAccountDTO> GetAllBudgetAccountsByYearAndStatus(int year, string budgetStatus)
+        public IEnumerable<BudgetAccount> GetAllBudgetAccountsByYearAndStatus(int year, string budgetStatus)
         {
-            return _budgetRepository.GetBudgetAccountsByYearAndStatus(year, GetBudgetStatus(budgetStatus));
+            var result = new List<BudgetAccount>();
+            var fromDb = _budgetRepository.GetBudgetAccountsByYearAndStatus(year, GetBudgetStatus(budgetStatus));
+            foreach(var dto in fromDb)
+            {
+                result.Add(_budgetAccountModelMapper.FromDTO(dto));
+            }
+            return result;
         }
 
         private DataSet ConvertStreamToDataSet(Stream inputStream)

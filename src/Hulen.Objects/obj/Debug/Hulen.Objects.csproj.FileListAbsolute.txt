@@ -1,5 +1,0 @@
-C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Objects\bin\Debug\Hulen.Objects.dll
-C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Objects\bin\Debug\Hulen.Objects.pdb
-C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Objects\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Objects\obj\Debug\Hulen.Objects.dll
-C:\Users\Kjell Iver\Dev\Hulen\src\Hulen.Objects\obj\Debug\Hulen.Objects.pdb

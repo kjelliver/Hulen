@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Hulen.Objects.DTO;
-using Hulen.Objects.Enum;
 using Hulen.Storage.Interfaces;
+using Hulen.Utils.Enum;
 using NHibernate;
 using NHibernate.Criterion;
+using MenuItemDTO = Hulen.Storage.DTO.MenuItemDTO;
 
 namespace Hulen.Storage.Repositories
 {

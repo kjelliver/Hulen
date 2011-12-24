@@ -5,9 +5,9 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Hulen.BusinessServices.Interfaces;
-using Hulen.Objects.DTO;
+using Hulen.BusinessServices.ServiceModel;
 using Hulen.WebCode.Attributes;
-using Hulen.WebCode.Models;
+using Hulen.WebCode.ViewModels;
 
 namespace Hulen.WebCode.Controllers
 {
@@ -32,7 +32,7 @@ namespace Hulen.WebCode.Controllers
             catch (Exception)
             {
                 ViewData["Message"] = "Feil under henting av budsjetter.";
-                indexModel.StoredBudgets = new List<BudgetDTO>();
+                indexModel.StoredBudgets = new List<Budget>();
                 return View("Index", indexModel);
             }
         }
