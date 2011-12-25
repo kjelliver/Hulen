@@ -32,9 +32,9 @@
     <property name="PromotorsFeePercent" column="PromotorsFeePercent" />
     <property name="BreakEvenToArtist" column="BreakEvenToArtist" />
     <property name="DocumentId" column="DocumentId" />
-    <!--<bag name="HotelReservationDTO">
+    <bag name="HotelReservationDTO">
       <key column="BudgetId" />
       <one-to-many class="HotelReservationDTO" />  
-    </bag>-->
+    </bag>
   </class>
 </hibernate-mapping>

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Hulen.BusinessServices.Modelmapper;
 using Hulen.BusinessServices.ServiceModel;
 using Hulen.Storage.DTO;
 using NUnit.Framework;
 
-namespace Hulen.Tests.UnitTests.Objects.Mappers
+namespace Hulen.Tests.UnitTests.BusinessServices.Mappers
 {
     [TestFixture]
     public class AccessGroupMapperTests

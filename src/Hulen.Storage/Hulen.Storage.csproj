@@ -78,6 +78,7 @@
     <Compile Include="Interfaces\IAccountInfoRepository.cs" />
     <Compile Include="Interfaces\IBudgetRepository.cs" />
     <Compile Include="Interfaces\IFixedArrangementCostsRepository.cs" />
+    <Compile Include="Interfaces\IHotelRepository.cs" />
     <Compile Include="Interfaces\IMenuRepository.cs" />
     <Compile Include="Interfaces\IResultRepository.cs" />
     <Compile Include="Interfaces\IRoleRepository.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Repositories\AccountInfoRepository.cs" />
     <Compile Include="Repositories\BudgetRepository.cs" />
     <Compile Include="Repositories\FixedArrangementCostsRepository.cs" />
+    <Compile Include="Repositories\HotelRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
     <Compile Include="Repositories\ResultRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />

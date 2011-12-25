@@ -5,12 +5,17 @@
     <id name ="Id" column="Id">
       <generator class="native" />
     </id>
-    <property name="HotelId" column="HotelId" />
+    <property name="HotelName" column="HotelName" />
     <property name="BudgetId" column="BudgetId" />
     <property name="SingleRooms" column="SingleRooms" />
+    <property name="SingleRoomPrice" column="SingleRoomPrice" />
     <property name="DoubleRooms" column="DoubleRooms" />
+    <property name="DoubleRoomPrice" column="DoubleRoomPrice" />
     <property name="TripleRooms" column="TripleRooms" />
+    <property name="TripleRoomPrice" column="TripleRoomPrice" />
     <property name="GroupRooms" column="GroupRooms" />
+    <property name="GroupRoomPrice" column="GroupRoomPrice" />
     <property name="ExtraBeds" column="ExtraBeds" />
+    <property name="ExtraBedPrice" column="ExtraBedPrice" />
   </class>
 </hibernate-mapping>

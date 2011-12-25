@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Hulen.Storage.DTO
 {
@@ -13,7 +14,7 @@ namespace Hulen.Storage.DTO
         public virtual int BeerExpences { get; set; }
         public virtual int WineAmount { get; set; }
         public virtual int WineExpences { get; set; }
-        //public virtual List<HotelReservationDTO> HotelReservations { get; set; }
+        public virtual List<HotelReservationDTO> HotelReservations { get; set; }
         public virtual int NumberOfPeopleInBand { get; set; }
         public virtual int BuyOutPerPerson { get; set; }
         public virtual int Catering { get; set; }

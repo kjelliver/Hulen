@@ -57,10 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTests\BusinessServices\AccessGroupServiceTests.cs" />
-    <Compile Include="UnitTests\BusinessServices\AccountInfoServiceTests.cs" />
-    <Compile Include="UnitTests\BusinessServices\UserServiceTests.cs" />
-    <Compile Include="UnitTests\Objects\Mappers\AccessGroupMapperTests.cs" />
+    <Compile Include="UnitTests\BusinessServices\Services\AccessGroupServiceTests.cs" />
+    <Compile Include="UnitTests\BusinessServices\Services\AccountInfoServiceTests.cs" />
+    <Compile Include="UnitTests\BusinessServices\Mappers\HotelModelMapperTests.cs" />
+    <Compile Include="UnitTests\BusinessServices\Services\HotelServicesTests.cs" />
+    <Compile Include="UnitTests\BusinessServices\Services\UserServiceTests.cs" />
+    <Compile Include="UnitTests\BusinessServices\Mappers\AccessGroupMapperTests.cs" />
     <Compile Include="UnitTests\Storage\AccessGroupRepositoryTests.cs" />
     <Compile Include="UnitTests\Storage\AccountInfoRepositoryTests.cs" />
     <Compile Include="UnitTests\Storage\ArrangementBudgetRepositoryTests.cs" />
