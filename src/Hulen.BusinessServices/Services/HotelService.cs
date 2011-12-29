@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Hulen.BusinessServices.Interfaces;
 using Hulen.BusinessServices.Modelmapper.Interfaces;
 using Hulen.BusinessServices.ServiceModel;

@@ -7,14 +7,13 @@ namespace Hulen.Storage.DTO
     {
         public virtual int Id { get; set; }
         public virtual string Artist { get; set; }
-        public virtual string SuggestedDate { get; set; }
-        public virtual DateTime SetDate { get; set; }
+        public virtual DateTime Date { get; set; }
         public virtual int ArtistFee { get; set; }
         public virtual int BeerAmount { get; set; }
         public virtual int BeerExpences { get; set; }
         public virtual int WineAmount { get; set; }
         public virtual int WineExpences { get; set; }
-        public virtual List<HotelReservationDTO> HotelReservations { get; set; }
+        public virtual IList<HotelReservationDTO> HotelReservations { get; set; }
         public virtual int NumberOfPeopleInBand { get; set; }
         public virtual int BuyOutPerPerson { get; set; }
         public virtual int Catering { get; set; }

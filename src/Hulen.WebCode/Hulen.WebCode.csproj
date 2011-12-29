@@ -51,9 +51,11 @@
     <Compile Include="Attributes\HulenHandlesErrorsAttribute.cs" />
     <Compile Include="Controllers\AccessGroupController.cs" />
     <Compile Include="Controllers\AccountInfoController.cs" />
+    <Compile Include="Controllers\ArrangementBudgetController.cs" />
     <Compile Include="Controllers\BudgetController.cs" />
     <Compile Include="Controllers\FixedArrangementCostsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\MasterController.cs" />
     <Compile Include="Controllers\MenuItemController.cs" />
@@ -61,8 +63,10 @@
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="ViewModels\AccessGroupWebModels.cs" />
     <Compile Include="ViewModels\AccountInfoWebModels.cs" />
+    <Compile Include="ViewModels\ArrangementBudgetViewModel.cs" />
     <Compile Include="ViewModels\BudgetWebModels.cs" />
     <Compile Include="ViewModels\FixedArrangementCostsViewModel.cs" />
+    <Compile Include="ViewModels\HotelViewModel.cs" />
     <Compile Include="ViewModels\MasterWebModels.cs" />
     <Compile Include="ViewModels\MenuItemWebModels.cs" />
     <Compile Include="ViewModels\LogInModels.cs" />

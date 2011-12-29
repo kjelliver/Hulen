@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\AccountInfo.cs" />
+    <Compile Include="Enum\ArrangementBudgetStatus.cs" />
     <Compile Include="Enum\BudgetType.cs" />
     <Compile Include="Enum\ResultPeriod.cs" />
     <Compile Include="Enum\StorageResult.cs" />

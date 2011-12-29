@@ -82,7 +82,7 @@ namespace Hulen.Storage.Repositories
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     return session
-                        .CreateCriteria(typeof(AccessGroupDTO))
+                        .CreateCriteria(typeof(HotelDTO))
                         .AddOrder(Order.Desc("IsActive"))
                         .List<HotelDTO>();
                 }

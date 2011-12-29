@@ -104,10 +104,15 @@
     <Content Include="Views\AccountInfo\Edit.aspx" />
     <Content Include="Views\AccountInfo\Import.aspx" />
     <Content Include="Views\AccountInfo\Index.aspx" />
+    <Content Include="Views\ArrangementBudget\Index.aspx" />
     <Content Include="Views\Budget\Delete.aspx" />
     <Content Include="Views\Budget\ImportBudget.aspx" />
     <Content Include="Views\Budget\Index.aspx" />
     <Content Include="Views\FixedArrangementCosts\Index.aspx" />
+    <Content Include="Views\Hotel\Create.aspx" />
+    <Content Include="Views\Hotel\Delete.aspx" />
+    <Content Include="Views\Hotel\Edit.aspx" />
+    <Content Include="Views\Hotel\Index.aspx" />
     <Content Include="Views\LogIn\ChangePassword.aspx" />
     <Content Include="Views\MenuItem\Create.aspx" />
     <Content Include="Views\MenuItem\Delete.aspx" />
